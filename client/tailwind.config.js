@@ -13,8 +13,9 @@ module.exports = withMT({
     extend: {
       colors: {
         'primary-teal': "#22b6af",
-        'secondary-blue': "#1d5ccd",
+        'secondary-blue': "#142441",
         'light-teal': "#e9f8f8",
+        'body': "##848484"
       },
       fontFamily: {
         'barlow': "Barlow",
