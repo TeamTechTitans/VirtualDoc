@@ -15,7 +15,8 @@ module.exports = withMT({
         'primary-teal': "#22b6af",
         'secondary-blue': "#1d5ccd",
         'light-teal': "#e9f8f8",
-        'primary-black': '#142441'
+        'primary-black': '#142441',
+        'dark-blue': '#06194b'
       },
       fontFamily: {
         'barlow': "Barlow",
@@ -23,6 +24,7 @@ module.exports = withMT({
       },
       backgroundImage: {
         'testimonial-bg': "url('./src/assets/background/testimonial-bg.jpg')",
+        'clinical-services-bg': "url('./src/assets/background/funfact-1.jpg')",
       },
     },
   },

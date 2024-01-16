@@ -6,12 +6,12 @@ import shapeImg from '../../../../assets/icons/shape.png'
 
 const LaboratoryServices = () => {
     return (
-        <section className='bg-testimonial-bg font-barlow bg-fixed w-full h-screen bg-cover bg-no-repeat bg-inherit bg-center relative'>
-            <div className='w-full bg-gradient-to-r from-white to-transparent min-h-screen  bg-fixed'>
-                <div className='container mx-auto flex items-center min-h-screen'>
-                    <Card className="mt-6 w-full p-10 relative max-w-[670px]">
+        <section className='bg-testimonial-bg font-barlow bg-fixed w-full min-h-[80vh] bg-cover bg-no-repeat bg-inherit bg-center relative'>
+            <div className='w-full bg-gradient-to-r from-white to-transparent py-10  min-h-[80vh]  bg-fixed'>
+                <div className='container mx-auto flex items-center px-2 min-h-[80vh]'>
+                    <Card className="mt-6 w-full md:p-16 box-border relative max-w-[670px]">
                         <img src={shapeImg} alt="" draggable={false} className='absolute animation-spin opacity-65 right-10 top-10' />
-                        <CardBody>
+                        <CardBody className='p-0'>
                             <CustomTitle title={'TESTIMONIALS'}></CustomTitle>
                             <Typography variant="h2" className="mb-12 font-bold text-primary-black leading-none">
                                 What Our Patient Say?

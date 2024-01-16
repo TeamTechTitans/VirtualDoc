@@ -44,7 +44,7 @@ const slide = () => {
                 {data?.map((review, key) => <SwiperSlide key={key}><Reviews review={review}></Reviews></SwiperSlide>)}
 
             </Swiper>
-            <div className='absolute w-24 bottom-10 right-10'>
+            <div className='absolute hidden sm:block w-24 bottom-10 right-10'>
                 <Tooltip content="Previous">
                     <div className='swiper-button-prev after:hidden'>
                         <svg fill="#BBBBBB" className='hover:fill-primary-teal' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#BBBBBB"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M1.293,12.707a1,1,0,0,1,0-1.414l6-6A1,1,0,0,1,8.707,6.707L4.414,11H22a1,1,0,0,1,0,2H4.414l4.293,4.293a1,1,0,0,1-1.414,1.414Z"></path></g></svg>
