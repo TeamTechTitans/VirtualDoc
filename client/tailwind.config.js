@@ -23,7 +23,7 @@ module.exports = withMT({
       },
       backgroundImage: {
         'testimonial-bg': "url('./src/assets/background/testimonial-bg.jpg')",
-      }
+      },
     },
   },
   plugins: [],

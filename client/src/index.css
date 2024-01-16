@@ -13,3 +13,17 @@ html {
     font-family: "Open Sans", sans-serif;
     font-family: "Barlow", sans-serif;
 }
+
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animation-spin {
+    animation: spinner 10s linear infinite;
+}
