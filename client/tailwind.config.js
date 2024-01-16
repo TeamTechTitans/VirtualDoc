@@ -10,7 +10,17 @@ module.exports = withMT({
 
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'primary-teal': "#22b6af",
+        'secondary-blue': "#1d5ccd",
+        'light-teal': "#e9f8f8",
+      },
+      fontFamily: {
+        'barlow': "Barlow",
+        'open-sans': "Open Sans",
+      },
+    },
   },
   plugins: [],
 });
