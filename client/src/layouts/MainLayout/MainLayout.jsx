@@ -4,11 +4,11 @@ import Footer from "../../Components/Footer/Footer";
 
 const MainLayout = () => {
     return (
-        <>
+        <div >
             <Header />
             <Outlet />
             <Footer />
-        </>
+        </div>
     );
 };
 
