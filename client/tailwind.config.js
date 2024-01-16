@@ -15,6 +15,7 @@ module.exports = withMT({
         'primary-teal': "#22b6af",
         'secondary-blue': "#1d5ccd",
         'light-teal': "#e9f8f8",
+        'primary-black': '#142441'
       },
       fontFamily: {
         'barlow': "Barlow",

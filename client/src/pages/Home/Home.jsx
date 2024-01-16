@@ -1,8 +1,9 @@
+import LaboratoryServices from "./components/LaboratoryServices/LaboratoryServices";
 
 const Home = () => {
       return (
             <div>
-                  home
+                  <LaboratoryServices></LaboratoryServices>
             </div>
       );
 };

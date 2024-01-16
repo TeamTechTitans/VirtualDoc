@@ -1,0 +1,44 @@
+[
+    {
+        "name": "Alice Johnson",
+        "rating": 4.5,
+        "picture": "alice.jpg",
+        "review": "I found Virtual Doc to be incredibly user-friendly. The live doctor consultations are efficient, and the website's interface is top-notch. The doctors are knowledgeable, and the convenience of virtual appointments is a game-changer. Highly recommend!",
+        "location": "New York, NY"
+    },
+    {
+        "name": "John Smith",
+        "rating": 4.2,
+        "picture": "john.jpg",
+        "review": "Virtual Doc has made accessing medical advice so easy. The live doctor appointments are a time-saver, and the website's functionality is impressive. The doctors are attentive, and the service is reliable. Great platform!",
+        "location": "Los Angeles, CA"
+    },
+    {
+        "name": "Emma Davis",
+        "rating": 4.8,
+        "picture": "emma.jpg",
+        "review": "I love Virtual Doc! The live doctor consultations are a blessing, especially in emergencies. The website is user-friendly, and the doctors are compassionate. Virtual Doc has become my go-to for medical advice and appointments.",
+        "location": "Chicago, IL"
+    },
+    {
+        "name": "Daniel Lee",
+        "rating": 4.0,
+        "picture": "daniel.jpg",
+        "review": "Virtual Doc provides an excellent virtual healthcare experience. The live doctor appointments are convenient, and the website is intuitive. The doctors are knowledgeable and caring, offering personalized advice. I'm impressed!",
+        "location": "Houston, TX"
+    },
+    {
+        "name": "Sophia White",
+        "rating": 4.6,
+        "picture": "sophia.jpg",
+        "review": "Virtual Doc has made healthcare accessible from the comfort of my home. The live doctor consultations are efficient, and the website is easy to navigate. The doctors are professional, and I appreciate the convenience.",
+        "location": "Miami, FL"
+    },
+    {
+        "name": "Michael Brown",
+        "rating": 4.4,
+        "picture": "michael.jpg",
+        "review": "As a busy professional, Virtual Doc has been a lifesaver. The live doctor appointments fit into my schedule seamlessly, and the website is user-friendly. The doctors are knowledgeable and provide thorough consultations. Highly recommended!",
+        "location": "San Francisco, CA"
+    }
+]
