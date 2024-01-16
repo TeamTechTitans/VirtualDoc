@@ -40,7 +40,7 @@ const ContactForm = () => {
           />
         </div>
         <div className="form-control mt-4">
-        <Button type="submit"  className="rounded-full bg-[#30bde4e7]">Filled</Button>
+        <Button type="submit"  className="rounded-full bg-[#30bde4e7]">Submit Now</Button>
         </div>
       </form>
     </div>
