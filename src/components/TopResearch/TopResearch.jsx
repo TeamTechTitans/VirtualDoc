@@ -242,7 +242,6 @@ const TopResearch = () => {
           <h4 className="font-bold text-2xl pt-2 hover:text-teal-300">Dr. Brie Larson</h4>
           <p className="text-gray-500 text-lg font-normal py-2">PHD Student</p>
         </div>
-        {/* done */}
       </div>
     </div>
   );
