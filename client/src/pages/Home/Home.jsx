@@ -1,7 +1,7 @@
 import LaboratoryServices from "./components/LaboratoryServices/LaboratoryServices";
 import ClinicalServices from "./components/clinicalServices/ClinicalServices";
 import OurEvents from "./components/ourEvents/OurEvents";
-
+import './components/animation.css'
 const Home = () => {
       return (
             <div>
