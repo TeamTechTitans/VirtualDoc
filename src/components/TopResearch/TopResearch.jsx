@@ -1,18 +1,20 @@
 import largeLeftBg from "../../assets/TopResearchImg/team-1.jpg";
 import decorImg from "../../assets/TopResearchImg/decor-2.png";
-import { FaFacebookF } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaPinterestP } from "react-icons/fa";
+import img1 from '../../assets/TopResearchImg/team-2.jpg'
+import img2 from '../../assets/TopResearchImg/team-3.jpg'
+import img3 from '../../assets/TopResearchImg/team-4.jpg'
+import img4 from '../../assets/TopResearchImg/team-5.jpg'
+import { FaFacebookF,FaTwitter,FaInstagram,FaPinterestP } from "react-icons/fa";
+import { Button } from "@material-tailwind/react";
 const TopResearch = () => {
   return (
-    <div className="my-5">
+    <div className="my-5 p-2">
       {/* 1st section title with large picture */}
-      <div className="flex gap-10">
-        <div className="w-1/2">
-          <img src={largeLeftBg} alt="" className="p-10" />
+      <div className="flex flex-col lg:flex-row gap-2 lg:gap-10">
+        <div className="lg:w-1/2">
+          <img src={largeLeftBg} alt="" className="lg:p-10" />
         </div>
-        <div className="mt-28 w-1/2">
+        <div className="lg:mt-28 lg:w-1/2">
           {/* for main title */}
           <div className="flex items-center  gap-2">
             <div>
@@ -37,31 +39,53 @@ const TopResearch = () => {
             gravida Risus maecenas.
           </p>
           {/* social icon */}
-          <div className="flex gap-5 py-5 text-3xl ">
+          <div className="flex gap-5 py-5">
             <div>
-              <button className="btn rounded-lg">
-              <FaFacebookF />
-              </button>
+              <Button variant="text" size="lg" className="rounded-3xl hover:bg-teal-300 hover:text-white">
+                <FaFacebookF />
+              </Button>
             </div>
             <div>
-              <button className="btn rounded-lg">
-              <FaTwitter />
-              </button>
+              <Button variant="text" size="lg" className="rounded-3xl hover:bg-teal-300 hover:text-white">
+                <FaTwitter />
+              </Button>
             </div>
             <div>
-              <button className="btn rounded-lg">
-              <FaInstagram />
-              </button>
+              <Button variant="text" size="lg" className="rounded-3xl hover:bg-teal-300 hover:text-white">
+                <FaInstagram />
+              </Button>
             </div>
             <div>
-              <button className="btn rounded-lg">
-              <FaPinterestP />
-              </button>
+              <Button variant="text" size="lg" className="rounded-3xl hover:bg-teal-300 hover:text-white">
+                <FaPinterestP />
+              </Button>
             </div>
           </div>
         </div>
       </div>
       {/* 2nd section team members */}
+      <div className="flex flex-col lg:flex-row gap-7 justify-center items-center">
+        <div>
+          <img src={img1} alt="" className="w-[270px] h-[320px]"  />
+          <h4 className="font-bold text-2xl pt-2">Dr. Antonio Banderas</h4>
+          <p className="text-gray-500 text-lg font-normal py-2">PHD Student</p>
+        </div>
+        <div>
+        <img src={img2} alt="" className="w-[270px] h-[320px]"  />
+          <h4 className="font-bold text-2xl pt-2">Dr. Margot Robbie</h4>
+          <p className="text-gray-500 text-lg font-normal py-2">PHD Student</p>
+        </div>
+        <div>
+        <img src={img3} alt="" className="w-[270px] h-[320px]"  />
+          <h4 className="font-bold text-2xl pt-2">Dr. Gerard Butler</h4>
+          <p className="text-gray-500 text-lg font-normal py-2">PHD Student</p>
+        </div>
+        <div>
+        <img src={img4} alt="" className="w-[270px] h-[320px]"  />
+          <h4 className="font-bold text-2xl pt-2">Dr. Brie Larson</h4>
+          <p className="text-gray-500 text-lg font-normal py-2">PHD Student</p>
+        </div>
+      </div>
     </div>
   );
 };
