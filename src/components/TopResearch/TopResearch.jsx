@@ -1,10 +1,15 @@
 import largeLeftBg from "../../assets/TopResearchImg/team-1.jpg";
 import decorImg from "../../assets/TopResearchImg/decor-2.png";
-import img1 from '../../assets/TopResearchImg/team-2.jpg'
-import img2 from '../../assets/TopResearchImg/team-3.jpg'
-import img3 from '../../assets/TopResearchImg/team-4.jpg'
-import img4 from '../../assets/TopResearchImg/team-5.jpg'
-import { FaFacebookF,FaTwitter,FaInstagram,FaPinterestP } from "react-icons/fa";
+import img1 from "../../assets/TopResearchImg/team-2.jpg";
+import img2 from "../../assets/TopResearchImg/team-3.jpg";
+import img3 from "../../assets/TopResearchImg/team-4.jpg";
+import img4 from "../../assets/TopResearchImg/team-5.jpg";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaPinterestP,
+} from "react-icons/fa";
 import { Button } from "@material-tailwind/react";
 const TopResearch = () => {
   return (
@@ -41,22 +46,38 @@ const TopResearch = () => {
           {/* social icon */}
           <div className="flex gap-5 py-5">
             <div>
-              <Button variant="text" size="lg" className="rounded-3xl hover:bg-teal-300 hover:text-white">
+              <Button
+                variant="text"
+                size="lg"
+                className="rounded-3xl hover:bg-teal-300 hover:text-white"
+              >
                 <FaFacebookF />
               </Button>
             </div>
             <div>
-              <Button variant="text" size="lg" className="rounded-3xl hover:bg-teal-300 hover:text-white">
+              <Button
+                variant="text"
+                size="lg"
+                className="rounded-3xl hover:bg-teal-300 hover:text-white"
+              >
                 <FaTwitter />
               </Button>
             </div>
             <div>
-              <Button variant="text" size="lg" className="rounded-3xl hover:bg-teal-300 hover:text-white">
+              <Button
+                variant="text"
+                size="lg"
+                className="rounded-3xl hover:bg-teal-300 hover:text-white"
+              >
                 <FaInstagram />
               </Button>
             </div>
             <div>
-              <Button variant="text" size="lg" className="rounded-3xl hover:bg-teal-300 hover:text-white">
+              <Button
+                variant="text"
+                size="lg"
+                className="rounded-3xl hover:bg-teal-300 hover:text-white"
+              >
                 <FaPinterestP />
               </Button>
             </div>
@@ -65,24 +86,160 @@ const TopResearch = () => {
       </div>
       {/* 2nd section team members */}
       <div className="flex flex-col lg:flex-row gap-7 justify-center items-center">
-        <div>
-          <img src={img1} alt="" className="w-[270px] h-[320px]"  />
-          <h4 className="font-bold text-2xl pt-2">Dr. Antonio Banderas</h4>
+        <div className="group relative">
+          <div className="relative">
+            <img src={img1} alt="" className="w-full h-auto" />
+            <div className="hidden group-hover:flex flex-col items-center justify-center absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 rounded-2xl">
+            <div className="flex gap-2">
+            <div>
+              <Button
+                variant="text"
+                size="lg"
+                className="rounded-3xl bg-white hover:bg-teal-300 hover:text-white"
+              >
+                <FaFacebookF />
+              </Button>
+            </div>
+            <div>
+              <Button
+                variant="text"
+                size="lg"
+                className="rounded-3xl bg-white hover:bg-teal-300 hover:text-white"
+              >
+                <FaTwitter />
+              </Button>
+            </div>
+            <div>
+              <Button
+                variant="text"
+                size="lg"
+                className="rounded-3xl bg-white hover:bg-teal-300 hover:text-white"
+              >
+                <FaInstagram />
+              </Button>
+            </div>
+           
+          </div>
+            </div>
+          </div>
+          <h4 className="font-bold text-2xl pt-2 hover:text-teal-300">Dr. Antonio Banderas</h4>
           <p className="text-gray-500 text-lg font-normal py-2">PHD Student</p>
         </div>
-        <div>
-        <img src={img2} alt="" className="w-[270px] h-[320px]"  />
-          <h4 className="font-bold text-2xl pt-2">Dr. Margot Robbie</h4>
+        <div className="group relative">
+          <div className="relative">
+            <img src={img2} alt="" className="w-full h-auto" />
+            <div className="hidden group-hover:flex flex-col items-center justify-center absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 rounded-2xl">
+            <div className="flex gap-2">
+            <div>
+              <Button
+                variant="text"
+                size="lg"
+                className="rounded-3xl bg-white hover:bg-teal-300 hover:text-white"
+              >
+                <FaFacebookF />
+              </Button>
+            </div>
+            <div>
+              <Button
+                variant="text"
+                size="lg"
+                className="rounded-3xl bg-white hover:bg-teal-300 hover:text-white"
+              >
+                <FaTwitter />
+              </Button>
+            </div>
+            <div>
+              <Button
+                variant="text"
+                size="lg"
+                className="rounded-3xl bg-white hover:bg-teal-300 hover:text-white"
+              >
+                <FaInstagram />
+              </Button>
+            </div>
+           
+          </div>
+            </div>
+          </div>
+          <h4 className="font-bold text-2xl pt-2 hover:text-teal-300">Dr. Margot Robbie</h4>
           <p className="text-gray-500 text-lg font-normal py-2">PHD Student</p>
         </div>
-        <div>
-        <img src={img3} alt="" className="w-[270px] h-[320px]"  />
-          <h4 className="font-bold text-2xl pt-2">Dr. Gerard Butler</h4>
+        <div className="group relative">
+          <div className="relative">
+            <img src={img3} alt="" className="w-full h-auto" />
+            <div className="hidden group-hover:flex flex-col items-center justify-center absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 rounded-2xl">
+            <div className="flex gap-2">
+            <div>
+              <Button
+                variant="text"
+                size="lg"
+                className="rounded-3xl bg-white hover:bg-teal-300 hover:text-white"
+              >
+                <FaFacebookF />
+              </Button>
+            </div>
+            <div>
+              <Button
+                variant="text"
+                size="lg"
+                className="rounded-3xl bg-white hover:bg-teal-300 hover:text-white"
+              >
+                <FaTwitter />
+              </Button>
+            </div>
+            <div>
+              <Button
+                variant="text"
+                size="lg"
+                className="rounded-3xl bg-white hover:bg-teal-300 hover:text-white"
+              >
+                <FaInstagram />
+              </Button>
+            </div>
+           
+          </div>
+            </div>
+          </div>
+          <h4 className="font-bold text-2xl pt-2 hover:text-teal-300">Dr. Gerard Butler</h4>
           <p className="text-gray-500 text-lg font-normal py-2">PHD Student</p>
         </div>
-        <div>
-        <img src={img4} alt="" className="w-[270px] h-[320px]"  />
-          <h4 className="font-bold text-2xl pt-2">Dr. Brie Larson</h4>
+        <div className="group relative">
+          <div className="relative">
+            <img src={img4} alt="" className="w-full h-auto" />
+            <div className="hidden group-hover:flex flex-col items-center justify-center absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 rounded-2xl">
+            <div className="flex gap-2">
+            <div>
+              <Button
+                variant="text"
+                size="lg"
+                className="rounded-3xl bg-white hover:bg-teal-300 hover:text-white"
+              >
+                <FaFacebookF />
+              </Button>
+            </div>
+            <div>
+              <Button
+                variant="text"
+                size="lg"
+                className="rounded-3xl bg-white hover:bg-teal-300 hover:text-white"
+              >
+                <FaTwitter />
+              </Button>
+            </div>
+            <div>
+              <Button
+                variant="text"
+                size="lg"
+                className="rounded-3xl bg-white hover:bg-teal-300 hover:text-white"
+              >
+                <FaInstagram />
+              </Button>
+            </div>
+           
+          </div>
+            </div>
+          </div>
+          <h4 className="font-bold text-2xl pt-2 hover:text-teal-300">Dr. Brie Larson</h4>
           <p className="text-gray-500 text-lg font-normal py-2">PHD Student</p>
         </div>
       </div>
