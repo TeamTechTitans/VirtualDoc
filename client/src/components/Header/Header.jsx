@@ -7,8 +7,6 @@ import BottomNav from "./components/BottomNav";
 import StickyNav from "./components/StickyNav";
 
 const Header = () => {
-    //comment
-
     return (
         <>
             <header className="">
