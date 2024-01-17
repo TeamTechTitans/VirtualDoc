@@ -13,7 +13,3 @@ html {
     font-family: "Open Sans", sans-serif;
     font-family: "Barlow", sans-serif;
 }
-
-.active{
-    color: var(--primary-teal) !important;
-}
