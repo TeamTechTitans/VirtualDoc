@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import ArticleCard from "../../../components/ArticleCard/ArticleCard";
-import img from '../../../assests/vector.png'
-import { useRef } from 'react';
-// Import Swiper React components
+// import img from '../../../assests/vector.png'
+// import { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import CustomTitle from "../../../components/CustomTitle/CustomTitle";
 import { Typography } from "@material-tailwind/react";
+import { Autoplay } from 'swiper/modules';
 
 // import './styles.css';
 
@@ -33,10 +32,14 @@ const Article = () => {
 
 
             <Swiper
-                effect={'coverflow'}
-                grabCursor={true}
-                centeredSlides={true}
-                // slidesPerView={'3'}
+                spaceBetween={30}
+                pagination={{
+                    clickable: true,
+                }}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                }}
 
                 coverflowEffect={{
                     rotate: 50,
@@ -56,7 +59,7 @@ const Article = () => {
                         slidesPerView: 3,
                     },
                 }}
-                pagination={true}
+                modules={[Autoplay]}
                 className="mySwiper items-center"
             >
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
