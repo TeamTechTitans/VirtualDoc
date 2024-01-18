@@ -92,7 +92,7 @@ const LaboratoryServices = () => {
                         <CardBody>
                             <img src="https://i.ibb.co/544hTgy/microscope.png" className='mb-3' alt="lab-picture" />
                             <Typography variant="h5" color="blue-gray" className="mb-2 font-barlow">
-                            Clinical Gyneocology Test
+                            Clinical Gynecology Test
                             </Typography>
                             <Typography className='font-barlow'>
                             Because it&apos;s about motivating the doers. Because I&apos;m here to

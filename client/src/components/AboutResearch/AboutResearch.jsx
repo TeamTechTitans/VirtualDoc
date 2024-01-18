@@ -10,7 +10,7 @@ import {
 
 const AboutResearch = () => {
     return (<div className='font-Barlow'>
-            <Card shadow={false} className="container mx-auto w-full flex-col lg:flex-row-reverse">
+            <Card shadow={false} className="max-w-7xl mx-auto flex-col lg:flex-row-reverse">
       <CardHeader
         shadow={false}
         floated={false}

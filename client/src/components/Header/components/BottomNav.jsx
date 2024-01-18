@@ -29,6 +29,8 @@ const BottomNav = () => {
         { id: 4, label: "Blog", link: "/blog" },
         { id: 5, label: "Forum", link: "/forum" },
         { id: 6, label: "Doctors", link: "/doctors" },
+        { id: 7, label: "Registration", link: "/register" },
+        { id: 8, label: "Login", link: "/login" },
     ];
 
     return (
