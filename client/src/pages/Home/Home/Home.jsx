@@ -4,7 +4,7 @@ import Location from "../Location/Location";
 import LaboratoryServices from "../components/LaboratoryServices/LaboratoryServices";
 import ClinicalServices from "../components/clinicalServices/ClinicalServices";
 import OurEvents from "../components/ourEvents/OurEvents";
-
+import '../components/animation.css'
 
 
 const Home = () => {
