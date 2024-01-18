@@ -14,6 +14,6 @@ html {
     font-family: "Barlow", sans-serif;
 }
 
-.active{
+.active {
     color: var(--primary-teal) !important;
 }

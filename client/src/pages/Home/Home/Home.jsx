@@ -1,16 +1,20 @@
 import AboutResearch from "../../../components/AboutResearch/AboutResearch";
-import LaboratoryServices from "../../../components/LaboratoryServices/LaboratoryServices";
 import Article from "../Article/Article";
 import Location from "../Location/Location";
+import LaboratoryServices from "../components/LaboratoryServices/LaboratoryServices";
+import ClinicalServices from "../components/clinicalServices/ClinicalServices";
+import OurEvents from "../components/ourEvents/OurEvents";
+
 
 
 const Home = () => {
       return (
             <div>
-                  home
-                  <AboutResearch/>
-                  <LaboratoryServices/>
+                  <AboutResearch />
                   <Article></Article>
+                  <LaboratoryServices></LaboratoryServices>
+                  <ClinicalServices></ClinicalServices>
+                  <OurEvents></OurEvents>
                   <Location></Location>
 
             </div>
