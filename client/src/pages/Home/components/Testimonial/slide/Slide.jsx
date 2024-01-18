@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import Reviews from './Reviews';
 import { Tooltip } from '@material-tailwind/react';
 
-const slide = () => {
+const Slide = () => {
 
     const { data } = useQuery({
         queryKey: ['reviews'],
@@ -60,4 +60,4 @@ const slide = () => {
     );
 };
 
-export default slide;
+export default Slide;

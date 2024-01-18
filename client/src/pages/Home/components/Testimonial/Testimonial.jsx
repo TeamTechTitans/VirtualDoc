@@ -1,10 +1,11 @@
 import React from 'react';
 import { Card, CardBody, Typography } from "@material-tailwind/react";
-import Slide from './slide/slide';
+
 import shapeImg from '../../../../assets/icons/shape.png'
 import CustomTitle from '../../../../components/CustomTitle/CustomTitle';
+import Slide from './slide/Slide';
 
-const LaboratoryServices = () => {
+const Testimonial = () => {
     return (
         <section className='bg-testimonial-bg font-barlow bg-fixed w-full min-h-[80vh] bg-cover bg-no-repeat bg-inherit bg-center relative'>
             <div className='w-full bg-gradient-to-r from-white to-transparent py-10  min-h-[80vh]  bg-fixed'>
@@ -26,4 +27,4 @@ const LaboratoryServices = () => {
     );
 };
 
-export default LaboratoryServices;
+export default Testimonial;
