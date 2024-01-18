@@ -1,0 +1,49 @@
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes flooding {
+    from {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(40px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes flooding2 {
+    from {
+        transform: translateX(-40px);
+    }
+
+    50% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(-40px);
+    }
+}
+
+.animation-spin {
+    animation: spinner 10s linear infinite;
+}
+
+.animation-flooding {
+    animation: flooding 5s linear infinite;
+}
+
+.animation-flooding2 {
+    animation: flooding2 5s linear infinite;
+}

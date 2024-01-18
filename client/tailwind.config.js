@@ -21,6 +21,10 @@ module.exports = withMT({
         'barlow': "Barlow",
         'open-sans': "Open Sans",
       },
+      backgroundImage: {
+        'testimonial-bg': "url('./src/assets/background/testimonial-bg.jpg')",
+        'clinical-services-bg': "url('./src/assets/background/funfact-1.jpg')",
+      },
     },
   },
   plugins: [],

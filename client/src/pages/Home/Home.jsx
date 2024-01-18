@@ -1,10 +1,11 @@
+import FaQueSection from "./FaQueSection/FaQueSection";
 
 const Home = () => {
-      return (
-            <div className="h-[1700px]">
-                  home
-            </div>
-      );
+  return (
+    <div>
+      <FaQueSection></FaQueSection>
+    </div>
+  );
 };
 
 export default Home;

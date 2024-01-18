@@ -1,0 +1,44 @@
+[
+    {
+        "name": "Alice Johnson",
+        "rating": 5,
+        "picture": "https://pics.craiyon.com/2023-07-24/8ae81750ee3047f6a5f57b62a9fcc63c.webp",
+        "review": "I found Virtual Doc to be incredibly user-friendly. The live doctor consultations are efficient, and the website's interface is top-notch. The doctors are knowledgeable, and the convenience of virtual appointments is a game-changer. Highly recommend!",
+        "location": "New York, NY"
+    },
+    {
+        "name": "John Smith",
+        "rating": 4,
+        "picture": "https://www.realmenrealstyle.com/wp-content/uploads/2023/07/Glasses-for-Oval-shape-741x505.jpg",
+        "review": "Virtual Doc has made accessing medical advice so easy. The live doctor appointments are a time-saver, and the website's functionality is impressive. The doctors are attentive, and the service is reliable. Great platform!",
+        "location": "Los Angeles, CA"
+    },
+    {
+        "name": "Emma Davis",
+        "rating": 5,
+        "picture": "https://t3.ftcdn.net/jpg/02/00/90/24/360_F_200902415_G4eZ9Ok3Ypd4SZZKjc8nqJyFVp1eOD6V.jpg",
+        "review": "I love Virtual Doc! The live doctor consultations are a blessing, especially in emergencies. The website is user-friendly, and the doctors are compassionate. Virtual Doc has become my go-to for medical advice and appointments.",
+        "location": "Chicago, IL"
+    },
+    {
+        "name": "Daniel Lee",
+        "rating": 3,
+        "picture": "https://t4.ftcdn.net/jpg/02/19/63/31/360_F_219633151_BW6TD8D1EA9OqZu4JgdmeJGg4JBaiAHj.jpg",
+        "review": "Virtual Doc provides an excellent virtual healthcare experience. The live doctor appointments are convenient, and the website is intuitive. The doctors are knowledgeable and caring, offering personalized advice. I'm impressed!",
+        "location": "Houston, TX"
+    },
+    {
+        "name": "Sophia White",
+        "rating": 4,
+        "picture": "https://www.thoughtco.com/thmb/FXKCnWCLxMxl9c9gkHyNco5Kj5g=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/good-looking-man-with-big-beard-56688bcf3df78ce1611f7ba8.jpg",
+        "review": "Virtual Doc has made healthcare accessible from the comfort of my home. The live doctor consultations are efficient, and the website is easy to navigate. The doctors are professional, and I appreciate the convenience.",
+        "location": "Miami, FL"
+    },
+    {
+        "name": "Michael Brown",
+        "rating": 5,
+        "picture": "https://www.shutterstock.com/image-photo/young-handsome-man-beard-wearing-260nw-1768126784.jpg",
+        "review": "As a busy professional, Virtual Doc has been a lifesaver. The live doctor appointments fit into my schedule seamlessly, and the website is user-friendly. The doctors are knowledgeable and provide thorough consultations. Highly recommended!",
+        "location": "San Francisco, CA"
+    }
+]
