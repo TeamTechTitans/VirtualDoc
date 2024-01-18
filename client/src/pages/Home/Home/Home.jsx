@@ -16,7 +16,7 @@ const Home = () => {
                   <LaboratoryServices></LaboratoryServices>
                   <ClinicalServices></ClinicalServices>
                   <OurEvents></OurEvents>
-                  <FaQueSection></FaQueSection>
+                  <FaQueSection />
                   <Location></Location>
             </div>
       );

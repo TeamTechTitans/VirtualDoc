@@ -13,7 +13,7 @@ const ContactForm = () => {
         Contact with Us For <br />Better result{" "}
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-        <div className="flex gap-4 my-4 justify-between">
+        <div className="flex flex-col md:flex-row gap-4 my-4 justify-between">
             <div className="form-control">
           <Input
             size="md"

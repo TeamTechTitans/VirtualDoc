@@ -26,7 +26,8 @@ const Article = () => {
         <div className="container mx-auto">
             <div className="">
                 <div className="flex items-center gap-3"><img src={img} alt="" srcset="" /><p className="text-[#22b6af] text-[16px] font-semibold">Recent Article</p></div>
-                <p className="text-[#142441] font-bold text-[42px]">Interesting Articles Updated <br />Every Daily</p>
+                <p className="text-[#142441] font-bold text-[42px] hidden md:block">Interesting Articles Updated <br />Every Daily</p>
+                <p className="text-[#142441] font-bold text-[34px] md:hidden">Interesting Articles Updated Every Daily</p>
             </div>
 
 
@@ -34,8 +35,8 @@ const Article = () => {
                 effect={'coverflow'}
                 grabCursor={true}
                 centeredSlides={true}
-                slidesPerView={'3'}
-
+                // slidesPerView={'3'}
+                
                 coverflowEffect={{
                     rotate: 50,
                     stretch: 0,
@@ -43,8 +44,19 @@ const Article = () => {
                     modifier: 1,
                     slideShadows: true,
                 }}
+                breakpoints={{
+                    640: {
+                      slidesPerView: 1,
+                    },
+                    768: {
+                      slidesPerView: 2,
+                    },
+                    1024: {
+                      slidesPerView: 3,
+                    },
+                  }}
                 pagination={true}
-                className="mySwiper"
+                className="mySwiper items-center"
             >
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {articles.map((article, index) => (

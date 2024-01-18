@@ -22,7 +22,7 @@ const StickyNav = () => {
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 border-b transition-all duration-300 border-b-[rgba(0,0,0,0.1) ${
+            className={`fixed top-0 left-0 z-10 right-0 border-b transition-all duration-300 border-b-[rgba(0,0,0,0.1) ${
                 showNav ? "block" : "hidden"
             }`}
         >
