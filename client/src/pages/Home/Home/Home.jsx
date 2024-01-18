@@ -5,7 +5,11 @@ import Location from "../Location/Location";
 import ClinicalServices from "../components/clinicalServices/ClinicalServices";
 import OurEvents from "../components/ourEvents/OurEvents";
 import '../components/animation.css'
+<<<<<<< HEAD
 import LaboratoryServices from "../../../components/LaboratoryServices/LaboratoryServices";
+=======
+import FaQueSection from "../FaQueSection/FaQueSection";
+>>>>>>> development
 
 
 const Home = () => {
@@ -16,8 +20,8 @@ const Home = () => {
                   <LaboratoryServices></LaboratoryServices>
                   <ClinicalServices></ClinicalServices>
                   <OurEvents></OurEvents>
+                  <FaQueSection />
                   <Location></Location>
-
             </div>
       );
 };

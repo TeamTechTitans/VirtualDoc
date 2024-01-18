@@ -17,7 +17,6 @@ const slide = () => {
             return getReviews.json();
         }
     })
-    console.log(data)
 
     useEffect(() => {
 

@@ -18,9 +18,12 @@ const Header = () => {
                             className="flex items-center w-3/5 sm:w-1/3 z-50 logo-box gap-2 py-6"
                         >
                             <img className="w-16" src={logo} alt="VirtualDoc Logo" />
-                            <h2 className="text-3xl font-bold text-secondary-blue">
-                                VirtualDoc
-                            </h2>
+                            <span className="text-3xl font-bold text-secondary-blue">
+                                Virtual
+                            </span>
+                            <span className="text-3xl font-bold text-primary-teal">
+                                Doc
+                            </span>
                         </Link>
                         <div className="w-2/5 sm:w-2/3 flex justify-end items-center gap-8">
                             <a
