@@ -20,7 +20,7 @@ const ArticleCard = ({ article }) => {
           color="transparent"
           className="m-0 rounded-none relative"
         >
-          <img src={image} alt="img" />
+          <img src={image} alt="img" className="w-full"/>
           <div className="absolute text-center rounded-full w-[100px] border-2 bg-blue-gray-100 p-6 bottom-8 right-8">
         <p className="font-bold text-[#22b6af] text-lg">{date}</p>
         <p className="font-semibold">{month}</p>
