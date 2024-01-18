@@ -23,7 +23,7 @@ const AboutResearch = () => {
           {/* background image right-bottom corner */}
           <div className="md:absolute md:bg-right-bottom md:w-full md:h-full bg-[url('https://i.ibb.co/5swKYxf/shape-5.png')] bg-no-repeat">
           </div>
-          <div className="font-Barlow absolute sm:top-10 lg:right-16 md:right-20 md:mr-16 lg:mr-0 z-30 rounded-full w-36 h-36 bg-secondary-blue">
+          <div className="font-Barlow absolute top-10 right-0  z-30 rounded-full w-36 h-36 bg-secondary-blue">
             <p className='text-5xl font-bold text-white pt-7 pl-11'> 20 </p>
             <span className='text-lg font-bold text-white pt-7 pl-8'>Years of ex</span>
           </div>
@@ -35,7 +35,7 @@ const AboutResearch = () => {
         </div>
 
       </CardHeader>
-      <CardBody className='font-Barlow pl-0'>
+      <CardBody className='font-Barlow pl-3 container'>
         <CustomTitle title={'About Research'}></CustomTitle>
         <Typography variant="h2" className="mb-4 uppercase text-black font-Barlow">
           Reliable Journal of Medical Health Research.

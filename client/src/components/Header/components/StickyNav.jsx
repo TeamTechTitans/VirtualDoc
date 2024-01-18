@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import BottomNav from "./BottomNav";
+import Headroom from "react-headroom";
 
 const StickyNav = () => {
     const [showNav, setShowNav] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY >= 350) {
+            if (window.scrollY >= 300) {
                 setShowNav(true);
             } else {
                 setShowNav(false);
@@ -22,10 +23,12 @@ const StickyNav = () => {
 
     return (
         <nav
-            className={`fixed z-50 top-0 left-0 right-0 border-b transition-all border-b-[rgba(0,0,0,0.1) duration-700 ${showNav ? "" : "-m-16"
+            className={`fixed z-50 top-0 left-0 right-0 transition-all ${showNav ? "" : "hidden"
                 }`}
         >
-            <BottomNav />
+            <Headroom>
+                <BottomNav />
+            </Headroom>
         </nav>
     );
 };

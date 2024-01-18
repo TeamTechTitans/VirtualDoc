@@ -5,9 +5,9 @@ import { MdOutlineWatchLater } from "react-icons/md";
 
 const EventCard = () => {
     return (
-        <div className="grid grid-cols-1 p-4 gap-5 md:grid-cols-2 xl:grid-cols-4 mt-8">
-            <Card className="max-w-[24rem] p-2 pt-10 relative hover:shadow-xl transition duration-300">
-                <div className="w-24 z-50 flex justify-center flex-col items-center h-24 absolute -top-12 left-7 bg-blue-gray-50 shadow-lg rounded-full border-4 border-solid border-white">
+        <div className="grid grid-cols-1 p-4 gap-20 xl:gap-5 md:grid-cols-2 xl:grid-cols-4 mt-8">
+            <Card className="p-2 mx-auto pt-10 relative hover:shadow-xl transition duration-300">
+                <div className="w-24 flex justify-center flex-col items-center h-24 absolute -top-12 left-7 bg-blue-gray-50 shadow-lg rounded-full border-4 border-solid border-white">
                     <div className="text-4xl font-bold text-primary-teal">
                         24
                     </div>
@@ -66,8 +66,8 @@ const EventCard = () => {
                     <Typography className="font-normal">November 24</Typography>
                 </CardFooter>
             </Card>
-            <Card className="max-w-[24rem] p-2 pt-10 relative hover:shadow-xl transition duration-300">
-                <div className="w-24 z-50 flex justify-center flex-col items-center h-24 absolute -top-12 left-7 bg-blue-gray-50 shadow-lg rounded-full border-4 border-solid border-white">
+            <Card className=" mx-auto p-2 pt-10 relative hover:shadow-xl transition duration-300">
+                <div className="w-24 flex justify-center flex-col items-center h-24 absolute -top-12 left-7 bg-blue-gray-50 shadow-lg rounded-full border-4 border-solid border-white">
                     <div className="text-4xl font-bold text-primary-teal">
                         01
                     </div>
@@ -126,8 +126,8 @@ const EventCard = () => {
                     <Typography className="font-normal">January 01</Typography>
                 </CardFooter>
             </Card>
-            <Card className="max-w-[24rem] p-2 pt-10 relative hover:shadow-xl transition duration-300">
-                <div className="w-24 z-50 flex justify-center flex-col items-center h-24 absolute -top-12 left-7 bg-blue-gray-50 shadow-lg rounded-full border-4 border-solid border-white">
+            <Card className=" mx-auto p-2 pt-10 relative hover:shadow-xl transition duration-300">
+                <div className="w-24 flex justify-center flex-col items-center h-24 absolute -top-12 left-7 bg-blue-gray-50 shadow-lg rounded-full border-4 border-solid border-white">
                     <div className="text-4xl font-bold text-primary-teal">
                         27
                     </div>
@@ -186,8 +186,8 @@ const EventCard = () => {
                     <Typography className="font-normal">January 27</Typography>
                 </CardFooter>
             </Card>
-            <Card className="max-w-[24rem] p-2 pt-10 relative hover:shadow-xl transition duration-300">
-                <div className="w-24 z-50 flex justify-center flex-col items-center h-24 absolute -top-12 left-7 bg-blue-gray-50 shadow-lg rounded-full border-4 border-solid border-white">
+            <Card className=" mx-auto p-2 pt-10 relative hover:shadow-xl transition duration-300">
+                <div className="w-24 flex justify-center flex-col items-center h-24 absolute -top-12 left-7 bg-blue-gray-50 shadow-lg rounded-full border-4 border-solid border-white">
                     <div className="text-4xl font-bold text-primary-teal">
                         22
                     </div>

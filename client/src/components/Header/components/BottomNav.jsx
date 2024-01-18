@@ -32,31 +32,32 @@ const BottomNav = () => {
     ];
 
     return (
-        <nav className=" bg-white mx-auto flex z-50 justify-between items-center">
-            <ul className="hidden lg:flex font-bold gap-8 font-open-sans">
-                {navLinks.map((link) => (
-                    <Link className="text-secondary-blue" key={link.id} to={link.link}>
-                        {link.label}
-                    </Link>
-                ))}
-            </ul>
-
-            <FaBars
-                onClick={() => setOpenNav(true)}
-                className="block lg:hidden text-lg"
-            />
-
-            <div className="flex items-center">
-                <div className="border-r border-r-[rgba(0,0,0,0.1)] py-4 pr-6 mr-6">
-                    <IoSearch className="text-body hover:text-primary-teal transition text-xl" />
-                </div>
-
-                <div className="flex gap-4">
-                    {socials.map((social) => (
-                        <a href={social.link} key={social.id}>
-                            <social.icon className="text-body text-lg hover:text-primary-teal transition" />
-                        </a>
+        <nav className=" bg-white mx-auto z-50 items-center">
+            <div className="container mx-auto flex justify-between items-center">
+                <ul className="font-bold hidden lg:flex gap-8 font-open-sans">
+                    {navLinks.map((link) => (
+                        <Link className="text-secondary-blue" key={link.id} to={link.link}>
+                            {link.label}
+                        </Link>
                     ))}
+                </ul>
+
+                <FaBars
+                    onClick={() => setOpenNav(true)}
+                    className="block lg:hidden text-lg"
+                />
+                <div className="flex items-center">
+                    <div className="border-r border-r-[rgba(0,0,0,0.1)] py-4 pr-6 mr-6">
+                        <IoSearch className="text-body hover:text-primary-teal transition text-xl" />
+                    </div>
+
+                    <div className="flex gap-4">
+                        {socials.map((social) => (
+                            <a href={social.link} key={social.id}>
+                                <social.icon className="text-body text-lg hover:text-primary-teal transition" />
+                            </a>
+                        ))}
+                    </div>
                 </div>
             </div>
 

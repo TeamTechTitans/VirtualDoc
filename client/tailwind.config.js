@@ -11,6 +11,25 @@ module.exports = withMT({
   ],
   theme: {
     extend: {
+      container: {
+        screens: {
+          sm: '100%',
+          md: '640px',
+          lg: '1024px',
+          xl: '1280px',
+          '2xl': '1320px',
+          '3xl': '1536px',
+        },
+        padding: {
+          DEFAULT: '0.2rem',
+          sm: '0.2rem',
+          md: '0.3rem',
+          lg: '0.4rem',
+          xl: '0.5rem',
+          '2xl': '0.6rem',
+          '3xl': '0.7rem',
+        }
+      },
       colors: {
         'primary-teal': "#22b6af",
         'secondary-teal': "#e9f8f8",

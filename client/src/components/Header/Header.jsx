@@ -10,7 +10,7 @@ const Header = () => {
     return (
         <>
             <header className="">
-                <nav className="relative bg-[#e9f2f2] px-4 xl:px-0">
+                <nav className="relative bg-[#e9f2f2] px-4">
                     <span className="header-shape"></span>
                     <div className="max-w-screen-xl mx-auto flex">
                         <Link
