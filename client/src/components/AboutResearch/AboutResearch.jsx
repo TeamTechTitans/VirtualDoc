@@ -9,8 +9,13 @@ import {
 import CustomTitle from '../CustomTitle/CustomTitle';
 
 const AboutResearch = () => {
+<<<<<<< HEAD
+    return (<div className='font-Barlow'>
+            <Card shadow={false} className="max-w-7xl mx-auto flex-col lg:flex-row-reverse">
+=======
   return (<div className='font-Barlow p-0'>
     <Card shadow={false} className="container p-0 mx-auto w-full flex-col lg:flex-row-reverse">
+>>>>>>> development
       <CardHeader
         shadow={false}
         floated={false}
