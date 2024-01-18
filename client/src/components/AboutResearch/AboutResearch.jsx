@@ -9,8 +9,8 @@ import {
 import CustomTitle from '../CustomTitle/CustomTitle';
 
 const AboutResearch = () => {
-  return (<div className='font-Barlow'>
-    <Card shadow={false} className="max-w-7xl mx-auto flex-col lg:flex-row-reverse">
+  return (<div className='font-Barlow py-32'>
+    <Card shadow={false} className="container mx-auto flex justify-between flex-col lg:flex-row-reverse">
       <CardHeader
         shadow={false}
         floated={false}
@@ -35,18 +35,18 @@ const AboutResearch = () => {
         </div>
 
       </CardHeader>
-      <CardBody className='font-Barlow pl-3 container'>
+      <CardBody className='font-Barlow pl-3'>
         <CustomTitle title={'About Research'}></CustomTitle>
-        <Typography variant="h2" className="mb-4 uppercase text-black font-Barlow">
+        <Typography variant="h2" className="mb-4 font-bold max-w-lg text-black font-Barlow">
           Reliable Journal of Medical Health Research.
         </Typography>
-        <Typography color="blue-gray" className="font-Barlow mb-2 text-xl">
+        <Typography color="blue-gray" className="font-Barlow font-medium mb-8 text-xl">
           Exploring Breakthroughs in Medical Health Research: Unraveling innovative treatments, advancements in diagnostics, and pivotal studies shaping the future of healthcare and well-being for all.
         </Typography>
-        <Typography color="gray" className="mb-8 font-Barlow font-normal">
+        <Typography color="gray" className="mb-4 font-Barlow font-normal">
           our research delves into the complexities of diseases, paving the way for improved therapies and a healthier, more resilient global community
         </Typography>
-        <Typography color="gray" className="mb-8 font-normal font-Barlow">
+        <Typography color="gray" className="mb-4 font-normal font-Barlow">
           <span className='flex align-center items-center gap-3' ><FaRegCheckCircle style={{ color: '#22B6AF' }} /> The Mycobacteriology Section</span>
         </Typography>
         <Typography color="gray" className="mb-8 font-normal font-Barlow">

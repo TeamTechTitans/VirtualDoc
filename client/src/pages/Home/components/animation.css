@@ -37,7 +37,7 @@
 }
 
 .animation-spin {
-    animation: spinner 10s linear infinite;
+    animation: spinner 15s linear infinite;
 }
 
 .animation-flooding {

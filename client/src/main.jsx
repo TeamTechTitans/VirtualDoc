@@ -13,7 +13,9 @@ const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={MainRouter} />
+      <div className='font-barlow'>
+        <RouterProvider router={MainRouter} />
+      </div>
     </QueryClientProvider>
   </React.StrictMode>,
 )

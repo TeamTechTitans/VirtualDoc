@@ -7,6 +7,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
+import CustomTitle from "../../../components/CustomTitle/CustomTitle";
+import { Typography } from "@material-tailwind/react";
 
 // import './styles.css';
 
@@ -22,11 +24,11 @@ const Article = () => {
     }, [])
     return (
 
-        <div className="container mx-auto">
-            <div className="">
-                <div className="flex items-center gap-3"><img src={img} alt="" srcSet="" /><p className="text-[#22b6af] text-[16px] font-semibold">Recent Article</p></div>
-                <p className="text-[#142441] font-bold text-[42px] hidden md:block">Interesting Articles Updated <br />Every Daily</p>
-                <p className="text-[#142441] font-bold text-[34px] md:hidden">Interesting Articles Updated Every Daily</p>
+        <div className="container mx-auto py-32">
+            <div className="mb-20">
+                <CustomTitle title={'Recent Article'}></CustomTitle>
+                <Typography variant="h2" className="text-[#142441] font-bold hidden md:block">Interesting Articles Updated <br />Every Daily</Typography>
+                <p className="text-[#142441] font-bold h-4 md:hidden">Interesting Articles Updated Every Daily</p>
             </div>
 
 
