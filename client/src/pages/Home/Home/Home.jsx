@@ -5,6 +5,7 @@ import LaboratoryServices from "../components/LaboratoryServices/LaboratoryServi
 import ClinicalServices from "../components/clinicalServices/ClinicalServices";
 import OurEvents from "../components/ourEvents/OurEvents";
 import '../components/animation.css'
+import FaQueSection from "../FaQueSection/FaQueSection";
 
 
 const Home = () => {
@@ -15,8 +16,8 @@ const Home = () => {
                   <LaboratoryServices></LaboratoryServices>
                   <ClinicalServices></ClinicalServices>
                   <OurEvents></OurEvents>
+                  <FaQueSection />
                   <Location></Location>
-
             </div>
       );
 };
