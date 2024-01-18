@@ -24,7 +24,7 @@ const Registration = () => {
           className="lg:max-w-lg lg:ml-36 mt-20"
         />
       </CardHeader>
-      <CardBody className='relative mt-16  lg:mr-24 mx-auto flex flex-col text-gray-700 bg-white rounded-xl bg-clip-border'>
+      <CardBody className='relative lg:mt-16  lg:mr-24 mx-auto flex flex-col text-gray-700 bg-white rounded-xl bg-clip-border'>
       <Card className="md:w-[400px] lg:w-[350px]">
       <CardHeader
         variant="gradient"
@@ -46,7 +46,7 @@ const Registration = () => {
       </CardBody>
       <CardFooter className="pt-0">
         <Button variant="gradient" fullWidth>
-          Sign In
+          Sign Up
         </Button>
         <Typography variant="small" className="mt-6 flex justify-center">
           Already have an account? 
