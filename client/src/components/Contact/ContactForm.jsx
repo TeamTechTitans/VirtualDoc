@@ -4,7 +4,7 @@ const ContactForm = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
+
     // reset()
   };
   return (
@@ -14,33 +14,33 @@ const ContactForm = () => {
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
         <div className="flex flex-col md:flex-row gap-4 my-4 justify-between">
-            <div className="form-control">
-          <Input
-            size="md"
-            type="email"
-            label="Email Address" color="white" className="rounded-xl"
-            {...register("email", { required: true })}
-          />
+          <div className="form-control">
+            <Input
+              size="md"
+              type="email"
+              label="Email Address" color="white" className="rounded-xl"
+              {...register("email", { required: true })}
+            />
+          </div>
+          <div className="form-control">
+            <Input
+              size="md"
+              type="text"
+              label="Phone" color="white" className="rounded-xl"
+              {...register("phone", { required: true })}
+            />
+          </div>
         </div>
-        <div className="form-control">
-          <Input
-            size="md"
-            type="text"
-            label="Phone" color="white" className="rounded-xl"
-            {...register("phone", { required: true })}
-          />
-        </div>
-        </div>
-        
+
 
         <div className="form-control ">
-          <Textarea 
+          <Textarea
             label="Message" className="text-white rounded-xl"
             {...register("Message", { required: true })}
           />
         </div>
         <div className="form-control mt-4">
-        <Button type="submit"  className="rounded-full bg-[#30bde4e7]">Submit Now</Button>
+          <Button type="submit" className="rounded-full bg-[#30bde4e7]">Submit Now</Button>
         </div>
       </form>
     </div>

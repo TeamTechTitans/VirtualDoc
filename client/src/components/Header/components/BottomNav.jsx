@@ -32,7 +32,7 @@ const BottomNav = () => {
     ];
 
     return (
-        <nav className="max-w-screen-xl mx-auto flex justify-between items-center px-6 xl:px-0">
+        <nav className=" bg-white mx-auto flex z-50 justify-between items-center">
             <ul className="hidden lg:flex font-bold gap-8 font-open-sans">
                 {navLinks.map((link) => (
                     <Link className="text-secondary-blue" key={link.id} to={link.link}>
