@@ -8,7 +8,7 @@ const ContactForm = () => {
     // reset()
   };
   return (
-    <div className="card max-w-[480px] rounded-3xl p-8 bg-[#0b66e5c7] text-white">
+    <div className="card max-w-[480px]  rounded-3xl p-4 pb-0 md:p-8 bg-[#0b66e5c7] text-white">
       <h1 className="text-4xl font-bold text-left">
         Contact with Us For <br />Better result{" "}
       </h1>

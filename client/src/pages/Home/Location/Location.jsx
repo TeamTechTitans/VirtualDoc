@@ -4,7 +4,7 @@ import ContactForm from '../../../components/Contact/ContactForm';
 
 const Location = () => {
     return (
-        <div className="relative flex flex-col h-screen">
+        <div className="relative flex flex-col">
             <div className="relative flex-grow">
                 <Map></Map>
             </div>
