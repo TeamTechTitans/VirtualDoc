@@ -5,7 +5,7 @@ const ImageSection = () => {
         <img
           src="https://i.ibb.co/bFdGG97/shape-27.png"
           alt=""
-          className="-mb-28 ml-28 animation-spin"
+          className="-mb-28 md:ml-28 animation-spin"
         />
 
         <div className="relative  ">

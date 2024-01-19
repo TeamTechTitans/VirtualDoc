@@ -38,3 +38,9 @@ html {
 ::-webkit-scrollbar-thumb:hover {
     background: #00968e;
 }
+
+.link:hover {
+    color: #22b6af;
+    transition: 0.3s;
+    cursor: pointer;
+}
