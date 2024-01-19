@@ -4,7 +4,7 @@ import { ChevronUpIcon } from "@heroicons/react/20/solid";
 const Faq = () => {
   return (
     <div className="w-full  pt-16">
-      <div className="w-80 md:w-full lg:w-96 rounded-2xl bg-white p-2 text-[#142441]">
+      <div className="md:w-full lg:w-96 rounded-2xl bg-white p-2 text-[#142441]">
         <Disclosure>
           {({ open }) => (
             <>

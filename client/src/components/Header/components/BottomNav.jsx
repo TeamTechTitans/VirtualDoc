@@ -36,7 +36,7 @@ const BottomNav = () => {
     return (
         <nav className=" bg-white shadow-md mx-auto z-50 items-center">
             <div className="container mx-auto flex justify-between items-center">
-                <ul className="font-bold hidden lg:flex gap-8 font-open-sans">
+                <ul className="font-bold hidden xl:flex gap-8 font-open-sans">
                     {navLinks.map((link) => (
                         <Link className="text-secondary-blue" key={link.id} to={link.link}>
                             {link.label}
@@ -46,7 +46,7 @@ const BottomNav = () => {
 
                 <FaBars
                     onClick={() => setOpenNav(true)}
-                    className="block lg:hidden text-lg"
+                    className="block xl:hidden text-lg"
                 />
                 <div className="flex items-center">
                     <div className="border-r border-r-[rgba(0,0,0,0.1)] py-4 pr-6 mr-6">
