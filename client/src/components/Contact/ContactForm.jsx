@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Button, Input, Textarea } from "@material-tailwind/react";
+import { Button, } from "@material-tailwind/react";
 const ContactForm = () => {
   const { register, handleSubmit, reset } = useForm();
 
@@ -12,7 +12,7 @@ const ContactForm = () => {
       <h1 className="text-4xl font-bold text-left">
         Contact with Us For <br />Better result{" "}
       </h1>
-      <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+      <form onSubmit={handleSubmit(onSubmit)} className="card-body p-0">
         <div className="flex flex-col md:flex-row gap-4 my-4 justify-between">
           <div className="form-control">
             <input
