@@ -8,11 +8,11 @@ const ContactForm = () => {
     // reset()
   };
   return (
-    <div className="card max-w-[480px]  rounded-3xl p-4 pb-0 md:p-8 bg-[#0b66e5c7] text-white">
+    <div className="card max-w-[480px]  rounded-3xl p-4 pb-4 md:pb-4 md:p-8 bg-[#0b66e5c7] text-white">
       <h1 className="text-4xl font-bold text-left">
         Contact with Us For <br />Better result{" "}
       </h1>
-      <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+      <form onSubmit={handleSubmit(onSubmit)} className="card-body p-0">
         <div className="flex flex-col md:flex-row gap-4 my-4 justify-between">
           <div className="form-control">
             <Input
