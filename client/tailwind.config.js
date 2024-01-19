@@ -39,8 +39,8 @@ module.exports = withMT({
         'open-sans': "Open Sans",
       },
       backgroundImage: {
-        'testimonial-bg': "url('./src/assets/background/testimonial-bg.jpg')",
-        'clinical-services-bg': "url('./src/assets/background/funfact-1.jpg')",
+        'testimonial-bg': "url('https://i.ibb.co/zQNV0DJ/funfact-1.jpg')",
+        'clinical-services-bg': "url('https://i.ibb.co/ScXXVxC/testimonial-bg.jpg')",
       },
     },
   },
