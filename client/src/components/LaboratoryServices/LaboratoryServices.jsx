@@ -19,7 +19,7 @@ const LaboratoryServices = () => {
                 <h2 className='text-4xl text-center font-barlow text-black font-bold'>Laboratory Service</h2>
             </div>
 
-            <div className='container mx-auto grid lg:grid-cols-4 grid-cols-1'>
+            <div className='container mx-auto grid md:grid-cols-2 xl:grid-cols-4 grid-cols-1'>
                 {/* Card-One */}
                 <Card className="mt-6 w-60 mx-auto shadow-xl font-barlow">
                     <CardBody>

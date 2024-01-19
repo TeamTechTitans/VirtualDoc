@@ -27,7 +27,7 @@ const Article = () => {
             <div className="mb-20">
                 <CustomTitle title={'Recent Article'}></CustomTitle>
                 <Typography variant="h2" className="text-[#142441] font-bold hidden md:block">Interesting Articles Updated <br />Every Daily</Typography>
-                <p className="text-[#142441] font-bold h-4 md:hidden">Interesting Articles Updated Every Daily</p>
+
             </div>
 
 
@@ -49,14 +49,17 @@ const Article = () => {
                     slideShadows: true,
                 }}
                 breakpoints={{
-                    640: {
+                    0: {
                         slidesPerView: 1,
                     },
-                    768: {
+                    600: {
                         slidesPerView: 2,
                     },
                     1024: {
                         slidesPerView: 3,
+                    },
+                    1280: {
+                        slidesPerView: 4,
                     },
                 }}
                 modules={[Autoplay]}

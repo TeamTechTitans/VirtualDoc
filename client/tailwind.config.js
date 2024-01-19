@@ -13,11 +13,6 @@ module.exports = withMT({
     extend: {
       container: {
         screens: {
-          sm: '100%',
-          md: '640px',
-          lg: '1024px',
-          xl: '1280px',
-          '2xl': '1320px',
           '3xl': '1536px',
         },
         padding: {

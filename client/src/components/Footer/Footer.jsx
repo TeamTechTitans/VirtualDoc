@@ -3,7 +3,7 @@ import img from "../../assets/logo.png";
 
 const Footer = () => {
   return (
-    <footer className=" bg-light-teal p-10">
+    <footer className=" bg-light-teal p-4 pt-10 md:p-10">
       <div className="container mx-auto relative grid md:grid-cols-2 lg:grid-cols-4 bottom-0 p-4 md:p-10">
         <nav className="w-full">
           <header className="flex gap-2 items-center">
@@ -64,7 +64,7 @@ const Footer = () => {
                 placeholder="abc@gmail.com"
                 className="p-3 rounded-full shadow-md text-primary-black w-full pr-16"
               />
-              <button className="h-full rounded-r-full px-2 bg-teal-400 hover:bg-teal-300 absolute top-0 right-0 rounded-l-none">
+              <button className="h-full text-white rounded-r-full px-2 bg-teal-400 hover:bg-teal-300 absolute top-0 right-0 rounded-l-none">
                 Subscribe
               </button>
             </div>
