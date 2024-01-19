@@ -8,16 +8,18 @@ import '../components/animation.css'
 import LaboratoryServices from "../../../components/LaboratoryServices/LaboratoryServices";
 import FaQueSection from "../FaQueSection/FaQueSection";
 import Testimonial from "../components/Testimonial/Testimonial";
+import Banner from "../components/Banner/Banner";
 
 
 const Home = () => {
       return (
             <div>
-                  <AboutResearch />
-                  <Article></Article>
+                  <Banner></Banner>
                   <LaboratoryServices></LaboratoryServices>
-                  <ClinicalServices></ClinicalServices>
+                  <AboutResearch />
                   <Testimonial></Testimonial>
+                  <ClinicalServices></ClinicalServices>
+                  <Article></Article>
                   <OurEvents></OurEvents>
                   <FaQueSection />
                   <Location></Location>

@@ -36,8 +36,36 @@
     }
 }
 
+@keyframes flooding3 {
+    from {
+        transform: translateY(-40px);
+    }
+
+    50% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(-40px);
+    }
+}
+
+@keyframes flooding4 {
+    from {
+        transform: translateY(40px);
+    }
+
+    50% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(40px);
+    }
+}
+
 .animation-spin {
-    animation: spinner 10s linear infinite;
+    animation: spinner 15s linear infinite;
 }
 
 .animation-flooding {
@@ -46,4 +74,12 @@
 
 .animation-flooding2 {
     animation: flooding2 5s linear infinite;
+}
+
+.animation-flooding3 {
+    animation: flooding3 8s linear infinite;
+}
+
+.animation-flooding4 {
+    animation: flooding4 8s linear infinite;
 }

@@ -4,12 +4,12 @@ import ImageSection from "./ImageSection";
 
 const FaQueSection = () => {
   return (
-    <div className="max-w-[1280px] mx-auto ">
-      <div className="flex-1 lg:flex  justify-center items-center mx-5 ">
+    <div className="container mx-auto my-32">
+      <div className="flex-1 lg:flex  justify-around items-center mx-5 ">
         {/* fa que section */}
         <div>
           <Title title="FAQ’S"></Title>
-          <h1 className="text-3xl md:text-5xl text-[#142441] font-semibold">
+          <h1 className="text-3xl md:text-4xl text-[#142441] font-bold">
             Frequently <br></br> Asked Questions.
           </h1>
           <Faq></Faq>

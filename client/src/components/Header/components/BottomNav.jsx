@@ -34,7 +34,7 @@ const BottomNav = () => {
     ];
 
     return (
-        <nav className=" bg-white mx-auto z-50 items-center">
+        <nav className=" bg-white shadow-md mx-auto z-50 items-center">
             <div className="container mx-auto flex justify-between items-center">
                 <ul className="font-bold hidden lg:flex gap-8 font-open-sans">
                     {navLinks.map((link) => (
