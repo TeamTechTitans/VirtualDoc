@@ -27,7 +27,7 @@ const AboutResearch = () => {
             <p className='text-5xl font-bold text-white pt-7 pl-11'> 20 </p>
             <span className='text-lg font-bold text-white pt-7 pl-8'>Years of ex</span>
           </div>
-          <img
+          <img loading="lazy"
             src="https://i.ibb.co/TY5q8v0/about-1.png"
             alt="card-image"
             className="h-full w-full md:relative z-10"
