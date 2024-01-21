@@ -35,9 +35,9 @@ const AboutResearch = () => {
         </div>
 
       </CardHeader>
-      <CardBody className='font-Barlow pl-3'>
+      <CardBody className='font-Barlow pl-3 text-justify pr-3 lg:pr-10'>
         <CustomTitle title={'About Research'}></CustomTitle>
-        <Typography variant="h2" className="mb-4 font-bold max-w-lg text-black font-Barlow">
+        <Typography variant="h2" className="mb-4 font-bold text-left max-w-lg text-black font-Barlow">
           Reliable Journal of Medical Health Research.
         </Typography>
         <Typography color="blue-gray" className="font-Barlow font-medium mb-8 text-xl">

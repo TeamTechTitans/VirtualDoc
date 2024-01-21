@@ -67,9 +67,9 @@ const BottomNav = () => {
                 placement="right"
                 open={openNav}
                 onClose={() => setOpenNav(false)}
-                className="p-4"
+                className="p-4 fixed"
             >
-                <div className="flex justify-between items-center">
+                <div className="flex bg-white z-50 justify-between items-center">
                     <div className="flex items-center">
                         <img className="w-16" src={logo} alt="VirtualDoc logo" />
                         <h2 className="text-3xl font-bold text-secondary-blue">

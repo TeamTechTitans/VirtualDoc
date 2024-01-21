@@ -46,7 +46,6 @@ const Banner = () => {
                         data?.map((slide, idx) => <SwiperSlide key={idx}><BannerSlider slide={slide}></BannerSlider></SwiperSlide>)
                     }
 
-
                 </Swiper>
             </div>
         </div>
