@@ -34,5 +34,14 @@
     "month": "June",
     "author": "World Health Organization",
     "image": "https://i.ibb.co/vh3hXQb/article2.webp"
+  },
+  {
+    "title": "Advancements in Diabetes Treatment",
+    "description": "Researchers announce breakthroughs in diabetes treatment options, offering hope for improved patient outcomes.",
+    "comments": 15,
+    "date": "17",
+    "month": "June",
+    "author": "Health Research Institute",
+    "image": "https://i.ibb.co/JQxGyWR/article1.jpg"
   }
 ]

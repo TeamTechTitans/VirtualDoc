@@ -35,7 +35,7 @@ const BottomNav = () => {
 
     return (
         <nav className=" bg-white shadow-md mx-auto z-50 items-center">
-            <div className="container mx-auto flex justify-between items-center">
+            <div className="max-w-[1536px] px-4 mx-auto flex justify-between items-center">
                 <ul className="font-bold hidden xl:flex gap-8 font-open-sans">
                     {navLinks.map((link) => (
                         <Link className="text-secondary-blue" key={link.id} to={link.link}>
@@ -67,11 +67,11 @@ const BottomNav = () => {
                 placement="right"
                 open={openNav}
                 onClose={() => setOpenNav(false)}
-                className="p-4"
+                className="p-4 fixed"
             >
-                <div className="flex justify-between items-center">
+                <div className="flex bg-white z-50 justify-between items-center">
                     <div className="flex items-center">
-                        <img className="w-16" src={logo} alt="VirtualDoc logo" />
+                        <img loading="lazy" className="w-16" src={logo} alt="VirtualDoc logo" />
                         <h2 className="text-3xl font-bold text-secondary-blue">
                             VirtualDoc
                         </h2>

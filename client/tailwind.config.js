@@ -13,11 +13,6 @@ module.exports = withMT({
     extend: {
       container: {
         screens: {
-          sm: '100%',
-          md: '640px',
-          lg: '1024px',
-          xl: '1280px',
-          '2xl': '1320px',
           '3xl': '1536px',
         },
         padding: {
@@ -44,8 +39,8 @@ module.exports = withMT({
         'open-sans': "Open Sans",
       },
       backgroundImage: {
-        'testimonial-bg': "url('./src/assets/background/testimonial-bg.jpg')",
-        'clinical-services-bg': "url('./src/assets/background/funfact-1.jpg')",
+        'testimonial-bg': "url('https://i.ibb.co/ScXXVxC/testimonial-bg.jpg')",
+        'clinical-services-bg': "url('https://i.ibb.co/zQNV0DJ/funfact-1.jpg')",
       },
     },
   },
