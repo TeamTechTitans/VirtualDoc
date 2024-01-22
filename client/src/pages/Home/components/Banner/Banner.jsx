@@ -1,15 +1,15 @@
-import bannerBg from '../../../../assets/icons/shape-68.png'
-import topBg from '../../../../assets/icons/shape-53.png'
-import bottomBg from '../../../../assets/icons/shape-54.png'
-import round from '../../../../assets/icons/shape-52.png'
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import round from '../../../../assets/icons/shape-52.png';
+import topBg from '../../../../assets/icons/shape-53.png';
+import bottomBg from '../../../../assets/icons/shape-54.png';
+import bannerBg from '../../../../assets/icons/shape-68.png';
 
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import BannerSlider from './BannerSlider';
 import { useQuery } from '@tanstack/react-query';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import BannerSlider from './BannerSlider';
 
 const Banner = () => {
 
@@ -45,8 +45,6 @@ const Banner = () => {
                     {
                         data?.map((slide, idx) => <SwiperSlide key={idx}><BannerSlider slide={slide}></BannerSlider></SwiperSlide>)
                     }
-
-
                 </Swiper>
             </div>
         </div>
