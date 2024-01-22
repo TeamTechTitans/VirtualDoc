@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container mx-auto relative grid md:grid-cols-2 lg:grid-cols-4 bottom-0 p-4 md:p-10">
         <nav className="w-full">
           <header className="flex gap-2 items-center">
-            <img src={img} alt="img" className="w-8 h-8" />
+            <img loading="lazy" src={img} alt="img" className="w-8 h-8" />
             <p className="text-primary-black text-2xl font-bold">Virtual Doc</p>
           </header>
           <div className="text-primary-black font-medium ">

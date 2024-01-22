@@ -11,8 +11,8 @@ import CustomTitle from '../../../../components/CustomTitle/CustomTitle';
 const OurEvents = () => {
     return (
         <div className='bg-secondary-teal relative overflow-hidden'>
-            <img src={Shape12} draggable={false} className='absolute right-0 animation-flooding' alt="" />
-            <img src={Shape11} draggable={false} className='absolute left-0 bottom-0 animation-flooding2' alt="" />
+            <img loading="lazy" src={Shape12} draggable={false} className='absolute right-0 animation-flooding' alt="" />
+            <img loading="lazy" src={Shape11} draggable={false} className='absolute left-0 bottom-0 animation-flooding2' alt="" />
             <div className='py-32 container mx-auto'>
                 <div className='flex justify-center flex-col text-center mx-auto mb-5 max-w-2xl items-center'>
                     <CustomTitle title={'OUR EVENTS'} double></CustomTitle>
