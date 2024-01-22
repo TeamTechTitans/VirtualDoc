@@ -4,6 +4,7 @@ import MainLayout from "../../Layouts/MainLayout/MainLayout";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/Login";
 import Registration from "../../pages/Registration/Registration";
+import Blog from "../../pages/Blogs/Blog/Blog";
 
 
 const MainRouter = createBrowserRouter([
@@ -14,6 +15,10 @@ const MainRouter = createBrowserRouter([
             {
                 index: true,
                 element: <Home />,
+            },
+            {
+              path: "/blog",
+              element: <Blog/>
             },
             {
               path: "/register",
