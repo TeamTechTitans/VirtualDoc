@@ -10,7 +10,7 @@ const Blog = () => {
                 <div className="col-span-8">
                     <BlogData />
                 </div>
-                <div>
+                <div className='col-span-4'>
                     <SideBar />
                 </div>
             </div>
