@@ -1,6 +1,6 @@
 import bgimg from '../../../../assets/background/blog_banner.jpg'
 import bgShape from '../../../../assets/shape-blog.png'
-const BlogBanner = () => {
+const BlogBanner = ({text}) => {
   return (
     <div
       className="hero max-h-[700px]"
@@ -15,7 +15,7 @@ const BlogBanner = () => {
         backgroundRepeat: 'no-repeat',
         
       }}>
-          <h1 className=" md:text-[50px] text-[40px] font-extrabold text-[#fff]  p-16 pt-2">Blog Posts</h1>
+          <h1 className=" md:text-[50px] text-[40px] font-extrabold text-[#fff]  p-16 pt-0">{text}</h1>
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ import SideBar from "../SideBar/SideBar";
 const Blog = () => {
     return (
         <div>
-            <BlogBanner />
+            <BlogBanner text='Tips' />
             <div className="container mx-auto grid grid-cols-12 gap-4">
                 <div className="col-span-8">
                     <BlogData />
