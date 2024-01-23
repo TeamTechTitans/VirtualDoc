@@ -1,5 +1,3 @@
-import AboutResearch from "../../../components/AboutResearch/AboutResearch";
-import Article from "../Article/Article";
 import Location from "../Location/Location";
 
 import ClinicalServices from "../components/clinicalServices/ClinicalServices";
@@ -14,14 +12,7 @@ import Banner from "../components/Banner/Banner";
 const Home = () => {
       return (
             <div>
-                  <Banner></Banner>
-                  <LaboratoryServices></LaboratoryServices>
-                  <AboutResearch />
-                  <Testimonial></Testimonial>
-                  <ClinicalServices></ClinicalServices>
-                  <Article></Article>
-                  <OurEvents></OurEvents>
-                  <FaQueSection />
+                
                   <Location></Location>
             </div>
       );
