@@ -10,11 +10,10 @@ const Contact = () => {
   return (
     <div>
       <PageBanner title="Contact Us" subtitle='Home - Contact us'></PageBanner>
-      <div >
-        <div>
+      <div className="relative -mt-6" >
         <Map></Map>
-        </div>
-        <div className="bg-dark-blue p-16 w-11/12 rounded-xl mx-auto md:flex justify-around -mt-40">
+        <div className="w-11/12 mx-auto">
+        <div className="absolute bg-dark-blue p-16 w-11/12 mx-auto rounded-xl md:flex justify-around -mt-40">
           <div className="flex gap-5">
           <div className="bg-primary-black flex justify-center items-center rounded-full w-14 h-14">
           <FaLocationDot className="text-primary-teal text-3xl " />
@@ -46,6 +45,7 @@ const Contact = () => {
             <p className="text-gray-500">mail.techtitan@gmail.com</p>
             </div>
           </div>
+        </div>
         </div>
       </div>
       <div>
