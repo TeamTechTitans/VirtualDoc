@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import BottomNav from "./BottomNav";
 import Headroom from "react-headroom";
+import { FaArrowUp } from 'react-icons/fa';
 
 const StickyNav = () => {
     const [showNav, setShowNav] = useState(false);
@@ -29,6 +30,12 @@ const StickyNav = () => {
             <Headroom>
                 <BottomNav />
             </Headroom>
+            <button
+                className="bg-primary-teal animate-bounce hover:animate-none text-white fixed bottom-4 right-4 p-3 rounded-full shadow-lg transition duration-300 hover:bg-teal-300"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
+                <FaArrowUp className="text-xl" />
+            </button>
         </nav>
     );
 };

@@ -1,3 +1,7 @@
+.backdrop-blur-sm {
+    position: fixed;
+}
+
 @keyframes spinner {
     from {
         transform: rotate(0deg);
@@ -82,4 +86,19 @@
 
 .animation-flooding4 {
     animation: flooding4 8s linear infinite;
+}
+
+.hover-before {
+    position: relative;
+}
+
+.hover-before::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+}
+
+.hover-before::before:hover {
+    height: 100%;
+    transition: 0.5s;
 }
