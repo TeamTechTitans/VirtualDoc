@@ -1,0 +1,104 @@
+.backdrop-blur-sm {
+    position: fixed;
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes flooding {
+    from {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(40px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes flooding2 {
+    from {
+        transform: translateX(-40px);
+    }
+
+    50% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(-40px);
+    }
+}
+
+@keyframes flooding3 {
+    from {
+        transform: translateY(-40px);
+    }
+
+    50% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(-40px);
+    }
+}
+
+@keyframes flooding4 {
+    from {
+        transform: translateY(40px);
+    }
+
+    50% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(40px);
+    }
+}
+
+.animation-spin {
+    animation: spinner 15s linear infinite;
+}
+
+.animation-flooding {
+    animation: flooding 5s linear infinite;
+}
+
+.animation-flooding2 {
+    animation: flooding2 5s linear infinite;
+}
+
+.animation-flooding3 {
+    animation: flooding3 8s linear infinite;
+}
+
+.animation-flooding4 {
+    animation: flooding4 8s linear infinite;
+}
+
+.hover-before {
+    position: relative;
+}
+
+.hover-before::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+}
+
+.hover-before::before:hover {
+    height: 100%;
+    transition: 0.5s;
+}

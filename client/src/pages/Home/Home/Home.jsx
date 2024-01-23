@@ -1,13 +1,21 @@
-import FaQueSection from "../FaQueSection/FaQueSection";
 import Location from "../Location/Location";
 
+import ClinicalServices from "../components/clinicalServices/ClinicalServices";
+import OurEvents from "../components/ourEvents/OurEvents";
+import '../components/animation.css'
+import LaboratoryServices from "../../../components/LaboratoryServices/LaboratoryServices";
+import FaQueSection from "../FaQueSection/FaQueSection";
+import Testimonial from "../components/Testimonial/Testimonial";
+import Banner from "../components/Banner/Banner";
+
+
 const Home = () => {
-  return (
-    <div>
-      <FaQueSection></FaQueSection>
-      <Location></Location>
-    </div>
-  );
+      return (
+            <div>
+                
+                  <Location></Location>
+            </div>
+      );
 };
 
 export default Home;

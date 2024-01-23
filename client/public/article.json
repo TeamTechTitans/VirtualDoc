@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Task Force Proposes Colon Cancer Screening",
+    "description": "A task force recommends new guidelines for colon cancer screening to improve early detection and prevention.",
+    "comments": 20,
+    "date": "24",
+    "month": "May",
+    "author": "Medical Journal",
+    "image": "https://i.ibb.co/JQxGyWR/article1.jpg"
+  },
+  {
+    "title": "Mental Health Awareness Month",
+    "description": "Exploring the importance of mental health and strategies for promoting mental well-being during Mental Health Awareness Month.",
+    "comments": 12,
+    "date": "18",
+    "month": "August",
+    "author": "Psychology Today",
+    "image": "https://i.ibb.co/vh3hXQb/article2.webp"
+  },
+  {
+    "title": "Advancements in Diabetes Treatment",
+    "description": "Researchers announce breakthroughs in diabetes treatment options, offering hope for improved patient outcomes.",
+    "comments": 15,
+    "date": "17",
+    "month": "June",
+    "author": "Health Research Institute",
+    "image": "https://i.ibb.co/JQxGyWR/article1.jpg"
+  },
+  {
+    "title": "COVID-19 Vaccination Updates",
+    "description": "Stay informed about the latest updates on COVID-19 vaccinations, booster shots, and global vaccination efforts.",
+    "comments": 25,
+    "date": "19",
+    "month": "June",
+    "author": "World Health Organization",
+    "image": "https://i.ibb.co/vh3hXQb/article2.webp"
+  },
+  {
+    "title": "Advancements in Diabetes Treatment",
+    "description": "Researchers announce breakthroughs in diabetes treatment options, offering hope for improved patient outcomes.",
+    "comments": 15,
+    "date": "17",
+    "month": "June",
+    "author": "Health Research Institute",
+    "image": "https://i.ibb.co/JQxGyWR/article1.jpg"
+  }
+]
