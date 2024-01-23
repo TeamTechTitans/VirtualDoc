@@ -2,9 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 
 import MainLayout from "../../Layouts/MainLayout/MainLayout";
 import Home from "../../pages/Home/Home/Home";
-import Registration from "../../pages/Registration/components/Registration";
 import Login from "../../pages/Login/component/Login";
 import DoctorRegistration from "../../pages/Registration/components/DoctorRegistration";
+import Doctors from "../../pages/doctors/Doctors";
 
 
 
@@ -18,16 +18,16 @@ const MainRouter = createBrowserRouter([
                 element: <Home />,
             },
             {
-              path: "/register",
-              element: <Registration/>
+                path: '/doctors',
+                element: <Doctors />,
             },
             {
-              path: "/doctorRegister",
-              element: <DoctorRegistration/>
+                path: "/doctorRegister",
+                element: <DoctorRegistration />
             },
             {
-               path: "/login",
-               element:<Login/>
+                path: "/login",
+                element: <Login />
             },
         ],
     },

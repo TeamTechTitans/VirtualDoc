@@ -41,6 +41,7 @@ module.exports = withMT({
       backgroundImage: {
         'testimonial-bg': "url('https://i.ibb.co/ScXXVxC/testimonial-bg.jpg')",
         'clinical-services-bg': "url('https://i.ibb.co/zQNV0DJ/funfact-1.jpg')",
+        'header-bg': "url('https://i.ibb.co/b1L2S0v/page-title.jpg')",
       },
     },
   },
