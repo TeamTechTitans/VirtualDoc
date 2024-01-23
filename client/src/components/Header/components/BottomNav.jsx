@@ -1,15 +1,10 @@
-import { IoSearch } from "react-icons/io5";
+import { Drawer } from "@material-tailwind/react";
+import { useContext, useState } from "react";
 import {
-    FaFacebook,
-    FaInstagram,
-    FaLinkedin,
-    FaSquareXTwitter,
     FaBars,
-    FaX,
+    FaX
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
-import { Drawer } from "@material-tailwind/react";
 import logo from "../../../assets/logo.png";
 import { AuthContext } from "../../../provider/AuthProvider/AuthProvider";
 
@@ -36,6 +31,7 @@ const BottomNav = () => {
         { id: 1, label: "Home", link: "/" },
         { id: 3, label: "Services", link: "/services" },
         { id: 6, label: "Doctors", link: "/doctors" },
+        { id: 6, label: "Team", link: "/team" },
         { id: 4, label: "Blog", link: "/blog" },
         { id: 2, label: "About", link: "/about" },
         { id: 5, label: "Forum", link: "/forum" },
