@@ -1,6 +1,7 @@
 import { Button } from "@material-tailwind/react";
-
+import {Link, useNavigate} from 'react-router-dom'
 const BlogCard = ({ blog }) => {
+  const navigate = useNavigate()
   const {
     id,
     cover,
@@ -12,6 +13,11 @@ const BlogCard = ({ blog }) => {
     author,
     hashtags,
   } = blog;
+
+  const handleViewBlog = id =>{
+    navigate(`/blog/${id}`, { state: { blog } });
+  }
+
   return (
     <div className="space-y-3 my-10 w-[90%]">
       <div className="relative">
@@ -38,9 +44,12 @@ const BlogCard = ({ blog }) => {
               ? description
               : `${description.slice(0, 150)}..`}
           </p>
-          <Button className="rounded-full" color="cyan">
+          {/* <Link to={`/blog/${id}`}> */}
+            <Button onClick={()=>handleViewBlog(id)} className="rounded-full" color="cyan">
             Read More
-          </Button>
+            </Button>
+          {/* </Link> */}
+          
         </div>
       </div>
     </div>
