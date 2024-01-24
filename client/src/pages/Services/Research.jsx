@@ -8,7 +8,7 @@ import CustomTitle from "../../components/CustomTitle/CustomTitle";
 const Research = () => {
   return (
     <div className="container mx-auto py-20">
-      <div className="font-Barlow py-32">
+      <div className="font-Barlow py-32 mx-10 md:mx-0">
         <Card
           shadow={false}
           className="container mx-auto flex justify-between flex-col lg:flex-row-reverse"
