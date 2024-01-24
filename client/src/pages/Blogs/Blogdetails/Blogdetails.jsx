@@ -15,7 +15,7 @@ const BlogDetails = () => {
   return (
     <div>
       <BlogBanner text="Tips Details" />
-      <div className="container mx-auto grid grid-cols-12 gap-4">
+      <div className="container mx-auto mt-10 md:grid grid-cols-12 gap-4">
         <div className="col-span-8">
           <div className="space-y-5 my-10">
             <div className="flex gap-4">
@@ -26,7 +26,7 @@ const BlogDetails = () => {
                 <p className="font-semibold">{blog.month}</p>
               </div>
               <div className="space-y-2">
-                <h1 className="text-[30px] font-bold">{blog.title}</h1>
+                <h1 className="text-[20px] md:text-[30px] font-bold">{blog.title}</h1>
                 <p className="text-sm font-normal text-gray-400">
                   by {blog.author}, {blog.comments} Comments
                 </p>
@@ -55,7 +55,7 @@ const BlogDetails = () => {
                   </div>
                 ))}
               </div>
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col md:flex-row items-center justify-between">
                 <div className="flex gap-2 my-8 text-[18px] font-medium">
                   <p className="text-[#0c1529] ">Tags: </p>
                   <div className="flex flex-wrap gap-1 text-[#808080]">

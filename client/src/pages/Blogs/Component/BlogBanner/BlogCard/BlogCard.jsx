@@ -19,7 +19,7 @@ const BlogCard = ({ blog }) => {
   }
 
   return (
-    <div className="space-y-3 my-10 w-[90%]">
+    <div className="space-y-3 my-10 md:w-[90%]">
       <div className="relative">
         <div className="group">
           <img loading="lazy" src={cover} alt="img" className="w-full  rounded-2xl" />
@@ -35,7 +35,7 @@ const BlogCard = ({ blog }) => {
           <p className="font-semibold">{month}</p>
         </div>
         <div className="space-y-2">
-          <h1 className="text-[30px] font-bold">{title}</h1>
+          <h1 className="text-[20px] md:text-[30px] font-bold">{title}</h1>
           <p className="text-sm font-normal text-gray-400">
             by {author}, {comments} Comments
           </p>

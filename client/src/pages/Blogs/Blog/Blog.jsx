@@ -6,7 +6,7 @@ const Blog = () => {
     return (
         <div>
             <BlogBanner text='Tips' />
-            <div className="container mx-auto grid grid-cols-12 gap-4">
+            <div className="container mx-auto md:grid grid-cols-12 gap-4">
                 <div className="col-span-8">
                     <BlogData />
                 </div>
