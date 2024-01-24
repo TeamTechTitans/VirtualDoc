@@ -1,5 +1,5 @@
 import { Typography } from '@material-tailwind/react';
-import '../../pages/Home/components/animation.css'
+import '../../pages/Home/components/animation.css';
 
 const StuffDetailCard = () => {
     return (

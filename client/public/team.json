@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "img": "https://laborex.smartdemowp.com/wp-content/uploads/2021/05/team-9.jpg",
+    "name": "Dr. Emily Smith",
+    "position": "Cardiologist"
+  },
+  {
+    "id": 2,
+    "img": "https://laborex.smartdemowp.com/wp-content/uploads/2021/05/team-10.jpg",
+    "name": "Dr. James Johnson",
+    "position": "Orthopedic Surgeon"
+  },
+  {
+    "id": 3,
+    "img": "https://laborex.smartdemowp.com/wp-content/uploads/2021/05/team-11.jpg",
+    "name": "Dr. Maria Rodriguez",
+    "position": "Pediatrician"
+  },
+  {
+    "id": 4,
+    "img": "https://laborex.smartdemowp.com/wp-content/uploads/2021/06/team-12.jpg",
+    "name": "Dr. Richard Davis",
+    "position": "Dermatologist"
+  },
+  {
+    "id": 5,
+    "img": "https://laborex.smartdemowp.com/wp-content/uploads/2021/06/team-13.jpg",
+    "name": "Dr. Olivia Taylor",
+    "position": "Neurologist"
+  },
+  {
+    "id": 6,
+    "img": "https://laborex.smartdemowp.com/wp-content/uploads/2021/06/team-14.jpg",
+    "name": "Dr. Michael Brown",
+    "position": "Gynecologist"
+  }
+]

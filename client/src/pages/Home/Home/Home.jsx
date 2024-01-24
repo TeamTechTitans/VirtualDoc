@@ -10,7 +10,6 @@ import FaQueSection from "../FaQueSection/FaQueSection";
 import Testimonial from "../components/Testimonial/Testimonial";
 import Banner from "../components/Banner/Banner";
 
-
 const Home = () => {
       return (
             <div>
