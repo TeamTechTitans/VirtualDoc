@@ -14,6 +14,7 @@ const Home = () => {
             <div>
                 
                   <Location></Location>
+                  <LaboratoryServices/>
             </div>
       );
 };
