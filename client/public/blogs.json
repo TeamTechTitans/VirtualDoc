@@ -2,6 +2,7 @@
   {
     "id": 1,
     "cover": "https://i.ibb.co/vh3hXQb/article2.webp",
+    "images" : ["https://laborex.smartdemowp.com/wp-content/uploads/2021/05/news-26.jpg", "https://laborex.smartdemowp.com/wp-content/uploads/2021/05/news-27.jpg", "https://laborex.smartdemowp.com/wp-content/uploads/2021/05/news-28.jpg"],
     "title": "Task Force Proposes Colon Cancer Screening",
     "description": "A task force recommends new guidelines for colon cancer screening to improve early detection and prevention.",
     "comments": 20,
@@ -13,6 +14,7 @@
   {
     "id": 2,
     "cover": "https://i.ibb.co/6N2dgnZ/2.png",
+    "images" : ["https://laborex.smartdemowp.com/wp-content/uploads/2021/05/news-26.jpg", "https://laborex.smartdemowp.com/wp-content/uploads/2021/05/news-27.jpg", "https://laborex.smartdemowp.com/wp-content/uploads/2021/05/news-28.jpg"],
     "title": "Task Force Proposes Colon Cancer Screening",
     "description": "A task force recommends new guidelines for colon cancer screening to improve early detection and prevention.",
     "comments": 20,
@@ -24,6 +26,7 @@
   {
     "id": 3,
     "cover": "https://laborex.smartdemowp.com/wp-content/uploads/2021/05/news-24.jpg",
+    "images" : ["https://laborex.smartdemowp.com/wp-content/uploads/2021/05/news-26.jpg", "https://laborex.smartdemowp.com/wp-content/uploads/2021/05/news-27.jpg", "https://laborex.smartdemowp.com/wp-content/uploads/2021/05/news-28.jpg"],
     "title": "Task Force Proposes Colon Cancer Screening",
     "description": "A task force recommends new guidelines for colon cancer screening to improve early detection and prevention.",
     "comments": 20,
@@ -35,6 +38,7 @@
   {
     "id": 4,
     "cover": "https://laborex.smartdemowp.com/wp-content/uploads/2021/05/news-23.jpg",
+    "images" : ["https://laborex.smartdemowp.com/wp-content/uploads/2021/05/news-26.jpg", "https://laborex.smartdemowp.com/wp-content/uploads/2021/05/news-27.jpg", "https://laborex.smartdemowp.com/wp-content/uploads/2021/05/news-28.jpg"],
     "title": "Task Force Proposes Colon Cancer Screening",
     "description": "A task force recommends new guidelines for colon cancer screening to improve early detection and prevention.",
     "comments": 20,
