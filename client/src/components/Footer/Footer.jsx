@@ -1,4 +1,5 @@
 import { FaEnvelope, FaLocationPin, FaPhone } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 import img from "../../assets/logo.png";
 
 const Footer = () => {
@@ -46,7 +47,7 @@ const Footer = () => {
             <a className="link link-hover">Services</a>
             <a className="link link-hover">How It Works</a>
             <a className="link link-hover">Our Blog</a>
-            <a className="link link-hover">Contact us</a>
+           <Link to="/contact" className="link link-hover">Contact us</Link>
             <a className="link link-hover">Policy</a>
           </div>
         </nav>
