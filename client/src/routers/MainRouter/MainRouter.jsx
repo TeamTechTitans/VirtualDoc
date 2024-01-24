@@ -7,6 +7,7 @@ import Login from "../../pages/Login/component/Login";
 import DoctorRegistration from "../../pages/Registration/components/DoctorRegistration";
 import Team from "../../pages/Team/Team";
 import Doctors from "../../pages/doctors/Doctors";
+import AboutUs from "../../pages/aboutUs/AboutUs";
 
 
 
@@ -36,8 +37,14 @@ const MainRouter = createBrowserRouter([
                 element: <Login />
             },
             {
+
+                path: "/about",
+                element: <AboutUs/>
+            },
+            {
                path: "/contact",
                element: <Contact/>
+
             },
         ],
     },

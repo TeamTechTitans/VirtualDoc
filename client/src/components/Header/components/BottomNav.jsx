@@ -33,7 +33,7 @@ const BottomNav = () => {
         { id: 6, label: "Doctors", link: "/doctors" },
         { id: 6, label: "Team", link: "/team" },
         { id: 4, label: "Blog", link: "/blog" },
-        { id: 2, label: "About", link: "/about" },
+        { id: 2, label: "About", link: "/aboutUs" },
         { id: 5, label: "Forum", link: "/forum" },
         { id: 7, label: "Registration", link: "/register" },
         { id: 8, label: "Login", link: "/login" },
