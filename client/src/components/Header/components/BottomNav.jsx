@@ -10,16 +10,16 @@ import { AuthContext } from "../../../provider/AuthProvider/AuthProvider";
 
 const BottomNav = () => {
     const [openNav, setOpenNav] = useState(false);
-    const {user,logOut}=useContext(AuthContext);
-    const handleLogout=()=>{
-      logOut()
-      .then(() => {
-        // Sign-out successful.
-      }).catch(() => {
-        // An error mssge
-      });
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+                // Sign-out successful.
+            }).catch(() => {
+                // An error mssge
+            });
     }
-  
+
     // const socials = [
     //     { id: 1, icon: FaFacebook, link: "https://www.facebook.com/" },
     //     { id: 2, icon: FaInstagram, link: "https://www.instagram.com/" },
@@ -31,9 +31,9 @@ const BottomNav = () => {
         { id: 1, label: "Home", link: "/" },
         { id: 3, label: "Services", link: "/services" },
         { id: 6, label: "Doctors", link: "/doctors" },
-        { id: 6, label: "Team", link: "/team" },
         { id: 4, label: "Blog", link: "/blog" },
         { id: 2, label: "About", link: "/aboutUs" },
+        { id: 6, label: "Team", link: "/team" },
         { id: 5, label: "Forum", link: "/forum" },
         { id: 7, label: "Registration", link: "/register" },
         { id: 8, label: "Login", link: "/login" },
@@ -57,22 +57,22 @@ const BottomNav = () => {
                 {/* logout added */}
                 <div className="flex items-center">
                     <div className="py-4 pr-6 mr-6">
-                    <div className="float-right">
+                        <div className="float-right">
                             {
-                                user ?<div className="flex items-center justify-center">
+                                user ? <div className="flex items-center justify-center">
                                     <div className='relative group flex-col'>
-                                    <p className='mx-2 right-16 absolute group-hover:visible invisible text-black'>{user.displayName}</p>
+                                        <p className='mx-2 right-16 absolute group-hover:visible invisible text-black'>{user.displayName}</p>
                                         <div>
-                                            <img className="w-10 h-10 rounded-full border-2 border-white hidden md:block mx-2"  src={user.photoURL} />
+                                            <img className="w-10 h-10 rounded-full border-2 border-white hidden md:block mx-2" src={user.photoURL} />
                                         </div>
                                     </div>
-                                <button className='btn' onClick={handleLogout}>Logout</button>
-                                </div>:
-                                <Link to="/login">Login</Link>
+                                    <button className='btn' onClick={handleLogout}>Logout</button>
+                                </div> :
+                                    <Link to="/login">Login</Link>
                             }
-     
-                     </div>
-                </div>
+
+                        </div>
+                    </div>
 
                     {/* <div className="flex gap-4">
                         {socials.map((social) => (

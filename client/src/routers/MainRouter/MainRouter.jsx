@@ -8,6 +8,7 @@ import DoctorRegistration from "../../pages/Registration/components/DoctorRegist
 import Team from "../../pages/Team/Team";
 import Doctors from "../../pages/doctors/Doctors";
 import AboutUs from "../../pages/aboutUs/AboutUs";
+import Registration from "../../pages/Registration/components/Registration";
 
 
 
@@ -33,17 +34,21 @@ const MainRouter = createBrowserRouter([
                 element: <DoctorRegistration />
             },
             {
+                path: "/register",
+                element: <Registration />
+            },
+            {
                 path: "/login",
                 element: <Login />
             },
             {
 
-                path: "/about",
-                element: <AboutUs/>
+                path: "/aboutUs",
+                element: <AboutUs />
             },
             {
-               path: "/contact",
-               element: <Contact/>
+                path: "/contact",
+                element: <Contact />
 
             },
         ],
