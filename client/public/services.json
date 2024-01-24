@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "heading": "Clinical Microbiology Tests",
+    "paragraph": "Excepteur sint ocecat pro dent sunt in culpa.",
+    "imageLink": "https://i.ibb.co/1JFj9Fm/laboratory.png"
+  },
+  {
+    "id": "2",
+    "heading": "Testing for Traces & Impurities",
+    "paragraph": "Excepteur sint ocecat pro dent sunt in culpa.",
+    "imageLink": "https://i.ibb.co/WcFfvqN/test-tube.png"
+  },
+  {
+    "id": "3",
+    "heading": "Clinical Biochemistry Tests",
+    "paragraph": "Excepteur sint ocecat pro dent sunt in culpa.",
+    "imageLink": "https://i.ibb.co/3rv5zkj/microscope.png"
+  },
+  {
+    "id": "4",
+    "heading": "Clinical Histopatology Tests",
+    "paragraph": "Excepteur sint ocecat pro dent sunt in culpa.",
+    "imageLink": "https://i.ibb.co/R3HLvp3/result.png"
+  },
+  {
+    "id": "5",
+    "heading": "Clinical Biochemistry Tests",
+    "paragraph": "Excepteur sint ocecat pro dent sunt in culpa.",
+    "imageLink": "https://i.ibb.co/3rv5zkj/microscope.png"
+  },
+  {
+    "id": "6",
+    "heading": "Clinical Histopatology Tests",
+    "paragraph": "Excepteur sint ocecat pro dent sunt in culpa.",
+    "imageLink": "https://i.ibb.co/R3HLvp3/result.png"
+  },
+  {
+    "id": "7",
+    "heading": "Testing for Traces & Impurities",
+    "paragraph": "Excepteur sint ocecat pro dent sunt in culpa.",
+    "imageLink": "https://i.ibb.co/WcFfvqN/test-tube.png"
+  },
+  {
+    "id": "8",
+    "heading": "Clinical Microbiology Tests",
+    "paragraph": "Excepteur sint ocecat pro dent sunt in culpa.",
+    "imageLink": "https://i.ibb.co/1JFj9Fm/laboratory.png"
+  }
+]
