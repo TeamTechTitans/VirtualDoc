@@ -43,8 +43,8 @@ const BottomNav = () => {
         <nav className=" bg-white shadow-md mx-auto z-50 items-center">
             <div className="max-w-[1536px] px-4 mx-auto flex justify-between items-center">
                 <ul className="font-bold hidden xl:flex gap-8 font-open-sans">
-                    {navLinks.map((link) => (
-                        <Link className="text-secondary-blue" key={link.id} to={link.link}>
+                    {navLinks.map((link, idx) => (
+                        <Link className="text-secondary-blue" key={idx} to={link.link}>
                             {link.label}
                         </Link>
                     ))}
@@ -101,8 +101,8 @@ const BottomNav = () => {
                 </div>
 
                 <ul className="flex flex-col gap-2 font-bold text-secondary-blue font-open-sans py-3">
-                    {navLinks.map((link) => (
-                        <Link key={link.id} to={link.link}>
+                    {navLinks.map((link, idx) => (
+                        <Link key={idx} to={link.link}>
                             {link.label}
                         </Link>
                     ))}
