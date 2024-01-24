@@ -18,7 +18,7 @@ const Map = () => {
   };
   return (
     <div className="mt-6">
-      <div className="mt-6" style={{ height: "750px", width: "" }}>
+      <div className="mt-6" style={{ height: "550px", width: "" }}>
         <GoogleMapReact
           // Replace this with your own Google Maps API key and other options
           bootstrapURLKeys={{
