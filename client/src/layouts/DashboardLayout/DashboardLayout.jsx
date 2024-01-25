@@ -32,14 +32,9 @@ export default function DashboardLayout() {
                     onClose={() => setOpenNav(false)}
                     className="p-4 fixed"
                 >
-
                     <DashboardNav></DashboardNav>
                 </Drawer>
             </nav>
-
-            <div>
-                sdofhoho
-            </div>
         </>
     );
 }

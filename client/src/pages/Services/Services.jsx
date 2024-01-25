@@ -8,7 +8,7 @@ import Testing from "./Testing";
 const Services = () => {
   return (
     <div>
-      <SiteHeader title={"Research"}></SiteHeader>
+      <SiteHeader title={"Our Researches"}>Research</SiteHeader>
       <Laboratory></Laboratory>
       <Research></Research>
       <BestResults></BestResults>

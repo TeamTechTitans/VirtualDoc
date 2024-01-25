@@ -13,6 +13,7 @@ import Blog from "../../pages/Blogs/Blog/Blog";
 import BlogDetails from "../../pages/Blogs/Blogdetails/Blogdetails";
 import DashboardLayout from "../../layouts/DashboardLayout/DashboardLayout";
 import Dashboard from "../../pages/dashboard/Dashboard";
+import Services from "../../pages/Services/Services";
 
 
 const MainRouter = createBrowserRouter([
@@ -46,6 +47,10 @@ const MainRouter = createBrowserRouter([
                 element: <Team />,
             },
             {
+                path: '/services',
+                element: <Services />,
+            },
+            {
                 path: "/doctorRegister",
                 element: <DoctorRegistration />
             },
@@ -72,7 +77,12 @@ const MainRouter = createBrowserRouter([
     {
         path: '/dashboard',
         element: <DashboardLayout />,
-
+        children: [
+            {
+                path: "/dashboard",
+                element: <Dashboard></Dashboard>
+            }
+        ]
     }
 ]);
 

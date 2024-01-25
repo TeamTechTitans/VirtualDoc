@@ -1,3 +1,5 @@
+import { Typography } from "@material-tailwind/react";
+
 const Laboratory = () => {
   return (
     <div className="container py-10">
