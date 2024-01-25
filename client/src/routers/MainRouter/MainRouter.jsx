@@ -9,7 +9,8 @@ import Team from "../../pages/Team/Team";
 import Doctors from "../../pages/doctors/Doctors";
 import AboutUs from "../../pages/aboutUs/AboutUs";
 import Registration from "../../pages/Registration/components/Registration";
-
+import Blog from "../../pages/Blogs/Blog/Blog";
+import BlogDetails from "../../pages/Blogs/Blogdetails/Blogdetails";
 
 
 const MainRouter = createBrowserRouter([
@@ -24,6 +25,19 @@ const MainRouter = createBrowserRouter([
             {
                 path: '/doctors',
                 element: <Doctors />,
+            },
+            {
+                path: "blog",
+                element: <Blog />
+            },
+            {
+                path: "blog/:id",
+                element: <BlogDetails />,
+                //loader: ({params}) => fetch(`blogs.json/${params.id}`)
+            },
+            {
+                path: "/register",
+                element: <Registration />
             },
             {
                 path: '/team',
