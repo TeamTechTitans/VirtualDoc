@@ -12,7 +12,7 @@ const Dashboard = () => {
           <div className="bg-white h-32 p-3 w-full shadow-md rounded-lg">
             <div className="flex text-4xl gap-3 my-3">
               <FaUserDoctor className="text-pink-500"></FaUserDoctor>
-              <h1 className="text-4xl font-bold text-gray-700">100</h1>
+              <h1 className="text-4xl font-bold text-gray-700">130</h1>
             </div>
             <Progress
               className="h-1 lg:w-52 md:w-44 rounded-md my-1 bg-pink-50"
@@ -24,7 +24,7 @@ const Dashboard = () => {
           <div className="bg-white h-32 p-3 w-full shadow-md rounded-lg ">
             <div className="flex text-4xl gap-3 my-3">
               <MdPeopleAlt className="text-green-500"></MdPeopleAlt>
-              <h1 className="text-4xl font-bold text-gray-700">100</h1>
+              <h1 className="text-4xl font-bold text-gray-700">410</h1>
             </div>
             <Progress
               className="h-1 lg:w-52 md:w-44 rounded-md my-1 bg-green-50"
@@ -36,7 +36,7 @@ const Dashboard = () => {
           <div className="bg-white h-32 p-3 w-full shadow-md rounded-lg">
             <div className="flex text-4xl gap-3 my-3">
               <IoDocumentText className="text-yellow-800"></IoDocumentText>
-              <h1 className="text-4xl font-bold text-gray-700">100</h1>
+              <h1 className="text-4xl font-bold text-gray-700">974</h1>
             </div>
             <Progress
               className="h-1 lg:w-52 md:w-44 rounded-md my-1 bg-yellow-50"

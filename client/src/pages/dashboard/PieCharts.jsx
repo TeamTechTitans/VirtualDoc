@@ -31,9 +31,9 @@ const renderCustomizedLabel = ({
 };
 
 const data = [
-  { name: "Doctor", value: 400 },
-  { name: "Patient", value: 300 },
-  { name: "Appointment", value: 300 },
+  { name: "Doctor", value: 130 },
+  { name: "Patient", value: 410 },
+  { name: "Appointment", value: 974 },
 
 ];
 

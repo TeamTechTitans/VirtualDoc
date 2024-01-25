@@ -36,7 +36,7 @@ export default function DashboardLayout() {
         </Drawer>
         
       </nav>
-      <div className="block  lg:hidden">
+      <div className="block lg:hidden">
           <Outlet></Outlet>
         </div>
       <div>
