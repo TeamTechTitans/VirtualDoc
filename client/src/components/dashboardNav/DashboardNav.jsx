@@ -40,14 +40,14 @@ const DashboardNav = () => {
                 <Logo></Logo>
             </div>
             <List>
-
-                <Link to={'/dashboard/userProfile'}>
+                <Link to={'/dashboard'}>
                     <ListItem className="p-0">
                         <Typography color="blue-gray" className="mr-auto p-2 font-normal">
-                            Edit Profile
+                            Dashboard
                         </Typography>
                     </ListItem>
                 </Link>
+
                 <Link to={'/dashboard/allUser'}>
                     <ListItem className="p-0">
                         <Typography color="blue-gray" className="mr-auto p-2 font-normal">
@@ -73,6 +73,13 @@ const DashboardNav = () => {
                     <ListItem className="p-0">
                         <Typography color="blue-gray" className="mr-auto p-2 font-normal">
                             Add a Doctor
+                        </Typography>
+                    </ListItem>
+                </Link>
+                <Link to={'/dashboard/userProfile'}>
+                    <ListItem className="p-0">
+                        <Typography color="blue-gray" className="mr-auto p-2 font-normal">
+                            Edit Profile
                         </Typography>
                     </ListItem>
                 </Link>

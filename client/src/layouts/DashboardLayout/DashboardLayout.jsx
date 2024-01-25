@@ -28,14 +28,14 @@ export default function DashboardLayout() {
                             />
                         </div>
                     </div>
-                    {/* logout added */}
-                    <div className="flex items-center">
+                    <div className="hidden xl:flex items-center">
                         <div className="">
                             <div className="float-right">
                                 <Outlet></Outlet>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
                 <Drawer
