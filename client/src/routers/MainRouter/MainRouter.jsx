@@ -14,76 +14,78 @@ import BlogDetails from "../../pages/Blogs/Blogdetails/Blogdetails";
 import DashboardLayout from "../../layouts/DashboardLayout/DashboardLayout";
 import Dashboard from "../../pages/dashboard/Dashboard";
 import Services from "../../pages/Services/Services";
-
+import UserAppoinment from "../../pages/dashboard/UserAppoinment/UserAppoinment";
 
 const MainRouter = createBrowserRouter([
-    {
-        path: "/",
-        element: <MainLayout />,
-        children: [
-            {
-                index: true,
-                element: <Home />,
-            },
-            {
-                path: '/doctors',
-                element: <Doctors />,
-            },
-            {
-                path: "blog",
-                element: <Blog />
-            },
-            {
-                path: "blog/:id",
-                element: <BlogDetails />,
-                //loader: ({params}) => fetch(`blogs.json/${params.id}`)
-            },
-            {
-                path: "/register",
-                element: <Registration />
-            },
-            {
-                path: '/team',
-                element: <Team />,
-            },
-            {
-                path: '/services',
-                element: <Services />,
-            },
-            {
-                path: "/doctorRegister",
-                element: <DoctorRegistration />
-            },
-            {
-                path: "/register",
-                element: <Registration />
-            },
-            {
-                path: "/login",
-                element: <Login />
-            },
-            {
-
-                path: "/aboutUs",
-                element: <AboutUs />
-            },
-            {
-                path: "/contact",
-                element: <Contact />
-
-            },
-        ],
-    },
-    {
-        path: '/dashboard',
-        element: <DashboardLayout />,
-        children: [
-            {
-                path: "/dashboard",
-                element: <Dashboard></Dashboard>
-            }
-        ]
-    }
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "/doctors",
+        element: <Doctors />,
+      },
+      {
+        path: "blog",
+        element: <Blog />,
+      },
+      {
+        path: "blog/:id",
+        element: <BlogDetails />,
+        //loader: ({params}) => fetch(`blogs.json/${params.id}`)
+      },
+      {
+        path: "/register",
+        element: <Registration />,
+      },
+      {
+        path: "/team",
+        element: <Team />,
+      },
+      {
+        path: "/services",
+        element: <Services />,
+      },
+      {
+        path: "/doctorRegister",
+        element: <DoctorRegistration />,
+      },
+      {
+        path: "/register",
+        element: <Registration />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/aboutUs",
+        element: <AboutUs />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
+      },
+      {
+        path: "/dashboard/userappoinment",
+        element: <UserAppoinment></UserAppoinment>,
+      },
+    ],
+  },
 ]);
 
 export default MainRouter;
