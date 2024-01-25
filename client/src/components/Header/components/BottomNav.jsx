@@ -35,6 +35,7 @@ const BottomNav = () => {
         { id: 2, label: "About", link: "/aboutUs" },
         { id: 6, label: "Team", link: "/team" },
         { id: 5, label: "Forum", link: "/forum" },
+        { id: 5, label: "Dashboard", link: "/dashboard" },
         { id: 7, label: "Registration", link: "/register" },
         { id: 8, label: "Login", link: "/login" },
     ];
