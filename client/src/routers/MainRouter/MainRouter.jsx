@@ -62,10 +62,6 @@ const MainRouter = createBrowserRouter([
                 element: <DoctorRegistration />
             },
             {
-                path: "/register",
-                element: <Registration />
-            },
-            {
                 path: "/login",
                 element: <Login />
             },
