@@ -2,8 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 
 import DashboardLayout from "../../layouts/DashboardLayout/DashboardLayout";
 import MainLayout from "../../layouts/MainLayout/MainLayout";
-import Blog from "../../pages/Blogs/Blog/Blog";
-import BlogDetails from "../../pages/Blogs/Blogdetails/Blogdetails";
+import Tips from "../../pages/Tips/Tip/Tip";
+import TipDetails from "../../pages/Tips/Tipdetails/Tipdetails";
 import Contact from "../../pages/Contact/Contact";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/component/Login";
@@ -35,13 +35,13 @@ const MainRouter = createBrowserRouter([
                 element: <Doctors />,
             },
             {
-                path: "blog",
-                element: <Blog />
+                path: "/tips",
+                element: <Tips />
             },
             {
-                path: "blog/:id",
-                element: <BlogDetails />,
-                //loader: ({params}) => fetch(`blogs.json/${params.id}`)
+                path: "/tips/:id",
+                element: <TipDetails />,
+                // loader: ({ params }) => fetch(`tips.json/${params.id}`)
             },
             {
                 path: "/register",
