@@ -10,17 +10,15 @@ import Login from "../../pages/Login/component/Login";
 import DoctorRegistration from "../../pages/Registration/components/DoctorRegistration";
 import Registration from "../../pages/Registration/components/Registration";
 import Services from "../../pages/Services/Services";
-<<<<<<< HEAD
-import AllUsers from "../../pages/dashboard/AllUsers/AllUsers";
 import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
-=======
 import Team from "../../pages/Team/Team";
 import AboutUs from "../../pages/aboutUs/AboutUs";
 import Dashboard from "../../pages/dashboard/Dashboard";
 import Doctors from './../../pages/doctors/Doctors';
+import AllUsers from "../../pages/dashboard/AllUsers/AllUsers";
 import AddDoctor from "../../pages/dashboard/AddDoctor/AddDoctor";
 
->>>>>>> d5a026e01c5df9c0b5551094d815f4d9ec718311
+
 
 
 const MainRouter = createBrowserRouter([
@@ -86,12 +84,16 @@ const MainRouter = createBrowserRouter([
                 element: <Dashboard></Dashboard>
             },
             {
-                path:"allUser",
-                element:<AllUsers/>
+                path: "allUser",
+                element: <AllUsers />
             },
             {
-                path:"userProfile",
-                element:<UserProfile/>
+                path: "addDoctor",
+                element: <AddDoctor />
+            },
+            {
+                path: "userProfile",
+                element: <UserProfile />
             },
         ]
     }

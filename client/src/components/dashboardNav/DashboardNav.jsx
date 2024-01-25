@@ -39,9 +39,6 @@ const DashboardNav = () => {
             <div className="bg-white z-50 justify-between items-center">
                 <Logo></Logo>
             </div>
-            <div className="p-2">
-                <Input icon={<MagnifyingGlassIcon className="h-5 w-5" />} label="Search" />
-            </div>
             <List>
 
                 <Link to={'/dashboard/userProfile'}>
