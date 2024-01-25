@@ -11,6 +11,7 @@ import DoctorRegistration from "../../pages/Registration/components/DoctorRegist
 import Registration from "../../pages/Registration/components/Registration";
 import Team from "../../pages/Team/Team";
 import AboutUs from "../../pages/aboutUs/AboutUs";
+import Dashboard from "../../pages/dashboard/Dashboard";
 import Doctors from "../../pages/doctors/Doctors";
 
 
@@ -71,6 +72,12 @@ const MainRouter = createBrowserRouter([
     {
         path: '/dashboard',
         element: <DashboardLayout />,
+        children:[
+            {
+                path:'dashboardHome',
+                element: <Dashboard></Dashboard>
+            }
+        ]
 
     }
 ]);
