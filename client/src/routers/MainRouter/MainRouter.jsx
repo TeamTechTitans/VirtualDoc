@@ -14,6 +14,8 @@ import Team from "../../pages/Team/Team";
 import AboutUs from "../../pages/aboutUs/AboutUs";
 import Dashboard from "../../pages/dashboard/Dashboard";
 import Doctors from './../../pages/doctors/Doctors';
+import AddDoctor from "../../pages/dashboard/AddDoctor/AddDoctor";
+
 
 
 const MainRouter = createBrowserRouter([
@@ -81,6 +83,10 @@ const MainRouter = createBrowserRouter([
             {
                 path: "/dashboard",
                 element: <Dashboard></Dashboard>
+            },
+            {
+                path: "addDoctor",
+                element: <AddDoctor />
             }
         ]
     }
