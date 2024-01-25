@@ -11,6 +11,8 @@ import AboutUs from "../../pages/aboutUs/AboutUs";
 import Registration from "../../pages/Registration/components/Registration";
 import Blog from "../../pages/Blogs/Blog/Blog";
 import BlogDetails from "../../pages/Blogs/Blogdetails/Blogdetails";
+import DashboardLayout from "../../layouts/DashboardLayout/DashboardLayout";
+import Dashboard from "../../pages/dashboard/Dashboard";
 
 
 const MainRouter = createBrowserRouter([
@@ -67,6 +69,11 @@ const MainRouter = createBrowserRouter([
             },
         ],
     },
+    {
+        path: '/dashboard',
+        element: <DashboardLayout />,
+
+    }
 ]);
 
 export default MainRouter;
