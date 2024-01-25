@@ -1,33 +1,25 @@
-import React from 'react';
+import logo from "../../assets/logo.png";
+import {
+    FaX
+} from "react-icons/fa6";
+import {
+    Cog6ToothIcon,
+    InboxIcon,
+    PowerIcon,
+    UserCircleIcon
+} from "@heroicons/react/24/solid";
 import {
     Card,
-    Typography,
+    Chip,
     List,
     ListItem,
     ListItemPrefix,
     ListItemSuffix,
-    Chip,
-    Accordion,
-    AccordionHeader,
-    AccordionBody,
-    Alert,
-    Input,
+    Typography
 } from "@material-tailwind/react";
-import {
-    PresentationChartBarIcon,
-    ShoppingBagIcon,
-    UserCircleIcon,
-    Cog6ToothIcon,
-    InboxIcon,
-    PowerIcon,
-} from "@heroicons/react/24/solid";
-import {
-    ChevronRightIcon,
-    ChevronDownIcon,
-    CubeTransparentIcon,
-    MagnifyingGlassIcon,
-} from "@heroicons/react/24/outline";
+import React from 'react';
 import { Link } from 'react-router-dom';
+import Logo from "../logo/Logo";
 
 
 
@@ -43,12 +35,9 @@ const DashboardNav = () => {
 
 
     return (
-        <Card className="h-[100vh] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
-            <div className="mb-2 flex items-center gap-4 p-4">
-                <img src="https://docs.material-tailwind.com/img/logo-ct-dark.png" alt="brand" className="h-8 w-8" />
-                <Typography variant="h5" color="blue-gray">
-                    Sidebar
-                </Typography>
+        <Card className="h-screen overflow-auto w-full max-w-[20rem] p-4">
+            <div className="bg-white z-50 justify-between items-center">
+                <Logo></Logo>
             </div>
             <div className="p-2">
                 <Input icon={<MagnifyingGlassIcon className="h-5 w-5" />} label="Search" />
@@ -72,21 +61,21 @@ const DashboardNav = () => {
                 <Link to={'/dashboard'}>
                     <ListItem className="p-0">
                         <Typography color="blue-gray" className="mr-auto p-2 font-normal">
-                            Dashboard
+                            All Doctors
                         </Typography>
                     </ListItem>
                 </Link>
                 <Link to={'/dashboard'}>
                     <ListItem className="p-0">
                         <Typography color="blue-gray" className="mr-auto p-2 font-normal">
-                            Dashboard
+                            Applications
                         </Typography>
                     </ListItem>
                 </Link>
-                <Link to={'/dashboard'}>
+                <Link to={'/dashboard/addDoctor'}>
                     <ListItem className="p-0">
                         <Typography color="blue-gray" className="mr-auto p-2 font-normal">
-                            Dashboard
+                            Add a Doctor
                         </Typography>
                     </ListItem>
                 </Link>
