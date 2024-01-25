@@ -14,6 +14,8 @@ import BlogDetails from "../../pages/Blogs/Blogdetails/Blogdetails";
 import DashboardLayout from "../../layouts/DashboardLayout/DashboardLayout";
 import Dashboard from "../../pages/dashboard/Dashboard";
 import Services from "../../pages/Services/Services";
+import AllUsers from "../../pages/dashboard/AllUsers/AllUsers";
+import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
 
 
 const MainRouter = createBrowserRouter([
@@ -81,7 +83,15 @@ const MainRouter = createBrowserRouter([
             {
                 path: "/dashboard",
                 element: <Dashboard></Dashboard>
-            }
+            },
+            {
+                path:"allUser",
+                element:<AllUsers/>
+            },
+            {
+                path:"userProfile",
+                element:<UserProfile/>
+            },
         ]
     }
 ]);

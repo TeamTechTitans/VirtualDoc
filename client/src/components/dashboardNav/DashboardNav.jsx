@@ -55,17 +55,17 @@ const DashboardNav = () => {
             </div>
             <List>
 
-                <Link to={'/dashboard'}>
+                <Link to={'/dashboard/userProfile'}>
                     <ListItem className="p-0">
                         <Typography color="blue-gray" className="mr-auto p-2 font-normal">
-                            Dashboard
+                            Edit Profile
                         </Typography>
                     </ListItem>
                 </Link>
-                <Link to={'/dashboard'}>
+                <Link to={'/dashboard/allUser'}>
                     <ListItem className="p-0">
                         <Typography color="blue-gray" className="mr-auto p-2 font-normal">
-                            Dashboard
+                            All Users
                         </Typography>
                     </ListItem>
                 </Link>
