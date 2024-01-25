@@ -1,10 +1,9 @@
 
-import DashboardNav from "../../components/dashboardNav/DashboardNav";
 import { Drawer } from "@material-tailwind/react";
 import { useState } from "react";
-import {
-    FaBars,
-} from "react-icons/fa6";
+import { FaBars, } from "react-icons/fa6";
+import DashboardNav from "../../components/dashboardNav/DashboardNav";
+import Dashboard from './../../pages/dashboard/Dashboard';
 
 
 export default function DashboardLayout() {
@@ -38,7 +37,7 @@ export default function DashboardLayout() {
             </nav>
 
             <div>
-                sdofhoho
+                <Dashboard></Dashboard>
             </div>
         </>
     );
