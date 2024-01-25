@@ -1,13 +1,12 @@
 import { Card, Typography,Button } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 
-
 const AllUsers = () => {
     const [user,setUser]=useState([]);
     const TABLE_HEAD = ["Name", "Email", "location", "Blood-Group","Action"];
 
     useEffect(()=>{
-        fetch('allUsers.json')
+        fetch('../../../../public/allUsers.json')
         .then(res=>res.json())
         .then(data=>setUser(data))
     },[])
