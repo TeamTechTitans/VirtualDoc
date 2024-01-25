@@ -1,19 +1,19 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import MainLayout from "../../Layouts/MainLayout/MainLayout";
+import DashboardLayout from "../../layouts/DashboardLayout/DashboardLayout";
+import MainLayout from "../../layouts/MainLayout/MainLayout";
+import Blog from "../../pages/Blogs/Blog/Blog";
+import BlogDetails from "../../pages/Blogs/Blogdetails/Blogdetails";
 import Contact from "../../pages/Contact/Contact";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/component/Login";
 import DoctorRegistration from "../../pages/Registration/components/DoctorRegistration";
-import Team from "../../pages/Team/Team";
-import Doctors from "../../pages/doctors/Doctors";
-import AboutUs from "../../pages/aboutUs/AboutUs";
 import Registration from "../../pages/Registration/components/Registration";
-import Blog from "../../pages/Blogs/Blog/Blog";
-import BlogDetails from "../../pages/Blogs/Blogdetails/Blogdetails";
-import DashboardLayout from "../../layouts/DashboardLayout/DashboardLayout";
-import Dashboard from "../../pages/dashboard/Dashboard";
 import Services from "../../pages/Services/Services";
+import Team from "../../pages/Team/Team";
+import AboutUs from "../../pages/aboutUs/AboutUs";
+import Dashboard from "../../pages/dashboard/Dashboard";
+import Doctors from './../../pages/doctors/Doctors';
 
 
 const MainRouter = createBrowserRouter([
