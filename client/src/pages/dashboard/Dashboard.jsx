@@ -1,7 +1,7 @@
 import DashboardLayout from "../../layouts/DashboardLayout/DashboardLayout";
 
 function Dashboard() {
-    /* return (
+    return (
          <DashboardLayout>
              <div className="p-6">
                  <h1 className="text-2xl font-bold mb-4">Admin Dashboard</h1>
@@ -33,7 +33,7 @@ function Dashboard() {
                  </div>
              </div>
          </DashboardLayout>
-    );*/
+    );
 }
 
 export default Dashboard;

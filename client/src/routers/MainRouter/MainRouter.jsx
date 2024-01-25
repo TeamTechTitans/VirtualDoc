@@ -14,6 +14,8 @@ import BlogDetails from "../../pages/Blogs/Blogdetails/Blogdetails";
 import DashboardLayout from "../../layouts/DashboardLayout/DashboardLayout";
 import Dashboard from "../../pages/dashboard/Dashboard";
 import Services from "../../pages/Services/Services";
+import AddDoctor from "../../pages/dashboard/AddDoctor/AddDoctor";
+
 
 
 const MainRouter = createBrowserRouter([
@@ -81,6 +83,10 @@ const MainRouter = createBrowserRouter([
             {
                 path: "/dashboard",
                 element: <Dashboard></Dashboard>
+            },
+            {
+                path: "addDoctor",
+                element: <AddDoctor />
             }
         ]
     }
