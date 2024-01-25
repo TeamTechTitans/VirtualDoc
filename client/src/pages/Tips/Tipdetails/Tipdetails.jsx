@@ -15,7 +15,7 @@ const TipDetails = () => {
 
   return (
     <div>
-      <SiteHeader title={'by doctor'}>Regular Tips</SiteHeader>
+      <SiteHeader title={'by doctor'}>Tips Detail</SiteHeader>
       <div className="container mx-auto mt-10 md:grid grid-cols-12 gap-4">
         <div className="col-span-8">
           <div className="space-y-5 my-10">

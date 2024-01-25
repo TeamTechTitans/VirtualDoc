@@ -91,23 +91,25 @@ const BottomNav = () => {
                 onClose={() => setOpenNav(false)}
                 className="p-4 fixed"
             >
-                <div className="flex bg-white z-50 justify-between items-center">
-                    <div className="flex items-center">
-                        <img loading="lazy" className="w-16" src={logo} alt="VirtualDoc logo" />
-                        <h2 className="text-3xl font-bold text-secondary-blue">
-                            VirtualDoc
-                        </h2>
+                <div className=" bg-white h-screen mx-auto z-50 items-center">
+                    <div className="flex bg-white justify-between items-center">
+                        <div className="flex items-center">
+                            <img loading="lazy" className="w-16" src={logo} alt="VirtualDoc logo" />
+                            <h2 className="text-3xl font-bold text-secondary-blue">
+                                VirtualDoc
+                            </h2>
+                        </div>
+                        <FaX onClick={() => setOpenNav(false)} className="text-lg" />
                     </div>
-                    <FaX onClick={() => setOpenNav(false)} className="text-lg" />
-                </div>
 
-                <ul className="flex flex-col gap-2 font-bold text-secondary-blue font-open-sans py-3">
-                    {navLinks.map((link, idx) => (
-                        <Link key={idx} to={link.link}>
-                            {link.label}
-                        </Link>
-                    ))}
-                </ul>
+                    <ul className="flex  flex-col gap-2 font-bold text-secondary-blue font-open-sans py-3">
+                        {navLinks.map((link, idx) => (
+                            <Link key={idx} to={link.link}>
+                                {link.label}
+                            </Link>
+                        ))}
+                    </ul>
+                </div>
             </Drawer>
         </nav>
     );

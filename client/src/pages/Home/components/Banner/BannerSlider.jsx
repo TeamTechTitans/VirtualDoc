@@ -5,7 +5,7 @@ const BannerSlider = ({ slide }) => {
     return (
         <div className="bg-transparent flex flex-col px-2 md:px-5 items-center justify-between lg:flex-row">
             <div className="w-full text-center lg:pl-10 lg:text-left">
-                <div className="pl-8">
+                <div className="">
                     <h1 className="text-3xl md:text-5xl font-bold text-white">{slide?.heading}</h1>
                     <p className="text-white my-5 md:my-10 text-lg">
                         {slide?.paragraph}
