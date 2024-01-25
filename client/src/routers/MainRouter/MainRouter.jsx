@@ -9,10 +9,11 @@ import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/component/Login";
 import DoctorRegistration from "../../pages/Registration/components/DoctorRegistration";
 import Registration from "../../pages/Registration/components/Registration";
+import Services from "../../pages/Services/Services";
 import Team from "../../pages/Team/Team";
 import AboutUs from "../../pages/aboutUs/AboutUs";
 import Dashboard from "../../pages/dashboard/Dashboard";
-import Doctors from "../../pages/doctors/Doctors";
+import Doctors from './../../pages/doctors/Doctors';
 
 
 const MainRouter = createBrowserRouter([
@@ -46,6 +47,10 @@ const MainRouter = createBrowserRouter([
                 element: <Team />,
             },
             {
+                path: '/services',
+                element: <Services />,
+            },
+            {
                 path: "/doctorRegister",
                 element: <DoctorRegistration />
             },
@@ -72,13 +77,12 @@ const MainRouter = createBrowserRouter([
     {
         path: '/dashboard',
         element: <DashboardLayout />,
-        children:[
+        children: [
             {
-                path:'dashboardHome',
+                path: "/dashboard",
                 element: <Dashboard></Dashboard>
             }
         ]
-
     }
 ]);
 
