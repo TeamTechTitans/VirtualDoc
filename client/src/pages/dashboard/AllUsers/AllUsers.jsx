@@ -13,7 +13,7 @@ const AllUsers = () => {
   }, [])
 
   return (
-    <div className="pt-10">
+    <div className="pt-10 px-5">
       <DashboardHeading title="All Users">Manage All Users</DashboardHeading>
       <Card className="h-full w-full overflow-auto">
         <table className="w-full min-w-max table-auto text-center font-barlow">
@@ -22,7 +22,7 @@ const AllUsers = () => {
               {TABLE_HEAD.map((head) => (
                 <th
                   key={head}
-                  className="border-b border-blue-gray-100 bg-[#BBE8E6] p-4"
+                  className="border-b border-blue-gray-100 bg-light-teal p-4"
                 >
                   <Typography
                     variant="small"
