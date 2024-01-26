@@ -1,14 +1,14 @@
-import BlogBanner from "../Component/BlogBanner/BlogBanner";
-import BlogData from "../BlogData/BlogData";
+import TipData from "../TipData/TipData";
 import SideBar from "../SideBar/SideBar";
+import SiteHeader from "../../../components/siteHeader/SiteHeader";
 
-const Blog = () => {
+const Tip = () => {
     return (
         <div>
-            <BlogBanner text='Tips' />
+            <SiteHeader title='by Doctor'>Regular Tips </SiteHeader>
             <div className="container mx-auto md:grid grid-cols-12 gap-4">
                 <div className="col-span-8">
-                    <BlogData />
+                    <TipData />
                 </div>
                 <div className='col-span-4'>
                     <SideBar />
@@ -18,4 +18,4 @@ const Blog = () => {
     );
 };
 
-export default Blog;
+export default Tip;
