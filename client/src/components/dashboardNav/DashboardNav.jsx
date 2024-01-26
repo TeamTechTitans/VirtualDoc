@@ -33,7 +33,7 @@ const DashboardNav = () => {
     return (
         <Card className="h-screen overflow-auto w-full max-w-[20rem] p-4">
             <div className="bg-white z-50 justify-between items-center">
-                <Logo></Logo>
+                <Link to='/'><Logo></Logo></Link>
             </div>
             <List>
                 <Link to={'/dashboard'}>
