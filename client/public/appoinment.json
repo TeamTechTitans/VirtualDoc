@@ -1,0 +1,72 @@
+[
+  {
+    "name": "John Doe",
+    "date": "2024-04-01",
+    "time": "10:30 AM",
+    "treatment": "General Checkup",
+    "pay": 80.0
+  },
+  {
+    "name": "Alice Smith",
+    "date": "2024-04-02",
+    "time": "02:15 PM",
+    "treatment": "Dental Cleaning",
+    "pay": 120.0
+  },
+  {
+    "name": "Robert Johnson",
+    "date": "2024-04-03",
+    "time": "09:45 AM",
+    "treatment": "Physical Therapy",
+    "pay": 150.0
+  },
+  {
+    "name": "Emily Brown",
+    "date": "2024-04-04",
+    "time": "11:00 AM",
+    "treatment": "Eye Examination",
+    "pay": 100.0
+  },
+  {
+    "name": "Daniel Wilson",
+    "date": "2024-04-05",
+    "time": "03:30 PM",
+    "treatment": "Vaccination",
+    "pay": 50.0
+  },
+  {
+    "name": "Sophia Davis",
+    "date": "2024-04-06",
+    "time": "01:45 PM",
+    "treatment": "Orthopedic Consultation",
+    "pay": 200.0
+  },
+  {
+    "name": "Ethan Miller",
+    "date": "2024-04-07",
+    "time": "10:00 AM",
+    "treatment": "X-ray Imaging",
+    "pay": 75.0
+  },
+  {
+    "name": "Olivia Turner",
+    "date": "2024-04-08",
+    "time": "04:15 PM",
+    "treatment": "Counseling Session",
+    "pay": 90.0
+  },
+  {
+    "name": "Michael White",
+    "date": "2024-04-09",
+    "time": "02:30 PM",
+    "treatment": "Dermatology Appointment",
+    "pay": 120.0
+  },
+  {
+    "name": "Ava Harris",
+    "date": "2024-04-10",
+    "time": "12:00 PM",
+    "treatment": "Blood Test",
+    "pay": 60.0
+  }
+]

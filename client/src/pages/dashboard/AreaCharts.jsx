@@ -44,7 +44,7 @@ const AreaCharts = () => {
   return (
     <div className="h-72 bg-white p-5 rounded-lg shadow-md">
     <div>
-      <h1 className="font-bold text-gray-600">Appointment</h1>
+      <h1 className="font-bold text-gray-600">Patient</h1>
       <hr className="my-3 h-0.5 bg-gray-300"/>
     </div>
     <div className="flex justify-center my-5">

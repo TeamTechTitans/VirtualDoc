@@ -2,21 +2,22 @@ import { createBrowserRouter } from "react-router-dom";
 
 import DashboardLayout from "../../layouts/DashboardLayout/DashboardLayout";
 import MainLayout from "../../layouts/MainLayout/MainLayout";
-import Tips from "../../pages/Tips/Tip/Tip";
-import TipDetails from "../../pages/Tips/Tipdetails/Tipdetails";
 import Contact from "../../pages/Contact/Contact";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/component/Login";
 import DoctorRegistration from "../../pages/Registration/components/DoctorRegistration";
 import Registration from "../../pages/Registration/components/Registration";
 import Services from "../../pages/Services/Services";
-import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
 import Team from "../../pages/Team/Team";
+import Tips from "../../pages/Tips/Tip/Tip";
+import TipDetails from "../../pages/Tips/Tipdetails/Tipdetails";
 import AboutUs from "../../pages/aboutUs/AboutUs";
-import Dashboard from "../../pages/dashboard/Dashboard";
-import Doctors from './../../pages/doctors/Doctors';
-import AllUsers from "../../pages/dashboard/AllUsers/AllUsers";
 import AddDoctor from "../../pages/dashboard/AddDoctor/AddDoctor";
+import AllUsers from "../../pages/dashboard/AllUsers/AllUsers";
+import Appoinment from "../../pages/dashboard/Appoinment/Appoinment";
+import Dashboard from "../../pages/dashboard/Dashboard";
+import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
+import Doctors from './../../pages/doctors/Doctors';
 
 
 
@@ -94,6 +95,10 @@ const MainRouter = createBrowserRouter([
             {
                 path: "userProfile",
                 element: <UserProfile />
+            },
+            {
+                path: "appoinment",
+                element: <Appoinment />
             },
         ]
     }

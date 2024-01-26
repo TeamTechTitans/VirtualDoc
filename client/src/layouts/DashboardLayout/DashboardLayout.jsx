@@ -4,9 +4,8 @@ import {
     FaBars,
     FaX
 } from "react-icons/fa6";
-import DashboardNav from "../../components/dashboardNav/DashboardNav";
 import { Outlet } from "react-router-dom";
-import Logo from "../../components/logo/Logo";
+import DashboardNav from "../../components/dashboardNav/DashboardNav";
 
 export default function DashboardLayout() {
     const [openNav, setOpenNav] = useState(false);
