@@ -1,17 +1,25 @@
 import { Button, Card, Typography } from "@material-tailwind/react";
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 
 
 const Appoinment = () => {
-  const [appoinment,setAppoinment]=useState([]);
+  // const [appoinment,setAppoinment]=useState([]);
   const TABLE_HEAD = ["Name", "Date", "Time", "Treatment","Payment"];
 
-  useEffect(()=>{
-    fetch('../../../../public/appoinment.json')
-    .then(res=>res.json())
-    .then(data=>setAppoinment(data))
-  },[])
+  // useEffect(()=>{
+  //   fetch('../../../../public/appoinment.json')
+  //   .then(res=>res.json())
+  //   .then(data=>setAppoinment(data))
+  // },[])
+
+  const {data} = useQuery({
+    queryKey:['appoinment'],
+    queryFn: async () =>{
+      const appoinmentList = await fetch("appoinment.json");
+      return appoinmentList.json();
+    }
+  })
 
   return (
     <div className="">
@@ -36,8 +44,8 @@ const Appoinment = () => {
           </tr>
         </thead>
         <tbody >
-          {appoinment.map(({ name, date, time, treatment,pay }, index) => {
-            const isLast = index === appoinment.length - 1;
+          {data?.map((app, index) => {
+            const isLast = index === app.length - 1;
             const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
  
             return (
@@ -57,7 +65,7 @@ const Appoinment = () => {
                             color="blue-gray"
                             className="font-normal"
                           >
-                            {name}
+                            {app?.name}
                           </Typography>
                         </div>
                       </div>
@@ -68,7 +76,7 @@ const Appoinment = () => {
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {date}
+                    {app?.date}
                   </Typography>
                 </td>
                 <td className={classes}>
@@ -77,7 +85,7 @@ const Appoinment = () => {
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {time}
+                    {app?.time}
                   </Typography>
                 </td>
                 <td className={classes}>
@@ -86,7 +94,7 @@ const Appoinment = () => {
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {treatment}
+                    {app?.treatment}
                   </Typography>
                 </td>
                 <td className={classes}>
