@@ -9,7 +9,7 @@ const Appoinment = () => {
   const TABLE_HEAD = ["Name", "Date", "Time", "Treatment", "Payment"];
 
   useEffect(() => {
-    fetch('../../../../public/appoinment.json')
+    fetch('/appoinment.json')
       .then(res => res.json())
       .then(data => setAppoinment(data))
   }, [])

@@ -26,7 +26,7 @@ const AddDoctor = () => {
     return (
         <div className="mt-8 ml-8">
             <DashboardHeading title="Add doctor">Add a New Doctor</DashboardHeading>
-            <form onSubmit={handleSubmit(onSubmit)} className="shadow-xl p-6">
+            <form onSubmit={handleSubmit(onSubmit)} className="shadow-xl p-5 m-auto w-96">
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text font-semibold">Name</span>
