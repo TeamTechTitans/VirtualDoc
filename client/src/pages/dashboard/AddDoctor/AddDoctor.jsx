@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import { FaImage } from "react-icons/fa6";
 import axios from 'axios';
+import { Button, Input, Option, Select } from "@material-tailwind/react";
+import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
@@ -23,16 +25,17 @@ const AddDoctor = () => {
     };
     return (
         <div className="mt-8 ml-8">
-            <h2 className="font-bold text-xl">Add a New Doctor</h2>
+            <DashboardHeading title="Add doctor">Add a New Doctor</DashboardHeading>
             <form onSubmit={handleSubmit(onSubmit)} className="shadow-xl p-6">
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text font-semibold">Name</span>
                     </label>
-                    <input
+                    <Input
+                        color="teal"
+                        label="Doctor name"
                         type="text"
                         {...register("name", { required: true })}
-                        placeholder="Enter Your Name"
                         className="input input-bordered"
                         required
                     />
@@ -41,10 +44,10 @@ const AddDoctor = () => {
                     <label className="label">
                         <span className="label-text font-semibold">Email</span>
                     </label>
-                    <input
-                        type="text"
+                    <Input
+                        color="teal"
+                        label="Doctor email"
                         {...register("email", { required: true })}
-                        placeholder="Enter Your Email"
                         className="input input-bordered"
                         required
                     />
@@ -53,34 +56,37 @@ const AddDoctor = () => {
                     <label className="label">
                         <span className="label-text font-semibold">Specialty</span>
                     </label>
-                    <select
+                    <Select
+                        label="Category"
+                        color="teal"
                         defaultValue="default"
                         {...register("category", { required: true })}
-                        className="select select-bordered w-full"
+                        className="w-full"
                     >
-                        <option value="default" disabled>
+                        <Option value="default" disabled>
                             Select a Specialty
-                        </option>
-                        <option value="teethOrthodontics">Teeth Orthodontics</option>
-                        <option value="dermatologist">Dermatologist</option>
-                        <option value="heart">Heart</option>
-                        <option value="kidney">Kidney</option>
-                        <option value="brain">Brain</option>
-                    </select>
+                        </Option>
+                        <Option value="teethOrthodontics">Teeth Orthodontics</Option>
+                        <Option value="dermatologist">Dermatologist</Option>
+                        <Option value="heart">Heart</Option>
+                        <Option value="kidney">Kidney</Option>
+                        <Option value="brain">Brain</Option>
+                    </Select>
                 </div>
-                <div className="form-control relative h-36 w-full my-6">
-                    <label className="absolute top-12 text-gray-500 text-center w-full">
+                <div className="form-control h-36 w-full border border-black cursor-pointer focus:border-primary-teal hover:border-primary-teal  rounded-lg my-10">
+                    <label htmlFor="image" className="w-full h-full flex flex-col justify-center items-center cursor-pointer text-gray-500 text-center">
                         Upload Your Photo <FaImage className="mx-auto text-3xl" />
+                        <input
+                            id="image"
+                            {...register("image", { required: true })}
+                            type="file"
+                            placeholder="Upload Your Photo"
+                            className="input hidden pt-2 h-full"
+                        />
                     </label>
-                    <input
-                        {...register("image", { required: true })}
-                        type="file"
-                        placeholder="Upload Your Photo"
-                        className="input input-bordered pt-2 h-full"
-                    />
                 </div>
                 <div className="w-full">
-                    <button className="btn w-full bg-[#102e18] text-white hover:bg-[#194926]">Add</button>
+                    <Button color="teal" className="w-full text-white ">Add</Button>
                 </div>
             </form>
         </div>
