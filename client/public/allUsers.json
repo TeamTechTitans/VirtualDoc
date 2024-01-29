@@ -1,0 +1,45 @@
+[
+    {
+      "name": "Md. Rahman",
+      "email": "rahman@example.com",
+      "location": "Dhaka",
+      "bloodgroup": "A+"
+      
+    },
+    {
+      "name": "Fatima Ahmed",
+      "email": "fatima.ahmed@example.com",
+      "location": "Chittagong",
+      "bloodgroup": "B-"
+      
+    },
+    {
+      "name": "Abdul Khan",
+      "email": "abdul.khan@example.com",
+      "location": "Sylhet",
+      "bloodgroup": "O+"
+      
+    },
+    {
+      "name": "Aisha Ali",
+      "email": "aisha.ali@example.com",
+      "location": "Rajshahi",
+      "bloodgroup": "AB+"
+      
+    },
+    {
+      "name": "Mohammad Islam",
+      "email": "m.islam@example.com",
+      "location": "Khulna",
+      "bloodgroup": "B+"
+      
+    },
+    {
+      "name": "Nadia Rahman",
+      "email": "nadia.rahman@example.com",
+      "location": "Barisal",
+      "bloodgroup": "O-"
+      
+    }
+  ]
+  

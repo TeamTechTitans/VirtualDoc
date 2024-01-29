@@ -2,8 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 
 import DashboardLayout from "../../layouts/DashboardLayout/DashboardLayout";
 import MainLayout from "../../layouts/MainLayout/MainLayout";
-import Blog from "../../pages/Blogs/Blog/Blog";
-import BlogDetails from "../../pages/Blogs/Blogdetails/Blogdetails";
 import Contact from "../../pages/Contact/Contact";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/component/Login";
@@ -11,9 +9,17 @@ import DoctorRegistration from "../../pages/Registration/components/DoctorRegist
 import Registration from "../../pages/Registration/components/Registration";
 import Services from "../../pages/Services/Services";
 import Team from "../../pages/Team/Team";
+import Tips from "../../pages/Tips/Tip/Tip";
+import TipDetails from "../../pages/Tips/Tipdetails/Tipdetails";
 import AboutUs from "../../pages/aboutUs/AboutUs";
+import AddDoctor from "../../pages/dashboard/AddDoctor/AddDoctor";
+import AllUsers from "../../pages/dashboard/AllUsers/AllUsers";
+import Appoinment from "../../pages/dashboard/Appoinment/Appoinment";
 import Dashboard from "../../pages/dashboard/Dashboard";
+import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
 import Doctors from './../../pages/doctors/Doctors';
+
+
 
 
 const MainRouter = createBrowserRouter([
@@ -30,13 +36,13 @@ const MainRouter = createBrowserRouter([
                 element: <Doctors />,
             },
             {
-                path: "blog",
-                element: <Blog />
+                path: "/tips",
+                element: <Tips />
             },
             {
-                path: "blog/:id",
-                element: <BlogDetails />,
-                //loader: ({params}) => fetch(`blogs.json/${params.id}`)
+                path: "/tips/:id",
+                element: <TipDetails />,
+                // loader: ({ params }) => fetch(`tips.json/${params.id}`)
             },
             {
                 path: "/register",
@@ -53,10 +59,6 @@ const MainRouter = createBrowserRouter([
             {
                 path: "/doctorRegister",
                 element: <DoctorRegistration />
-            },
-            {
-                path: "/register",
-                element: <Registration />
             },
             {
                 path: "/login",
@@ -81,7 +83,23 @@ const MainRouter = createBrowserRouter([
             {
                 path: "/dashboard",
                 element: <Dashboard></Dashboard>
-            }
+            },
+            {
+                path: "allUser",
+                element: <AllUsers />
+            },
+            {
+                path: "addDoctor",
+                element: <AddDoctor />
+            },
+            {
+                path: "userProfile",
+                element: <UserProfile />
+            },
+            {
+                path: "appoinment",
+                element: <Appoinment />
+            },
         ]
     }
 ]);

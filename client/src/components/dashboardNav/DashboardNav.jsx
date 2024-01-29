@@ -1,10 +1,6 @@
-import logo from "../../assets/logo.png";
-import {
-    FaX
-} from "react-icons/fa6";
 import {
     Cog6ToothIcon,
-    InboxIcon,
+    HomeIcon,
     PowerIcon,
     UserCircleIcon
 } from "@heroicons/react/24/solid";
@@ -37,9 +33,9 @@ const DashboardNav = () => {
     return (
         <Card className="h-screen overflow-auto w-full max-w-[20rem] p-4">
             <div className="bg-white z-50 justify-between items-center">
-                <Logo></Logo>
+                <Link to='/'><Logo></Logo></Link>
             </div>
-            <List className="shadow-none">
+            <List>
                 <Link to={'/dashboard'}>
                     <ListItem className="p-0">
                         <Typography color="blue-gray" className="mr-auto p-2 font-normal">
@@ -47,7 +43,8 @@ const DashboardNav = () => {
                         </Typography>
                     </ListItem>
                 </Link>
-                <Link to={'/dashboard'}>
+
+                <Link to={'/dashboard/allUser'}>
                     <ListItem className="p-0">
                         <Typography color="blue-gray" className="mr-auto p-2 font-normal">
                             All Users
@@ -61,30 +58,39 @@ const DashboardNav = () => {
                         </Typography>
                     </ListItem>
                 </Link>
-                <Link to={'/dashboard'}>
+                <Link to={'/dashboard/appoinment'}>
                     <ListItem className="p-0">
                         <Typography color="blue-gray" className="mr-auto p-2 font-normal">
-                            Applications
+                            Appoinments
                         </Typography>
                     </ListItem>
                 </Link>
-                <Link to={'/dashboard'}>
+                <Link to={'/dashboard/addDoctor'}>
                     <ListItem className="p-0">
                         <Typography color="blue-gray" className="mr-auto p-2 font-normal">
-                            Transition
+                            Add a Doctor
+                        </Typography>
+                    </ListItem>
+                </Link>
+                <Link to={'/dashboard/userProfile'}>
+                    <ListItem className="p-0">
+                        <Typography color="blue-gray" className="mr-auto p-2 font-normal">
+                            Edit Profile
                         </Typography>
                     </ListItem>
                 </Link>
 
                 <hr className="my-2 border-blue-gray-50" />
                 <ListItem>
-                    <ListItemPrefix>
-                        <InboxIcon className="h-5 w-5" />
-                    </ListItemPrefix>
-                    Inbox
-                    <ListItemSuffix>
-                        <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
-                    </ListItemSuffix>
+                    <Link to="/" className="flex">
+                        <ListItemPrefix>
+                            <HomeIcon className="h-5 w-5" />
+                        </ListItemPrefix>
+                        Home
+                        {/* <ListItemSuffix>
+                            <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
+                        </ListItemSuffix> */}
+                    </Link>
                 </ListItem>
                 <ListItem>
                     <ListItemPrefix>

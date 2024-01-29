@@ -4,9 +4,8 @@ import {
     FaBars,
     FaX
 } from "react-icons/fa6";
-import DashboardNav from "../../components/dashboardNav/DashboardNav";
 import { Outlet } from "react-router-dom";
-import Logo from "../../components/logo/Logo";
+import DashboardNav from "../../components/dashboardNav/DashboardNav";
 
 export default function DashboardLayout() {
     const [openNav, setOpenNav] = useState(false);
@@ -28,14 +27,10 @@ export default function DashboardLayout() {
                             />
                         </div>
                     </div>
-                    {/* logout added */}
-                    <div className="flex items-center">
-                        <div className="">
-                            <div className="float-right">
-                                <Outlet></Outlet>
-                            </div>
-                        </div>
+                    <div className="hidden xl:block w-full items-center">
+                        <Outlet></Outlet>
                     </div>
+
                 </div>
 
                 <Drawer
@@ -51,6 +46,9 @@ export default function DashboardLayout() {
                     </div>
                     <DashboardNav />
                 </Drawer>
+                <div className="block  xl:hidden ">
+                    <Outlet></Outlet>
+                </div>
             </nav>
         </>
     );
