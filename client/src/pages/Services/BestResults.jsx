@@ -3,8 +3,8 @@ import { FaHandshake, FaRegStar } from "react-icons/fa";
 
 const BestResult = () => {
     return (
-        <div className="container mx-auto py-20">
-            <div className="hero    ">
+        <div className="container mx-auto">
+            <div className="hero">
                 <div className="hero-content flex-col lg:flex-row ">
                     <img
                         src="https://i.ibb.co/tKZ2YTF/about-7.jpg"

@@ -1,6 +1,6 @@
 import SiteHeader from "../../components/siteHeader/SiteHeader";
 import BestExpert from "./BestExpert";
-import BestResults from "./BestResults";
+import BestResult from "./BestResult";
 import Laboratory from "./Laboratory";
 import Research from "./Research";
 import Testing from "./Testing";
@@ -8,10 +8,10 @@ import Testing from "./Testing";
 const Services = () => {
   return (
     <div>
-      <SiteHeader title={"Our Researches"}>Research</SiteHeader>
+      <SiteHeader children="Services" title="Home - Research"></SiteHeader>
       <Laboratory></Laboratory>
       <Research></Research>
-      <BestResults></BestResults>
+      <BestResult></BestResult>
       <BestExpert></BestExpert>
       <Testing></Testing>
     </div>
