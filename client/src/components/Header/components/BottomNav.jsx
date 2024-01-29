@@ -1,54 +1,62 @@
-import { Drawer } from "@material-tailwind/react";
+import { Button, Drawer } from "@material-tailwind/react";
 import { useContext, useState } from "react";
 import {
     FaBars,
     FaX
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import logo from "../../../assets/logo.png";
-import { AuthContext } from "../../../provider/AuthProvider/AuthProvider";
+import Logo from "../../logo/Logo";
+import useAuth from "../../../lib/hooks/useAuth";
+import outlined from "@material-tailwind/react/theme/components/timeline/timelineIconColors/outlined";
+import Swal from "sweetalert2";
 
 const BottomNav = () => {
     const [openNav, setOpenNav] = useState(false);
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut } = useAuth();
     const handleLogout = () => {
         logOut()
-            .then(() => {
-                // Sign-out successful.
-            }).catch(() => {
-                // An error mssge
-            });
     }
 
-    // const socials = [
-    //     { id: 1, icon: FaFacebook, link: "https://www.facebook.com/" },
-    //     { id: 2, icon: FaInstagram, link: "https://www.instagram.com/" },
-    //     { id: 3, icon: FaLinkedin, link: "https://www.linkedin.com/" },
-    //     { id: 4, icon: FaSquareXTwitter, link: "https://twitter.com/home" },
-    // ];
+    const navLinks = <>
+        <Link to='/' className="text-secondary-blue">Home</Link>
+        <Link to='/services' className="text-secondary-blue">Services</Link>
+        <Link to='/doctors' className="text-secondary-blue">Doctors</Link>
+        <Link to='/tips' className="text-secondary-blue">Tips</Link>
+        <Link to='/aboutUs' className="text-secondary-blue">About</Link>
+        <Link to='/team' className="text-secondary-blue">Team</Link>
+        <Link to='/contact' className="text-secondary-blue">Contact US</Link>
+    </>
 
-    const navLinks = [
-        { id: 1, label: "Home", link: "/" },
-        { id: 3, label: "Services", link: "/services" },
-        { id: 6, label: "Doctors", link: "/doctors" },
-        { id: 4, label: "Tips", link: "/tips" },
-        { id: 2, label: "About", link: "/aboutUs" },
-        { id: 6, label: "Team", link: "/team" },
-        { id: 5, label: "Contact US", link: "/contact" },
-        { id: 5, label: "Dashboard", link: "/dashboard" },
-        { id: 7, label: "Registration", link: "/register" },
-        { id: 8, label: "Login", link: "/login" },
-    ];
+    const authLinks = <>
+        <div className="flex flex-wrap gap-5">
+            <Link to='/register' >
+                <Button className="bg-secondary-blue text-base normal-case">Registration</Button>
+            </Link>
+            <Link to='/login' className="text-secondary-blue">
+                <Button className="border-secondary-blue text-base border py-[10px] bg-transparent text-secondary-blue" >Login</Button>
+            </Link>
+        </div>
+    </>
+
+    const userLinks = <>
+        <div className="flex items-center justify-center">
+            <div className='relative group flex-col'>
+                <p className='mx-2 right-16 absolute group-hover:visible invisible text-black'>{user?.displayName}</p>
+                <div>
+                    <img className="w-10 h-10 rounded-full border-2 border-white hidden md:block mx-2" src={user?.photoURL} />
+                </div>
+            </div>
+            <button className='btn' onClick={handleLogout}>Logout</button>
+        </div>
+    </>
+
+
 
     return (
-        <nav className=" bg-white shadow-md mx-auto z-50 items-center">
+        <nav className=" bg-white shadow-md py-2 mx-auto z-50 items-center">
             <div className="max-w-[1536px] px-4 mx-auto flex justify-between items-center">
                 <ul className="font-bold hidden xl:flex gap-8 font-open-sans">
-                    {navLinks.map((link, idx) => (
-                        <Link className="text-secondary-blue" key={idx} to={link.link}>
-                            {link.label}
-                        </Link>
-                    ))}
+                    {navLinks}
                 </ul>
 
                 <FaBars
@@ -57,31 +65,11 @@ const BottomNav = () => {
                 />
                 {/* logout added */}
                 <div className="flex items-center">
-                    <div className="py-4 pr-6 mr-6">
-                        <div className="float-right">
-                            {
-                                user ? <div className="flex items-center justify-center">
-                                    <div className='relative group flex-col'>
-                                        <p className='mx-2 right-16 absolute group-hover:visible invisible text-black'>{user.displayName}</p>
-                                        <div>
-                                            <img className="w-10 h-10 rounded-full border-2 border-white hidden md:block mx-2" src={user.photoURL} />
-                                        </div>
-                                    </div>
-                                    <button className='btn' onClick={handleLogout}>Logout</button>
-                                </div> :
-                                    <Link to="/login">Login</Link>
-                            }
-
-                        </div>
+                    <div className="float-right">
+                        {
+                            user ? userLinks : authLinks
+                        }
                     </div>
-
-                    {/* <div className="flex gap-4">
-                        {socials.map((social) => (
-                            <a href={social.link} key={social.id}>
-                                <social.icon className="text-body text-lg hover:text-primary-teal transition" />
-                            </a>
-                        ))}
-                    </div> */}
                 </div>
             </div>
 
@@ -94,20 +82,13 @@ const BottomNav = () => {
                 <div className=" bg-white h-screen mx-auto z-50 items-center">
                     <div className="flex bg-white justify-between items-center">
                         <div className="flex items-center">
-                            <img loading="lazy" className="w-16" src={logo} alt="VirtualDoc logo" />
-                            <h2 className="text-3xl font-bold text-secondary-blue">
-                                VirtualDoc
-                            </h2>
+                            <Logo></Logo>
                         </div>
                         <FaX onClick={() => setOpenNav(false)} className="text-lg" />
                     </div>
 
                     <ul className="flex  flex-col gap-2 font-bold text-secondary-blue font-open-sans py-3">
-                        {navLinks.map((link, idx) => (
-                            <Link key={idx} to={link.link}>
-                                {link.label}
-                            </Link>
-                        ))}
+                        {navLinks}
                     </ul>
                 </div>
             </Drawer>

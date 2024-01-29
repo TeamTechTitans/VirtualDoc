@@ -6,11 +6,9 @@ import {
 } from "@heroicons/react/24/solid";
 import {
     Card,
-    Chip,
     List,
     ListItem,
     ListItemPrefix,
-    ListItemSuffix,
     Typography
 } from "@material-tailwind/react";
 import React from 'react';
@@ -81,8 +79,8 @@ const DashboardNav = () => {
                 </Link>
 
                 <hr className="my-2 border-blue-gray-50" />
-                <ListItem>
-                    <Link to="/" className="flex">
+                <Link to="/" className="flex">
+                    <ListItem>
                         <ListItemPrefix>
                             <HomeIcon className="h-5 w-5" />
                         </ListItemPrefix>
@@ -90,8 +88,8 @@ const DashboardNav = () => {
                         {/* <ListItemSuffix>
                             <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
                         </ListItemSuffix> */}
-                    </Link>
-                </ListItem>
+                    </ListItem>
+                </Link>
                 <ListItem>
                     <ListItemPrefix>
                         <UserCircleIcon className="h-5 w-5" />
