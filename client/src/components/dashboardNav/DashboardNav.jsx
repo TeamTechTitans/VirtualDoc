@@ -1,33 +1,23 @@
-import React from "react";
+import {
+  Cog6ToothIcon,
+  InboxIcon,
+  MagnifyingGlassIcon,
+  PowerIcon,
+  UserCircleIcon,
+} from "@heroicons/react/24/solid";
 import {
   Card,
-  Typography,
+  Chip,
+  Input,
   List,
   ListItem,
   ListItemPrefix,
   ListItemSuffix,
-  Chip,
-  Accordion,
-  AccordionHeader,
-  AccordionBody,
-  Alert,
-  Input,
+  Typography,
 } from "@material-tailwind/react";
-import {
-  PresentationChartBarIcon,
-  ShoppingBagIcon,
-  UserCircleIcon,
-  Cog6ToothIcon,
-  InboxIcon,
-  PowerIcon,
-} from "@heroicons/react/24/solid";
-import {
-  ChevronRightIcon,
-  ChevronDownIcon,
-  CubeTransparentIcon,
-  MagnifyingGlassIcon,
-} from "@heroicons/react/24/outline";
+import React from "react";
 import { Link } from "react-router-dom";
+import Logo from "../logo/Logo";
 
 const DashboardNav = () => {
   const [open, setOpen] = React.useState(0);

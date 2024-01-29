@@ -1,6 +1,6 @@
 import { Button } from "@material-tailwind/react";
-import {Link, useNavigate} from 'react-router-dom'
-const BlogCard = ({ blog }) => {
+import { Link, useNavigate } from 'react-router-dom'
+const TipCard = ({ tip }) => {
   const navigate = useNavigate()
   const {
     id,
@@ -12,11 +12,12 @@ const BlogCard = ({ blog }) => {
     month,
     author,
     hashtags,
-  } = blog;
+  } = tip;
 
-  const handleViewBlog = id =>{
-    navigate(`/blog/${id}`, { state: { blog } });
+  const handleViewTip = id => {
+    navigate(`/tips/${id}`, { state: { tip } });
   }
+
 
   return (
     <div className="space-y-3 my-10 md:w-[90%]">
@@ -44,16 +45,16 @@ const BlogCard = ({ blog }) => {
               ? description
               : `${description.slice(0, 150)}..`}
           </p>
-          {/* <Link to={`/blog/${id}`}> */}
-            <Button onClick={()=>handleViewBlog(id)} className="rounded-full" color="cyan">
+          {/* <Link to={`/tip/${id}`}> */}
+          <Button onClick={() => handleViewTip(id)} className="rounded-full" color="cyan">
             Read More
-            </Button>
+          </Button>
           {/* </Link> */}
-          
+
         </div>
       </div>
     </div>
   );
 };
 
-export default BlogCard;
+export default TipCard;
