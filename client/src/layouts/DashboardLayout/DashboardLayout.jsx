@@ -27,12 +27,17 @@ export default function DashboardLayout() {
                             />
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div className="hidden xl:flex items-center">
                         <div className="">
                             <div className="float-right">
                                 <Outlet></Outlet>
                             </div>
                         </div>
+=======
+                    <div className="hidden xl:block w-full items-center">
+                        <Outlet></Outlet>
+>>>>>>> 32679e509a8182085732ebf3a414e76f7e234eda
                     </div>
 
                 </div>

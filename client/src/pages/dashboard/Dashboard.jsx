@@ -4,10 +4,18 @@ import { IoDocumentText } from "react-icons/io5";
 import { MdPeopleAlt } from "react-icons/md";
 import AreaCharts from "./AreaCharts";
 import PieCharts from "./PieCharts";
+<<<<<<< HEAD
+=======
+import DashboardHeading from "../../components/DashboardHeading/DashboardHeading";
+>>>>>>> 32679e509a8182085732ebf3a414e76f7e234eda
 
 const Dashboard = () => {
   return (
     <div className="col-span-9 w-11/12 mx-auto mt-10">
+<<<<<<< HEAD
+=======
+      <DashboardHeading title="Dashboard">Welcome to dashboard</DashboardHeading>
+>>>>>>> 32679e509a8182085732ebf3a414e76f7e234eda
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 ">
         <div className="bg-white h-32 p-3 w-full shadow-md rounded-lg">
           <div className="flex text-4xl gap-3 my-3">

@@ -1,9 +1,14 @@
 import { Button, Card, Typography } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
+<<<<<<< HEAD
+=======
+import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
+>>>>>>> 32679e509a8182085732ebf3a414e76f7e234eda
 
 
 
 const Appoinment = () => {
+<<<<<<< HEAD
   const [appoinment,setAppoinment]=useState([]);
   const TABLE_HEAD = ["Name", "Date", "Time", "Treatment","Payment"];
 
@@ -98,6 +103,103 @@ const Appoinment = () => {
         </tbody>
       </table>
     </Card>
+=======
+  const [appoinment, setAppoinment] = useState([]);
+  const TABLE_HEAD = ["Name", "Date", "Time", "Treatment", "Payment"];
+
+  useEffect(() => {
+    fetch('/appoinment.json')
+      .then(res => res.json())
+      .then(data => setAppoinment(data))
+  }, [])
+
+  return (
+    <div className="">
+      <DashboardHeading title="Appoinments">Manage Appoinments</DashboardHeading>
+      <Card className="h-full overflow-auto mx-auto my-6 px-5 ml-6">
+        <table className="table-auto text-center font-barlow">
+          <thead>
+            <tr>
+              {TABLE_HEAD.map((head) => (
+                <th
+                  key={head}
+                  className="border-b border-blue-gray-100 bg-light-teal  p-4"
+                >
+                  <Typography
+                    variant="small"
+                    color="blue-gray"
+                    className="font-normal leading-none opacity-70"
+                  >
+                    {head}
+                  </Typography>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody >
+            {appoinment.map(({ name, date, time, treatment, pay }, index) => {
+              const isLast = index === appoinment.length - 1;
+              const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
+
+              return (
+                <tr className="font-barlow" key={name}>
+                  <td className={classes}>
+                    <div className="flex items-center gap-3">
+                      <Typography
+                        variant="small"
+                        color="blue-gray"
+                        className="font-bold mx-3"
+                      >
+                        {index + 1}
+                      </Typography>
+                      <div className="flex flex-col">
+                        <Typography
+                          variant="small"
+                          color="blue-gray"
+                          className="font-normal"
+                        >
+                          {name}
+                        </Typography>
+                      </div>
+                    </div>
+                  </td>
+                  <td className={classes}>
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal"
+                    >
+                      {date}
+                    </Typography>
+                  </td>
+                  <td className={classes}>
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal"
+                    >
+                      {time}
+                    </Typography>
+                  </td>
+                  <td className={classes}>
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+                      className="font-normal"
+                    >
+                      {treatment}
+                    </Typography>
+                  </td>
+                  <td className={classes}>
+                    <Button className="bg-secondary-blue" size="sm">Pay</Button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </Card>
+>>>>>>> 32679e509a8182085732ebf3a414e76f7e234eda
     </div>
   );
 };
