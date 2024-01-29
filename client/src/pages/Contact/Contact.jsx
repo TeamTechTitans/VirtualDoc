@@ -1,13 +1,34 @@
+import emailjs from '@emailjs/browser';
 import { Button, Input, Textarea } from "@material-tailwind/react";
+import { useRef } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoCallSharp } from 'react-icons/io5';
 import { MdEmail } from 'react-icons/md';
 import { Form } from "react-router-dom";
+import Swal from 'sweetalert2';
 import Freebook from "../../components/FreeBook/Freebook";
 import CustomTitle from "./../../components/CustomTitle/CustomTitle";
 import Map from './../../components/Map/Map';
 import SiteHeader from './../../components/siteHeader/SiteHeader';
+
+
+
 const Contact = () => {
+  // const { register, handleSubmit, reset } = useForm();
+  const form = useRef()
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs.sendForm('service_60oukpk', 'template_vqqudzj', form.current, 'gxPZE-jijqxBj_CBJ')
+      .then((result) => {
+          // console.log(result.text);
+          Swal.fire('Registration Successful');
+          form.current.reset();
+      }, (error) => {
+          console.log(error.text);
+      });
+      
+  };
+
   return (
     <div>
       <SiteHeader children={'Contact Us'} title={'Home - Contact us'}></SiteHeader>
@@ -58,28 +79,28 @@ const Contact = () => {
             Have Any Questins Contact With Us Full Name
           </h2>
         </div>
-        <Form className="w-11/12 mx-auto">
+        <Form ref={form} onSubmit={sendEmail} className="w-11/12 mx-auto">
           <div className="md:flex gap-6">
             <div className="md:w-1/2">
-            <Input  label="Full Name " type="text" />
+            <Input  label="Full Name " type="text" name="from_name"/>
             </div>
             <div className="mt-6 md:mt-0 md:w-1/2">
-            <Input label="Email" type="email" />
+            <Input label="Email" type="email" name="from_email"/>
             </div>
           </div>
           <div className="md:flex gap-6 my-6">
             <div className="md:w-1/2">
-            <Input label="Phone" type="number" />
+            <Input label="Phone" type="number" name="from_number"/>
             </div>
             <div className="mt-6 md:mt-0 md:w-1/2">
-            <Input label="Subject" type="text" />
+            <Input label="Subject" type="text" name="from_subject"/>
             </div>
           </div>
           <div>
-            <Textarea className="h-48" label="Message" type="text" />
+            <Textarea className="h-60" label="Message" type="text" name="message"/>
           </div>
           <div className="text-center">
-            <Button className="rounded-full mt-5" color="cyan">
+            <Button type='submit' className="rounded-full mt-5" color="cyan">
               Send Message
             </Button>
           </div>
