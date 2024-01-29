@@ -1,4 +1,3 @@
-
 import ImageSection from "../Home/FaQueSection/ImageSection";
 
 import { FaRegCheckCircle } from "react-icons/fa";
@@ -13,7 +12,6 @@ const Research = () => {
           shadow={false}
           className="container mx-auto flex justify-between flex-col lg:flex-row-reverse"
         >
-         
           <CardBody className="font-Barlow pl-3 text-justify pr-3 lg:pr-10">
             <CustomTitle title={"About Research"}></CustomTitle>
             <Typography
