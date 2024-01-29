@@ -1,6 +1,6 @@
 import {
     Cog6ToothIcon,
-    InboxIcon,
+    HomeIcon,
     PowerIcon,
     UserCircleIcon
 } from "@heroicons/react/24/solid";
@@ -61,7 +61,7 @@ const DashboardNav = () => {
                 <Link to={'/dashboard/appoinment'}>
                     <ListItem className="p-0">
                         <Typography color="blue-gray" className="mr-auto p-2 font-normal">
-                        Appoinments
+                            Appoinments
                         </Typography>
                     </ListItem>
                 </Link>
@@ -82,13 +82,15 @@ const DashboardNav = () => {
 
                 <hr className="my-2 border-blue-gray-50" />
                 <ListItem>
-                    <ListItemPrefix>
-                        <InboxIcon className="h-5 w-5" />
-                    </ListItemPrefix>
-                    Inbox
-                    <ListItemSuffix>
-                        <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
-                    </ListItemSuffix>
+                    <Link to="/" className="flex">
+                        <ListItemPrefix>
+                            <HomeIcon className="h-5 w-5" />
+                        </ListItemPrefix>
+                        Home
+                        {/* <ListItemSuffix>
+                            <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
+                        </ListItemSuffix> */}
+                    </Link>
                 </ListItem>
                 <ListItem>
                     <ListItemPrefix>
