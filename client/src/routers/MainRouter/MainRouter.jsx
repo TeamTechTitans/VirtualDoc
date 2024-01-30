@@ -17,6 +17,7 @@ import AllUsers from "../../pages/dashboard/AllUsers/AllUsers";
 import Appoinment from "../../pages/dashboard/Appoinment/Appoinment";
 import Dashboard from "../../pages/dashboard/Dashboard";
 import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
+import VideoCall from "../../pages/dashboard/VideoCall/VideoCall";
 import Doctors from './../../pages/doctors/Doctors';
 
 
@@ -99,6 +100,10 @@ const MainRouter = createBrowserRouter([
             {
                 path: "appoinment",
                 element: <Appoinment />
+            },
+            {
+                path: "videocall",
+                element: <VideoCall />
             },
         ]
     }
