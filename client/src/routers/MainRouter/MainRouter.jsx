@@ -18,6 +18,7 @@ import Appoinment from "../../pages/dashboard/Appoinment/Appoinment";
 import Dashboard from "../../pages/dashboard/Dashboard";
 import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
 import Doctors from './../../pages/doctors/Doctors';
+import Cart from "../../pages/dashboard/Cart/Cart";
 
 
 
@@ -99,6 +100,10 @@ const MainRouter = createBrowserRouter([
             {
                 path: "appoinment",
                 element: <Appoinment />
+            },
+            {
+                path: "cart",
+                element: <Cart />
             },
         ]
     }
