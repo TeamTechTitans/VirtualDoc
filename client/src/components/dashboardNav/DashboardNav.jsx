@@ -1,5 +1,6 @@
 import {
   Cog6ToothIcon,
+  HomeIcon,
   InboxIcon,
   MagnifyingGlassIcon,
   PowerIcon,
@@ -14,6 +15,7 @@ import {
 } from "@material-tailwind/react";
 import React from "react";
 import { Link } from "react-router-dom";
+import Logo from "../logo/Logo";
 
 const DashboardNav = () => {
   const [open, setOpen] = React.useState(0);

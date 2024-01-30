@@ -1,7 +1,8 @@
-import { Button, Option, Select } from "@material-tailwind/react";
+import { Button, Input, Option, Select } from "@material-tailwind/react";
 import axios from 'axios';
 import { useForm } from "react-hook-form";
 import { FaImage } from "react-icons/fa6";
+import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
