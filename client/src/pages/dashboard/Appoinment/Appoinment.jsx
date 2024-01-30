@@ -1,12 +1,14 @@
 import { Button, Card, Typography } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
+import { FcVideoCall } from "react-icons/fc";
+import { Link } from "react-router-dom";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
 
 
 
 const Appoinment = () => {
   const [appoinment, setAppoinment] = useState([]);
-  const TABLE_HEAD = ["Name", "Date", "Time", "Treatment", "Payment"];
+  const TABLE_HEAD = ["Name", "Date", "Time", "Treatment","Video Call", "Payment"];
 
   useEffect(() => {
     fetch('/appoinment.json')
@@ -90,6 +92,9 @@ const Appoinment = () => {
                     >
                       {treatment}
                     </Typography>
+                  </td>
+                  <td className={classes}>
+                    <Link to='/dashboard/videocall'><FcVideoCall className="mx-auto text-3xl"/></Link>
                   </td>
                   <td className={classes}>
                     <Button className="bg-secondary-blue" size="sm">Pay</Button>
