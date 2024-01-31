@@ -1,18 +1,32 @@
 import { Button, Card, Typography } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
+import { useNavigate } from "react-router-dom";
 
 
 
 const Appoinment = () => {
   const [appoinment, setAppoinment] = useState([]);
   const TABLE_HEAD = ["Name", "Date", "Time", "Treatment", "Payment"];
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetch('/appoinment.json')
       .then(res => res.json())
       .then(data => setAppoinment(data))
   }, [])
+
+  const handleNavigateToCart=(name,treatment,date, time, pay)=>{
+    const appointment = {
+      name: name,
+      treatment: treatment,
+      date: date,
+      time: time,
+      pay: pay
+    }
+    navigate('/dashboard/cart', { state: appointment });
+    
+  }
 
   return (
     <div className="">
@@ -92,7 +106,7 @@ const Appoinment = () => {
                     </Typography>
                   </td>
                   <td className={classes}>
-                    <Button className="bg-secondary-blue" size="sm">Pay</Button>
+                    <Button onClick={()=>handleNavigateToCart(name,treatment,date, time, pay)} className="bg-secondary-blue" size="sm">Pay</Button>
                   </td>
                 </tr>
               );
