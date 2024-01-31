@@ -18,7 +18,7 @@ const Contact = () => {
   const form = useRef()
   const sendEmail = (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_60oukpk', 'template_vqqudzj', form.current, 'gxPZE-jijqxBj_CBJ')
+    emailjs.sendForm('service_q7njoam', 'template_87pp00j', form.current, 'sFFcWSn4w_Yhebe_W')
       .then((result) => {
           // console.log(result.text);
           Swal.fire('Registration Successful');
@@ -89,7 +89,7 @@ const Contact = () => {
             </div>
           </div>
           <div className="md:flex gap-6 my-6">
-            <div className="md:w-1/2">
+          <div className="md:w-1/2">
             <Input label="Phone" type="number" name="from_number"/>
             </div>
             <div className="mt-6 md:mt-0 md:w-1/2">
