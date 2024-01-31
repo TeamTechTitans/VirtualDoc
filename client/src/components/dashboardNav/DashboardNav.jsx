@@ -74,13 +74,6 @@ const DashboardNav = () => {
             </Typography>
           </ListItem>
         </Link>
-        <Link to={'/dashboard/cart'}>
-          <ListItem className="p-0">
-            <Typography color="blue-gray" className="mr-auto p-2 font-normal">
-              Cart
-            </Typography>
-          </ListItem>
-        </Link>
 
         <hr className="my-2 border-blue-gray-50" />
         <Link to="/" className="flex">

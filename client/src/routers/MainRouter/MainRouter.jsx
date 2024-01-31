@@ -20,6 +20,7 @@ import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
 import Doctors from './../../pages/doctors/Doctors';
 import Cart from "../../pages/dashboard/Cart/Cart";
 import PaymentSuccess from "../../pages/dashboard/PaymentSuccess/PaymentSuccess";
+import PaymentHistory from "../../pages/dashboard/paymentHistory/PaymentHistory";
 
 
 
@@ -105,6 +106,10 @@ const MainRouter = createBrowserRouter([
             {
                 path: "cart",
                 element: <Cart />
+            },
+            {
+                path:'paymentHistory',
+                element:<PaymentHistory />
             },
             {
                 path:'payment/success/:tranId',
