@@ -34,13 +34,13 @@ const TeamMember = () => {
                                 </Typography>
                             </div>
                             <div className='flex gap-3 justify-center my-5'>
-                                <div className='border-2 p-2 rounded-full border-black hover:bg-primary-teal hover:border-white duration-300 hover:bg-primary-teal hover:border-white duration-300'>
+                                <div className='border-2 p-2 rounded-full border-black hover:bg-primary-teal hover:border-white duration-300'>
                                     <span className='hover:text-white'><FaFacebookF /></span>
                                 </div>
-                                <div className='border-2 p-2 rounded-full border-black hover:bg-primary-teal hover:border-white duration-300 hover:bg-primary-teal hover:border-white duration-300'>
+                                <div className='border-2 p-2 rounded-full border-black hover:bg-primary-teal hover:border-white duration-300'>
                                     <span className='hover:text-white'><FaTwitter /></span>
                                 </div>
-                                <div className='border-2 p-2 rounded-full border-black hover:bg-primary-teal hover:border-white duration-300 hover:bg-primary-teal hover:border-white duration-300'>
+                                <div className='border-2 p-2 rounded-full border-black hover:bg-primary-teal hover:border-white duration-300'>
                                     <span className='hover:text-white'><FaInstagram /></span>
                                 </div>
                             </div>
@@ -67,13 +67,13 @@ const TeamMember = () => {
                                 </Typography>
                             </div>
                             <div className='flex gap-3 justify-center my-5'>
-                                <div className='border-2 p-2 rounded-full border-black hover:bg-primary-teal hover:border-white duration-300 hover:bg-primary-teal hover:border-white duration-300'>
+                                <div className='border-2 p-2 rounded-full border-black hover:bg-primary-teal hover:border-white duration-300'>
                                     <span className='hover:text-white'><FaFacebookF /></span>
                                 </div>
-                                <div className='border-2 p-2 rounded-full border-black hover:bg-primary-teal hover:border-white duration-300 hover:bg-primary-teal hover:border-white duration-300'>
+                                <div className='border-2 p-2 rounded-full border-black hover:bg-primary-teal hover:border-white duration-300'>
                                     <span className='hover:text-white'><FaTwitter /></span>
                                 </div>
-                                <div className='border-2 p-2 rounded-full border-black hover:bg-primary-teal hover:border-white duration-300 hover:bg-primary-teal hover:border-white duration-300'>
+                                <div className='border-2 p-2 rounded-full border-black hover:bg-primary-teal hover:border-white duration-300'>
                                     <span className='hover:text-white'><FaInstagram /></span>
                                 </div>
                             </div>
@@ -100,13 +100,13 @@ const TeamMember = () => {
                                 </Typography>
                             </div>
                             <div className='flex gap-3 justify-center my-5'>
-                                <div className='border-2 p-2 rounded-full border-black hover:bg-primary-teal hover:border-white duration-300 hover:bg-primary-teal hover:border-white duration-300'>
+                                <div className='border-2 p-2 rounded-full border-black hover:bg-primary-teal hover:border-white duration-300'>
                                     <span className='hover:text-white'><FaFacebookF /></span>
                                 </div>
-                                <div className='border-2 p-2 rounded-full border-black hover:bg-primary-teal hover:border-white duration-300 hover:bg-primary-teal hover:border-white duration-300'>
+                                <div className='border-2 p-2 rounded-full border-black hover:bg-primary-teal hover:border-white duration-300'>
                                     <span className='hover:text-white'><FaTwitter /></span>
                                 </div>
-                                <div className='border-2 p-2 rounded-full border-black hover:bg-primary-teal hover:border-white duration-300 hover:bg-primary-teal hover:border-white duration-300'>
+                                <div className='border-2 p-2 rounded-full border-black hover:bg-primary-teal hover:border-white duration-300'>
                                     <span className='hover:text-white'><FaInstagram /></span>
                                 </div>
                             </div>
