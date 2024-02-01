@@ -1,28 +1,60 @@
-import { Button, Card, Typography } from "@material-tailwind/react";
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
+import React from "react";
+import {
+  Button,
+  Dialog,
+  Card,
+  CardBody,
+  CardFooter,
+  Typography,
+  Input,
+  Checkbox,
+} from "@material-tailwind/react";
+import ManageModal from "./ManageModal";
 
 const AllUsers = () => {
-  const [user, setUser] = useState([]);
+  const [userData, setUserData] = React.useState([]);
   const TABLE_HEAD = ["Name", "Email", "location", "Blood-Group", "Action"];
 
-  useEffect(() => {
-    fetch('/allUsers.json')
-      .then(res => res.json())
-      .then(data => setUser(data))
-  }, [])
+
+  const { data: userDetails = [] } = useQuery({
+    queryKey: ['users'],
+    queryFn: async () => {
+      const res = await fetch("http://localhost:5000/users");
+      const users = await res.json();
+      return users;
+    },
+  });
+
+  // const { data } = useQuery({
+  //   queryKey: ['repoData'],
+  //   queryFn: () =>
+  //     fetch('http://localhost:5000/users').then((res) =>
+  //       res.json(),
+  //     ),
+  // })
+  const classes = "p-4 border-b border-blue-gray-50";
+
+  //  Manage Modal
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = (user) => {
+    setOpen(!open)
+    setUserData(user)
+  };
+
 
   return (
-    <div className="pt-10 px-5">
-      <DashboardHeading title="All Users">Manage All Users</DashboardHeading>
-      <Card className="h-full w-full overflow-auto">
+    <div className="flex p-2 flex-col items-center">
+      <DashboardHeading title="All users">Manage All Users</DashboardHeading>
+      <Card className="w-full max-w-7xl overflow-auto">
         <table className="w-full min-w-max table-auto text-center font-barlow">
           <thead>
             <tr>
-              {TABLE_HEAD.map((head) => (
+              {TABLE_HEAD.map((head, idx) => (
                 <th
-                  key={head}
-                  className="border-b border-blue-gray-100 bg-light-teal p-4"
+                  key={idx}
+                  className="border-b border-blue-gray-100 bg-secondary-teal p-4"
                 >
                   <Typography
                     variant="small"
@@ -36,59 +68,56 @@ const AllUsers = () => {
             </tr>
           </thead>
           <tbody >
-            {user.map(({ name, email, location, bloodgroup }, index) => {
-              const isLast = index === user.length - 1;
-              const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
+            {userDetails?.map((user, index) => <tr className="font-barlow" key={index}>
+              <td className={classes}>
+                <Typography
+                  variant="small"
+                  color="blue-gray"
+                  className="font-normal"
+                >
+                  {user?.name}
+                </Typography>
+              </td>
+              <td className={classes}>
+                <Typography
+                  variant="small"
+                  color="blue-gray"
+                  className="font-normal"
+                >
+                  {user?.email}
+                </Typography>
+              </td>
+              <td className={classes}>
+                <Typography
+                  variant="small"
+                  color="blue-gray"
+                  className="font-normal"
+                >
+                  {user?.loc}
+                </Typography>
+              </td>
+              <td className={classes}>
+                <Typography
+                  variant="small"
+                  color="blue-gray"
+                  className="font-normal"
+                >
+                  {user?.blood_group}
+                </Typography>
+              </td>
+              <td className={classes}>
+                <Button color="blue" onClick={() => handleOpen(user)} className="px-2 py-1 rounded-none mr-2 normal-case">Manage</Button>
 
-              return (
-                <tr className="font-barlow" key={name}>
-                  <td className={classes}>
-                    <Typography
-                      variant="small"
-                      color="blue-gray"
-                      className="font-normal"
-                    >
-                      {name}
-                    </Typography>
-                  </td>
-                  <td className={classes}>
-                    <Typography
-                      variant="small"
-                      color="blue-gray"
-                      className="font-normal"
-                    >
-                      {email}
-                    </Typography>
-                  </td>
-                  <td className={classes}>
-                    <Typography
-                      variant="small"
-                      color="blue-gray"
-                      className="font-normal"
-                    >
-                      {location}
-                    </Typography>
-                  </td>
-                  <td className={classes}>
-                    <Typography
-                      variant="small"
-                      color="blue-gray"
-                      className="font-normal"
-                    >
-                      {bloodgroup}
-                    </Typography>
-                  </td>
-                  <td className={classes}>
-                    <Button className="mr-2" color="red">Delete</Button>
-                    <Button color="blue">Edit</Button>
-                  </td>
-                </tr>
-              );
-            })}
+                <Button className="px-2 py-1 rounded-none normal-case" color="red">Delete</Button>
+              </td>
+            </tr>
+
+            )}
           </tbody>
         </table>
       </Card>
-    </div>
+      <ManageModal handleOpen={handleOpen} open={open} user={userData}></ManageModal>
+    </div >
   );
 };
 
