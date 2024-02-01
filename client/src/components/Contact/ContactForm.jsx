@@ -42,7 +42,6 @@ const ContactForm = () => {
               placeholder="Phone"
               className="rounded-full p-2 px-4 bg-[#1A53B8] placeholder:text-white outline-none focus:border-white border-2 border-solid border-transparent w-full"
               name="from_number"
-              required
             />
           </div>
         </div>
