@@ -24,7 +24,7 @@ const StickyNav = () => {
 
     return (
         <nav
-            className={`fixed z-50 top-0 left-0 right-0 transition-all ${showNav ? "" : "hidden"
+            className={`fixed z-50 top-0 left-0 right-0 transition-all ${showNav ? "" : "-mt-20"
                 }`}
         >
             <div className="z-50">

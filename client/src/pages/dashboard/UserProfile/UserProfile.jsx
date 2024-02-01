@@ -1,57 +1,92 @@
+import React, { useEffect, useState } from 'react';
 import {
-    Avatar,
-    Button,
     Card,
     CardBody,
     CardFooter,
-    CardHeader,
-    Input,
     Typography,
-} from "@material-tailwind/react";
-import React from 'react';
-import DashboardHeading from '../../../components/DashboardHeading/DashboardHeading';
+    Button,
+    Input,
+    CardHeader,
+    Avatar,
+  } from "@material-tailwind/react";
+import { useContext } from 'react';
+import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const UserProfile = () => {
-    return (
-        <>
-            <DashboardHeading title="Profile">Edit Your Profile</DashboardHeading>
-            <div className='flex justify-center my-16'>
-                <Card className="mt-16">
-                    <CardHeader className='flex justify-center'>
+   const {user}=useContext(AuthContext);
+    const [users,setUsers]=useState([]);
+    useEffect(()=>{
+        fetch(`http://localhost:5000/users/${user.email}`)
+        .then(res=>res.json())
+        .then(data=>setUsers(data))
+    },[])
+
+        const handleUpdateForm=(e)=>{
+        e.preventDefault();
+        const form=e.target;
+        const name=form.u_name.value;
+        const email=form.u_email.value;
+        const blood_group=form.u_blood_group.value;
+        const location=form.u_loc.value;
+        const updateUserData={name,email,blood_group,location};
+        console.log(updateUserData);
+        fetch(`http://localhost:5000/users/${users._id}`,{
+            method:"PUT",
+            headers: {
+                'content-type': 'application/json'
+              },
+            body: JSON.stringify(updateUserData)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+            if(data.modifiedCount>0){
+                Swal.fire('Data updated');
+            }
+        })
+    }
+
+
+    return (<>
+        <div className='flex justify-center my-16'>
+            <form onSubmit={handleUpdateForm}>
+                        <Card className="mt-20">
+                        <CardHeader className='flex justify-center shadow-2xl'>
                         <Avatar
                             size="xl"
                             variant="circular"
                             alt="tania andrew"
-                            className=" my-2"
-                            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
-                        />
-                    </CardHeader>
-                    <CardBody>
-                        <Typography variant="h4" color="blue-gray" className="mb-2 text-center">
-                            Profile Data
-                        </Typography>
-                        <div className='grid lg:grid-cols-2 grid-cols-1 gap-4'>
-                            <div className="max-w-72">
-                                <Input color='teal' label="Username" />
+                            className="border-2 border-white my-2"
+                            src={`${user.photoURL}`}
+                            />
+                        </CardHeader>
+                        <CardBody>
+                            <Typography variant="h2" color="blue-gray" className="mb-2 text-center">
+                            {users.name}'s Profile
+                            </Typography>
+                            <div className='grid lg:grid-cols-2 grid-cols-1 gap-4'>
+                                <div className="w-72">
+                                    <Input defaultValue={users.name} name="u_name" label="Username" />
+                                </div>
+                                <div className="w-72">
+                                    <Input defaultValue={users.email} name="u_email" label="Email" />
+                                </div>
+                                <div className="w-72">
+                                    <Input defaultValue={users.loc}  name="u_loc"  label="Location" />
+                                </div>
+                                <div className="w-72">
+                                    <Input defaultValue={users.blood_group} name="u_blood_group" label="Blood Group" />
+                                </div>
                             </div>
-                            <div className="max-w-72">
-                                <Input color='teal' label="Email" />
-                            </div>
-                            <div className="max-w-72">
-                                <Input color='teal' label="Location" />
-                            </div>
-                            <div className="max-w-72">
-                                <Input color='teal' label="Blood Group" />
-                            </div>
-                        </div>
-                    </CardBody>
-                    <CardFooter className="pt-0 flex justify-center">
-                        <Button color='teal'>Edit Profile</Button>
-                    </CardFooter>
+                        </CardBody>
+                        <CardFooter className="pt-0 flex justify-center">
+                            <Button type='submit'>Edit Profile</Button>
+                        </CardFooter>
                 </Card>
-            </div>
-        </>
-    );
+         </form>
+        </div>
+   </> );
 };
 
 export default UserProfile;
