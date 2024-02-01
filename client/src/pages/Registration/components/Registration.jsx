@@ -44,7 +44,7 @@ const Registration = () => {
           updateUserProfile(data.name, data.image)
             .then(() => {
               //data insertion
-              fetch('http://localhost:5000/users/createUser', {
+              fetch('https://virtual-doc-backend.vercel.app/users/createUser', {
                 method: "POST",
                 headers: {
                   'content-type': 'application/json'
@@ -93,7 +93,7 @@ const Registration = () => {
         }
         console.log(googleData);
         //data insertion
-        fetch('http://localhost:5000/users/createUser', {
+        fetch('https://virtual-doc-backend.vercel.app/users/createUser', {
           method: "POST",
           headers: {
             'content-type': 'application/json'
