@@ -44,6 +44,7 @@ const AllUsers = () => {
   };
 
 
+
   return (
     <div className="flex p-2 flex-col items-center">
       <DashboardHeading title="All users">Manage All Users</DashboardHeading>
