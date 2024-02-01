@@ -118,6 +118,7 @@ const MainRouter = createBrowserRouter([
                 element: <DoctorApprovalDetails/>,
                 loader: ({params}) => fetch(`http://localhost:5000/doctorRequestDetail/${params.id}`)
             },
+            {
 
                 path: "videocall",
                 element: <VideoCall />
