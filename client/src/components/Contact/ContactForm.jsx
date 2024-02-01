@@ -32,6 +32,7 @@ const ContactForm = () => {
               placeholder="Email"
               className="rounded-full p-2 px-4 bg-[#1A53B8] placeholder:text-white outline-none focus:border-white border-2 border-solid border-transparent w-full"
               name="from_email"
+              required
             />
           </div>
           <div className="form-control">
@@ -41,6 +42,7 @@ const ContactForm = () => {
               placeholder="Phone"
               className="rounded-full p-2 px-4 bg-[#1A53B8] placeholder:text-white outline-none focus:border-white border-2 border-solid border-transparent w-full"
               name="from_number"
+              required
             />
           </div>
         </div>
@@ -53,6 +55,7 @@ const ContactForm = () => {
             className="rounded-xl p-2 bg-[#1A53B8] placeholder:text-white outline-none focus:border-white border-2 border-solid border-transparent w-full"
             label="Message"
             name="message"
+            required
           />
         </div>
         <div className="form-control mt-4">
