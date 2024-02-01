@@ -34,7 +34,7 @@ const Contact = () => {
       <SiteHeader children={'Contact Us'} title={'Home - Contact us'}></SiteHeader>
       <div className="relative -mt-6" >
         <Map></Map>
-        <div className="w-11/12 mx-auto">
+        <div className="w-11/12 h-60 md:h-16 lg:h-auto mx-auto">
         <div className="absolute bg-dark-blue p-16 w-11/12 mx-auto rounded-xl md:flex justify-around -mt-40">
           <div className="flex gap-5">
           <div className="bg-primary-black flex justify-center items-center rounded-full w-14 h-14">
@@ -70,12 +70,12 @@ const Contact = () => {
         </div>
         </div>
       </div>
-      <div>
+      <div >
         <div className="flex flex-col items-center text-center justify-center mt-24">
           <CustomTitle title={"RESEARCH TOPIC"} double></CustomTitle>
         </div>
         <div className="mb-14">
-          <h2 className="text-3xl text-center font-barlow font-bold dark-blue">
+          <h2 className="text-2xl w-11/12 mx-auto md:text-3xl text-center font-barlow font-bold dark-blue">
             Have Any Questins Contact With Us Full Name
           </h2>
         </div>
