@@ -15,6 +15,7 @@ import {
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
 import { useForm } from 'react-hook-form';
+import { GoogleAuthProvider } from 'firebase/auth';
 const Login = () => {
   const { register, handleSubmit, required  } = useForm(); 
   const {logIn,googleSignIn}=useContext(AuthContext);
@@ -38,31 +39,55 @@ const Login = () => {
       });
     reset();
     }
-  const handleGoogleLogin=()=>{
-    googleSignIn()
-    .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google Api
-        Swal.fire('Login Successful');
-        navigate('/');
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        Swal.fire('Login Successful');
-        navigate('/');
-
-      }).catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        toast('Invalid Email Or Password.Please Try Again');
-        // ...
-      });
-}
+    const handleGoogleLogin=()=>{
+      googleSignIn()
+      .then((result) => {
+          const credential = GoogleAuthProvider.credentialFromResult(result);
+          const token = credential.accessToken;
+          // The signed-in user info.
+          const user = result.user;
+          console.log(user);
+          //data collected from google
+          const googleData={
+            name:user.displayName,
+            image:user.photoURL,
+            loc:' ',
+            blood_group:' ',
+            email:user.email,
+            password:' ',
+          }
+          console.log(googleData);
+          //data insertion
+          fetch('http://localhost:5000/users/createUser',{
+                method:"POST",
+                headers: {
+                    'content-type': 'application/json'
+                  },
+                body:JSON.stringify(googleData)
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data);
+                if(data._id){
+                  Swal.fire('Login Successful');
+                  navigate('/');
+                }
+            })
+         // Swal.fire('Login Successful');
+        //  navigate('/');
+  
+        }).catch((error) => {
+          // Handle Errors here.
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // The email of the user's account used.
+          const email = error.customData.email;
+          // The AuthCredential type that was used.
+          const credential = GoogleAuthProvider.credentialFromError(error);
+          toast('Invalid Email Or Password.Please Try Again');
+          // ...
+        });
+  }
   return (<div className="max-w-6xl mx-auto relative flex border-b-0 text-gray-700 flex-col lg:flex-row my-10">
     <CardHeader
       shadow={false}

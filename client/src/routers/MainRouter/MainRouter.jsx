@@ -17,6 +17,7 @@ import AllUsers from "../../pages/dashboard/AllUsers/AllUsers";
 import Appoinment from "../../pages/dashboard/Appoinment/Appoinment";
 import Dashboard from "../../pages/dashboard/Dashboard";
 import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
+import VideoCall from "../../pages/dashboard/VideoCall/VideoCall";
 import Doctors from './../../pages/doctors/Doctors';
 import Cart from "../../pages/dashboard/Cart/Cart";
 import PaymentSuccess from "../../pages/dashboard/PaymentSuccess/PaymentSuccess";
@@ -104,10 +105,15 @@ const MainRouter = createBrowserRouter([
                 element: <Appoinment />
             },
             {
+                path: "videocall",
+                element: <VideoCall />
+            },
+            {
                 path: "cart",
                 element: <Cart />
             },
             {
+
                 path:'paymentHistory',
                 element:<PaymentHistory />
             },
@@ -115,6 +121,7 @@ const MainRouter = createBrowserRouter([
                 path:'payment/success/:tranId',
                 element:<PaymentSuccess />
               },
+
         ]
     }
 ]);
