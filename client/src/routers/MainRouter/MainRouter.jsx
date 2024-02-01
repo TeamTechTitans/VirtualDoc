@@ -22,6 +22,8 @@ import Doctors from './../../pages/doctors/Doctors';
 import Cart from "../../pages/dashboard/Cart/Cart";
 import PaymentSuccess from "../../pages/dashboard/PaymentSuccess/PaymentSuccess";
 import PaymentHistory from "../../pages/dashboard/paymentHistory/PaymentHistory";
+import DoctorApproval from "../../pages/dashboard/DoctorApproval/DoctorApproval";
+import DoctorApprovalDetails from "../../pages/dashboard/DoctorApproval/DoctorApprovalDetails";
 
 
 
@@ -120,8 +122,17 @@ const MainRouter = createBrowserRouter([
             {
                 path:'payment/success/:tranId',
                 element:<PaymentSuccess />
-              },
+            },
+            {
 
+                path: "doctorApproval",
+                element: <DoctorApproval/>
+            },
+            {
+                path: "doctorDetail/:id",
+                element: <DoctorApprovalDetails/>,
+                loader: ({params}) => fetch(`http://localhost:5000/doctorRequestDetail/${params.id}`)
+            },
         ]
     }
 ]);
