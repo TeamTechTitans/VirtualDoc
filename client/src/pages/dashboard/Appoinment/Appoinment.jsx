@@ -3,18 +3,35 @@ import { useEffect, useState } from "react";
 import { FcVideoCall } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
+import { useNavigate } from "react-router-dom";
 
 
 
 const Appoinment = () => {
   const [appoinment, setAppoinment] = useState([]);
+
+  const navigate = useNavigate()
+
   const TABLE_HEAD = ["Name", "Date", "Time", "Treatment","Video Call", "Payment"];
+
 
   useEffect(() => {
     fetch('/appoinment.json')
       .then(res => res.json())
       .then(data => setAppoinment(data))
   }, [])
+
+  const handleNavigateToCart=(name,treatment,date, time, pay)=>{
+    const appointment = {
+      name: name,
+      treatment: treatment,
+      date: date,
+      time: time,
+      pay: pay
+    }
+    navigate('/dashboard/cart', { state: appointment });
+    
+  }
 
   return (
     <div className="">
@@ -94,10 +111,12 @@ const Appoinment = () => {
                     </Typography>
                   </td>
                   <td className={classes}>
+
+
                     <Link to='/dashboard/videocall'><FcVideoCall className="mx-auto text-3xl"/></Link>
                   </td>
                   <td className={classes}>
-                    <Button className="bg-secondary-blue" size="sm">Pay</Button>
+                    <Button className="bg-secondary-blue" size="sm"onClick={()=>handleNavigateToCart(name,treatment,date, time, pay)} className="bg-secondary-blue" size="sm">Pay</Button>
                   </td>
                 </tr>
               );

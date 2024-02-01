@@ -1,14 +1,18 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../../../lib/hooks/useAuth";
-import axios from "axios";
 import { Input } from "@material-tailwind/react";
-import CustomTitle from "../../../components/CustomTitle/CustomTitle";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
 import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
+import { useLocation } from "react-router-dom";
+
 const Cart = () => {
   const { user } = useAuth();
   const { handleSubmit, register } = useForm();
+  const location = useLocation()
   const axiosPublic = useAxiosPublic();
+  const appointment = location.state;
+  const {name, treatment, pay, time, date} = appointment
+  
   const onSubmit = async (data) => {
     const bill = parseFloat(data.bill).toFixed(2)
     const info = {
@@ -17,7 +21,10 @@ const Cart = () => {
       address: data.address,
       phone: data.phone,
       price: parseFloat(bill),
-      date: new Date(),
+      billPayDate: new Date(),
+      appointmentDate: date,
+      appointmentTime: time,
+      treatment: treatment
     };
     console.log(info);
     const res = await axiosPublic.post('/payment', info)
@@ -43,7 +50,7 @@ const Cart = () => {
               color="teal"
               label="Name"
               type="text"
-              defaultValue={user?.displayName}
+              defaultValue={name}
               {...register("name", { required: true })}
               className="input input-bordered"
               required
@@ -84,9 +91,11 @@ const Cart = () => {
               color="teal"
               label="Amount"
               type="text"
+              defaultValue={pay}
               {...register("bill", { required: true })}
               className="input input-bordered"
               required
+              readOnly
             />
           </div>
           <div className="w-full text-center mt-3">

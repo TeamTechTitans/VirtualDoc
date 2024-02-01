@@ -21,6 +21,7 @@ import VideoCall from "../../pages/dashboard/VideoCall/VideoCall";
 import Doctors from './../../pages/doctors/Doctors';
 import Cart from "../../pages/dashboard/Cart/Cart";
 import PaymentSuccess from "../../pages/dashboard/PaymentSuccess/PaymentSuccess";
+import PaymentHistory from "../../pages/dashboard/paymentHistory/PaymentHistory";
 
 
 
@@ -112,9 +113,15 @@ const MainRouter = createBrowserRouter([
                 element: <Cart />
             },
             {
-                path: 'payment/success/:tranId',
-                element: <PaymentSuccess />
+
+                path:'paymentHistory',
+                element:<PaymentHistory />
             },
+            {
+                path:'payment/success/:tranId',
+                element:<PaymentSuccess />
+              },
+
         ]
     }
 ]);
