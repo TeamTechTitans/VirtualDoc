@@ -63,7 +63,7 @@ const AddDoctor = () => {
                         {...register("category", { required: true })}
                         className="w-full"
                     >
-                        <Option value="default" disabled>
+                        <Option hidden disabled>
                             Select a Specialty
                         </Option>
                         <Option value="teethOrthodontics">Teeth Orthodontics</Option>
