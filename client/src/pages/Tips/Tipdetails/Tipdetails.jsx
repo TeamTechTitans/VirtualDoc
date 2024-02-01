@@ -8,6 +8,7 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import SiteHeader from "../../../components/siteHeader/SiteHeader";
+import Comments from "./Comments/Comments";
 
 const TipDetails = () => {
   const location = useLocation();
@@ -93,6 +94,7 @@ const TipDetails = () => {
                   </ul>
                 </div>
               </div>
+              <Comments tip = {tips}></Comments>
             </div>
           </div>
         </div>

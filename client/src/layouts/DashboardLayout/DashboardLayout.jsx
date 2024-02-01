@@ -27,7 +27,7 @@ export default function DashboardLayout() {
                             />
                         </div>
                     </div>
-                    <div className="hidden xl:block w-full items-center">
+                    <div className="hidden  h-screen overflow-auto xl:block w-full items-center">
                         <Outlet></Outlet>
                     </div>
 
@@ -48,7 +48,7 @@ export default function DashboardLayout() {
                 </Drawer>
                 <div className="block  xl:hidden ">
                     <Outlet></Outlet>
-                    
+
                 </div>
             </nav>
         </>
