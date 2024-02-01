@@ -1,8 +1,6 @@
 import {
   Cog6ToothIcon,
   HomeIcon,
-  InboxIcon,
-  MagnifyingGlassIcon,
   PowerIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/solid";
