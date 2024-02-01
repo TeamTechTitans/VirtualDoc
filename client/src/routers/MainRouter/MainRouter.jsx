@@ -18,6 +18,8 @@ import Appoinment from "../../pages/dashboard/Appoinment/Appoinment";
 import Dashboard from "../../pages/dashboard/Dashboard";
 import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
 import Doctors from './../../pages/doctors/Doctors';
+import DoctorApproval from "../../pages/dashboard/DoctorApproval/DoctorApproval";
+import DoctorApprovalDetails from "../../pages/dashboard/DoctorApproval/DoctorApprovalDetails";
 
 
 
@@ -99,6 +101,15 @@ const MainRouter = createBrowserRouter([
             {
                 path: "appoinment",
                 element: <Appoinment />
+            },
+            {
+                path: "doctorApproval",
+                element: <DoctorApproval/>
+            },
+            {
+                path: "doctorDetail/:id",
+                element: <DoctorApprovalDetails/>,
+                loader: ({params}) => fetch(`http://localhost:5000/doctorRequestDetail/${params.id}`)
             },
         ]
     }
