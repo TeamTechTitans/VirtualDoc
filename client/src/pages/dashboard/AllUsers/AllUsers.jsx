@@ -73,7 +73,7 @@ const AllUsers = () => {
                 <Typography
                   variant="small"
                   color="blue-gray"
-                  className="font-normal"
+
                 >
                   {user?.name}
                 </Typography>
@@ -82,7 +82,7 @@ const AllUsers = () => {
                 <Typography
                   variant="small"
                   color="blue-gray"
-                  className="font-normal"
+
                 >
                   {user?.email}
                 </Typography>
@@ -91,7 +91,7 @@ const AllUsers = () => {
                 <Typography
                   variant="small"
                   color="blue-gray"
-                  className="font-normal"
+
                 >
                   {user?.loc}
                 </Typography>
@@ -100,7 +100,7 @@ const AllUsers = () => {
                 <Typography
                   variant="small"
                   color="blue-gray"
-                  className="font-normal"
+
                 >
                   {user?.blood_group}
                 </Typography>
