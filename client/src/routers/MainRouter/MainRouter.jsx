@@ -24,8 +24,7 @@ import DoctorApprovalDetails from "../../pages/dashboard/DoctorApproval/DoctorAp
 import Cart from "../../pages/dashboard/Cart/Cart";
 import PaymentSuccess from "../../pages/dashboard/PaymentSuccess/PaymentSuccess";
 import PaymentHistory from "../../pages/dashboard/paymentHistory/PaymentHistory";
-import DoctorApproval from "../../pages/dashboard/DoctorApproval/DoctorApproval";
-import DoctorApprovalDetails from "../../pages/dashboard/DoctorApproval/DoctorApprovalDetails";
+
 
 
 

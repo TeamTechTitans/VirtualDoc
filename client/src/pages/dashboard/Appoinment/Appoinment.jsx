@@ -36,8 +36,8 @@ const Appoinment = () => {
   return (
     <div className="">
       <DashboardHeading title="Appoinments">Manage Appoinments</DashboardHeading>
-      <Card className="h-full overflow-auto mx-auto my-6 px-5 ml-6">
-        <table className="table-auto text-center font-barlow">
+      <Card className="h-full max-w-7xl mx-auto overflow-auto my-6">
+        <table className="table-auto pr-5 text-center font-barlow">
           <thead>
             <tr>
               {TABLE_HEAD.map((head) => (

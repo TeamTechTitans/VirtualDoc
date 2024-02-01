@@ -25,7 +25,7 @@ const DoctorApproval = () => {
     });
     return (<>
         <DashboardHeading title="Validate Healthcare Professionals">Registration Request from Doctors</DashboardHeading>
-        <Card className="w-full max-w-7xl overflow-scroll">
+        <Card className="w-full mx-auto max-w-7xl overflow-auto">
   <table className="w-full min-w-max table-auto text-center font-barlow">
     <thead>
       <tr>
@@ -50,9 +50,7 @@ const DoctorApproval = () => {
         const isLast = index === doctorDetails.length - 1;
         const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
   
-        return (<>
-
-          <tr className="font-barlow" key={name}>
+        return ( <tr className="font-barlow" key={name}>
             <td className={classes}>
               <Typography
                 variant="small"
@@ -93,7 +91,7 @@ const DoctorApproval = () => {
             <Link  to={`/dashboard/doctorDetail/${_id}`}  className="btn btn-outline btn-sm btn-primary">See Details</Link>
             </td>
           </tr>
-          </>);
+          );
       })}
     </tbody>
   </table>
