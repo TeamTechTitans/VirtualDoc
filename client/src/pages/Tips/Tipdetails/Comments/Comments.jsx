@@ -20,7 +20,7 @@ const Comments = ({ tip }) => {
       return res.data;
     },
   });
-
+refetch()
   const onSubmit = async (data) => {
     reset();
     const comment = {
