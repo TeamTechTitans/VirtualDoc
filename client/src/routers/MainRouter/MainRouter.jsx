@@ -115,7 +115,7 @@ const MainRouter = createBrowserRouter([
             {
                 path: "doctorDetail/:id",
                 element: <DoctorApprovalDetails/>,
-                loader: ({params}) => fetch(`http://localhost:5000/doctorRequestDetail/${params.id}`)
+                loader: ({params}) => fetch(`https://virtual-doc-backend.vercel.app/doctorRequestDetail/${params.id}`)
             },
             {
 
@@ -143,7 +143,7 @@ const MainRouter = createBrowserRouter([
             {
                 path: "doctorDetail/:id",
                 element: <DoctorApprovalDetails/>,
-                loader: ({params}) => fetch(`http://localhost:5000/doctorRequestDetail/${params.id}`)
+                loader: ({params}) => fetch(`https://virtual-doc-backend.vercel.app/doctorRequestDetail/${params.id}`)
             },
         ]
     }

@@ -9,7 +9,7 @@ const DoctorApproval = () => {
     const TABLE_HEAD = ["Name", "Email", "Education", "Registration","Action"];
 
     // useEffect(()=>{
-    //     fetch('http://localhost:5000/users')
+    //     fetch('https://virtual-doc-backend.vercel.app/users')
     //     .then(res=>res.json())
     //     .then(data=>setUser(data))
     // },[])
@@ -17,7 +17,7 @@ const DoctorApproval = () => {
     const { data:doctorDetails=[] } = useQuery({
       queryKey: ['doctors'],
       queryFn: async () => {
-        const res = await fetch("http://localhost:5000/doctorsRequest");
+        const res = await fetch("https://virtual-doc-backend.vercel.app/doctorsRequest");
         const doctor = await res.json();
         console.log(doctor);
         return doctor;

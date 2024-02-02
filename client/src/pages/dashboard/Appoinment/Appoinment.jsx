@@ -69,7 +69,6 @@ const Appoinment = () => {
                         variant="small"
                         color="blue-gray"
                         className="font-bold mx-3"
-
                       >
                         {index + 1}
                       </Typography>
@@ -77,7 +76,6 @@ const Appoinment = () => {
                         <Typography
                           variant="small"
                           color="blue-gray"
-
                         >
                           {name}
                         </Typography>
