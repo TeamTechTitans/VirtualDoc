@@ -20,12 +20,17 @@ import {
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import useAxiosPublic from '../../../lib/hooks/useAxiosPublic';
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
+
 const Registration = () => {
   const { register, handleSubmit, required } = useForm();
   const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic();
   const { createUser, updateUserProfile, googleSignIn } = useContext(AuthContext);
 
-  const onSubmit = data => {
+  const onSubmit = async data => {
     console.log(data);
     if (data.password.length < 6) {
       return toast('Password should be 6 Character');
@@ -37,11 +42,21 @@ const Registration = () => {
       return toast('Kindly use at least one special character');
     }
     else {
+
+      const imageFile = { image: data.image[0] };
+    const res = await axiosPublic.post(image_hosting_api, imageFile, {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    });
+
+    const imageURL = res.data.data.display_url;
+    console.log(imageURL)
       createUser(data.email, data.password)
         .then((userCredential) => {
           // Signed up 
           const res_user = userCredential.user;
-          updateUserProfile(data.name, data.image)
+          updateUserProfile(data.name, imageURL)
             .then(() => {
               //data insertion
               fetch('https://virtual-doc-backend.vercel.app/users/createUser', {
@@ -55,7 +70,7 @@ const Registration = () => {
                 .then(data => {
                   console.log(data);
                   if (data._id) {
-                    Swal.fire('Data inserted');
+                    Swal.fire('User Created Successfully');
                   }
                 })
               navigate('/');
@@ -155,16 +170,16 @@ const Registration = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <CardBody className="flex flex-col gap-4">
               <Input label="Name" {...register("name")} size="lg" />
-              <Input label="Photo Link" {...register("image")} size="lg" />
+              <Input type='file' label="Photo Link" {...register("image")} size="lg" />
               <Input label="Location" {...register("loc")} size="lg" />
               <div className="">
                 <select {...register("blood_group")}
                   className="block appearance-none h-11 w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded-md leading-tight focus:outline-none focus:shadow-outline"
                   id="blood_group"
-                  name="blood_group"
+                  name="blood_group" defaultValue='default'
                   required
                 >
-                  <option selected hidden disabled>Select blood group</option>
+                  <option value='default'>Select blood group</option>
                   <option value="A+">A+</option>
                   <option value="A-">A-</option>
                   <option value="B+">B+</option>
