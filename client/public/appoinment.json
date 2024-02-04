@@ -1,72 +1,92 @@
 [
   {
     "name": "John Doe",
+    "email": "jhondoe@email.com",
     "date": "2024-04-01",
     "time": "10:30 AM",
     "treatment": "General Checkup",
-    "pay": 80.0
+    "pay": 80.0,
+    "paidStatus": false
   },
   {
     "name": "Alice Smith",
+    "email": "jhondoe@email.com",
     "date": "2024-04-02",
     "time": "02:15 PM",
     "treatment": "Dental Cleaning",
-    "pay": 120.0
+    "pay": 120.0,
+    "paidStatus": false
   },
   {
     "name": "Robert Johnson",
+    "email": "jhondoe@email.com",
     "date": "2024-04-03",
     "time": "09:45 AM",
     "treatment": "Physical Therapy",
-    "pay": 150.0
+    "pay": 150.0,
+    "paidStatus": false
   },
   {
     "name": "Emily Brown",
     "date": "2024-04-04",
+    "email": "mailme.jibon@gmail.com",
     "time": "11:00 AM",
     "treatment": "Eye Examination",
-    "pay": 100.0
+    "pay": 100.0,
+    "paidStatus": false
   },
   {
     "name": "Daniel Wilson",
+    "email": "mailme.jibon@gmail.com",
     "date": "2024-04-05",
     "time": "03:30 PM",
     "treatment": "Vaccination",
-    "pay": 50.0
+    "pay": 50.0,
+    "paidStatus": false
   },
   {
     "name": "Sophia Davis",
+    "email": "habib@gmail.com",
     "date": "2024-04-06",
     "time": "01:45 PM",
     "treatment": "Orthopedic Consultation",
-    "pay": 200.0
+    "pay": 200.0,
+    "paidStatus": false
   },
   {
     "name": "Ethan Miller",
+    "email": "habib@gmail.com",
     "date": "2024-04-07",
     "time": "10:00 AM",
     "treatment": "X-ray Imaging",
-    "pay": 75.0
+    "pay": 75.0,
+    "paidStatus": false
   },
   {
-    "name": "Olivia Turner",
+    "name": "Jibon Krishna Roy",
+    "email": "mailme.jibon@gmail.com",
     "date": "2024-04-08",
     "time": "04:15 PM",
     "treatment": "Counseling Session",
-    "pay": 90.0
+    "pay": 90.0,
+    "paidStatus": false
   },
   {
-    "name": "Michael White",
+    "name": "Partha Pal",
+    "email": "parthapradippal@gmail.com",
     "date": "2024-04-09",
     "time": "02:30 PM",
     "treatment": "Dermatology Appointment",
-    "pay": 120.0
+    "pay": 120.0,
+    "paidStatus": false
   },
   {
-    "name": "Ava Harris",
+    "name": "Partha Pal",
+    "email": "parthapal.ctg@gmail.com",
     "date": "2024-04-10",
     "time": "12:00 PM",
     "treatment": "Blood Test",
-    "pay": 60.0
+    "pay": 60.0,
+    "paidStatus": false
   }
 ]
