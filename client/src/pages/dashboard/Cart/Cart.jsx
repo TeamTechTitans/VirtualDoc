@@ -11,7 +11,7 @@ const Cart = () => {
   const location = useLocation()
   const axiosPublic = useAxiosPublic();
   const appointment = location.state;
-  const {name, treatment, pay, time, date} = appointment
+  const {name,appointmentId, treatment, pay, time, date} = appointment
   
   const onSubmit = async (data) => {
     const bill = parseFloat(data.bill).toFixed(2)
@@ -24,7 +24,8 @@ const Cart = () => {
       billPayDate: new Date(),
       appointmentDate: date,
       appointmentTime: time,
-      treatment: treatment
+      treatment: treatment,
+      appointmentId:appointmentId
     };
     console.log(info);
     const res = await axiosPublic.post('/payment', info)
