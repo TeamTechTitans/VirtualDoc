@@ -1,110 +1,124 @@
-import { Card, Typography,Button } from "@material-tailwind/react";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
+import React from "react";
+import {
+  Button,
+  Dialog,
+  Card,
+  CardBody,
+  CardFooter,
+  Typography,
+  Input,
+  Checkbox,
+} from "@material-tailwind/react";
+import ManageModal from "./ManageModal";
 
 const AllUsers = () => {
-    const [user,setUser]=useState([]);
-    const TABLE_HEAD = ["Name", "Email", "location", "Blood-Group","Action"];
+  const [userData, setUserData] = React.useState([]);
+  const TABLE_HEAD = ["Name", "Email", "location", "Blood-Group", "Action"];
 
-    // useEffect(()=>{
-    //     fetch('http://localhost:5000/users')
-    //     .then(res=>res.json())
-    //     .then(data=>setUser(data))
-    // },[])
 
-    const { data:userDetails=[] } = useQuery({
-      queryKey: ['users'],
-      queryFn: async () => {
-        const res = await fetch("http://localhost:5000/users");
-        const user = await res.json();
-        console.log(user);
-        return user;
-      },
-    });
+  const { data: userDetails = [] } = useQuery({
+    queryKey: ['users'],
+    queryFn: async () => {
+      const res = await fetch("https://virtual-doc-backend.vercel.app/users");
+      const users = await res.json();
+      return users;
+    },
+  });
 
-    // const { data } = useQuery({
-    //   queryKey: ['repoData'],
-    //   queryFn: () =>
-    //     fetch('http://localhost:5000/users').then((res) =>
-    //       res.json(),
-    //     ),
-    // })
+  // const { data } = useQuery({
+  //   queryKey: ['repoData'],
+  //   queryFn: () =>
+  //     fetch('https://virtual-doc-backend.vercel.app/users').then((res) =>
+  //       res.json(),
+  //     ),
+  // })
+  const classes = "p-4 border-b border-blue-gray-50";
 
-    return (<>
-      <Card className="w-full max-w-7xl overflow-scroll">
-<table className="w-full min-w-max table-auto text-center font-barlow">
-  <thead>
-    <tr>
-      {TABLE_HEAD.map((head) => (
-        <th
-          key={head}
-          className="border-b border-blue-gray-100 bg-[#BBE8E6] p-4"
-        >
-          <Typography
-            variant="small"
-            color="blue-gray"
-            className="font-normal leading-none opacity-70"
-          >
-            {head}
-          </Typography>
-        </th>
-      ))}
-    </tr>
-  </thead>
-  <tbody >
-    {userDetails.map(({ name, email,loc, blood_group }, index) => {
-      const isLast = index === userDetails.length - 1;
-      const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
+  //  Manage Modal
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = (user) => {
+    setOpen(!open)
+    setUserData(user)
+  };
 
-      return (
-        <tr className="font-barlow" key={name}>
-          <td className={classes}>
-            <Typography
-              variant="small"
-              color="blue-gray"
-              className="font-normal"
-            >
-              {name}
-            </Typography>
-          </td>
-          <td className={classes}>
-            <Typography
-              variant="small"
-              color="blue-gray"
-              className="font-normal"
-            >
-              {email}
-            </Typography>
-          </td>
-          <td className={classes}>
-            <Typography
-              variant="small"
-              color="blue-gray"
-              className="font-normal"
-            >
-              {loc}
-            </Typography>
-          </td>
-          <td className={classes}>
-            <Typography
-              variant="small"
-              color="blue-gray"
-              className="font-normal"
-            >
-              {blood_group}
-            </Typography>
-          </td>
-          <td className={classes}>
-              <Button className="mr-2" color="red">Delete</Button>
-              <Button color="blue">Edit</Button>
-          </td>
-        </tr>
-      );
-    })}
-  </tbody>
-</table>
-</Card>
-</>);
+
+  return (
+    <div className="flex p-2 flex-col items-center">
+      <DashboardHeading title="All users">Manage All Users</DashboardHeading>
+      <Card className="w-full max-w-7xl overflow-auto">
+        <table className="w-full min-w-max table-auto text-center font-barlow">
+          <thead>
+            <tr>
+              {TABLE_HEAD.map((head, idx) => (
+                <th
+                  key={idx}
+                  className="border-b border-blue-gray-100 bg-secondary-teal p-4"
+                >
+                  <Typography
+                    variant="small"
+                    color="blue-gray"
+                    className="font-normal leading-none opacity-70"
+                  >
+                    {head}
+                  </Typography>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody >
+            {userDetails?.map((user, index) => <tr className="font-barlow" key={index}>
+              <td className={classes}>
+                <Typography
+                  variant="small"
+                  color="blue-gray"
+
+                >
+                  {user?.name}
+                </Typography>
+              </td>
+              <td className={classes}>
+                <Typography
+                  variant="small"
+                  color="blue-gray"
+
+                >
+                  {user?.email}
+                </Typography>
+              </td>
+              <td className={classes}>
+                <Typography
+                  variant="small"
+                  color="blue-gray"
+
+                >
+                  {user?.loc}
+                </Typography>
+              </td>
+              <td className={classes}>
+                <Typography
+                  variant="small"
+                  color="blue-gray"
+
+                >
+                  {user?.blood_group}
+                </Typography>
+              </td>
+              <td className={classes}>
+                <Button color="blue" onClick={() => handleOpen(user)} className="px-2 py-1 rounded-none mr-2 normal-case">Manage</Button>
+
+                <Button className="px-2 py-1 rounded-none normal-case" color="red">Delete</Button>
+              </td>
+            </tr>
+
+            )}
+          </tbody>
+        </table>
+      </Card>
+      <ManageModal handleOpen={handleOpen} open={open} user={userData}></ManageModal>
+    </div >
+  );
 };
 
 export default AllUsers;
