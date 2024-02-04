@@ -1,12 +1,19 @@
 import { Button, Card, Typography } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
+import { FcVideoCall } from "react-icons/fc";
+import { Link } from "react-router-dom";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
+import { useNavigate } from "react-router-dom";
 
 
 
 const Appoinment = () => {
   const [appoinment, setAppoinment] = useState([]);
-  const TABLE_HEAD = ["Name", "Date", "Time", "Treatment", "Payment"];
+
+  const navigate = useNavigate()
+
+  const TABLE_HEAD = ["Name", "Date", "Time", "Treatment", "Video Call", "Payment"];
+
 
   useEffect(() => {
     fetch('/appoinment.json')
@@ -14,11 +21,23 @@ const Appoinment = () => {
       .then(data => setAppoinment(data))
   }, [])
 
+  const handleNavigateToCart = (name, treatment, date, time, pay) => {
+    const appointment = {
+      name: name,
+      treatment: treatment,
+      date: date,
+      time: time,
+      pay: pay
+    }
+    navigate('/dashboard/cart', { state: appointment });
+
+  }
+
   return (
     <div className="">
       <DashboardHeading title="Appoinments">Manage Appoinments</DashboardHeading>
-      <Card className="h-full overflow-auto mx-auto my-6 px-5 ml-6">
-        <table className="table-auto text-center font-barlow">
+      <Card className="h-full max-w-7xl mx-auto overflow-auto my-6">
+        <table className="table-auto pr-5 text-center font-barlow">
           <thead>
             <tr>
               {TABLE_HEAD.map((head) => (
@@ -45,7 +64,7 @@ const Appoinment = () => {
               return (
                 <tr className="font-barlow" key={name}>
                   <td className={classes}>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 font-bold mx-3">
                       <Typography
                         variant="small"
                         color="blue-gray"
@@ -57,7 +76,6 @@ const Appoinment = () => {
                         <Typography
                           variant="small"
                           color="blue-gray"
-                          className="font-normal"
                         >
                           {name}
                         </Typography>
@@ -68,7 +86,7 @@ const Appoinment = () => {
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="font-normal"
+
                     >
                       {date}
                     </Typography>
@@ -77,7 +95,7 @@ const Appoinment = () => {
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="font-normal"
+
                     >
                       {time}
                     </Typography>
@@ -86,13 +104,18 @@ const Appoinment = () => {
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="font-normal"
+
                     >
                       {treatment}
                     </Typography>
                   </td>
                   <td className={classes}>
-                    <Button className="bg-secondary-blue" size="sm">Pay</Button>
+
+
+                    <Link to='/dashboard/videocall'><FcVideoCall className="mx-auto text-3xl" /></Link>
+                  </td>
+                  <td className={classes}>
+                    <Button className="bg-secondary-blue" size="sm" onClick={() => handleNavigateToCart(name, treatment, date, time, pay)} >Pay</Button>
                   </td>
                 </tr>
               );

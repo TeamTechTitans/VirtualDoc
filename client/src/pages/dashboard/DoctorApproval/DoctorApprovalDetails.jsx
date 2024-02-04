@@ -24,7 +24,7 @@ const DoctorApprovalDetails = () => {
     }).then((result) => {
         if (result.isConfirmed) {
 
-            fetch(`http://localhost:5000/deleteDoctorRequest/${_id}`,{
+            fetch(`https://virtual-doc-backend.vercel.app/deleteDoctorRequest/${_id}`,{
                     method:'DELETE'
                 })
                 .then(res=> res.json())
@@ -54,7 +54,7 @@ const DoctorApprovalDetails = () => {
         updateUserProfile(data.name,data.image)
             .then(() => {
               //data insertion
-              fetch('http://localhost:5000/doctors/createDoctors',{
+              fetch('https://virtual-doc-backend.vercel.app/doctors/createDoctors',{
                 method:"POST",
                 headers: {
                     'content-type': 'application/json'

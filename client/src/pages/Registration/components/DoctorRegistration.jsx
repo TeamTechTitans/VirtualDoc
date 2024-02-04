@@ -33,7 +33,7 @@ const DoctorRegistration = () => {
             }
             else{
                                   //data insertion
-                                  fetch('http://localhost:5000/doctors/createDoctorsRequest',{
+                                  fetch('https://virtual-doc-backend.vercel.app/doctors/createDoctorsRequest',{
                                     method:"POST",
                                     headers: {
                                         'content-type': 'application/json'

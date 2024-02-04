@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ToastContainer, toast } from 'react-toastify'; 
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
 import {
@@ -17,76 +17,76 @@ import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
 import { useForm } from 'react-hook-form';
 import { GoogleAuthProvider } from 'firebase/auth';
 const Login = () => {
-  const { register, handleSubmit, required  } = useForm(); 
-  const {logIn,googleSignIn}=useContext(AuthContext);
-  const location=useLocation();
-  const navigate=useNavigate();
-  const onSubmit = data =>{
+  const { register, handleSubmit, required,reset } = useForm();
+  const { logIn, googleSignIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const onSubmit = data => {
     console.log(data);
-    logIn(data.email,data.password)
-    .then((userCredential) => {
+    logIn(data.email, data.password)
+      .then((userCredential) => {
         Swal.fire('Logged In Successfully');
         const user = userCredential.user;
-            {
-                Navigate(location.state?location.state:'/');
-            }
+        {
+          Navigate(location.state ? location.state : '/');
+        }
 
-        })
+      })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         toast('Invalid Email Or Password.Please Try Again');
       });
     reset();
-    }
-    const handleGoogleLogin=()=>{
-      googleSignIn()
+  }
+  const handleGoogleLogin = () => {
+    googleSignIn()
       .then((result) => {
-          const credential = GoogleAuthProvider.credentialFromResult(result);
-          const token = credential.accessToken;
-          // The signed-in user info.
-          const user = result.user;
-          console.log(user);
-          //data collected from google
-          const googleData={
-            name:user.displayName,
-            image:user.photoURL,
-            loc:' ',
-            blood_group:' ',
-            email:user.email,
-            password:' ',
-          }
-          console.log(googleData);
-          //data insertion
-          fetch('http://localhost:5000/users/createUser',{
-                method:"POST",
-                headers: {
-                    'content-type': 'application/json'
-                  },
-                body:JSON.stringify(googleData)
-            })
-            .then(res=>res.json())
-            .then(data=>{
-                console.log(data);
-                if(data._id){
-                  Swal.fire('Login Successful');
-                  navigate('/');
-                }
-            })
-         // Swal.fire('Login Successful');
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        console.log(user);
+        //data collected from google
+        const googleData = {
+          name: user.displayName,
+          image: user.photoURL,
+          loc: ' ',
+          blood_group: ' ',
+          email: user.email,
+          password: ' ',
+        }
+        console.log(googleData);
+        //data insertion
+        fetch('https://virtual-doc-backend.vercel.app/users/createUser', {
+          method: "POST",
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(googleData)
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            if (data._id) {
+              Swal.fire('Login Successful');
+              navigate('/');
+            }
+          })
+        // Swal.fire('Login Successful');
         //  navigate('/');
-  
-        }).catch((error) => {
-          // Handle Errors here.
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          // The email of the user's account used.
-          const email = error.customData.email;
-          // The AuthCredential type that was used.
-          const credential = GoogleAuthProvider.credentialFromError(error);
-          toast('Invalid Email Or Password.Please Try Again');
-          // ...
-        });
+
+      }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        toast('Invalid Email Or Password.Please Try Again');
+        // ...
+      });
   }
   return (<div className="max-w-6xl mx-auto relative flex border-b-0 text-gray-700 flex-col lg:flex-row my-10">
     <CardHeader
@@ -111,18 +111,18 @@ const Login = () => {
             Sign In
           </Typography>
         </CardHeader>
-        <form onSubmit={handleSubmit(onSubmit)}>  
-              <CardBody className="flex flex-col gap-4">
-                  <Input type='email' label="Email" {...register("email")}  size="lg" />
-                  <Input type='password' label="Password" {...register("password")} size="lg" />
-                  <Button type='submit' variant="gradient" fullWidth>
-                    Sign In
-                  </Button>
-                  <Button onClick={handleGoogleLogin} color="teal" fullWidth>
-                    Google Sign In
-                  </Button>
-              </CardBody>
-          </form> 
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <CardBody className="flex flex-col gap-4">
+            <Input type='email' label="Email" {...register("email")} size="lg" />
+            <Input type='password' label="Password" {...register("password")} size="lg" />
+            <Button type='submit' variant="gradient" fullWidth>
+              Sign In
+            </Button>
+            <Button onClick={handleGoogleLogin} color="teal" fullWidth>
+              Google Sign In
+            </Button>
+          </CardBody>
+        </form>
         <CardFooter className="pt-0">
 
           <Typography variant="small" className="mt-6 flex justify-center">

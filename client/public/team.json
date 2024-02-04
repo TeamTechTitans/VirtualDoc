@@ -1,38 +1,47 @@
 [
   {
     "id": 1,
-    "img": "https://laborex.smartdemowp.com/wp-content/uploads/2021/05/team-9.jpg",
-    "name": "Dr. Emily Smith",
-    "position": "Cardiologist"
+    "img": "https://i.ibb.co/N7g2472/Untitled-2-removebg-preview.png",
+    "name": "Jibon Krishna Roy Joy",
+    "position": "Team Leader",
+    "linkedin": "",
+    "github": "https://github.com/jibon-roy",
+    "portfolio": ""
   },
   {
     "id": 2,
-    "img": "https://laborex.smartdemowp.com/wp-content/uploads/2021/05/team-10.jpg",
-    "name": "Dr. James Johnson",
-    "position": "Orthopedic Surgeon"
+    "img": "https://i.ibb.co/hMMtnyp/beb7d498-removebg-preview.png",
+    "name": "Md: Habibur Rahman",
+    "position": "Team Manager",
+    "linkedin": "https://www.linkedin.com/in/habibur-rahman2005",
+    "github": "https://github.com/HabiburRahnan",
+    "portfolio": "https://habibur-rahman.surge.sh"
   },
   {
     "id": 3,
-    "img": "https://laborex.smartdemowp.com/wp-content/uploads/2021/05/team-11.jpg",
-    "name": "Dr. Maria Rodriguez",
-    "position": "Pediatrician"
+    "img": "https://i.ibb.co/Y78VCKQ/Picture-removebg-preview.png",
+    "name": "Dr. Parth Pal",
+    "position": "Front-end Developer",
+    "linkedin": "",
+    "github": "",
+    "portfolio": ""
   },
   {
     "id": 4,
-    "img": "https://laborex.smartdemowp.com/wp-content/uploads/2021/06/team-12.jpg",
-    "name": "Dr. Richard Davis",
-    "position": "Dermatologist"
+    "img": "https://i.ibb.co/7NRMYn8/IMG-4604-2-removebg-preview.png",
+    "name": "Habibur Rahman",
+    "position": "UI/UX Developer",
+    "linkedin": "https://www.linkedin.com/in/habiburrahman153/   ",
+    "github": "https://github.com/habib-153",
+    "portfolio": "https://habibur-rahman-83685.web.app"
   },
   {
     "id": 5,
-    "img": "https://laborex.smartdemowp.com/wp-content/uploads/2021/06/team-13.jpg",
-    "name": "Dr. Olivia Taylor",
-    "position": "Neurologist"
-  },
-  {
-    "id": 6,
-    "img": "https://laborex.smartdemowp.com/wp-content/uploads/2021/06/team-14.jpg",
-    "name": "Dr. Michael Brown",
-    "position": "Gynecologist"
+    "img": "https://i.ibb.co/JqSF6yv/IMG-20220507-175339-removebg-preview-1.png",
+    "name": "Mohammed Rifatul Islam",
+    "position": "Back-end developer",
+    "linkedin": "https://www.linkedin.com/in/md-rifatul-islam",
+    "github": "https://github.com/mdrifatul",
+    "portfolio": "https://rifatdev.netlify.app"
   }
 ]
