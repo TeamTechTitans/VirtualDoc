@@ -23,22 +23,24 @@ const StickyNav = () => {
     }, []);
 
     return (
-        <nav
-            className={`fixed z-50 top-0 left-0 right-0 transition-all ${showNav ? "" : "-mt-20"
-                }`}
-        >
-            <div className="z-50">
-                <Headroom disableInlineStyles>
-                    <BottomNav />
-                </Headroom>
-            </div>
+        <>
+            <nav
+                className={`fixed z-50 top-0 left-0 right-0 transition-all ${showNav ? "" : "-mt-20"
+                    }`}
+            >
+                <div className="z-50">
+                    <Headroom disableInlineStyles>
+                        <BottomNav />
+                    </Headroom>
+                </div>
+            </nav>
             <button
-                className="bg-primary-teal animate-bounce hover:animate-none text-white fixed bottom-4 right-4 p-3 rounded-full shadow-lg transition duration-300 hover:bg-teal-300"
+                className={`bg-primary-teal z-50 animate-bounce hover:animate-none text-white fixed p-3 rounded-full shadow-lg transition duration-500 hover:bg-teal-300 ${showNav ? "bottom-4 right-4 transition duration-500 opacity-100 ease-in-out" : "opacity-0 ease-in-out transition duration-500 "}`}
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
                 <FaArrowUp className="text-xl" />
             </button>
-        </nav>
+        </>
     );
 };
 

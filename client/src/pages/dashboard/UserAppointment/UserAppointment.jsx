@@ -3,10 +3,10 @@ import Calender from "./Calender";
 import OurTeeth from "./OurTeeth";
 import UserServices from "./UserServices";
 
-const UserAppoinment = () => {
+const UserAppointment = () => {
   return (
     <div>
-      <SiteHeader title={"User Appoinment"}>User Appoinment</SiteHeader>
+      <SiteHeader title={"User Appointment"}>User Appointment</SiteHeader>
       <Calender></Calender>
       <UserServices></UserServices>
       <OurTeeth></OurTeeth>
@@ -14,4 +14,4 @@ const UserAppoinment = () => {
   );
 };
 
-export default UserAppoinment;
+export default UserAppointment;

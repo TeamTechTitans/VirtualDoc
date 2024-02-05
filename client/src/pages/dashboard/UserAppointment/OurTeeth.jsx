@@ -1,5 +1,5 @@
 import TitleDashboard from "./TitleDashboard";
-import ClinicalServices from "./../../Home/components/clinicalServices/ClinicalServices";
+import ClinicalServices from "../../Home/components/clinicalServices/ClinicalServices";
 import UserServicesCard from "./UserServicesCard";
 
 const OurTeeth = () => {

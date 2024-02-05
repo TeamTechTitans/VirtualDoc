@@ -10,39 +10,39 @@ import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 
 
-const Appoinment = () => {
-  // const [appoinment, setAppoinment] = useState([]);
+const Appointment = () => {
+  // const [appoinment, setAppointment] = useState([]);
 
   const navigate = useNavigate()
 
   const TABLE_HEAD = ["Name", "Date", "Time", "Treatment", "Video Call", "Payment"];
 
   const { user } = useAuth()
-    const axiosPublic = useAxiosPublic()
+  const axiosPublic = useAxiosPublic()
 
-    const { data: appointments =[] } = useQuery({
-        queryKey: ['appointments', user?.email],
-        queryFn: async() =>{
-            const res = await axiosPublic.get(`/appointment/${user?.email}`)
-            return res.data;
-        }
-    })
-
-    const handleModalForPayment = () =>{
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Please pay the fees to start the meeting",
-      });
+  const { data: appointments = [] } = useQuery({
+    queryKey: ['appointments', user?.email],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/appointment/${user?.email}`)
+      return res.data;
     }
+  })
+
+  const handleModalForPayment = () => {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Please pay the fees to start the meeting",
+    });
+  }
 
   // useEffect(() => {
   //   fetch('/appoinment.json')
   //     .then(res => res.json())
-  //     .then(data => setAppoinment(data))
+  //     .then(data => setAppointment(data))
   // }, [])
 
-  const handleNavigateToCart = (name,_id, treatment, date, time, pay) => {
+  const handleNavigateToCart = (name, _id, treatment, date, time, pay) => {
     const appointment = {
       appointmentId: _id,
       name: name,
@@ -57,7 +57,7 @@ const Appoinment = () => {
 
   return (
     <div className="">
-      <DashboardHeading title="Appoinments">Manage Appoinments</DashboardHeading>
+      <DashboardHeading title="Appointments">Manage Appointments</DashboardHeading>
       <Card className="h-full max-w-7xl mx-auto overflow-auto my-6">
         <table className="table-auto pr-5 text-center font-barlow">
           <thead>
@@ -79,7 +79,7 @@ const Appoinment = () => {
             </tr>
           </thead>
           <tbody >
-            {appointments.map(({ name,_id, date, time, treatment, pay, paidStatus }, index) => {
+            {appointments.map(({ name, _id, date, time, treatment, pay, paidStatus }, index) => {
               const isLast = index === appointments.length - 1;
               const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
 
@@ -133,10 +133,10 @@ const Appoinment = () => {
                   </td>
                   <td className={classes}>
                     {
-                      paidStatus ? 
-                      <Link to='/dashboard/videocall'><FcVideoCall className="mx-auto text-3xl" /></Link>
-                      :
-                        <button onClick={()=> handleModalForPayment()}><FcVideoCall className="mx-auto text-3xl" /></button>
+                      paidStatus ?
+                        <Link to='/dashboard/videocall'><FcVideoCall className="mx-auto text-3xl" /></Link>
+                        :
+                        <button onClick={() => handleModalForPayment()}><FcVideoCall className="mx-auto text-3xl" /></button>
                     }
 
                     {/* <Link to='/dashboard/videocall'><FcVideoCall className="mx-auto text-3xl" /></Link> */}
@@ -154,4 +154,4 @@ const Appoinment = () => {
   );
 };
 
-export default Appoinment;
+export default Appointment;
