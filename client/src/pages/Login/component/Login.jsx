@@ -17,7 +17,7 @@ import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
 import { useForm } from 'react-hook-form';
 import { GoogleAuthProvider } from 'firebase/auth';
 const Login = () => {
-  const { register, handleSubmit, required } = useForm();
+  const { register, handleSubmit, required,reset } = useForm();
   const { logIn, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();

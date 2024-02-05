@@ -19,9 +19,12 @@ import Dashboard from "../../pages/dashboard/Dashboard";
 import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
 import VideoCall from "../../pages/dashboard/VideoCall/VideoCall";
 import Doctors from './../../pages/doctors/Doctors';
+import DoctorApproval from "../../pages/dashboard/DoctorApproval/DoctorApproval";
+import DoctorApprovalDetails from "../../pages/dashboard/DoctorApproval/DoctorApprovalDetails";
 import Cart from "../../pages/dashboard/Cart/Cart";
 import PaymentSuccess from "../../pages/dashboard/PaymentSuccess/PaymentSuccess";
 import PaymentHistory from "../../pages/dashboard/paymentHistory/PaymentHistory";
+
 
 
 
@@ -105,6 +108,17 @@ const MainRouter = createBrowserRouter([
                 element: <Appoinment />
             },
             {
+
+                path: "doctorApproval",
+                element: <DoctorApproval/>
+            },
+            {
+                path: "doctorDetail/:id",
+                element: <DoctorApprovalDetails/>,
+                loader: ({params}) => fetch(`https://virtual-doc-backend.vercel.app/doctorRequestDetail/${params.id}`)
+            },
+            {
+
                 path: "videocall",
                 element: <VideoCall />
             },
@@ -120,8 +134,17 @@ const MainRouter = createBrowserRouter([
             {
                 path:'payment/success/:tranId',
                 element:<PaymentSuccess />
-              },
+            },
+            {
 
+                path: "doctorApproval",
+                element: <DoctorApproval/>
+            },
+            {
+                path: "doctorDetail/:id",
+                element: <DoctorApprovalDetails/>,
+                loader: ({params}) => fetch(`https://virtual-doc-backend.vercel.app/doctorRequestDetail/${params.id}`)
+            },
         ]
     }
 ]);
