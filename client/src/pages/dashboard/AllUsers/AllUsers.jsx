@@ -3,7 +3,6 @@ import DashboardHeading from "../../../components/DashboardHeading/DashboardHead
 import React from "react";
 import {
   Button,
-<<<<<<< HEAD
   Dialog,
   Card,
   CardBody,
@@ -11,11 +10,6 @@ import {
   Typography,
   Input,
   Checkbox,
-=======
-  Card,
-  Typography,
-
->>>>>>> origin/main
 } from "@material-tailwind/react";
 import ManageModal from "./ManageModal";
 

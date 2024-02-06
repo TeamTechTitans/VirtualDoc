@@ -43,7 +43,7 @@ const Registration = () => {
     }
     else {
 
-      const imageFile = { image: data.image[0] };
+    const imageFile = { image: data.image[0] };
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
       headers: {
         "content-type": "multipart/form-data",
@@ -51,7 +51,15 @@ const Registration = () => {
     });
 
     const imageURL = res.data.data.display_url;
-    console.log(imageURL)
+    console.log('image url',imageURL);
+    const signUpData={
+      name:data.name,
+      image:imageURL,
+      loc:data.loc,
+      blood_group:data.blood_group,
+      email:data.email,
+      password:data.password
+    }
       createUser(data.email, data.password)
         .then((userCredential) => {
           // Signed up 
@@ -64,7 +72,7 @@ const Registration = () => {
                 headers: {
                   'content-type': 'application/json'
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(signUpData)
               })
                 .then(res => res.json())
                 .then(data => {
