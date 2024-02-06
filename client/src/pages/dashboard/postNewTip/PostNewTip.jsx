@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
-import { Input, Option, Select, Textarea } from "@material-tailwind/react";
+import { Button, Input, Option, Select, Textarea } from "@material-tailwind/react";
 import { useState } from "react";
 import { CiCircleRemove } from "react-icons/ci";
 import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
@@ -265,9 +265,9 @@ const PostNewTip = () => {
             </div>
           </div>
           <div className="w-full text-center mt-3">
-            <button type="submit" className="btn btn-outline btn-md">
-              Post
-            </button>
+          <Button type="submit" color="teal" className=" text-white ">
+            Add
+          </Button>
           </div>
         </form>
       </div>
