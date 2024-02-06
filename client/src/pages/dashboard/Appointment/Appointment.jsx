@@ -1,28 +1,50 @@
-import { Button, Card, Typography } from "@material-tailwind/react";
+import { Button, Card, Typography, button } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import { FcVideoCall } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../../../lib/hooks/useAuth";
+import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 
 
-
-const Appoinment = () => {
-  const [appoinment, setAppoinment] = useState([]);
+const Appointment = () => {
+  // const [appoinment, setAppointment] = useState([]);
 
   const navigate = useNavigate()
 
   const TABLE_HEAD = ["Name", "Date", "Time", "Treatment", "Video Call", "Payment"];
 
+  const { user } = useAuth()
+  const axiosPublic = useAxiosPublic()
 
-  useEffect(() => {
-    fetch('/appoinment.json')
-      .then(res => res.json())
-      .then(data => setAppoinment(data))
-  }, [])
+  const { data: appointments = [] } = useQuery({
+    queryKey: ['appointments', user?.email],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/appointment/${user?.email}`)
+      return res.data;
+    }
+  })
 
-  const handleNavigateToCart = (name, treatment, date, time, pay) => {
+  const handleModalForPayment = () => {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Please pay the fees to start the meeting",
+    });
+  }
+
+  // useEffect(() => {
+  //   fetch('/appoinment.json')
+  //     .then(res => res.json())
+  //     .then(data => setAppointment(data))
+  // }, [])
+
+  const handleNavigateToCart = (name, _id, treatment, date, time, pay) => {
     const appointment = {
+      appointmentId: _id,
       name: name,
       treatment: treatment,
       date: date,
@@ -35,7 +57,7 @@ const Appoinment = () => {
 
   return (
     <div className="">
-      <DashboardHeading title="Appoinments">Manage Appoinments</DashboardHeading>
+      <DashboardHeading title="Appointments">Manage Appointments</DashboardHeading>
       <Card className="h-full max-w-7xl mx-auto overflow-auto my-6">
         <table className="table-auto pr-5 text-center font-barlow">
           <thead>
@@ -57,8 +79,8 @@ const Appoinment = () => {
             </tr>
           </thead>
           <tbody >
-            {appoinment.map(({ name, date, time, treatment, pay }, index) => {
-              const isLast = index === appoinment.length - 1;
+            {appointments.map(({ name, _id, date, time, treatment, pay, paidStatus }, index) => {
+              const isLast = index === appointments.length - 1;
               const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
 
               return (
@@ -110,12 +132,17 @@ const Appoinment = () => {
                     </Typography>
                   </td>
                   <td className={classes}>
+                    {
+                      paidStatus ?
+                        <Link to='/dashboard/videocall'><FcVideoCall className="mx-auto text-3xl" /></Link>
+                        :
+                        <button onClick={() => handleModalForPayment()}><FcVideoCall className="mx-auto text-3xl" /></button>
+                    }
 
-
-                    <Link to='/dashboard/videocall'><FcVideoCall className="mx-auto text-3xl" /></Link>
+                    {/* <Link to='/dashboard/videocall'><FcVideoCall className="mx-auto text-3xl" /></Link> */}
                   </td>
                   <td className={classes}>
-                    <Button className="bg-secondary-blue" size="sm" onClick={() => handleNavigateToCart(name, treatment, date, time, pay)} >Pay</Button>
+                    <Button className="bg-secondary-blue" size="sm" onClick={() => handleNavigateToCart(name, _id, treatment, date, time, pay)} >Pay</Button>
                   </td>
                 </tr>
               );
@@ -127,4 +154,4 @@ const Appoinment = () => {
   );
 };
 
-export default Appoinment;
+export default Appointment;

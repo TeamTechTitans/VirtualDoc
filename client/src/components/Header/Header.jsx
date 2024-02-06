@@ -5,6 +5,9 @@ import { MdOutlinePhone } from "react-icons/md";
 import { Link } from "react-router-dom";
 import BottomNav from "./components/BottomNav";
 import StickyNav from "./components/StickyNav";
+import { Button } from "@material-tailwind/react";
+
+
 
 const Header = () => {
     return (
@@ -42,7 +45,10 @@ const Header = () => {
                                 <p className="">+880 1619 152852</p>
                             </a>
 
-                            <button>Get Started</button>
+                            <Link to='/appointment'>
+                                <Button className="bg-secondary-blue rounded-full m-0 normal-case">Get Appointment</Button>
+                            </Link>
+
                         </div>
                     </div>
                 </nav>
