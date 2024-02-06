@@ -80,6 +80,13 @@ const DashboardNav = () => {
             </Typography>
           </ListItem>
         </Link>
+        <Link to={'/dashboard/postNewTip'}>
+          <ListItem className="p-0">
+            <Typography color="blue-gray" className="mr-auto p-2 font-normal">
+              Post Tip
+            </Typography>
+          </ListItem>
+        </Link>
 
         <hr className="my-2 border-blue-gray-50" />
         <Link to="/" className="flex">
