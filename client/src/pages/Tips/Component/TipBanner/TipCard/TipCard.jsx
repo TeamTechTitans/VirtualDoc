@@ -3,11 +3,10 @@ import { Link, useNavigate } from 'react-router-dom'
 const TipCard = ({ tip }) => {
   const navigate = useNavigate()
   const {
-    id,
+    _id,
     cover,
     title,
     description,
-    comments,
     date,
     month,
     author,
@@ -20,7 +19,7 @@ const TipCard = ({ tip }) => {
 
 
   return (
-    <div className="space-y-3 my-10 md:w-[90%]">
+    <div className="space-y-3 my-10 ">
       <div className="relative">
         <div className="group">
           <img loading="lazy" src={cover} alt="img" className="w-full  rounded-2xl" />
@@ -38,19 +37,18 @@ const TipCard = ({ tip }) => {
         <div className="space-y-2">
           <h1 className="text-[20px] md:text-[30px] font-bold">{title}</h1>
           <p className="text-sm font-normal text-gray-400">
-            by {author}, {comments} Comments
+            by {author}
           </p>
           <p className="font-normal text-gray-700">
             {description.length < 40
               ? description
               : `${description.slice(0, 150)}..`}
           </p>
-          {/* <Link to={`/tip/${id}`}> */}
-          <Button onClick={() => handleViewTip(id)} className="rounded-full" color="cyan">
+          {/* <Link to={`/tip/${_id}`}> */}
+          <Button onClick={() => handleViewTip(_id)} className="rounded-full" color="cyan">
             Read More
           </Button>
           {/* </Link> */}
-
         </div>
       </div>
     </div>
