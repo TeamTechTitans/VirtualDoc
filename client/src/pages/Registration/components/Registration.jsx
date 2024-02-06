@@ -57,22 +57,36 @@ const Registration = () => {
           // Signed up 
           const res_user = userCredential.user;
           updateUserProfile(data.name, imageURL)
-            .then(() => {
+            .then(async () => {
+              const userData = {
+                name: data.name,
+                image: imageURL,
+                loc: data.loc,
+                blood_group: data.blood_group,
+                email: data.email,
+                password: data.password,
+                role: "user"
+              }
               //data insertion
-              fetch('https://virtual-doc-backend.vercel.app/users/createUser', {
-                method: "POST",
-                headers: {
-                  'content-type': 'application/json'
-                },
-                body: JSON.stringify(data)
-              })
-                .then(res => res.json())
-                .then(data => {
-                  console.log(data);
-                  if (data._id) {
-                    Swal.fire('User Created Successfully');
-                  }
-                })
+              const res = await axiosPublic.post('/users/createUser', userData)
+              console.log(res)
+              if(res){
+                Swal.fire('User Created Successfully');
+              }
+              // fetch('https://virtual-doc-backend.vercel.app/users/createUser', {
+              //   method: "POST",
+              //   headers: {
+              //     'content-type': 'application/json'
+              //   },
+              //   body: JSON.stringify(data)
+              // })
+              //   .then(res => res.json())
+              //   .then(data => {
+              //     console.log(data);
+              //     if (data._id) {
+              //       Swal.fire('User Created Successfully');
+              //     }
+              //   })
               navigate('/');
             }).catch((error) => {
               // An error occurred
