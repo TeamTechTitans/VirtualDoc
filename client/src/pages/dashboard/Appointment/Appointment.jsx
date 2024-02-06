@@ -136,13 +136,19 @@ const Appointment = () => {
                       paidStatus ?
                         <Link to='/dashboard/videocall'><FcVideoCall className="mx-auto text-3xl" /></Link>
                         :
-                        <button onClick={() => handleModalForPayment()}><FcVideoCall className="mx-auto text-3xl" /></button>
+                        <button onClick={() => handleModalForPayment()}><FcVideoCall className="mx-auto opacity-30 text-3xl" /></button>
                     }
 
                     {/* <Link to='/dashboard/videocall'><FcVideoCall className="mx-auto text-3xl" /></Link> */}
                   </td>
                   <td className={classes}>
-                    <Button className="bg-secondary-blue" size="sm" onClick={() => handleNavigateToCart(name, _id, treatment, date, time, pay)} >Pay</Button>
+                    {
+                      paidStatus ?
+                      <Button disabled className="bg-secondary-blue" size="sm" onClick={() => handleNavigateToCart(name, _id, treatment, date, time, pay)} >Pay</Button>
+                      :
+                      <Button className="bg-secondary-blue" size="sm" onClick={() => handleNavigateToCart(name, _id, treatment, date, time, pay)} >Pay</Button>
+                    }
+                    
                   </td>
                 </tr>
               );
