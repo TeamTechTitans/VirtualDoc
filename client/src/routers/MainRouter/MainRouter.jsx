@@ -25,7 +25,12 @@ import Cart from "../../pages/dashboard/Cart/Cart";
 import PaymentSuccess from "../../pages/dashboard/PaymentSuccess/PaymentSuccess";
 import PaymentHistory from "../../pages/dashboard/paymentHistory/PaymentHistory";
 import UserAppointment from "../../pages/dashboard/UserAppointment/UserAppointment";
+
 import Appointment from "../../pages/dashboard/Appointment/Appointment";
+
+import PostNewTip from "../../pages/dashboard/postNewTip/PostNewTip";
+
+
 
 
 
@@ -113,9 +118,12 @@ const MainRouter = createBrowserRouter([
                 element: <Appointment/>
             },
             {
-
                 path: "doctorApproval",
                 element: <DoctorApproval/>
+            },
+            {
+                path: "postNewTip",
+                element: <PostNewTip />
             },
             {
                 path: "doctorDetail/:id",

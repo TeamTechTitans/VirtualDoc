@@ -14,9 +14,11 @@ import {
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from './../logo/Logo';
+import useDoctor from "../../lib/hooks/useDoctor";
 
 
 const DashboardNav = () => {
+  const [isDoctor] = useDoctor()
   const [open, setOpen] = React.useState(0);
   const [openAlert, setOpenAlert] = React.useState(true);
 
@@ -77,6 +79,13 @@ const DashboardNav = () => {
           <ListItem className="p-0">
             <Typography color="blue-gray" className="mr-auto p-2 font-normal">
               Edit Profile
+            </Typography>
+          </ListItem>
+        </Link>
+        <Link to={'/dashboard/postNewTip'}>
+          <ListItem className="p-0">
+            <Typography color="blue-gray" className="mr-auto p-2 font-normal">
+              Post Tip
             </Typography>
           </ListItem>
         </Link>

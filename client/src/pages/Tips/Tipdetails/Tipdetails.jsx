@@ -30,7 +30,7 @@ const TipDetails = () => {
               <div className="space-y-2">
                 <h1 className="text-[20px] md:text-[30px] font-bold">{tips?.title}</h1>
                 <p className="text-sm font-normal text-gray-400">
-                  by {tips?.author}, {tips?.comments} Comments
+                  by {tips?.author}
                 </p>
               </div>
             </div>
