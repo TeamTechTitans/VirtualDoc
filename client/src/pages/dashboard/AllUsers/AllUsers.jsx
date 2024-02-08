@@ -17,7 +17,7 @@ const AllUsers = () => {
   const { data: userDetails = [] } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
-      const res = await fetch("https://virtual-doc-backend.vercel.app/users");
+      const res = await fetch("http://localhost:5000/users");
       const users = await res.json();
       return users;
     },
@@ -26,7 +26,7 @@ const AllUsers = () => {
   // const { data } = useQuery({
   //   queryKey: ['repoData'],
   //   queryFn: () =>
-  //     fetch('https://virtual-doc-backend.vercel.app/users').then((res) =>
+  //     fetch('http://localhost:5000/users').then((res) =>
   //       res.json(),
   //     ),
   // })

@@ -83,7 +83,7 @@ const DoctorApprovalDetails = () => {
     //     updateUserProfile(data.name,data.image)
     //         .then(() => {
     //           //data insertion
-    //           fetch('https://virtual-doc-backend.vercel.app/doctors/createDoctors',{
+    //           fetch('http://localhost:5000/doctors/createDoctors',{
     //             method:"POST",
     //             headers: {
     //                 'content-type': 'application/json'

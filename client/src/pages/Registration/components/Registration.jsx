@@ -70,7 +70,7 @@ const Registration = () => {
               if (res) {
                 Swal.fire("User Created Successfully");
               }
-              // fetch('https://virtual-doc-backend.vercel.app/users/createUser', {
+              // fetch('http://localhost:5000/users/createUser', {
               //   method: "POST",
               //   headers: {
               //     'content-type': 'application/json'
@@ -117,7 +117,7 @@ const Registration = () => {
         };
         console.log(googleData);
         //data insertion
-        fetch("https://virtual-doc-backend.vercel.app/users/createUser", {
+        fetch("http://localhost:5000/users/createUser", {
           method: "POST",
           headers: {
             "content-type": "application/json",

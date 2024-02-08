@@ -83,7 +83,7 @@ const DoctorRegistration = () => {
         });
       //data insertion
     //   fetch(
-    //     "https://virtual-doc-backend.vercel.app/doctors/createDoctorsRequest",
+    //     "http://localhost:5000/doctors/createDoctorsRequest",
     //     {
     //       method: "POST",
     //       headers: {

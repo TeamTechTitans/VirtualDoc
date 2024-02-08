@@ -18,7 +18,7 @@ import Appointment from "../../pages/dashboard/Appointment/Appointment";
 import Dashboard from "../../pages/dashboard/Dashboard";
 import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
 import VideoCall from "../../pages/dashboard/VideoCall/VideoCall";
-import Doctors from './../../pages/doctors/Doctors';
+import Doctors from "./../../pages/doctors/Doctors";
 import DoctorApproval from "../../pages/dashboard/DoctorApproval/DoctorApproval";
 import DoctorApprovalDetails from "../../pages/dashboard/DoctorApproval/DoctorApprovalDetails";
 import Cart from "../../pages/dashboard/Cart/Cart";
@@ -26,136 +26,138 @@ import PaymentSuccess from "../../pages/dashboard/PaymentSuccess/PaymentSuccess"
 import PaymentHistory from "../../pages/dashboard/paymentHistory/PaymentHistory";
 import UserAppointment from "../../pages/dashboard/UserAppointment/UserAppointment";
 import PostNewTip from "../../pages/dashboard/postNewTip/PostNewTip";
-
-
-
-
+import Profile from "../../pages/dashboard/Profile/Profile";
 
 const MainRouter = createBrowserRouter([
-    {
-        path: "/",
-        element: <MainLayout />,
-        children: [
-            {
-                index: true,
-                element: <Home />,
-            },
-            {
-                path: '/appointment',
-                element: <UserAppointment />,
-            },
-            {
-                path: '/doctors',
-                element: <Doctors />,
-            },
-            {
-                path: "/tips",
-                element: <Tips />
-            },
-            {
-                path: "/tips/:id",
-                element: <TipDetails />,
-                // loader: ({ params }) => fetch(`tips.json/${params.id}`)
-            },
-            {
-                path: "/register",
-                element: <Registration />
-            },
-            {
-                path: '/team',
-                element: <Team />,
-            },
-            {
-                path: '/services',
-                element: <Services />,
-            },
-            {
-                path: "/doctorRegister",
-                element: <DoctorRegistration />
-            },
-            {
-                path: "/login",
-                element: <Login />
-            },
-            {
-
-                path: "/aboutUs",
-                element: <AboutUs />
-            },
-            {
-                path: "/contact",
-                element: <Contact />
-
-            },
-        ],
-    },
-    {
-        path: '/dashboard',
-        element: <DashboardLayout />,
-        children: [
-            {
-                path: "/dashboard",
-                element: <Dashboard></Dashboard>
-            },
-            {
-                path: "allUser",
-                element: <AllUsers />
-            },
-            {
-                path: "addDoctor",
-                element: <AddDoctor />
-            },
-            {
-                path: "userProfile",
-                element: <UserProfile />
-            },
-            {
-                path: "appoinment",
-                element: <Appointment />
-            },
-            {
-                path: "doctorApproval",
-                element: <DoctorApproval />
-            },
-            {
-                path: "postNewTip",
-                element: <PostNewTip />
-            },
-            {
-                path: "doctorDetail/:id",
-                element: <DoctorApprovalDetails />,
-                loader: ({ params }) => fetch(`https://virtual-doc-backend.vercel.app/doctorRequestDetail/${params.id}`)
-            },
-            {
-
-                path: "videocall",
-                element: <VideoCall />
-            },
-            {
-                path: "cart",
-                element: <Cart />
-            },
-            {
-
-                path: 'paymentHistory',
-                element: <PaymentHistory />
-            },
-            {
-                path: 'payment/success/:tranId',
-                element: <PaymentSuccess />
-            },
-            {
-
-                path: "doctorApproval",
-                element: <DoctorApproval />
-            },
-            {
-                path: "doctorDetail/:id",
-                element: <DoctorApprovalDetails />,
-                loader: ({ params }) => fetch(`https://virtual-doc-backend.vercel.app/doctorRequestDetail/${params.id}`)
-            },
-        ]
-    }
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "/appointment",
+        element: <UserAppointment />,
+      },
+      {
+        path: "/doctors",
+        element: <Doctors />,
+      },
+      {
+        path: "/tips",
+        element: <Tips />,
+      },
+      {
+        path: "/tips/:id",
+        element: <TipDetails />,
+        // loader: ({ params }) => fetch(`tips.json/${params.id}`)
+      },
+      {
+        path: "/register",
+        element: <Registration />,
+      },
+      {
+        path: "/team",
+        element: <Team />,
+      },
+      {
+        path: "/services",
+        element: <Services />,
+      },
+      {
+        path: "/doctorRegister",
+        element: <DoctorRegistration />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/aboutUs",
+        element: <AboutUs />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
+      },
+      {
+        path: "allUser",
+        element: <AllUsers />,
+      },
+      {
+        path: "addDoctor",
+        element: <AddDoctor />,
+      },
+      {
+        path: "userProfile",
+        element: <UserProfile />,
+      },
+      {
+        path: "profile",
+        element: <Profile></Profile>,
+      },
+      {
+        path: "appoinment",
+        element: <Appointment />,
+      },
+      {
+        path: "doctorApproval",
+        element: <DoctorApproval />,
+      },
+      {
+        path: "postNewTip",
+        element: <PostNewTip />,
+      },
+      {
+        path: "doctorDetail/:id",
+        element: <DoctorApprovalDetails />,
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:5000/doctorRequestDetail/${params.id}`
+          ),
+      },
+      {
+        path: "videocall",
+        element: <VideoCall />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
+      },
+      {
+        path: "paymentHistory",
+        element: <PaymentHistory />,
+      },
+      {
+        path: "payment/success/:tranId",
+        element: <PaymentSuccess />,
+      },
+      {
+        path: "doctorApproval",
+        element: <DoctorApproval />,
+      },
+      {
+        path: "doctorDetail/:id",
+        element: <DoctorApprovalDetails />,
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:5000/doctorRequestDetail/${params.id}`
+          ),
+      },
+    ],
+  },
 ]);
 
 export default MainRouter;
