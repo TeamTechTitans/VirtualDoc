@@ -113,6 +113,7 @@ const Registration = () => {
           blood_group: " ",
           email: user.email,
           password: " ",
+          role: "user",
         };
         console.log(googleData);
         //data insertion
