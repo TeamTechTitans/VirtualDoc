@@ -1,13 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import { RouterProvider } from 'react-router-dom'
-import MainRouter from './routers/MainRouter/MainRouter'
 import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { RouterProvider } from 'react-router-dom'
+import './index.css'
 import AuthProvider from './provider/AuthProvider/AuthProvider'
+import MainRouter from './routers/MainRouter/MainRouter'
 
 
 const queryClient = new QueryClient();

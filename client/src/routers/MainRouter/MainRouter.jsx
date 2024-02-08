@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import DashboardLayout from "../../layouts/DashboardLayout/DashboardLayout";
 import MainLayout from "../../layouts/MainLayout/MainLayout";
+import Connect from "../../pages/ChatApp/Chat/connect";
 import Contact from "../../pages/Contact/Contact";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/component/Login";
@@ -15,17 +16,17 @@ import AboutUs from "../../pages/aboutUs/AboutUs";
 import AddDoctor from "../../pages/dashboard/AddDoctor/AddDoctor";
 import AllUsers from "../../pages/dashboard/AllUsers/AllUsers";
 import Appointment from "../../pages/dashboard/Appointment/Appointment";
+import Cart from "../../pages/dashboard/Cart/Cart";
 import Dashboard from "../../pages/dashboard/Dashboard";
-import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
-import VideoCall from "../../pages/dashboard/VideoCall/VideoCall";
-import Doctors from './../../pages/doctors/Doctors';
 import DoctorApproval from "../../pages/dashboard/DoctorApproval/DoctorApproval";
 import DoctorApprovalDetails from "../../pages/dashboard/DoctorApproval/DoctorApprovalDetails";
-import Cart from "../../pages/dashboard/Cart/Cart";
 import PaymentSuccess from "../../pages/dashboard/PaymentSuccess/PaymentSuccess";
-import PaymentHistory from "../../pages/dashboard/paymentHistory/PaymentHistory";
 import UserAppointment from "../../pages/dashboard/UserAppointment/UserAppointment";
+import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
+import VideoCall from "../../pages/dashboard/VideoCall/VideoCall";
+import PaymentHistory from "../../pages/dashboard/paymentHistory/PaymentHistory";
 import PostNewTip from "../../pages/dashboard/postNewTip/PostNewTip";
+import Doctors from './../../pages/doctors/Doctors';
 
 
 
@@ -153,6 +154,10 @@ const MainRouter = createBrowserRouter([
                 path: "doctorDetail/:id",
                 element: <DoctorApprovalDetails />,
                 loader: ({ params }) => fetch(`https://virtual-doc-backend.vercel.app/doctorRequestDetail/${params.id}`)
+            },
+            {
+                path: "chat",
+                element: <Connect></Connect>,
             },
         ]
     }
