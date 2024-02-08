@@ -29,6 +29,7 @@ import UserAppointment from "../../pages/dashboard/UserAppointment/UserAppointme
 import Appointment from "../../pages/dashboard/Appointment/Appointment";
 
 import PostNewTip from "../../pages/dashboard/postNewTip/PostNewTip";
+import DoctorProfile from "../../pages/dashboard/doctorProfile/DoctorProfile";
 
 
 
@@ -112,6 +113,10 @@ const MainRouter = createBrowserRouter([
             {
                 path: "userProfile",
                 element: <UserProfile />
+            },
+            {
+                path: "doctorProfile",
+                element: <DoctorProfile />
             },
             {
                 path: "appoinment",
