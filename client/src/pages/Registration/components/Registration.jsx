@@ -21,10 +21,12 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
+import useApiLink from "../../../lib/hooks/useApiLink";
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const Registration = () => {
+  const apiLink = useApiLink()
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const axiosPublic = useAxiosPublic();
@@ -80,7 +82,7 @@ const Registration = () => {
               };
               //data insertion
 
-              fetch('https://virtual-doc-backend.vercel.app/users/createUser', {
+              fetch(`${apiLink}/users/createUser`, {
                 method: "POST",
                 headers: {
                   'content-type': 'application/json'
@@ -127,7 +129,7 @@ const Registration = () => {
         };
         console.log(googleData);
         //data insertion
-        fetch("https://virtual-doc-backend.vercel.app/users/createUser", {
+        fetch(`${apiLink}/users/createUser`, {
           method: "POST",
           headers: {
             "content-type": "application/json",

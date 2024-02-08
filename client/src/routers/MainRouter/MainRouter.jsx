@@ -30,10 +30,11 @@ import Appointment from "../../pages/dashboard/Appointment/Appointment";
 
 import PostNewTip from "../../pages/dashboard/postNewTip/PostNewTip";
 import DoctorProfile from "../../pages/dashboard/doctorProfile/DoctorProfile";
+import useApiLink from "../../lib/hooks/useApiLink";
 
 
 
-
+const apiLink = useApiLink()
 
 
 const MainRouter = createBrowserRouter([
@@ -133,7 +134,7 @@ const MainRouter = createBrowserRouter([
             {
                 path: "doctorDetail/:id",
                 element: <DoctorApprovalDetails/>,
-                loader: ({params}) => fetch(`https://virtual-doc-backend.vercel.app/doctorRequestDetail/${params.id}`)
+                loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
             },
             {
 
@@ -161,7 +162,7 @@ const MainRouter = createBrowserRouter([
             {
                 path: "doctorDetail/:id",
                 element: <DoctorApprovalDetails/>,
-                loader: ({params}) => fetch(`https://virtual-doc-backend.vercel.app/doctorRequestDetail/${params.id}`)
+                loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
             },
         ]
     }

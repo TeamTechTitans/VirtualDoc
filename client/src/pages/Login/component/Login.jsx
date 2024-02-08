@@ -16,7 +16,9 @@ import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
 import { useForm } from 'react-hook-form';
 import { GoogleAuthProvider } from 'firebase/auth';
+import useApiLink from '../../../lib/hooks/useApiLink';
 const Login = () => {
+  const apiLink = useApiLink()
   const { register, handleSubmit, required,reset } = useForm();
   const { logIn, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
@@ -59,7 +61,7 @@ const Login = () => {
         }
         console.log(googleData);
         //data insertion
-        fetch('https://virtual-doc-backend.vercel.app/users/createUser', {
+        fetch(`${apiLink}/users/createUser`, {
           method: "POST",
           headers: {
             'content-type': 'application/json'
