@@ -29,13 +29,7 @@ const apiLink = useApiLink()
     },
   });
 
-  // const { data } = useQuery({
-  //   queryKey: ['repoData'],
-  //   queryFn: () =>
-  //     fetch('https://virtual-doc-backend.vercel.app/users').then((res) =>
-  //       res.json(),
-  //     ),
-  // })
+
   const classes = "p-4 border-b border-blue-gray-50";
 
   //  Manage Modal

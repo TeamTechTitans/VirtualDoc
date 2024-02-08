@@ -7,8 +7,10 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useAuth from '../../../lib/hooks/useAuth';
 import Swal from 'sweetalert2';
+import useApiLink from '../../../lib/hooks/useApiLink';
 
 const UserAppointmentForm = () => {
+    const apiLink = useApiLink()
     const {user}=useAuth();
     const [selectedCategory, setSelectedCategory] = useState('');
     const [appointmentDate, setAppointmentDate] = useState(new Date());
@@ -19,19 +21,19 @@ const UserAppointmentForm = () => {
     const { data: doctorDetails = [] } = useQuery({
         queryKey: ['doctors'],
         queryFn: async () => {
-          const res = await fetch("http://localhost:5000/doctors");
+          const res = await fetch(`${apiLink}/doctors`);
           const doctors = await res.json();
-          console.log(doctors);
           return doctors;
         },
-      });
-    const filtered_doctor=doctorDetails.filter(doctor=>doctor.health_category==selectedCategory);
+    });
+
+    const filtered_doctor=doctorDetails?.filter(doctor=>doctor.health_category==selectedCategory);
     // const filtered_doctor_map=filtered_doctor.map(doctor=>doctor);
     // console.log(filtered_doctor_map);
     const { data: doctorHealthCategory = [] } = useQuery({
         queryKey: ['doctorsHealthCategory'],
         queryFn: async () => {
-          const res = await fetch("http://localhost:5000/doctorsHealthCategory");
+          const res = await fetch(`${apiLink}/doctorsHealthCategory`);
           const doctorsHealthCategory = await res.json();
           console.log(doctorsHealthCategory);
           return doctorsHealthCategory;
@@ -62,7 +64,7 @@ const UserAppointmentForm = () => {
         //     {
 
         //     }
-            fetch('http://localhost:5000/appointment/bookAppointment',{
+            fetch(`${apiLink}/appointment/bookAppointment`,{
               method:"POST",
               headers: {
                   'content-type': 'application/json'
@@ -146,7 +148,7 @@ const UserAppointmentForm = () => {
                             <label className="label">
                                 <span className="label-text">Patient's Name</span>
                             </label>
-                            <input type="text" defaultValue={user.displayName} name='patientName' {...register('patientName')}  className="input input-bordered" required />
+                            <input type="text" defaultValue={user?.displayName} name='patientName' {...register('patientName')}  className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                             <label className="label">
