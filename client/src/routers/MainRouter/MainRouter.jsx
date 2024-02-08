@@ -14,7 +14,7 @@ import TipDetails from "../../pages/Tips/Tipdetails/Tipdetails";
 import AboutUs from "../../pages/aboutUs/AboutUs";
 import AddDoctor from "../../pages/dashboard/AddDoctor/AddDoctor";
 import AllUsers from "../../pages/dashboard/AllUsers/AllUsers";
-import Appointment from "../../pages/dashboard/Appointment/Appointment";
+
 import Dashboard from "../../pages/dashboard/Dashboard";
 import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
 import VideoCall from "../../pages/dashboard/VideoCall/VideoCall";
@@ -25,7 +25,12 @@ import Cart from "../../pages/dashboard/Cart/Cart";
 import PaymentSuccess from "../../pages/dashboard/PaymentSuccess/PaymentSuccess";
 import PaymentHistory from "../../pages/dashboard/paymentHistory/PaymentHistory";
 import UserAppointment from "../../pages/dashboard/UserAppointment/UserAppointment";
+
+import Appointment from "../../pages/dashboard/Appointment/Appointment";
+
 import PostNewTip from "../../pages/dashboard/postNewTip/PostNewTip";
+import DoctorProfile from "../../pages/dashboard/doctorProfile/DoctorProfile";
+
 
 
 
@@ -42,7 +47,7 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: '/appointment',
-                element: <UserAppointment />,
+                element: <UserAppointment/>
             },
             {
                 path: '/doctors',
@@ -110,12 +115,16 @@ const MainRouter = createBrowserRouter([
                 element: <UserProfile />
             },
             {
+                path: "doctorProfile",
+                element: <DoctorProfile />
+            },
+            {
                 path: "appoinment",
-                element: <Appointment />
+                element: <Appointment/>
             },
             {
                 path: "doctorApproval",
-                element: <DoctorApproval />
+                element: <DoctorApproval/>
             },
             {
                 path: "postNewTip",
@@ -123,8 +132,8 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: "doctorDetail/:id",
-                element: <DoctorApprovalDetails />,
-                loader: ({ params }) => fetch(`https://virtual-doc-backend.vercel.app/doctorRequestDetail/${params.id}`)
+                element: <DoctorApprovalDetails/>,
+                loader: ({params}) => fetch(`https://virtual-doc-backend.vercel.app/doctorRequestDetail/${params.id}`)
             },
             {
 
@@ -137,22 +146,22 @@ const MainRouter = createBrowserRouter([
             },
             {
 
-                path: 'paymentHistory',
-                element: <PaymentHistory />
+                path:'paymentHistory',
+                element:<PaymentHistory />
             },
             {
-                path: 'payment/success/:tranId',
-                element: <PaymentSuccess />
+                path:'payment/success/:tranId',
+                element:<PaymentSuccess />
             },
             {
 
                 path: "doctorApproval",
-                element: <DoctorApproval />
+                element: <DoctorApproval/>
             },
             {
                 path: "doctorDetail/:id",
-                element: <DoctorApprovalDetails />,
-                loader: ({ params }) => fetch(`https://virtual-doc-backend.vercel.app/doctorRequestDetail/${params.id}`)
+                element: <DoctorApprovalDetails/>,
+                loader: ({params}) => fetch(`https://virtual-doc-backend.vercel.app/doctorRequestDetail/${params.id}`)
             },
         ]
     }

@@ -3,9 +3,13 @@ import DashboardHeading from "../../../components/DashboardHeading/DashboardHead
 import React from "react";
 import {
   Button,
+  Dialog,
   Card,
+  CardBody,
+  CardFooter,
   Typography,
-
+  Input,
+  Checkbox,
 } from "@material-tailwind/react";
 import ManageModal from "./ManageModal";
 
@@ -38,8 +42,6 @@ const AllUsers = () => {
     setOpen(!open)
     setUserData(user)
   };
-    
-
 
 
   return (

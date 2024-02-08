@@ -27,9 +27,10 @@ const Login = () => {
       .then((userCredential) => {
         Swal.fire('Logged In Successfully');
         const user = userCredential.user;
-        {
-          Navigate(location.state ? location.state : '/');
-        }
+        // {
+        //   Navigate(location.state ? location.state : '/');
+        // }
+        navigate('/');
 
       })
       .catch((error) => {

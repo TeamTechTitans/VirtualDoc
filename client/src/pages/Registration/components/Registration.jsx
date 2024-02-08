@@ -34,21 +34,35 @@ const Registration = () => {
   const onSubmit = async (data) => {
     console.log(data);
     if (data.password.length < 6) {
-      return toast("Password should be 6 Character");
-    } else if (!/[A-Z]/.test(data.password)) {
-      return toast("Kindly use at least one capital letter");
-    } else if (!/[^\w\s]/.test(data.password)) {
-      return toast("Kindly use at least one special character");
-    } else {
-      const imageFile = { image: data.image[0] };
-      const res = await axiosPublic.post(image_hosting_api, imageFile, {
-        headers: {
-          "content-type": "multipart/form-data",
-        },
-      });
 
-      const imageURL = res.data.data.display_url;
-      console.log(imageURL);
+      return toast('Password should be 6 Character');
+    }
+    else if (!/[A-Z]/.test(data.password)) {
+      return toast('Kindly use at least one capital letter');
+    }
+    else if (!/[^\w\s]/.test(data.password)) {
+      return toast('Kindly use at least one special character');
+    }
+    else {
+
+    const imageFile = { image: data.image[0] };
+    const res = await axiosPublic.post(image_hosting_api, imageFile, {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    });
+
+    const imageURL = res.data.data.display_url;
+    console.log('image url',imageURL);
+    const signUpData={
+      name:data.name,
+      image:imageURL,
+      loc:data.loc,
+      blood_group:data.blood_group,
+      email:data.email,
+      password:data.password
+    }
+
       createUser(data.email, data.password)
         .then((userCredential) => {
           // Signed up
@@ -65,28 +79,24 @@ const Registration = () => {
                 role: "user",
               };
               //data insertion
-              const res = await axiosPublic.post("/users/createUser", userData);
-              console.log(res);
-              if (res) {
-                Swal.fire("User Created Successfully");
-              }
-              // fetch('https://virtual-doc-backend.vercel.app/users/createUser', {
-              //   method: "POST",
-              //   headers: {
-              //     'content-type': 'application/json'
-              //   },
-              //   body: JSON.stringify(data)
-              // })
-              //   .then(res => res.json())
-              //   .then(data => {
-              //     console.log(data);
-              //     if (data._id) {
-              //       Swal.fire('User Created Successfully');
-              //     }
-              //   })
-              navigate("/");
-            })
-            .catch((error) => {
+
+              fetch('https://virtual-doc-backend.vercel.app/users/createUser', {
+                method: "POST",
+                headers: {
+                  'content-type': 'application/json'
+                },
+                body: JSON.stringify(signUpData)
+              })
+                .then(res => res.json())
+                .then(data => {
+                  console.log(data);
+                  if (data._id) {
+                    Swal.fire('User Created Successfully');
+                  }
+                })
+              navigate('/');
+            }).catch((error) => {
+
               // An error occurred
               // ...
             });
