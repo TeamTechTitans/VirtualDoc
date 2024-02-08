@@ -1,6 +1,12 @@
 import { useForm } from "react-hook-form";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
-import { Input, Option, Select, Textarea } from "@material-tailwind/react";
+import {
+  Button,
+  Input,
+  Option,
+  Select,
+  Textarea,
+} from "@material-tailwind/react";
 import { useState } from "react";
 import { CiCircleRemove } from "react-icons/ci";
 import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
@@ -14,7 +20,7 @@ const PostNewTip = () => {
   const [hashtags, setHashtags] = useState([]);
   const [newHashtag, setNewHashtag] = useState("");
   const axiosPublic = useAxiosPublic();
-  const { user } = useAuth()
+  const { user } = useAuth();
 
   const addHashtag = () => {
     if (newHashtag.trim() !== "") {
@@ -48,47 +54,47 @@ const PostNewTip = () => {
         "content-type": "multipart/form-data",
       },
     });
-    const addImage1 = res.data.data.display_url
+    const addImage1 = res.data.data.display_url;
     const res2 = await axiosPublic.post(image_hosting_api, addFile2, {
-        headers: {
-          "content-type": "multipart/form-data",
-        },
-      });
-      const addImage2 = res2.data.data.display_url
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    });
+    const addImage2 = res2.data.data.display_url;
     const res3 = await axiosPublic.post(image_hosting_api, addFile3, {
-        headers: {
-          "content-type": "multipart/form-data",
-        },
-      });
-      const addImage3 = res3.data.data.display_url
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    });
+    const addImage3 = res3.data.data.display_url;
     const resCover = await axiosPublic.post(image_hosting_api, coverImageFile, {
-        headers: {
-          "content-type": "multipart/form-data",
-        },
-      });
-      const coverImage = resCover.data.data.display_url
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    });
+    const coverImage = resCover.data.data.display_url;
     //   console.log(addImage1, addImage2, addImage3, coverImage)
-    if(res, res2, res3, resCover){
-        const tip = {
-            cover: coverImage,
-            title: data.title,
-            description: data.description,
-            date: data.date,
-            month: data.month,
-            images: [addImage1, addImage2, addImage3],
-            hashtags: hashtags,
-            author: user?.displayName
-        }
-        console.log(tip)
-        const response = await axiosPublic.post('/tips', tip)
-    if(response){
+    if ((res, res2, res3, resCover)) {
+      const tip = {
+        cover: coverImage,
+        title: data.title,
+        description: data.description,
+        date: data.date,
+        month: data.month,
+        images: [addImage1, addImage2, addImage3],
+        hashtags: hashtags,
+        author: user?.displayName,
+      };
+      console.log(tip);
+      const response = await axiosPublic.post("/tips", tip);
+      if (response) {
         Swal.fire({
-            icon: "success",
-            title: "Tip posted successfully",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-    }
+          icon: "success",
+          title: "Tip posted successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
     }
   };
   return (
@@ -265,9 +271,9 @@ const PostNewTip = () => {
             </div>
           </div>
           <div className="w-full text-center mt-3">
-            <button type="submit" className="btn btn-outline btn-md">
-              Post
-            </button>
+            <Button type="submit" color="teal" className=" text-white ">
+              Add
+            </Button>
           </div>
         </form>
       </div>

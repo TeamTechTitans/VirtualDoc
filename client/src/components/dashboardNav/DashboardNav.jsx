@@ -14,9 +14,11 @@ import {
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from './../logo/Logo';
+import useDoctor from "../../lib/hooks/useDoctor";
 
 
 const DashboardNav = () => {
+  const [isDoctor] = useDoctor()
   const [open, setOpen] = React.useState(0);
   const [openAlert, setOpenAlert] = React.useState(true);
 
