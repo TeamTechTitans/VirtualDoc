@@ -12,7 +12,6 @@ import MainRouter from './routers/MainRouter/MainRouter'
 
 const queryClient = new QueryClient();
 
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
