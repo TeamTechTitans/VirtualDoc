@@ -107,8 +107,8 @@ const UserAppointmentForm = () => {
                                 <span className="label-text">Health Category</span>
                             </label>
                             <select onChange={handleCategoryChange} className="select select-bordered w-full">
-                                {doctorHealthCategory.map(health_category=>(
-                                    <option value={health_category.cat_value}>{health_category.cat_name}</option>
+                                {doctorHealthCategory.map((health_category, idx)=>(
+                                    <option key={idx} value={health_category.cat_value}>{health_category.cat_name}</option>
                                 ))}   
                             </select>
                     </div>

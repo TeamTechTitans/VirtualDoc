@@ -18,7 +18,7 @@ const TipData = () => {
     return (
         <div>
             {
-                tips?.map(tip => <TipCard key={tip.id} tip={tip}></TipCard>)
+                tips?.map((tip, idx) => <TipCard key={idx} tip={tip}></TipCard>)
             }
         </div>
     );

@@ -4,8 +4,9 @@ import useApiLink from "./useApiLink";
 const apiLink = useApiLink()
 
 const axiosPublic = axios.create({
-    baseURL: apiLink
+    baseURL: apiLink 
 })
+
 const useAxiosPublic = () => {
     return axiosPublic
 };
