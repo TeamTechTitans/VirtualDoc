@@ -21,10 +21,12 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
+import useApiLink from "../../../lib/hooks/useApiLink";
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const Registration = () => {
+  const apiLink = useApiLink()
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const axiosPublic = useAxiosPublic();
@@ -34,21 +36,35 @@ const Registration = () => {
   const onSubmit = async (data) => {
     console.log(data);
     if (data.password.length < 6) {
-      return toast("Password should be 6 Character");
-    } else if (!/[A-Z]/.test(data.password)) {
-      return toast("Kindly use at least one capital letter");
-    } else if (!/[^\w\s]/.test(data.password)) {
-      return toast("Kindly use at least one special character");
-    } else {
-      const imageFile = { image: data.image[0] };
-      const res = await axiosPublic.post(image_hosting_api, imageFile, {
-        headers: {
-          "content-type": "multipart/form-data",
-        },
-      });
 
-      const imageURL = res.data.data.display_url;
-      console.log(imageURL);
+      return toast('Password should be 6 Character');
+    }
+    else if (!/[A-Z]/.test(data.password)) {
+      return toast('Kindly use at least one capital letter');
+    }
+    else if (!/[^\w\s]/.test(data.password)) {
+      return toast('Kindly use at least one special character');
+    }
+    else {
+
+    const imageFile = { image: data.image[0] };
+    const res = await axiosPublic.post(image_hosting_api, imageFile, {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    });
+
+    const imageURL = res.data.data.display_url;
+    console.log('image url',imageURL);
+    const signUpData={
+      name:data.name,
+      image:imageURL,
+      loc:data.loc,
+      blood_group:data.blood_group,
+      email:data.email,
+      password:data.password
+    }
+
       createUser(data.email, data.password)
         .then((userCredential) => {
           // Signed up
@@ -65,28 +81,24 @@ const Registration = () => {
                 role: "user",
               };
               //data insertion
-              const res = await axiosPublic.post("/users/createUser", userData);
-              console.log(res);
-              if (res) {
-                Swal.fire("User Created Successfully");
-              }
-              // fetch('https://virtual-doc-backend.vercel.app/users/createUser', {
-              //   method: "POST",
-              //   headers: {
-              //     'content-type': 'application/json'
-              //   },
-              //   body: JSON.stringify(data)
-              // })
-              //   .then(res => res.json())
-              //   .then(data => {
-              //     console.log(data);
-              //     if (data._id) {
-              //       Swal.fire('User Created Successfully');
-              //     }
-              //   })
-              navigate("/");
-            })
-            .catch((error) => {
+
+              fetch(`${apiLink}/users/createUser`, {
+                method: "POST",
+                headers: {
+                  'content-type': 'application/json'
+                },
+                body: JSON.stringify(signUpData)
+              })
+                .then(res => res.json())
+                .then(data => {
+                  console.log(data);
+                  if (data._id) {
+                    Swal.fire('User Created Successfully');
+                  }
+                })
+              navigate('/');
+            }).catch((error) => {
+
               // An error occurred
               // ...
             });
@@ -113,10 +125,11 @@ const Registration = () => {
           blood_group: " ",
           email: user.email,
           password: " ",
+          role: "user",
         };
         console.log(googleData);
         //data insertion
-        fetch("https://virtual-doc-backend.vercel.app/users/createUser", {
+        fetch(`${apiLink}/users/createUser`, {
           method: "POST",
           headers: {
             "content-type": "application/json",

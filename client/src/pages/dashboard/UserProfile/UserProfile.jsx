@@ -12,12 +12,15 @@ import {
 import { useContext } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import useApiLink from '../../../lib/hooks/useApiLink';
 
 const UserProfile = () => {
+
+     const apiLink = useApiLink()
     const { user } = useContext(AuthContext);
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        fetch(`https://virtual-doc-backend.vercel.app/users/${user?.email}`)
+        fetch(`${apiLink}/users/${user?.email}`)
             .then(res => res.json())
             .then(data => setUsers(data))
     }, [])
@@ -31,7 +34,7 @@ const UserProfile = () => {
         const location = form.u_loc.value;
         const updateUserData = { name, email, blood_group, location };
         console.log(updateUserData);
-        fetch(`https://virtual-doc-backend.vercel.app/users/${users?._id}`, {
+        fetch(`${apiLink}/users/${users?._id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

@@ -3,21 +3,27 @@ import DashboardHeading from "../../../components/DashboardHeading/DashboardHead
 import React from "react";
 import {
   Button,
+  Dialog,
   Card,
+  CardBody,
+  CardFooter,
   Typography,
-
+  Input,
+  Checkbox,
 } from "@material-tailwind/react";
 import ManageModal from "./ManageModal";
+import useApiLink from "../../../lib/hooks/useApiLink";
 
 const AllUsers = () => {
   const [userData, setUserData] = React.useState([]);
   const TABLE_HEAD = ["Name", "Email", "location", "Blood-Group", "Action"];
+const apiLink = useApiLink()
 
 
   const { data: userDetails = [] } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
-      const res = await fetch("https://virtual-doc-backend.vercel.app/users");
+      const res = await fetch(`${apiLink}/users`);
       const users = await res.json();
       return users;
     },
@@ -38,8 +44,6 @@ const AllUsers = () => {
     setOpen(!open)
     setUserData(user)
   };
-    
-
 
 
   return (
