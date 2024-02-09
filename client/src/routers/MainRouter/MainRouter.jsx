@@ -16,12 +16,10 @@ import AboutUs from "../../pages/aboutUs/AboutUs";
 import AddDoctor from "../../pages/dashboard/AddDoctor/AddDoctor";
 import AllUsers from "../../pages/dashboard/AllUsers/AllUsers";
 import Appointment from "../../pages/dashboard/Appointment/Appointment";
-import Cart from "../../pages/dashboard/Cart/Cart";
 
 import Dashboard from "../../pages/dashboard/Dashboard";
 import DoctorApproval from "../../pages/dashboard/DoctorApproval/DoctorApproval";
 import DoctorApprovalDetails from "../../pages/dashboard/DoctorApproval/DoctorApprovalDetails";
-import PaymentSuccess from "../../pages/dashboard/PaymentSuccess/PaymentSuccess";
 import UserAppointment from "../../pages/dashboard/UserAppointment/UserAppointment";
 import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
 import VideoCall from "../../pages/dashboard/VideoCall/VideoCall";
