@@ -78,45 +78,14 @@ const UserAppointmentForm = () => {
             time: appointment_data.timing_slot,
             pay: appointment_data.payment
           }
-          navigate('/dashboard/cart', { state: appointment });
+          navigate('/cart', { state: appointment });
     }
-    // if(appointment_data.doctor_id=='' && appointment_data.timing_slot=='' && appointment_data.date=='' )
-    //     {
-
-    //     }
-    // fetch("http://localhost:5000/appointment/bookAppointment", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(appointment_data),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     if (data._id) {
-    //       Swal.fire({
-    //         position: "top-center",
-    //         icon: "success",
-    //         title: "Your Appointment has been Scheduled",
-    //         text: "You will see all details at your dashboard",
-    //         showConfirmButton: false,
-    //         timer: 7000,
-    //       });
-    //     } else {
-    //       Swal.fire({
-    //         icon: "error",
-    //         title: "Time Slot Already Booked",
-    //         text: "Please book another time slot ",
-    //         timer: 4000,
-    //       });
-    //     }
-    //   });
+    
   };
   return (
     <div>
       <DashboardHeading title="Deal with our Healthcare Professionals">
-        Book An Appiontment
+        Book An Appointment
       </DashboardHeading>
       <h2>{filtered_doctor.length}</h2>
       <div className="hero">

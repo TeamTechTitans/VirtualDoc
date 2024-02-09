@@ -21,15 +21,13 @@ import VideoCall from "../../pages/dashboard/VideoCall/VideoCall";
 import Doctors from './../../pages/doctors/Doctors';
 import DoctorApproval from "../../pages/dashboard/DoctorApproval/DoctorApproval";
 import DoctorApprovalDetails from "../../pages/dashboard/DoctorApproval/DoctorApprovalDetails";
-import Cart from "../../pages/dashboard/Cart/Cart";
-import PaymentSuccess from "../../pages/dashboard/PaymentSuccess/PaymentSuccess";
 import PaymentHistory from "../../pages/dashboard/paymentHistory/PaymentHistory";
 import UserAppointment from "../../pages/dashboard/UserAppointment/UserAppointment";
-
 import Appointment from "../../pages/dashboard/Appointment/Appointment";
-
 import PostNewTip from "../../pages/dashboard/postNewTip/PostNewTip";
 import DoctorProfile from "../../pages/dashboard/doctorProfile/DoctorProfile";
+import Cart from "../../pages/Cart/Cart";
+import PaymentSuccess from "../../pages/PaymentSuccess/PaymentSuccess";
 
 
 
@@ -73,6 +71,14 @@ const MainRouter = createBrowserRouter([
             {
                 path: '/services',
                 element: <Services />,
+            },
+            {
+                path: "cart",
+                element: <Cart />
+            },
+            {
+                path:'payment/success/:tranId',
+                element:<PaymentSuccess />
             },
             {
                 path: "/doctorRegister",
@@ -140,18 +146,11 @@ const MainRouter = createBrowserRouter([
                 path: "videocall",
                 element: <VideoCall />
             },
-            {
-                path: "cart",
-                element: <Cart />
-            },
+            
             {
 
                 path:'paymentHistory',
                 element:<PaymentHistory />
-            },
-            {
-                path:'payment/success/:tranId',
-                element:<PaymentSuccess />
             },
             {
 
