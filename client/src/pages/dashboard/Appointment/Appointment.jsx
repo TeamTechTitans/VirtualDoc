@@ -51,7 +51,7 @@ const Appointment = () => {
       time: time,
       pay: pay
     }
-    navigate('/dashboard/cart', { state: appointment });
+    navigate('/cart', { state: appointment });
 
   }
 

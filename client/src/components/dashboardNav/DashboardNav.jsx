@@ -102,6 +102,13 @@ const DashboardNav = () => {
             </Typography>
           </ListItem>
         </Link>
+        <Link to={'/dashboard/paymentHistory'}>
+          <ListItem className="p-0">
+            <Typography color="blue-gray" className="mr-auto p-2 font-normal">
+              Payment History
+            </Typography>
+          </ListItem>
+        </Link>
         <Link to={'/dashboard/addDoctor'}>
           <ListItem className="p-0">
             <Typography color="blue-gray" className="mr-auto p-2 font-normal">

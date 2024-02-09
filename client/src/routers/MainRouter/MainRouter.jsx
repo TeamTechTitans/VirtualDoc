@@ -16,12 +16,10 @@ import AboutUs from "../../pages/aboutUs/AboutUs";
 import AddDoctor from "../../pages/dashboard/AddDoctor/AddDoctor";
 import AllUsers from "../../pages/dashboard/AllUsers/AllUsers";
 import Appointment from "../../pages/dashboard/Appointment/Appointment";
-import Cart from "../../pages/dashboard/Cart/Cart";
 
 import Dashboard from "../../pages/dashboard/Dashboard";
 import DoctorApproval from "../../pages/dashboard/DoctorApproval/DoctorApproval";
 import DoctorApprovalDetails from "../../pages/dashboard/DoctorApproval/DoctorApprovalDetails";
-import PaymentSuccess from "../../pages/dashboard/PaymentSuccess/PaymentSuccess";
 import UserAppointment from "../../pages/dashboard/UserAppointment/UserAppointment";
 import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
 import VideoCall from "../../pages/dashboard/VideoCall/VideoCall";
@@ -32,6 +30,8 @@ import Doctors from './../../pages/doctors/Doctors';
 
 import useApiLink from "../../lib/hooks/useApiLink";
 import DoctorProfile from "../../pages/dashboard/doctorProfile/DoctorProfile";
+import Cart from "../../pages/Cart/Cart";
+import PaymentSuccess from "../../pages/PaymentSuccess/PaymentSuccess";
 
 
 
@@ -75,6 +75,14 @@ const MainRouter = createBrowserRouter([
             {
                 path: '/services',
                 element: <Services />,
+            },
+            {
+                path: "cart",
+                element: <Cart />
+            },
+            {
+                path:'payment/success/:tranId',
+                element:<PaymentSuccess />
             },
             {
                 path: "/doctorRegister",
@@ -142,18 +150,11 @@ const MainRouter = createBrowserRouter([
                 path: "videocall",
                 element: <VideoCall />
             },
-            {
-                path: "cart",
-                element: <Cart />
-            },
+            
             {
 
                 path:'paymentHistory',
                 element:<PaymentHistory />
-            },
-            {
-                path:'payment/success/:tranId',
-                element:<PaymentSuccess />
             },
             {
 
