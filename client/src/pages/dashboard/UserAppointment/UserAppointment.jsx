@@ -7,7 +7,7 @@ import UserServices from "./UserServices";
 const UserAppointment = () => {
   return (
     <div>
-      <SiteHeader title={"User Appointment"}>User Appointment</SiteHeader>
+      <SiteHeader title={"Appointment"}>Get an Appointment</SiteHeader>
       <UserAppointmentForm/>
       {/* <Calender></Calender> */}
       <UserServices></UserServices>

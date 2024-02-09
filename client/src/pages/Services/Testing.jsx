@@ -3,12 +3,12 @@ import React from "react";
 
 const Testing = () => {
   return (
-    <div className="py-28 bg-[#06194b]">
+    <div className="py-20 bg-[#06194b]">
       <div className="container mx-auto flex justify-around items-center ">
         <h1 className="text-4xl text-white font-bold ">
           Accurate Product Testing <br></br> by Expert Scientists
         </h1>
-        <Button className="text-white font-bold text-right hover:bg-black bg-primary-teal">
+        <Button className="text-white rounded-full normal-case font-bold text-right hover:bg-black bg-primary-teal">
           Book Free Samoling Here
         </Button>
       </div>

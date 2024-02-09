@@ -3,22 +3,20 @@ import React, { useState } from "react";
 import { Card, Typography, Button } from "@material-tailwind/react";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
 import { Link } from "react-router-dom";
+import useApiLink from "../../../lib/hooks/useApiLink";
 
 const DoctorApproval = () => {
   const [doctor, setDoctor] = useState([]);
   const TABLE_HEAD = ["Name", "Email", "Education", "Registration", "Action"];
 
-  // useEffect(()=>{
-  //     fetch('https://virtual-doc-backend.vercel.app/users')
-  //     .then(res=>res.json())
-  //     .then(data=>setUser(data))
-  // },[])
+  const apiLink = useApiLink()
+
 
   const { data: doctorDetails = [], refetch } = useQuery({
     queryKey: ["doctors"],
     queryFn: async () => {
       const res = await fetch(
-        "https://virtual-doc-backend.vercel.app/doctorsRequest"
+        `${apiLink}/doctorsRequest`
       );
       const doctor = await res.json();
       // console.log(doctor);
