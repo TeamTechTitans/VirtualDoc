@@ -2,12 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./../../../provider/AuthProvider/AuthProvider";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
 import { FaEnvelope, FaLocationPin, FaPhone } from "react-icons/fa6";
+import useApiLink from "../../../lib/hooks/useApiLink";
 
 const Profile = () => {
+  const apiLink = useApiLink()
   const { user } = useContext(AuthContext);
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user?.email}`)
+    fetch(`${apiLink}/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);

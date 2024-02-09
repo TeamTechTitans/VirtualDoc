@@ -3,33 +3,32 @@ import DashboardHeading from "../../../components/DashboardHeading/DashboardHead
 import React from "react";
 import {
   Button,
+  Dialog,
   Card,
+  CardBody,
+  CardFooter,
   Typography,
-
+  Input,
+  Checkbox,
 } from "@material-tailwind/react";
 import ManageModal from "./ManageModal";
+import useApiLink from "../../../lib/hooks/useApiLink";
 
 const AllUsers = () => {
   const [userData, setUserData] = React.useState([]);
   const TABLE_HEAD = ["Name", "Email", "location", "Blood-Group", "Action"];
+const apiLink = useApiLink()
 
 
   const { data: userDetails = [] } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/users");
+      const res = await fetch(`${apiLink}/users`);
       const users = await res.json();
       return users;
     },
   });
 
-  // const { data } = useQuery({
-  //   queryKey: ['repoData'],
-  //   queryFn: () =>
-  //     fetch('http://localhost:5000/users').then((res) =>
-  //       res.json(),
-  //     ),
-  // })
   const classes = "p-4 border-b border-blue-gray-50";
 
   //  Manage Modal
@@ -38,8 +37,6 @@ const AllUsers = () => {
     setOpen(!open)
     setUserData(user)
   };
-    
-
 
 
   return (
