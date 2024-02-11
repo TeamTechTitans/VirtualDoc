@@ -34,6 +34,7 @@ import Cart from "../../pages/Cart/Cart";
 import PaymentSuccess from "../../pages/PaymentSuccess/PaymentSuccess";
 import AdminRoute from "../AdminRoute";
 import DoctorRoute from "../DoctorRoute";
+import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
 
 const apiLink = useApiLink()
 
@@ -169,6 +170,10 @@ const MainRouter = createBrowserRouter([
             {
                 path: "chat",
                 element: <Connect></Connect>,
+            },
+            {
+                path: "allDoctor",
+                element:<AdminRoute><AllDoctor /></AdminRoute>
             },
         ]
     }
