@@ -5,14 +5,14 @@ import useApiLink from "../../../lib/hooks/useApiLink";
 import { useState } from "react";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
 import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
-import Swal from "sweetalert2"
+import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const AllDoctor = () => {
   const [doctorData, setDoctorData] = useState([]);
   const TABLE_HEAD = ["Personal Info", "Education", "Extra Info", "Action"];
   const apiLink = useApiLink();
-  const axiosPublic = useAxiosPublic()
+  const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
 
   const { data: doctorDetails = [], refetch } = useQuery({
@@ -25,35 +25,43 @@ const AllDoctor = () => {
   });
 
   const classes = "p-4 border-b border-blue-gray-50";
-  const handleDeleteDoctor = (id) =>{
+  const handleDeleteDoctor = (id) => {
     // console.log(id)
     Swal.fire({
-        title: "Are you sure?",
-        text: "Do you want to delete this doctor from database?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
-      }).then(async (result) => {
-        if (result.isConfirmed) {
-          const deleteRes = await axiosPublic.delete(
-            `/doctor/${id}`
+      title: "Are you sure?",
+      text: "Do you want to delete this doctor from database?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const deleteRes = await axiosPublic.delete(`/doctor/${id}`);
+        console.log(deleteRes);
+        if (deleteRes) {
+          Swal.fire(
+            "Deleted!",
+            "Doctor has been removed from database",
+            "success"
           );
-           console.log(deleteRes)
-          if (deleteRes) {
-            Swal.fire("Deleted!", "Doctor has been removed from database", "success");
-            navigate("/dashboard/allDoctor");
-            refetch()
-          }
+          navigate("/dashboard/allDoctor");
+          refetch();
         }
-      });
-  }
+      }
+    });
+  };
+  refetch();
   //  Manage Modal
   const [open, setOpen] = useState(false);
   const handleOpen = (doctor) => {
+    // setDoctorData(null);
     setOpen(!open);
-    setDoctorData(doctor);
+    refetch();
+    if (doctor) {
+      setDoctorData(doctor);
+      refetch()
+    }
   };
   return (
     <div className="flex p-2 flex-col">
@@ -124,7 +132,8 @@ const AllDoctor = () => {
                     Manage
                   </Button>
 
-                  <Button onClick={()=> handleDeleteDoctor(doctor._id)}
+                  <Button
+                    onClick={() => handleDeleteDoctor(doctor._id)}
                     className="px-2 py-1 rounded-none normal-case"
                     color="red"
                   >
@@ -140,6 +149,7 @@ const AllDoctor = () => {
         handleOpen={handleOpen}
         open={open}
         doctor={doctorData}
+        refetch={refetch}
       ></ManageModal>
     </div>
   );
