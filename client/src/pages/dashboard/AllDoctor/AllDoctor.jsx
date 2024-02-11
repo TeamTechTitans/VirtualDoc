@@ -62,6 +62,7 @@ const AllDoctor = () => {
       setDoctorData(doctor);
       refetch()
     }
+    refetch()
   };
   return (
     <div className="flex p-2 flex-col">
