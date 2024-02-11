@@ -25,12 +25,13 @@ import VideoCall from "../../pages/dashboard/VideoCall/VideoCall";
 import PaymentHistory from "../../pages/dashboard/paymentHistory/PaymentHistory";
 import PostNewTip from "../../pages/dashboard/postNewTip/PostNewTip";
 import Doctors from './../../pages/doctors/Doctors';
-
-
 import useApiLink from "../../lib/hooks/useApiLink";
 import DoctorProfile from "../../pages/dashboard/doctorProfile/DoctorProfile";
 import Cart from "../../pages/Cart/Cart";
 import PaymentSuccess from "../../pages/PaymentSuccess/PaymentSuccess";
+import AdminRoute from "../AdminRoute";
+import DoctorRoute from "../DoctorRoute";
+import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
 import Connect from "../../pages/ChatApp/Chat/Connect";
 import Profile from "../../pages/dashboard/Profile/Profile";
 
@@ -115,11 +116,11 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: "allUser",
-                element: <AllUsers />
+                element:<AdminRoute><AllUsers /></AdminRoute>
             },
             {
                 path: "addDoctor",
-                element: <AddDoctor />
+                element: <AdminRoute><AddDoctor /></AdminRoute>
             },
             {
                 path: "userProfile",
@@ -135,15 +136,15 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: "doctorApproval",
-                element: <DoctorApproval/>
+                element: <AdminRoute><DoctorApproval/></AdminRoute>
             },
             {
                 path: "postNewTip",
-                element: <PostNewTip />
+                element: <DoctorRoute><PostNewTip /></DoctorRoute>
             },
             {
                 path: "doctorDetail/:id",
-                element: <DoctorApprovalDetails/>,
+                element: <AdminRoute><DoctorApprovalDetails/></AdminRoute>,
                 loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
             },
             {
@@ -160,21 +161,20 @@ const MainRouter = createBrowserRouter([
             {
 
                 path: "doctorApproval",
-                element: <DoctorApproval/>
+                element: <AdminRoute><DoctorApproval/></AdminRoute>
             },
-            {
-
-                path: "profile",
-                element: <Profile/>
-            },
-            {
-                path: "doctorDetail/:id",
-                element: <DoctorApprovalDetails/>,
-                loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
-            },
+            // {
+            //     path: "doctorDetail/:id",
+            //     element: <DoctorApprovalDetails/>,
+            //     loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
+            // },
             {
                 path: "chat",
                 element: <Connect></Connect>,
+            },
+            {
+                path: "allDoctor",
+                element:<AdminRoute><AllDoctor /></AdminRoute>
             },
         ]
     }

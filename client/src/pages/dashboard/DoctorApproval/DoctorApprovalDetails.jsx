@@ -75,44 +75,6 @@ const DoctorApprovalDetails = () => {
       navigate("/dashboard/doctorApproval");
     }
 
-    // console.log(data.email);
-    // createUser(data.email,data.password)
-    // .then((userCredential) => {
-    //     // Signed up
-    //     const res_user = userCredential.user;
-    //     updateUserProfile(data.name,data.image)
-    //         .then(() => {
-    //           //data insertion
-    //           fetch('http://localhost:5000/doctors/createDoctors',{
-    //             method:"POST",
-    //             headers: {
-    //                 'content-type': 'application/json'
-    //                 },
-    //             body:JSON.stringify(data)
-    //         })
-    //         .then(res=>res.json())
-    //         .then(data=>{
-    //             console.log(data);
-    //             if(data._id){
-    //                 Swal.fire({
-    //                 position: "top-center",
-    //                 icon: "success",
-    //                 title: "Request has been Accepted",
-    //                 showConfirmButton: false,
-    //                 timer: 1000
-    //                 });
-    //             }
-    //         })
-    //       }).catch((error) => {
-    //         // An error occurred
-    //         // ...
-    //       });
-
-    //   })
-    // .catch((error) => {
-    //   toast('Registration failed,Try Again');
-    //   // ...
-    // });
   };
   return (
     <div>
