@@ -267,7 +267,7 @@ const Registration = () => {
               </Typography>
             </CardFooter>
           </Card>
-        </CardBody>
+        </CardBody>  
       </div>
       <ToastContainer />
     </>

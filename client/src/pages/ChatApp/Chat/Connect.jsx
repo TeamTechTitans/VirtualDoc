@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 import { io } from "socket.io-client";
 import Chat from "./Chat";
 import "./Chat.css";
+import useApiLink from "../../../lib/hooks/useApiLink";
 
-const socket = io.connect("http://localhost:5000");
+const apiLink = useApiLink()
+
+const socket = io.connect(apiLink);
 
 const Connect = () => {
   const [username, setUsername] = useState("");

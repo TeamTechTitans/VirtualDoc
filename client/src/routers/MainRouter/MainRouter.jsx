@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 
 import DashboardLayout from "../../layouts/DashboardLayout/DashboardLayout";
 import MainLayout from "../../layouts/MainLayout/MainLayout";
-import Connect from "../../pages/ChatApp/Chat/connect";
 import Contact from "../../pages/Contact/Contact";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/component/Login";
@@ -26,8 +25,6 @@ import VideoCall from "../../pages/dashboard/VideoCall/VideoCall";
 import PaymentHistory from "../../pages/dashboard/paymentHistory/PaymentHistory";
 import PostNewTip from "../../pages/dashboard/postNewTip/PostNewTip";
 import Doctors from './../../pages/doctors/Doctors';
-
-
 import useApiLink from "../../lib/hooks/useApiLink";
 import DoctorProfile from "../../pages/dashboard/doctorProfile/DoctorProfile";
 import Cart from "../../pages/Cart/Cart";
@@ -35,6 +32,10 @@ import PaymentSuccess from "../../pages/PaymentSuccess/PaymentSuccess";
 import AdminRoute from "../AdminRoute";
 import DoctorRoute from "../DoctorRoute";
 import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
+import Connect from "../../pages/ChatApp/Chat/Connect";
+import Profile from "../../pages/dashboard/Profile/Profile";
+
+
 
 const apiLink = useApiLink()
 
