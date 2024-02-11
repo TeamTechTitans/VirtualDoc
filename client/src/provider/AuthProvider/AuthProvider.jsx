@@ -5,8 +5,13 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,
 import { useEffect } from 'react';
 import auth from '../../firebase/firebase.init';
 import Swal from 'sweetalert2';
+import useAxiosPublic from '../../lib/hooks/useAxiosPublic';
+import useApiLink from '../../lib/hooks/useApiLink';
 
 export const AuthContext = createContext('null');
+const axiosPublic = useAxiosPublic()
+const apiLink = useApiLink()
+
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const provider = new GoogleAuthProvider();
@@ -45,6 +50,11 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
+            const userEmail = { email: currentUser?.email }
+            axiosPublic.post(`${apiLink}/jwt`,userEmail)
+                .then(res => {
+                console.log(res.data)
+            })
             console.log('user in the current state', currentUser);
             setLoading(false);
         })

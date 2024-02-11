@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
       <QueryClientProvider client={queryClient}>
-        <div className='font-barlow'>
+        <div className='font-open-sans'>
           <RouterProvider router={MainRouter} />
         </div>
       </QueryClientProvider>
