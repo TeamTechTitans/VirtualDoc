@@ -41,12 +41,12 @@ const apiLink = useApiLink()
 
 
   return (
-    <div className="flex p-2 flex-col items-center">
+    <div className="flex p-2 flex-col">
       <DashboardHeading title="All users">Manage All Users</DashboardHeading>
       <Card className="w-full max-w-7xl overflow-auto">
-        <table className="w-full min-w-max table-auto text-center font-barlow">
+        <table className="w-full min-w-max table-auto  font-barlow">
           <thead>
-            <tr>
+            <tr className="">
               {TABLE_HEAD.map((head, idx) => (
                 <th
                   key={idx}
@@ -87,7 +87,7 @@ const apiLink = useApiLink()
                 <Typography
                   variant="small"
                   color="blue-gray"
-
+                  className="text-center"
                 >
                   {user?.loc}
                 </Typography>
@@ -96,7 +96,7 @@ const apiLink = useApiLink()
                 <Typography
                   variant="small"
                   color="blue-gray"
-
+                  className="text-center"
                 >
                   {user?.blood_group}
                 </Typography>

@@ -45,7 +45,7 @@ const DashboardNav = () => {
                 </Typography>
               </ListItem>
             </Link>
-            <Link to={"/dashboard/doctorProfile"}>
+            <Link to={"/dashboard/userProfile"}>
               <ListItem className="p-0">
                 <Typography
                   color="blue-gray"
