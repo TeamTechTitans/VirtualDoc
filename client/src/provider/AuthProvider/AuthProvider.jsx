@@ -53,7 +53,8 @@ const AuthProvider = ({ children }) => {
             const userEmail = { email: currentUser?.email }
             axiosPublic.post(`${apiLink}/jwt`,userEmail)
                 .then(res => {
-                console.log(res.data)
+                    console.log(res.data)
+                localStorage.setItem('token', res.data?.token)
             })
             console.log('user in the current state', currentUser);
             setLoading(false);

@@ -34,6 +34,7 @@ import DoctorRoute from "../DoctorRoute";
 import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
 import Connect from "../../pages/ChatApp/Chat/Connect";
 import Profile from "../../pages/dashboard/Profile/Profile";
+import PrivetRoute from "../PrivetRoute";
 
 
 
@@ -102,13 +103,12 @@ const MainRouter = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />
-
             },
         ],
     },
     {
         path: '/dashboard',
-        element: <DashboardLayout />,
+        element: <PrivetRoute><DashboardLayout /></PrivetRoute>,
         children: [
             {
                 path: "/dashboard",
