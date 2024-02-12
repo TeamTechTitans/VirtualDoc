@@ -33,8 +33,6 @@ import AdminRoute from "../AdminRoute";
 import DoctorRoute from "../DoctorRoute";
 import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
 import Connect from "../../pages/ChatApp/Chat/Connect";
-import Profile from "../../pages/dashboard/Profile/Profile";
-
 
 
 const apiLink = useApiLink()
