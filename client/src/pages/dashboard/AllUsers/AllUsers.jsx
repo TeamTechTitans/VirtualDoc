@@ -12,19 +12,19 @@ import {
   Checkbox,
 } from "@material-tailwind/react";
 import ManageModal from "./ManageModal";
-import useApiLink from "../../../lib/hooks/useApiLink";
+import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
 
 const AllUsers = () => {
   const [userData, setUserData] = React.useState([]);
   const TABLE_HEAD = ["Name", "Email", "location", "Blood-Group", "Action"];
-const apiLink = useApiLink()
+  const axiosSecure = useAxiosSecure()
 
 
   const { data: userDetails = [] } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
-      const res = await fetch(`${apiLink}/users`);
-      const users = await res.json();
+      const res = await axiosSecure.get(`/users`);
+      const users = await res.data;
       return users;
     },
   });
