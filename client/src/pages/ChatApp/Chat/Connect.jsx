@@ -7,8 +7,9 @@ import "./Chat.css";
 import useApiLink from "../../../lib/hooks/useApiLink";
 
 const apiLink = useApiLink()
+// const socketLink = apiLink.split(':')[1]
 
-const socket = io.connect(apiLink);
+const socket = io(`${apiLink}`);
 
 const Connect = () => {
   const [username, setUsername] = useState("");
