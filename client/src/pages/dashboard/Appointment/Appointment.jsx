@@ -8,6 +8,7 @@ import useAuth from "../../../lib/hooks/useAuth";
 import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import useApiLink from "../../../lib/hooks/useApiLink";
 
 
 const Appointment = () => {
@@ -15,18 +16,29 @@ const Appointment = () => {
 
   const navigate = useNavigate()
 
-  const TABLE_HEAD = ["Name", "Date", "Time", "Treatment", "Video Call", "Payment"];
-
+  const TABLE_HEAD = ["Name", "Date","health category", "Time", "Treatment", "Video Call", "Payment"];
+  const apiLink = useApiLink()
   const { user } = useAuth()
   const axiosPublic = useAxiosPublic()
 
+  // const { data: appointments = [] } = useQuery({
+  //   queryKey: ['appointments', user?.email],
+  //   queryFn: async () => {
+  //     const res = await axiosPublic.get(`/appointment/${user?.email}`)
+  //     return res.data;
+  //   }
+  // })
+
   const { data: appointments = [] } = useQuery({
-    queryKey: ['appointments', user?.email],
+    queryKey: ['appointments'],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/appointment/${user?.email}`)
-      return res.data;
-    }
-  })
+      const res = await fetch(`${apiLink}/appointment`);
+      const appointments = await res.json();
+      return appointments;
+    },
+  });
+
+
 
   const handleModalForPayment = () => {
     Swal.fire({
@@ -79,7 +91,7 @@ const Appointment = () => {
             </tr>
           </thead>
           <tbody >
-            {appointments.map(({ name, _id, date, time, treatment, pay, paidStatus }, index) => {
+            {appointments.map(({ patient_name, _id, date,health_category, timing_slot, description, pay, paidStatus }, index) => {
               const isLast = index === appointments.length - 1;
               const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
 
@@ -99,7 +111,7 @@ const Appointment = () => {
                           variant="small"
                           color="blue-gray"
                         >
-                          {name}
+                          {patient_name}
                         </Typography>
                       </div>
                     </div>
@@ -110,7 +122,7 @@ const Appointment = () => {
                       color="blue-gray"
 
                     >
-                      {date}
+                      {date.slice(0, 10)}
                     </Typography>
                   </td>
                   <td className={classes}>
@@ -119,7 +131,7 @@ const Appointment = () => {
                       color="blue-gray"
 
                     >
-                      {time}
+                      {health_category}
                     </Typography>
                   </td>
                   <td className={classes}>
@@ -128,7 +140,16 @@ const Appointment = () => {
                       color="blue-gray"
 
                     >
-                      {treatment}
+                      {timing_slot}
+                    </Typography>
+                  </td>
+                  <td className={classes}>
+                    <Typography
+                      variant="small"
+                      color="blue-gray"
+
+                    >
+                      {description}
                     </Typography>
                   </td>
                   <td className={classes}>

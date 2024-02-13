@@ -32,6 +32,7 @@ import Doctors from './../../pages/doctors/Doctors';
 
 import useApiLink from "../../lib/hooks/useApiLink";
 import DoctorProfile from "../../pages/dashboard/doctorProfile/DoctorProfile";
+import Prescription from "../../pages/Prescription/Prescription";
 
 
 
@@ -93,6 +94,10 @@ const MainRouter = createBrowserRouter([
                 path: "/contact",
                 element: <Contact />
 
+            },
+            {
+                path: "/prescription",
+                element: <Prescription/>
             },
         ],
     },
