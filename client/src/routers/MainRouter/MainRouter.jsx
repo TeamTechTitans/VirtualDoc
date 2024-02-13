@@ -78,11 +78,11 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: "cart",
-                element: <Cart />
+                element: <PrivetRoute><Cart /></PrivetRoute>
             },
             {
                 path:'payment/success/:tranId',
-                element:<PaymentSuccess />
+                element: <PrivetRoute><PaymentSuccess /></PrivetRoute>
             },
             {
                 path: "/doctorRegister",
@@ -121,15 +121,15 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: "userProfile",
-                element: <UserProfile />
+                element: <PrivetRoute><UserProfile /></PrivetRoute>
             },
             {
                 path: "doctorProfile",
-                element: <DoctorProfile />
+                element: <DoctorRoute><DoctorProfile /></DoctorRoute>
             },
             {
                 path: "appoinment",
-                element: <Appointment/>
+                element: <PrivetRoute><Appointment/></PrivetRoute>
             },
             {
                 path: "doctorApproval",
@@ -153,7 +153,7 @@ const MainRouter = createBrowserRouter([
             {
 
                 path:'paymentHistory',
-                element:<PaymentHistory />
+                element: <PrivetRoute><PaymentHistory /></PrivetRoute>
             },
             {
 
