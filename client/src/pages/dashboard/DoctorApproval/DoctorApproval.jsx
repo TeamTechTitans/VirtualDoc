@@ -11,11 +11,6 @@ const DoctorApproval = () => {
 
   const apiLink = useApiLink()
 
-  // useEffect(()=>{
-  //     fetch('https://virtual-doc-backend.vercel.app/users')
-  //     .then(res=>res.json())
-  //     .then(data=>setUser(data))
-  // },[])
 
   const { data: doctorDetails = [], refetch } = useQuery({
     queryKey: ["doctors"],

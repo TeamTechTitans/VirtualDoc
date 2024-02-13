@@ -51,6 +51,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         //data collected from google
+        
         const googleData = {
           name: user.displayName,
           image: user.photoURL,

@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 
 import DashboardLayout from "../../layouts/DashboardLayout/DashboardLayout";
 import MainLayout from "../../layouts/MainLayout/MainLayout";
-import Connect from "../../pages/ChatApp/Chat/connect";
 import Contact from "../../pages/Contact/Contact";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/component/Login";
@@ -16,25 +15,25 @@ import AboutUs from "../../pages/aboutUs/AboutUs";
 import AddDoctor from "../../pages/dashboard/AddDoctor/AddDoctor";
 import AllUsers from "../../pages/dashboard/AllUsers/AllUsers";
 import Appointment from "../../pages/dashboard/Appointment/Appointment";
-import Cart from "../../pages/dashboard/Cart/Cart";
 
 import Dashboard from "../../pages/dashboard/Dashboard";
 import DoctorApproval from "../../pages/dashboard/DoctorApproval/DoctorApproval";
 import DoctorApprovalDetails from "../../pages/dashboard/DoctorApproval/DoctorApprovalDetails";
-import PaymentSuccess from "../../pages/dashboard/PaymentSuccess/PaymentSuccess";
 import UserAppointment from "../../pages/dashboard/UserAppointment/UserAppointment";
 import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
 import VideoCall from "../../pages/dashboard/VideoCall/VideoCall";
 import PaymentHistory from "../../pages/dashboard/paymentHistory/PaymentHistory";
 import PostNewTip from "../../pages/dashboard/postNewTip/PostNewTip";
 import Doctors from './../../pages/doctors/Doctors';
-
-
 import useApiLink from "../../lib/hooks/useApiLink";
 import DoctorProfile from "../../pages/dashboard/doctorProfile/DoctorProfile";
-import Prescription from "../../pages/Prescription/Prescription";
-
-
+import Cart from "../../pages/Cart/Cart";
+import PaymentSuccess from "../../pages/PaymentSuccess/PaymentSuccess";
+import AdminRoute from "../AdminRoute";
+import DoctorRoute from "../DoctorRoute";
+import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
+import Connect from "../../pages/ChatApp/Chat/Connect";
+import PrivetRoute from "../PrivetRoute";
 
 const apiLink = useApiLink()
 
@@ -78,6 +77,14 @@ const MainRouter = createBrowserRouter([
                 element: <Services />,
             },
             {
+                path: "cart",
+                element: <PrivetRoute><Cart /></PrivetRoute>
+            },
+            {
+                path:'payment/success/:tranId',
+                element: <PrivetRoute><PaymentSuccess /></PrivetRoute>
+            },
+            {
                 path: "/doctorRegister",
                 element: <DoctorRegistration />
             },
@@ -93,7 +100,6 @@ const MainRouter = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />
-
             },
             {
                 path: "/prescription",
@@ -103,7 +109,7 @@ const MainRouter = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <DashboardLayout />,
+        element: <PrivetRoute><DashboardLayout /></PrivetRoute>,
         children: [
             {
                 path: "/dashboard",
@@ -111,35 +117,35 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: "allUser",
-                element: <AllUsers />
+                element:<AdminRoute><AllUsers /></AdminRoute>
             },
             {
                 path: "addDoctor",
-                element: <AddDoctor />
+                element: <AdminRoute><AddDoctor /></AdminRoute>
             },
             {
                 path: "userProfile",
-                element: <UserProfile />
+                element: <PrivetRoute><UserProfile /></PrivetRoute>
             },
             {
                 path: "doctorProfile",
-                element: <DoctorProfile />
+                element: <DoctorRoute><DoctorProfile /></DoctorRoute>
             },
             {
                 path: "appoinment",
-                element: <Appointment/>
+                element: <PrivetRoute><Appointment/></PrivetRoute>
             },
             {
                 path: "doctorApproval",
-                element: <DoctorApproval/>
+                element: <AdminRoute><DoctorApproval/></AdminRoute>
             },
             {
                 path: "postNewTip",
-                element: <PostNewTip />
+                element: <DoctorRoute><PostNewTip /></DoctorRoute>
             },
             {
                 path: "doctorDetail/:id",
-                element: <DoctorApprovalDetails/>,
+                element: <AdminRoute><DoctorApprovalDetails/></AdminRoute>,
                 loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
             },
             {
@@ -147,32 +153,29 @@ const MainRouter = createBrowserRouter([
                 path: "videocall",
                 element: <VideoCall />
             },
-            {
-                path: "cart",
-                element: <Cart />
-            },
+            
             {
 
                 path:'paymentHistory',
-                element:<PaymentHistory />
-            },
-            {
-                path:'payment/success/:tranId',
-                element:<PaymentSuccess />
+                element: <PrivetRoute><PaymentHistory /></PrivetRoute>
             },
             {
 
                 path: "doctorApproval",
-                element: <DoctorApproval/>
+                element: <AdminRoute><DoctorApproval/></AdminRoute>
             },
-            {
-                path: "doctorDetail/:id",
-                element: <DoctorApprovalDetails/>,
-                loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
-            },
+            // {
+            //     path: "doctorDetail/:id",
+            //     element: <DoctorApprovalDetails/>,
+            //     loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
+            // },
             {
                 path: "chat",
                 element: <Connect></Connect>,
+            },
+            {
+                path: "allDoctor",
+                element:<AdminRoute><AllDoctor /></AdminRoute>
             },
         ]
     }

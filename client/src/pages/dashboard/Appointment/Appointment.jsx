@@ -1,5 +1,4 @@
 import { Button, Card, Typography, button } from "@material-tailwind/react";
-import { useEffect, useState } from "react";
 import { FcVideoCall } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
@@ -16,8 +15,8 @@ const Appointment = () => {
 
   const navigate = useNavigate()
 
-  const TABLE_HEAD = ["Name", "Date","health category", "Time", "Treatment", "Video Call", "Payment"];
-  const apiLink = useApiLink()
+  const TABLE_HEAD = ["Name", "Date", "Time", "Treatment", "Video Call", "Payment"];
+
   const { user } = useAuth()
   const axiosPublic = useAxiosPublic()
 
@@ -48,24 +47,18 @@ const Appointment = () => {
     });
   }
 
-  // useEffect(() => {
-  //   fetch('/appoinment.json')
-  //     .then(res => res.json())
-  //     .then(data => setAppointment(data))
-  // }, [])
+  // const handleNavigateToCart = (name, _id, treatment, date, time, pay) => {
+  //   const appointment = {
+  //     appointmentId: _id,
+  //     name: name,
+  //     treatment: treatment,
+  //     date: date,
+  //     time: time,
+  //     pay: pay
+  //   }
+  //   navigate('/cart', { state: appointment });
 
-  const handleNavigateToCart = (name, _id, treatment, date, time, pay) => {
-    const appointment = {
-      appointmentId: _id,
-      name: name,
-      treatment: treatment,
-      date: date,
-      time: time,
-      pay: pay
-    }
-    navigate('/dashboard/cart', { state: appointment });
-
-  }
+  // }
 
   return (
     <div className="">
@@ -91,12 +84,12 @@ const Appointment = () => {
             </tr>
           </thead>
           <tbody >
-            {appointments.map(({ patient_name, _id, date,health_category, timing_slot, description, pay, paidStatus }, index) => {
+            {appointments.map(({ name, _id, date, time, treatment, pay, paidStatus }, index) => {
               const isLast = index === appointments.length - 1;
               const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
 
               return (
-                <tr className="font-barlow" key={name}>
+                <tr className="font-barlow" key={_id}>
                   <td className={classes}>
                     <div className="flex items-center gap-3 font-bold mx-3">
                       <Typography
@@ -116,25 +109,16 @@ const Appointment = () => {
                       </div>
                     </div>
                   </td>
-                  <td className={classes}>
+                  <td  className={classes}>
                     <Typography
                       variant="small"
                       color="blue-gray"
 
                     >
-                      {date.slice(0, 10)}
+                      {date}
                     </Typography>
                   </td>
-                  <td className={classes}>
-                    <Typography
-                      variant="small"
-                      color="blue-gray"
-
-                    >
-                      {health_category}
-                    </Typography>
-                  </td>
-                  <td className={classes}>
+                  {/* <td className={classes}>
                     <Typography
                       variant="small"
                       color="blue-gray"
@@ -142,7 +126,7 @@ const Appointment = () => {
                     >
                       {timing_slot}
                     </Typography>
-                  </td>
+                  </td> */}
                   <td className={classes}>
                     <Typography
                       variant="small"
@@ -162,15 +146,15 @@ const Appointment = () => {
 
                     {/* <Link to='/dashboard/videocall'><FcVideoCall className="mx-auto text-3xl" /></Link> */}
                   </td>
-                  <td className={classes}>
+                  {/* <td className={classes}>
                     {
                       paidStatus ?
-                      <Button disabled className="bg-secondary-blue" size="sm" onClick={() => handleNavigateToCart(name, _id, treatment, date, time, pay)} >Pay</Button>
+                      <Button disabled className="bg-secondary-blue" size="sm" >Pay</Button>
                       :
                       <Button className="bg-secondary-blue" size="sm" onClick={() => handleNavigateToCart(name, _id, treatment, date, time, pay)} >Pay</Button>
                     }
                     
-                  </td>
+                  </td> */}
                 </tr>
               );
             })}

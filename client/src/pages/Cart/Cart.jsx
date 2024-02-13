@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
-import useAuth from "../../../lib/hooks/useAuth";
+import useAuth from "../../lib/hooks/useAuth";
 import { Input } from "@material-tailwind/react";
-import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
-import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
+import DashboardHeading from "../../components/DashboardHeading/DashboardHeading";
+import useAxiosPublic from "../../lib/hooks/useAxiosPublic";
 import { useLocation } from "react-router-dom";
 
 const Cart = () => {

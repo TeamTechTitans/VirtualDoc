@@ -13,7 +13,7 @@ const Laboratory = () => {
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
-  console.log(services);
+  
   return (
     <div >
       <div className=" container mx-auto py-10">
@@ -41,8 +41,8 @@ const Laboratory = () => {
         </div>
 
         <div className="container mx-auto grid md:grid-cols-2 xl:grid-cols-4 grid-cols-1">
-          {services?.map((item) => (
-            <div key={item?.id}>
+          {services?.map((item, idx) => (
+            <div key={idx}>
               <Card className="mt-6 w-60 mx-auto shadow-xl transition duration-500 hover:text-white font-barlow relative hover-before cursor-pointer before:bg-secondary-blue before:h-full before:-translate-y-full hover:before:translate-y-0 before:transition before:duration-500 overflow-hidden">
                 <CardBody className="z-10">
                   <img
