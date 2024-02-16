@@ -38,7 +38,7 @@ const AllDoctor = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         const deleteRes = await axiosPublic.delete(`/doctor/${id}`);
-        console.log(deleteRes);
+        // console.log(deleteRes);
         if (deleteRes) {
           Swal.fire(
             "Deleted!",

@@ -25,7 +25,7 @@ const UserProfile = () => {
             .then(data => setUsers(data))
     }, [])
 
-    console.log(users)
+    // console.log(users)
 
     const handleUpdateForm = (e) => {
         e.preventDefault();
@@ -35,7 +35,7 @@ const UserProfile = () => {
         const blood_group = form.u_blood_group.value;
         const location = form.u_loc.value;
         const updateUserData = { name, email, blood_group, location };
-        console.log(updateUserData);
+        // console.log(updateUserData);
         fetch(`${apiLink}/users/${users?._id}`, {
             method: "PUT",
             headers: {
@@ -45,7 +45,7 @@ const UserProfile = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.modifiedCount > 0) {
                     Swal.fire('Data updated');
                 }

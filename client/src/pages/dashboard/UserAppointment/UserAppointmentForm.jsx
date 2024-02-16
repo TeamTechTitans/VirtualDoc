@@ -8,6 +8,7 @@ import useAuth from "../../../lib/hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
 import { useNavigate } from "react-router-dom";
+import useApiLink from "../../../lib/hooks/useApiLink";
 
 const UserAppointmentForm = () => {
   const { user } = useAuth();
@@ -19,10 +20,12 @@ const UserAppointmentForm = () => {
   //const loadedData=useLoaderData;
   // const {_id,name,image,loc,education,registration,health_category,email,about,password}=loadedData;
 
+  const apiLink = useApiLink()
+
   const { data: doctorDetails = [] } = useQuery({
     queryKey: ["doctors"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/doctors");
+      const res = await fetch(`${apiLink}/doctors`);
       const doctors = await res.json();
       //console.log(doctors);
       return doctors;
@@ -36,7 +39,7 @@ const UserAppointmentForm = () => {
   const { data: doctorHealthCategory = [] } = useQuery({
     queryKey: ["doctorsHealthCategory"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/doctorsHealthCategory");
+      const res = await fetch(`${apiLink}/doctorsHealthCategory`);
       const doctorsHealthCategory = await res.json();
       //console.log(doctorsHealthCategory);
       return doctorsHealthCategory;
@@ -67,7 +70,7 @@ const UserAppointmentForm = () => {
     //console.log(appointment_data);
     
     const res = await axiosPublic.post('/appointment/bookAppointment',appointment_data)
-    console.log(res.data._id);
+    // console.log(res.data._id);
     const appointmentId = res.data._id;
     if (appointmentId){
         const appointment = {

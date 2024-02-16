@@ -44,7 +44,7 @@ const DoctorRegistration = () => {
         },
       });
       const imageURL = res.data.data.display_url;
-      console.log(imageURL);
+      // console.log(imageURL);
 
       createUser(data.email, data.password)
         .then((userCredential) => {

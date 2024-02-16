@@ -61,7 +61,7 @@ const DoctorApprovalDetails = () => {
       password: data.password,
       role: "doctor",
     };
-    console.log(doctorData);
+    // console.log(doctorData);
     const res = await axiosPublic.post("/doctors/createDoctors", doctorData);
     if (res) {
       Swal.fire({

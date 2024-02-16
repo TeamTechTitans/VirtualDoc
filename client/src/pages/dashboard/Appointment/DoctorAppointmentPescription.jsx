@@ -51,7 +51,7 @@ const DoctorAppointmentPescription = () => {
       //const res = await fetch(`${apiLink}/doctors`);
       const res = await axiosPublic.get(`/doctors`)
       //const doctors = await res.json();
-      console.log('doctors data',res.data);
+      // console.log('doctors data',res.data);
       return res.data;
     },
   });
