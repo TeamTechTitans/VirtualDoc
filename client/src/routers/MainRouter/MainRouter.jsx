@@ -35,6 +35,9 @@ import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
 import Connect from "../../pages/ChatApp/Chat/Connect";
 import PrivetRoute from "../PrivetRoute";
 
+import DoctorAppointment from "../../pages/dashboard/Appointment/DoctorAppointment";
+import Prescription from "../../pages/dashboard/Appointment/Prescription/Prescription";
+
 const apiLink = useApiLink()
 
 
@@ -101,6 +104,8 @@ const MainRouter = createBrowserRouter([
                 path: "/contact",
                 element: <Contact />
             },
+
+
         ],
     },
     {
@@ -164,6 +169,10 @@ const MainRouter = createBrowserRouter([
                 path: "doctorApproval",
                 element: <AdminRoute><DoctorApproval/></AdminRoute>
             },
+            {
+                path: "prescription",
+                element: <Prescription/>
+            },
             // {
             //     path: "doctorDetail/:id",
             //     element: <DoctorApprovalDetails/>,
@@ -177,6 +186,10 @@ const MainRouter = createBrowserRouter([
                 path: "allDoctor",
                 element:<AdminRoute><AllDoctor /></AdminRoute>
             },
+            {
+                path: "DoctorAppointment",
+                element: <DoctorAppointment/>
+            }
         ]
     }
 ]);
