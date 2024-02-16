@@ -88,8 +88,7 @@ const AllDoctor = () => {
             </tr>
           </thead>
           <tbody>
-            {doctorDetails?.map((doctor, index) => (
-              <tr className="font-barlow" key={index}>
+            {doctorDetails?.map((doctor, index) => <tr className="font-barlow" key={index}>
                 <td className={classes}>
                   <Typography variant="small" color="blue-gray">
                     <span className="font-semibold">Name: </span>
@@ -142,7 +141,7 @@ const AllDoctor = () => {
                   </Button>
                 </td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       </Card>
