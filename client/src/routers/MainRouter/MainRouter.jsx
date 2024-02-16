@@ -36,6 +36,11 @@ import DoctorRoute from "../DoctorRoute";
 import PrivetRoute from "../PrivetRoute";
 import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
 import AllDoctors from "../../pages/dashboard/allDoctors/AllDoctors";
+import DoctorAppointment from "../../pages/dashboard/doctorAppointment/DoctorAppointment";
+
+// import DoctorAppointment from "../../pages/dashboard/Appointment/DoctorAppointment";
+import Prescription from "../../pages/dashboard/Appointment/Prescription/Prescription";
+import DoctorAppointmentPescription from "../../pages/dashboard/Appointment/DoctorAppointmentPescription";
 
 const apiLink = useApiLink()
 
@@ -51,7 +56,7 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: '/appointment',
-                element: <UserAppointment/>
+                element: <PrivetRoute><UserAppointment/></PrivetRoute>
             },
             {
                 path: '/doctors',
@@ -103,6 +108,8 @@ const MainRouter = createBrowserRouter([
                 path: "/contact",
                 element: <Contact />
             },
+
+
         ],
     },
     {
@@ -166,6 +173,10 @@ const MainRouter = createBrowserRouter([
                 path: "doctorApproval",
                 element: <AdminRoute><DoctorApproval/></AdminRoute>
             },
+            {
+                path: "prescription",
+                element: <Prescription/>
+            },
             // {
             //     path: "doctorDetail/:id",
             //     element: <DoctorApprovalDetails/>,
@@ -179,6 +190,15 @@ const MainRouter = createBrowserRouter([
                 path: "allDoctor",
                 element:<AdminRoute><AllDoctor /></AdminRoute>
             },
+            {
+                path: "doctorAppointment",
+                element: <DoctorRoute><DoctorAppointmentPescription /></DoctorRoute>
+            },
+            {
+                path: "doctorAppointments",
+                element: <DoctorAppointment />
+            },
+
         ]
     }
 ]);

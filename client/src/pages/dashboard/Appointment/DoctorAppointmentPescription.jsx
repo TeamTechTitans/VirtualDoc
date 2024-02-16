@@ -7,16 +7,32 @@ import useAuth from "../../../lib/hooks/useAuth";
 import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
-import useApiLink from "../../../lib/hooks/useApiLink";
-import DisplayPrescription from "./DisplayPrescription/DisplayPrescription";
+import { useState } from "react";
+import { useForm } from 'react-hook-form';
+import Prescription from "./Prescription/Prescription";
+function Icon({ id, open }) {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={2}
+        stroke="currentColor"
+        className={`${id === open ? "rotate-180" : ""} h-5 w-5 transition-transform`}
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+      </svg>
+    );
+  }
 
-
-const Appointment = () => {
+const DoctorAppointmentPescription = () => {
   // const [appoinment, setAppointment] = useState([]);
-
+  const [size, setSize] = useState(null);
+ 
+  const handleOpen = (value) => setSize(value);
   const navigate = useNavigate()
 
-  const TABLE_HEAD = ["Doctor Name", "Date", "Time", "Treatment", "Video Call", "Prescription"];
+  const TABLE_HEAD = ["Patient Name", "Date", "Time", "Health Issue", "Video Call", "Prescription"];
 
   const { user } = useAuth()
   const axiosPublic = useAxiosPublic()
@@ -24,7 +40,7 @@ const Appointment = () => {
   const { data: appointments = [] } = useQuery({
     queryKey: ['appointments', user?.email],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/appointment/${user?.email}`)
+      const res = await axiosPublic.get(`/doctorAppointment/${user?.email}`)
       return res.data;
     }
   })
@@ -35,10 +51,19 @@ const Appointment = () => {
       //const res = await fetch(`${apiLink}/doctors`);
       const res = await axiosPublic.get(`/doctors`)
       //const doctors = await res.json();
+      console.log('doctors data',res.data);
       return res.data;
     },
   });
- // console.log('Doctors Data:', doctors);
+  const { data: users = [] } = useQuery({
+    queryKey: ['users'],
+    queryFn: async () => {
+      //const res = await fetch(`${apiLink}/doctors`);
+      const res = await axiosPublic.get(`/users`)
+      //const doctors = await res.json();
+      return res.data;
+    },
+  });
 
 
 
@@ -63,7 +88,7 @@ const Appointment = () => {
 
   // }
 
-  return (
+  return (<>
     <div className="">
       <DashboardHeading title="Appointments">Manage Appointments</DashboardHeading>
       <Card className="h-full max-w-7xl mx-auto overflow-auto my-6">
@@ -87,11 +112,11 @@ const Appointment = () => {
             </tr>
           </thead>
           <tbody >
-            {appointments.map(({_id,patient_name,patient_email, date, timing_slot,doctor_email, health_category, paidStatus }, index) => {
+            {appointments.map(({_id,patient_name, date, timing_slot,doctor_email,patient_email, description, paidStatus }, index) => {
               const isLast = index === appointments.length - 1;
               const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
-               const filtered_doctors=doctors?.filter(doctor=>doctor.email===doctor_email);
-              // console.log(filtered_doctors)
+              const filtered_doctor=doctors?.find(doctor=>doctor.email===doctor_email)
+              const filtered_patient=users?.find(patient=>patient.email===patient_email)
               return (
                 <tr className="font-barlow" key={_id}>
                   <td className={classes}>
@@ -108,12 +133,8 @@ const Appointment = () => {
                           variant="small"
                           color="blue-gray"
                         >
-                          {/* {filtered_doctors.name} */}
-                          {/* {doctor_email} */}
-                        {filtered_doctors?.map((doctor) => (
-      <p key={doctor?._id}>{doctor?.name}</p>
-      // You can include additional information here
-    ))} 
+                          
+                          {patient_name}
                           
                         </Typography>
                       </div>
@@ -143,7 +164,7 @@ const Appointment = () => {
                       color="blue-gray"
 
                     >
-                      {health_category}
+                      {description}
                     </Typography>
                   </td>
                   <td className={classes}>
@@ -156,18 +177,9 @@ const Appointment = () => {
 
                     {/* <Link to='/dashboard/videocall'><FcVideoCall className="mx-auto text-3xl" /></Link> */}
                   </td>
-                  <td>
-                    <DisplayPrescription doctor_email={doctor_email} patient_name={patient_name} patient_email={patient_email} appointment_id={_id}></DisplayPrescription>
+                  <td className={classes}>
+                    <Prescription filtered_doctor_id={filtered_doctor?._id} filtered_patient_id={filtered_patient?._id} appointments_id={_id}></Prescription>
                   </td>
-                  {/* <td className={classes}>
-                    {
-                      paidStatus ?
-                      <Button disabled className="bg-secondary-blue" size="sm" >Pay</Button>
-                      :
-                      <Button className="bg-secondary-blue" size="sm" onClick={() => handleNavigateToCart(name, _id, treatment, date, time, pay)} >Pay</Button>
-                    }
-                    
-                  </td> */}
                 </tr>
               );
             })}
@@ -175,7 +187,7 @@ const Appointment = () => {
         </table>
       </Card>
     </div>
-  );
+  </>);
 };
 
-export default Appointment;
+export default DoctorAppointmentPescription;

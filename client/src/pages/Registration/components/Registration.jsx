@@ -34,7 +34,7 @@ const Registration = () => {
     useContext(AuthContext);
 
   const onSubmit = async (data) => {
-    console.log(data);
+    //console.log(data);
     if (data.password.length < 6) {
 
       return toast('Password should be 6 Character');
@@ -65,6 +65,15 @@ const Registration = () => {
       password:data.password,
       role: "user"
     }
+    //console.log('image url',imageURL);
+    // const signUpData={
+    //   name:data.name,
+    //   image:imageURL,
+    //   loc:data.loc,
+    //   blood_group:data.blood_group,
+    //   email:data.email,
+    //   password:data.password
+    // }
 
       createUser(data.email, data.password)
         .then((userCredential) => {
@@ -79,16 +88,17 @@ const Registration = () => {
                 blood_group: data.blood_group,
                 email: data.email,
                 password: data.password,
-                role: "user",
+                role: "user"
               };
               //data insertion
+              console.log(userData);
 
               fetch(`${apiLink}/users/createUser`, {
                 method: "POST",
                 headers: {
                   'content-type': 'application/json'
                 },
-                body: JSON.stringify(signUpData)
+                body: JSON.stringify(userData)
               })
                 .then(res => res.json())
                 .then(data => {
