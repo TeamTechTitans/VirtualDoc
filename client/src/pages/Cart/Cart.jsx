@@ -27,10 +27,10 @@ const Cart = () => {
       treatment: treatment,
       appointmentId:appointmentId
     };
-    console.log(info);
+    // console.log(info);
     const res = await axiosPublic.post('/payment', info)
     if(res){
-      console.log(res.data)
+      // console.log(res.data)
       window.location.replace(res.data.url)
     }
   };

@@ -54,7 +54,7 @@ const DisplayPrescription = ({appointment_id,doctor_email,patient_email,patient_
         // Extract relevant information from the prescription object
      const { _id: prescriptionId, filtered_doctor_id, filtered_patient_id } = prescription;
      
-     console.log('filter doctor i',filtered_doctor_id); 
+    //  console.log('filter doctor i',filtered_doctor_id); 
       const { data: doctors = [] } = useQuery({
         queryKey: ['doctors'],
         queryFn: async () => {
