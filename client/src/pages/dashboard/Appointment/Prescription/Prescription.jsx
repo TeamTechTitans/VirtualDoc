@@ -4,9 +4,14 @@ import {
   AccordionHeader,
   AccordionBody,
   Button,
-  Input 
+  Input,
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter, 
 } from "@material-tailwind/react";
 import { useForm } from 'react-hook-form';
+import useAxiosPublic from '../../../../lib/hooks/useAxiosPublic';
 function Icon({ id, open }) {
     return (
       <svg
@@ -22,8 +27,11 @@ function Icon({ id, open }) {
     );
   }
 
-const Prescription = () => {
+const Prescription = ({filtered_doctor_id,filtered_patient_id,appointments_id}) => {
+  const axiosPublic = useAxiosPublic()
     const [open, setOpen] = useState(0);
+    const [size, setSize] = React.useState(null);
+    const handleOpenModal = (value) => setSize(value);
     const [addMedicineList,setAddMedicineList]=useState([]);
     const { register, handleSubmit } = useForm();
    // console.log('addmedicine',addMedicineList);
@@ -42,12 +50,46 @@ const Prescription = () => {
         //console.log('newMedicineList',newMedicineList);
         setAddMedicineList(newMedicineList);
         handleOpen(newMedicineList.length);
+        
     }
     const onSubmit = async (data) => {
-      console.log(date+time);
+
+      console.log('i/p data',data);
+          // Additional data to be sent along with React Hook Form data
+    const additionalData = {
+      prescription_add_time: time,
+      prescription_add_date: date,
+      filtered_doctor_id:filtered_doctor_id,
+      filtered_patient_id:filtered_patient_id,
+      appointments_id:appointments_id
+    };
+
+    // Combine React Hook Form data and additional data
+    const postData = {
+      ...data,
+      ...additionalData,
+    };
+
+      const res = await axiosPublic.post('/prescription/addPrescription',postData)
+      console.log('response',res.data);
+      handleOpenModal(null);
     }
     return (<>
-    <div className='mx-auto container'>
+      <div className="flex">
+        <Button onClick={() => handleOpenModal("lg")} variant="gradient">
+          Add Prescription
+        </Button>
+      </div>
+      <Dialog className="h-[42rem] overflow-scroll"
+        open={
+          size === "lg"
+        }
+        size={size || "md"}
+        handler={handleOpenModal}
+      >
+        {/* <DialogHeader>Prescription</DialogHeader> */}
+        <DialogBody >
+        <div className='mx-auto container'>
         <div>
             <h3 className='text-3xl text-center'>Prescription</h3>
         </div>
@@ -66,7 +108,7 @@ const Prescription = () => {
 
         }
         <Button onClick={addMedicine} className='my-4' variant="filled">Add Medicine</Button>
-        <div class="w-96 space-y-5 my-6 ">
+        <div class="space-y-5 my-6 ">
           <div className=''>
             <h2 className='text-2xl'>Doctor's Advice</h2>
           </div>
@@ -80,19 +122,32 @@ const Prescription = () => {
           </label>
         </div>
       </div>
-      <div class="w-96 space-y-5 my-6 ">
+      <div class="space-y-5 my-6 ">
           <div className=''>
             <h2 className='text-2xl'>Next Follow-Up</h2>
           </div>
-          <div className="w-72">
+          <div className="md:w-72 w-full">
            <Input type='date' {...register("follow_up_date")} label="Username" />
           </div>
       </div>
       <div className='flex justify-center'>
-        <Button type='submit'>Save Prescription</Button>
+        <Button onClick={() => handleOpenModal(null)} type='submit'>Save Prescription</Button>
+        <Button
+            variant="text"
+            color="red"
+            onClick={() => handleOpenModal(null)}
+            className="mr-1"
+          >
+            <span>Cancel</span>
+          </Button>
       </div>
       </form>
       </div>
+        </DialogBody>
+        <DialogFooter>
+
+        </DialogFooter>
+      </Dialog>
         </>);
 };
 

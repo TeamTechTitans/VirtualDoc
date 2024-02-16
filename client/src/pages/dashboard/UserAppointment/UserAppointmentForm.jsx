@@ -51,12 +51,12 @@ const UserAppointmentForm = () => {
     // setSelectedDoctor('');
   };
   const onSubmit = async (data) => {
-    console.log(data)
+   // console.log(data)
     const appointment_data = {
       health_category: selectedCategory,
-      doctor_id: data.doctors,
+      doctor_email: data.doctors,
       timing_slot: data.timingSlot,
-      date: appointmentDate,
+      date: appointmentDate.toISOString().split('T')[0],
       patient_email: user.email,
       patient_name: user?.displayName,
       patient_age: data.patientAge,
@@ -64,11 +64,11 @@ const UserAppointmentForm = () => {
       payment: 500,
       paidStatus: false
     };
-    console.log(appointment_data);
+    //console.log(appointment_data);
     
     const res = await axiosPublic.post('/appointment/bookAppointment',appointment_data)
-    console.log(res.data)
-    const appointmentId = res.data
+    console.log(res.data._id);
+    const appointmentId = res.data._id;
     if (appointmentId){
         const appointment = {
             appointmentId: appointmentId,
@@ -79,6 +79,16 @@ const UserAppointmentForm = () => {
             pay: appointment_data.payment
           }
           navigate('/cart', { state: appointment });
+    }
+    else{
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Oops.Try Again...",
+        text: "Your Selected Timing Slot is Booked. ",
+        showConfirmButton: false,
+        timer: 4000
+      });
     }
     
   };
@@ -125,7 +135,7 @@ const UserAppointmentForm = () => {
                     {filtered_doctor.map((filteredDoctors) => (
                       <option
                         key={filteredDoctors._id}
-                        value={filteredDoctors._id}
+                        value={filteredDoctors.email}
                       >
                         {filteredDoctors.name}
                       </option>
@@ -143,11 +153,11 @@ const UserAppointmentForm = () => {
                     <option disabled value="default">
                       Select Timing
                     </option>
-                    <option value="slotOne">6.00PM-6.45PM</option>
-                    <option value="slotTwo">7.00PM-7.45PM</option>
-                    <option value="slotThree">8.00PM-8.45PM</option>
-                    <option value="slotFour">9.00PM-9.45PM</option>
-                    <option value="slotFive">10.00PM-10.45PM</option>
+                    <option value="6.00PM-6.45PM">6.00PM-6.45PM</option>
+                    <option value="7.00PM-7.45PM">7.00PM-7.45PM</option>
+                    <option value="8.00PM-8.45PM">8.00PM-8.45PM</option>
+                    <option value="9.00PM-9.45PM">9.00PM-9.45PM</option>
+                    <option value="10.00PM-10.45PM">10.00PM-10.45PM</option>
                   </select>
                 </div>
                 <div className="form-control">
