@@ -25,6 +25,8 @@ const UserProfile = () => {
             .then(data => setUsers(data))
     }, [])
 
+    console.log(users)
+
     const handleUpdateForm = (e) => {
         e.preventDefault();
         const form = e.target;

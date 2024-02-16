@@ -35,21 +35,10 @@ const Team = () => {
         {data?.map((team) => (
           <div key={team?.id} className="">
             <div className="flex relative mb-20 p-2 justify-center items-center">
-<<<<<<< HEAD
-              <div className="max-w-[400px] flex max-h-[420px] hover-before  hover-before before:rounded-full  before:w-full before:h-full before:opacity-30 before:cursor-pointer before:scale-0 hover:before:scale-100 before:duration-500 before:bg-black  aspect-square">
-                <div
-                  className=" bg-dark-blue max-w-[400px] rounded-full overflow-hidden max-h-[400px]"
-=======
               <div className="max-w-[350px] flex max-h-[420px] hover-before  hover-before   before:w-full before:h-full before:opacity-30 before:cursor-pointer before:scale-0 hover:before:scale-100 before:duration-500 before:rounded-full before:bg-white  aspect-square">
-                <img
-                  className=" rounded-full aspect-square max-w-[350px]  max-h-[400px]"
->>>>>>> f0a37b78110006b9810754f75fb95b97b33fdf30
-                  style={{
-                    backgroundImage:
-                      "url(https://laborex.smartdemowp.com/wp-content/uploads/2021/05/shape-61.png)",
-                  }}
-                 
-                >
+                <img className=" rounded-full aspect-square max-w-[350px]  max-h-[400px]"
+                  style={{ backgroundImage:"url(https://laborex.smartdemowp.com/wp-content/uploads/2021/05/shape-61.png)"}}
+                />
                   <img
                     src={team?.img}
                     className="-mt-5"
@@ -93,7 +82,6 @@ const Team = () => {
                 </div>
               </div>
             </div>
-          </div>
         ))}
       </div>
       <Freebook></Freebook>

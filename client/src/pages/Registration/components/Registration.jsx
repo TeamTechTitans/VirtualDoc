@@ -62,7 +62,8 @@ const Registration = () => {
       loc:data.loc,
       blood_group:data.blood_group,
       email:data.email,
-      password:data.password
+      password:data.password,
+      role: "user"
     }
 
       createUser(data.email, data.password)

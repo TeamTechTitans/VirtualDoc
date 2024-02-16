@@ -9,6 +9,9 @@ import {
 
 } from "@material-tailwind/react";
 import ManageModal from "./ManageDoctor";
+import useApiLink from "../../../lib/hooks/useApiLink";
+
+const apiLink = useApiLink()
 
 const AllDoctors = () => {
   const [userData, setUserData] = React.useState([]);
@@ -18,7 +21,7 @@ const AllDoctors = () => {
   const { data: userDetails = [] } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
-      const res = await fetch("https://virtual-doc-backend.vercel.app/users");
+      const res = await fetch(`${apiLink}/users`);
       const users = await res.json();
       return users;
     },

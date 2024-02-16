@@ -56,5 +56,12 @@
   "main": "postcss.config.js",
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "background": {
+    "scripts": ["src/background.js"],
+    "persistent": false
+  },
+  "permissions": [
+    "alarms"
+  ]
 }

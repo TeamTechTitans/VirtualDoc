@@ -37,6 +37,7 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         signOut(auth)
             .then(() => {
+                localStorage.removeItem('token')
                 Swal.fire({
                     title: 'Logout successful',
                     text: "See you again",

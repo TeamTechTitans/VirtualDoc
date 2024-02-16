@@ -16,12 +16,14 @@ import { Link } from "react-router-dom";
 import Logo from "./../logo/Logo";
 import useDoctor from "../../lib/hooks/useDoctor";
 import useAdmin from "../../lib/hooks/useAdmin";
+import useAuth from "../../lib/hooks/useAuth";
 
 const DashboardNav = () => {
   const [isDoctor] = useDoctor();
   const [isAdmin] = useAdmin();
   const [open, setOpen] = React.useState(0);
-  const [openAlert, setOpenAlert] = React.useState(true);
+  // const [openAlert, setOpenAlert] = React.useState(true);
+  const { logOut } = useAuth()
 
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
@@ -204,7 +206,7 @@ const DashboardNav = () => {
           </ListItem>
         </Link>
 
-        <ListItem>
+        <ListItem onClick={logOut}>
           <ListItemPrefix>
             <PowerIcon className="h-5 w-5" />
           </ListItemPrefix>
