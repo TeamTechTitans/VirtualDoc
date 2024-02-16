@@ -36,6 +36,9 @@ import Connect from "../../pages/ChatApp/Chat/Connect";
 import PrivetRoute from "../PrivetRoute";
 import DoctorAppointment from "../../pages/dashboard/doctorAppointment/DoctorAppointment";
 
+import DoctorAppointment from "../../pages/dashboard/Appointment/DoctorAppointment";
+import Prescription from "../../pages/dashboard/Appointment/Prescription/Prescription";
+
 const apiLink = useApiLink()
 
 
@@ -102,6 +105,8 @@ const MainRouter = createBrowserRouter([
                 path: "/contact",
                 element: <Contact />
             },
+
+
         ],
     },
     {
@@ -110,7 +115,7 @@ const MainRouter = createBrowserRouter([
         children: [
             {
                 path: "/dashboard",
-                element: <Dashboard></Dashboard>
+                element: <Dashboard />
             },
             {
                 path: "allUser",
@@ -141,6 +146,10 @@ const MainRouter = createBrowserRouter([
                 element: <DoctorRoute><PostNewTip /></DoctorRoute>
             },
             {
+                path: "allDoctors",
+                element: <AllDoctors />
+            },
+            {
                 path: "doctorDetail/:id",
                 element: <AdminRoute><DoctorApprovalDetails/></AdminRoute>,
                 loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
@@ -161,6 +170,10 @@ const MainRouter = createBrowserRouter([
                 path: "doctorApproval",
                 element: <AdminRoute><DoctorApproval/></AdminRoute>
             },
+            {
+                path: "prescription",
+                element: <Prescription/>
+            },
             // {
             //     path: "doctorDetail/:id",
             //     element: <DoctorApprovalDetails/>,
@@ -178,6 +191,7 @@ const MainRouter = createBrowserRouter([
                 path: "doctorAppointment",
                 element: <DoctorRoute><DoctorAppointment /></DoctorRoute>
             },
+
         ]
     }
 ]);

@@ -9,6 +9,7 @@ import LaboratoryServices from "../../../components/LaboratoryServices/Laborator
 import FaQueSection from "../FaQueSection/FaQueSection";
 import Testimonial from "../components/Testimonial/Testimonial";
 import Banner from "../components/Banner/Banner";
+import BMI from "../components/bmi/BMI";
 
 const Home = () => {
       return (
@@ -19,6 +20,7 @@ const Home = () => {
                   <Testimonial></Testimonial>
                   <ClinicalServices></ClinicalServices>
                   <Article></Article>
+                  <BMI />
                   <OurEvents></OurEvents>
                   <FaQueSection />
                   <Location></Location>
