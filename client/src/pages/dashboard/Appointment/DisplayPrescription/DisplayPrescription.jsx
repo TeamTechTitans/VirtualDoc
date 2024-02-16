@@ -59,7 +59,7 @@ const DisplayPrescription = ({appointment_id,doctor_email,patient_email,patient_
         queryKey: ['doctors'],
         queryFn: async () => {
           //const res = await fetch(`${apiLink}/doctors`);
-          const res = await axiosPublic.get(`/doctor`)
+          const res = await axiosPublic.get(`/doctors`)
           //const doctors = await res.json();
           //console.log('one doctor data',res.data);
           return res.data;
@@ -108,13 +108,7 @@ const DisplayPrescription = ({appointment_id,doctor_email,patient_email,patient_
 
             <div>
             <Card className="w-full max-w-[48rem] ">
-                <CardHeader
-                    shadow={false}
-                    floated={false}
-                    className="m-0 w-2/5 shrink-0 rounded-r-none"
-                >
-
-                </CardHeader>
+       
                 <CardBody>
                     <div className='flex justify-between border-b-2 border-black'>
                         <div>
@@ -200,7 +194,7 @@ const DisplayPrescription = ({appointment_id,doctor_email,patient_email,patient_
                                 <tr className="font-barlow" key={index}>
                                     <td className={classes}>
                                         <div className="flex items-center gap-3 font-bold mx-3">
-                                        <div className="flex flex-col">
+                                       
                                             <Typography
                                             variant="small"
                                             color="blue-gray"
@@ -209,7 +203,7 @@ const DisplayPrescription = ({appointment_id,doctor_email,patient_email,patient_
                                             {medicineName}
                                             
                                             </Typography>
-                                        </div>
+                                        
                                         </div>
                                     </td>
                                     <td  className={classes}>
@@ -258,9 +252,7 @@ const DisplayPrescription = ({appointment_id,doctor_email,patient_email,patient_
             </div>
 
           </DialogBody>
-          <DialogFooter>
- 
-          </DialogFooter>
+
         </Dialog>
           </>);
 };

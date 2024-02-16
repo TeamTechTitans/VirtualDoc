@@ -111,7 +111,7 @@ const Appointment = () => {
                           {/* {filtered_doctors.name} */}
                           {/* {doctor_email} */}
                         {filtered_doctors?.map((doctor) => (
-      <p key={doctor?._id}>{doctor?.name}</p>
+      <span key={doctor?._id}>{doctor?.name}</span>
       // You can include additional information here
     ))} 
                           
