@@ -1,5 +1,5 @@
 import { Button, Drawer } from "@material-tailwind/react";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import {
     FaBars,
     FaX
@@ -7,8 +7,7 @@ import {
 import { Link } from "react-router-dom";
 import Logo from "../../logo/Logo";
 import useAuth from "../../../lib/hooks/useAuth";
-import outlined from "@material-tailwind/react/theme/components/timeline/timelineIconColors/outlined";
-import Swal from "sweetalert2";
+
 
 const BottomNav = () => {
     const [openNav, setOpenNav] = useState(false);
@@ -19,11 +18,11 @@ const BottomNav = () => {
 
     const navLinks = <>
         <Link to='/' className="text-secondary-blue">Home</Link>
-        <Link to='/services' className="text-secondary-blue">Services</Link>
-        <Link to='/doctors' className="text-secondary-blue">Doctors</Link>
-        <Link to='/tips' className="text-secondary-blue">Tips</Link>
-        <Link to='/aboutUs' className="text-secondary-blue">About</Link>
         { user && <Link to='/dashboard' className="text-secondary-blue">Dashboard</Link>}
+        <Link to='/tips' className="text-secondary-blue">Tips</Link>
+        <Link to='/doctors' className="text-secondary-blue">Doctors</Link>
+        <Link to='/services' className="text-secondary-blue">Services</Link>
+        <Link to='/aboutUs' className="text-secondary-blue">About</Link>
         <Link to='/team' className="text-secondary-blue">Team</Link>
         <Link to='/contact' className="text-secondary-blue">Contact US</Link>
     </>

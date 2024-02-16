@@ -35,17 +35,21 @@ const Team = () => {
         {data?.map((team) => (
           <div key={team?.id} className="">
             <div className="flex relative mb-20 p-2 justify-center items-center">
-              <div className="max-w-[400px] flex max-h-[420px] hover-before  hover-before   before:w-full before:h-full before:opacity-30 before:cursor-pointer before:scale-0 hover:before:scale-100 before:duration-500 before:rounded-2xl before:bg-black  aspect-square">
-                <img
-                  className=" bg-dark-blue   aspect-square max-w-[400px] rounded-2xl max-h-[400px]"
+              <div className="max-w-[400px] flex max-h-[420px] hover-before  hover-before before:rounded-full  before:w-full before:h-full before:opacity-30 before:cursor-pointer before:scale-0 hover:before:scale-100 before:duration-500 before:bg-black  aspect-square">
+                <div
+                  className=" bg-dark-blue max-w-[400px] rounded-full overflow-hidden max-h-[400px]"
                   style={{
                     backgroundImage:
                       "url(https://laborex.smartdemowp.com/wp-content/uploads/2021/05/shape-61.png)",
                   }}
-                  src={team?.img}
+                 
+                >
+                  <img
+                    src={team?.img}
+                    className="-mt-5"
                   alt=""
-                  loading="lazy"
-                />
+                  loading="lazy" />
+                </div>
 
                 <div className=" ">
                   <div className="absolute bg-secondary-teal z-10 w-56 p-4 rounded-3xl shadow-md -bottom-20 h-32 hover-before    before:opacity-30 before:cursor-pointer before:scale-0 hover:before:scale-100 before:duration-500 before:rounded-2xl before:bg-black  aspect-square -ml-80 mt-64">

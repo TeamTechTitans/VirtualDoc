@@ -21,7 +21,7 @@ const Contact = () => {
     emailjs.sendForm('service_q7njoam', 'template_87pp00j', form.current, 'sFFcWSn4w_Yhebe_W')
       .then((result) => {
           // console.log(result.text);
-          Swal.fire('Registration Successful');
+          Swal.fire('Message successfully sent.');
           form.current.reset();
       }, (error) => {
           console.log(error.text);
@@ -32,7 +32,7 @@ const Contact = () => {
   return (
     <div>
       <SiteHeader children={'Contact Us'} title={'Home - Contact us'}></SiteHeader>
-      <div className="relative -mt-6" >
+      <div className="relative container mx-auto -mt-6" >
         <Map></Map>
         <div className="w-11/12 h-60 md:h-16 lg:h-auto mx-auto">
         <div className="absolute bg-dark-blue p-16 w-11/12 mx-auto rounded-xl md:flex justify-around -mt-40">
@@ -70,7 +70,7 @@ const Contact = () => {
         </div>
         </div>
       </div>
-      <div >
+      <div className='container mx-auto' >
         <div className="flex flex-col items-center text-center justify-center mt-24">
           <CustomTitle title={"RESEARCH TOPIC"} double></CustomTitle>
         </div>
@@ -106,10 +106,10 @@ const Contact = () => {
           </div>
         </Form>
 
+      </div>
         <div>
           <Freebook></Freebook>
         </div>
-      </div>
     </div>
   );
 };

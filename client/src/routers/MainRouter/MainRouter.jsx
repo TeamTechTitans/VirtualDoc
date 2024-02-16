@@ -24,6 +24,7 @@ import DoctorApprovalDetails from "../../pages/dashboard/DoctorApproval/DoctorAp
 import Cart from "../../pages/dashboard/Cart/Cart";
 import PaymentSuccess from "../../pages/dashboard/PaymentSuccess/PaymentSuccess";
 import PaymentHistory from "../../pages/dashboard/paymentHistory/PaymentHistory";
+import AllDoctors from "../../pages/dashboard/allDoctors/AllDoctors";
 
 
 
@@ -89,7 +90,7 @@ const MainRouter = createBrowserRouter([
         children: [
             {
                 path: "/dashboard",
-                element: <Dashboard></Dashboard>
+                element: <Dashboard />
             },
             {
                 path: "allUser",
@@ -108,9 +109,12 @@ const MainRouter = createBrowserRouter([
                 element: <Appoinment />
             },
             {
-
                 path: "doctorApproval",
                 element: <DoctorApproval/>
+            },
+            {
+                path: "allDoctors",
+                element: <AllDoctors />
             },
             {
                 path: "doctorDetail/:id",
