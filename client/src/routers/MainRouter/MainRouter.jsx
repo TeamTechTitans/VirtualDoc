@@ -14,20 +14,28 @@ import TipDetails from "../../pages/Tips/Tipdetails/Tipdetails";
 import AboutUs from "../../pages/aboutUs/AboutUs";
 import AddDoctor from "../../pages/dashboard/AddDoctor/AddDoctor";
 import AllUsers from "../../pages/dashboard/AllUsers/AllUsers";
-import Appoinment from "../../pages/dashboard/Appoinment/Appoinment";
+import Appointment from "../../pages/dashboard/Appointment/Appointment";
+
 import Dashboard from "../../pages/dashboard/Dashboard";
-import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
-import VideoCall from "../../pages/dashboard/VideoCall/VideoCall";
-import Doctors from './../../pages/doctors/Doctors';
 import DoctorApproval from "../../pages/dashboard/DoctorApproval/DoctorApproval";
 import DoctorApprovalDetails from "../../pages/dashboard/DoctorApproval/DoctorApprovalDetails";
-import Cart from "../../pages/dashboard/Cart/Cart";
-import PaymentSuccess from "../../pages/dashboard/PaymentSuccess/PaymentSuccess";
+import UserAppointment from "../../pages/dashboard/UserAppointment/UserAppointment";
+import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
+import VideoCall from "../../pages/dashboard/VideoCall/VideoCall";
 import PaymentHistory from "../../pages/dashboard/paymentHistory/PaymentHistory";
-import AllDoctors from "../../pages/dashboard/allDoctors/AllDoctors";
+import PostNewTip from "../../pages/dashboard/postNewTip/PostNewTip";
+import Doctors from './../../pages/doctors/Doctors';
+import useApiLink from "../../lib/hooks/useApiLink";
+import DoctorProfile from "../../pages/dashboard/doctorProfile/DoctorProfile";
+import Cart from "../../pages/Cart/Cart";
+import PaymentSuccess from "../../pages/PaymentSuccess/PaymentSuccess";
+import AdminRoute from "../AdminRoute";
+import DoctorRoute from "../DoctorRoute";
+import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
+import Connect from "../../pages/ChatApp/Chat/Connect";
+import PrivetRoute from "../PrivetRoute";
 
-
-
+const apiLink = useApiLink()
 
 
 const MainRouter = createBrowserRouter([
@@ -38,6 +46,10 @@ const MainRouter = createBrowserRouter([
             {
                 index: true,
                 element: <Home />,
+            },
+            {
+                path: '/appointment',
+                element: <UserAppointment/>
             },
             {
                 path: '/doctors',
@@ -65,6 +77,14 @@ const MainRouter = createBrowserRouter([
                 element: <Services />,
             },
             {
+                path: "cart",
+                element: <PrivetRoute><Cart /></PrivetRoute>
+            },
+            {
+                path:'payment/success/:tranId',
+                element: <PrivetRoute><PaymentSuccess /></PrivetRoute>
+            },
+            {
                 path: "/doctorRegister",
                 element: <DoctorRegistration />
             },
@@ -80,13 +100,12 @@ const MainRouter = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />
-
             },
         ],
     },
     {
         path: '/dashboard',
-        element: <DashboardLayout />,
+        element: <PrivetRoute><DashboardLayout /></PrivetRoute>,
         children: [
             {
                 path: "/dashboard",
@@ -94,23 +113,31 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: "allUser",
-                element: <AllUsers />
+                element:<AdminRoute><AllUsers /></AdminRoute>
             },
             {
                 path: "addDoctor",
-                element: <AddDoctor />
+                element: <AdminRoute><AddDoctor /></AdminRoute>
             },
             {
                 path: "userProfile",
-                element: <UserProfile />
+                element: <PrivetRoute><UserProfile /></PrivetRoute>
+            },
+            {
+                path: "doctorProfile",
+                element: <DoctorRoute><DoctorProfile /></DoctorRoute>
             },
             {
                 path: "appoinment",
-                element: <Appoinment />
+                element: <PrivetRoute><Appointment/></PrivetRoute>
             },
             {
                 path: "doctorApproval",
-                element: <DoctorApproval/>
+                element: <AdminRoute><DoctorApproval/></AdminRoute>
+            },
+            {
+                path: "postNewTip",
+                element: <DoctorRoute><PostNewTip /></DoctorRoute>
             },
             {
                 path: "allDoctors",
@@ -118,36 +145,37 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: "doctorDetail/:id",
-                element: <DoctorApprovalDetails/>,
-                loader: ({params}) => fetch(`https://virtual-doc-backend.vercel.app/doctorRequestDetail/${params.id}`)
+                element: <AdminRoute><DoctorApprovalDetails/></AdminRoute>,
+                loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
             },
             {
 
                 path: "videocall",
                 element: <VideoCall />
             },
-            {
-                path: "cart",
-                element: <Cart />
-            },
+            
             {
 
                 path:'paymentHistory',
-                element:<PaymentHistory />
-            },
-            {
-                path:'payment/success/:tranId',
-                element:<PaymentSuccess />
+                element: <PrivetRoute><PaymentHistory /></PrivetRoute>
             },
             {
 
                 path: "doctorApproval",
-                element: <DoctorApproval/>
+                element: <AdminRoute><DoctorApproval/></AdminRoute>
+            },
+            // {
+            //     path: "doctorDetail/:id",
+            //     element: <DoctorApprovalDetails/>,
+            //     loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
+            // },
+            {
+                path: "chat",
+                element: <Connect></Connect>,
             },
             {
-                path: "doctorDetail/:id",
-                element: <DoctorApprovalDetails/>,
-                loader: ({params}) => fetch(`https://virtual-doc-backend.vercel.app/doctorRequestDetail/${params.id}`)
+                path: "allDoctor",
+                element:<AdminRoute><AllDoctor /></AdminRoute>
             },
         ]
     }

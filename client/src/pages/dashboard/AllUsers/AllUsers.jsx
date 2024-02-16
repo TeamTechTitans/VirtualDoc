@@ -3,33 +3,32 @@ import DashboardHeading from "../../../components/DashboardHeading/DashboardHead
 import React from "react";
 import {
   Button,
+  Dialog,
   Card,
+  CardBody,
+  CardFooter,
   Typography,
-
+  Input,
+  Checkbox,
 } from "@material-tailwind/react";
 import ManageModal from "./ManageModal";
+import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
 
 const AllUsers = () => {
   const [userData, setUserData] = React.useState([]);
   const TABLE_HEAD = ["Name", "Email", "location", "Blood-Group", "Action"];
+  const axiosSecure = useAxiosSecure()
 
 
   const { data: userDetails = [] } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
-      const res = await fetch("https://virtual-doc-backend.vercel.app/users");
-      const users = await res.json();
+      const res = await axiosSecure.get(`/users`);
+      const users = await res.data;
       return users;
     },
   });
 
-  // const { data } = useQuery({
-  //   queryKey: ['repoData'],
-  //   queryFn: () =>
-  //     fetch('https://virtual-doc-backend.vercel.app/users').then((res) =>
-  //       res.json(),
-  //     ),
-  // })
   const classes = "p-4 border-b border-blue-gray-50";
 
   //  Manage Modal
@@ -38,17 +37,15 @@ const AllUsers = () => {
     setOpen(!open)
     setUserData(user)
   };
-    
-
 
 
   return (
-    <div className="flex p-2 flex-col items-center">
+    <div className="flex p-2 flex-col">
       <DashboardHeading title="All users">Manage All Users</DashboardHeading>
       <Card className="w-full max-w-7xl overflow-auto">
-        <table className="w-full min-w-max table-auto text-center font-barlow">
+        <table className="w-full min-w-max table-auto  font-barlow">
           <thead>
-            <tr>
+            <tr className="">
               {TABLE_HEAD.map((head, idx) => (
                 <th
                   key={idx}
@@ -89,7 +86,7 @@ const AllUsers = () => {
                 <Typography
                   variant="small"
                   color="blue-gray"
-
+                  className="text-center"
                 >
                   {user?.loc}
                 </Typography>
@@ -98,7 +95,7 @@ const AllUsers = () => {
                 <Typography
                   variant="small"
                   color="blue-gray"
-
+                  className="text-center"
                 >
                   {user?.blood_group}
                 </Typography>

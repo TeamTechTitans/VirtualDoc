@@ -1,0 +1,15 @@
+.swal-container {
+    z-index: 10000; /* Adjust this value as needed */
+}
+
+.swal-popup {
+    z-index: 10001; /* Higher than the modal */
+}
+
+.swal-content {
+    z-index: 10002; /* Higher than the modal content */
+}
+
+.swal-confirm-button {
+    z-index: 10003; /* Higher than the modal buttons */
+}

@@ -18,11 +18,12 @@ const BottomNav = () => {
 
     const navLinks = <>
         <Link to='/' className="text-secondary-blue">Home</Link>
-        { user && <Link to='/dashboard' className="text-secondary-blue">Dashboard</Link>}
-        <Link to='/tips' className="text-secondary-blue">Tips</Link>
-        <Link to='/doctors' className="text-secondary-blue">Doctors</Link>
+        <Link to='/appointment' className="text-secondary-blue">Appointment</Link>
         <Link to='/services' className="text-secondary-blue">Services</Link>
+        <Link to='/doctors' className="text-secondary-blue">Doctors</Link>
+        <Link to='/tips' className="text-secondary-blue">Tips</Link>
         <Link to='/aboutUs' className="text-secondary-blue">About</Link>
+        {user && <Link to='/dashboard' className="text-secondary-blue">Dashboard</Link>}
         <Link to='/team' className="text-secondary-blue">Team</Link>
         <Link to='/contact' className="text-secondary-blue">Contact US</Link>
     </>
@@ -30,10 +31,10 @@ const BottomNav = () => {
     const authLinks = <>
         <div className="flex flex-wrap gap-5">
             <Link to='/register' >
-                <Button className="bg-secondary-blue text-base normal-case">Registration</Button>
+                <Button className="bg-secondary-blue text-sm normal-case">Registration</Button>
             </Link>
             <Link to='/login' className="text-secondary-blue">
-                <Button className="border-secondary-blue text-base border py-[10px] bg-transparent text-secondary-blue" >Login</Button>
+                <Button className="border-secondary-blue text-sm border py-[10px] bg-transparent text-secondary-blue" >Login</Button>
             </Link>
         </div>
     </>

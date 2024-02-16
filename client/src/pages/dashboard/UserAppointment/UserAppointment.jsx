@@ -1,17 +1,19 @@
 import SiteHeader from "../../../components/siteHeader/SiteHeader";
 import Calender from "./Calender";
 import OurTeeth from "./OurTeeth";
+import UserAppointmentForm from "./UserAppointmentForm";
 import UserServices from "./UserServices";
 
-const UserAppoinment = () => {
+const UserAppointment = () => {
   return (
     <div>
-      <SiteHeader title={"User Appoinment"}>User Appoinment</SiteHeader>
-      <Calender></Calender>
+      <SiteHeader title={"Appointment"}>Get an Appointment</SiteHeader>
+      <UserAppointmentForm/>
+      {/* <Calender></Calender> */}
       <UserServices></UserServices>
       <OurTeeth></OurTeeth>
     </div>
   );
 };
 
-export default UserAppoinment;
+export default UserAppointment;

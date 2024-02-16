@@ -1,8 +1,12 @@
 import axios from "axios";
+import useApiLink from "./useApiLink";
+
+const apiLink = useApiLink()
 
 const axiosPublic = axios.create({
-    baseURL: 'https://virtual-doc-backend.vercel.app'
+    baseURL: apiLink 
 })
+
 const useAxiosPublic = () => {
     return axiosPublic
 };

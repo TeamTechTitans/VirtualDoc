@@ -1,7 +1,12 @@
 import { Button } from '@material-tailwind/react';
 import React from 'react';
+import useAuth from '../../../../lib/hooks/useAuth';
+import { Link } from 'react-router-dom';
 
 const BannerSlider = ({ slide }) => {
+
+    const { user } = useAuth()
+
     return (
         <div className="bg-transparent flex flex-col px-2 md:px-5 items-center justify-between lg:flex-row">
             <div className="w-full text-center lg:pl-10 lg:text-left">
@@ -11,12 +16,32 @@ const BannerSlider = ({ slide }) => {
                         {slide?.paragraph}
                     </p>
                     <div className="mt-6 flex justify-center lg:justify-normal gap-3">
-                        <Button className="rounded-full" color="cyan">
-                            Register
-                        </Button>
-                        <Button className="rounded-full" color="cyan">
-                            Login
-                        </Button>
+                        {user ?
+                            <>
+                                <Link to='/apply'>
+                                    <Button className="rounded-full" color="cyan">
+                                        Apply Doctor
+                                    </Button>
+                                </Link>
+                                <Link to='/tips'>
+                                    <Button className="rounded-full" color="cyan">
+                                        Tips
+                                    </Button>
+                                </Link>
+                            </> :
+                            <>
+                                <Link to='/register'>
+                                    <Button className="rounded-full" color="cyan">
+                                        Register
+                                    </Button>
+                                </Link>
+                                <Link to='/login'>
+                                    <Button className="rounded-full" color="cyan">
+                                        Login
+                                    </Button>
+                                </Link>
+                            </>
+                        }
                     </div>
                 </div>
             </div>
