@@ -40,6 +40,7 @@ import PrivetRoute from "../PrivetRoute";
 // import DoctorAppointment from "../../pages/dashboard/Appointment/DoctorAppointment";
 import DoctorAppointmentPescription from "../../pages/dashboard/Appointment/DoctorAppointmentPescription";
 import Prescription from "../../pages/dashboard/Appointment/Prescription/Prescription";
+import DoctorProfile from "../../pages/dashboard/doctorProfile/DoctorProfile";
 
 const apiLink = useApiLink()
 
