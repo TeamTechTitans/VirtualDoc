@@ -10,7 +10,7 @@ const ContactForm = () => {
     emailjs.sendForm('service_60oukpk', 'template_vqqudzj', form.current, 'gxPZE-jijqxBj_CBJ')
       .then((result) => {
           // console.log(result.text);
-          Swal.fire('Registration Successful');
+          Swal.fire('Message successfully sent.');
           form.current.reset();
       }, (error) => {
           console.log(error.text);

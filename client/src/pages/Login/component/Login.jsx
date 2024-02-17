@@ -24,7 +24,7 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const onSubmit = data => {
-    console.log(data);
+    // console.log(data);
     logIn(data.email, data.password)
       .then((userCredential) => {
         Swal.fire('Logged In Successfully');
@@ -49,8 +49,9 @@ const Login = () => {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         //data collected from google
+        
         const googleData = {
           name: user.displayName,
           image: user.photoURL,
@@ -59,7 +60,7 @@ const Login = () => {
           email: user.email,
           password: ' ',
         }
-        console.log(googleData);
+        // console.log(googleData);
         //data insertion
         fetch(`${apiLink}/users/createUser`, {
           method: "POST",
@@ -70,7 +71,7 @@ const Login = () => {
         })
           .then(res => res.json())
           .then(data => {
-            console.log(data);
+            // console.log(data);
             if (data._id) {
               Swal.fire('Login Successful');
               navigate('/');

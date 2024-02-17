@@ -44,7 +44,7 @@ const DoctorRegistration = () => {
         },
       });
       const imageURL = res.data.data.display_url;
-      console.log(imageURL);
+      // console.log(imageURL);
 
       createUser(data.email, data.password)
         .then((userCredential) => {
@@ -81,31 +81,6 @@ const DoctorRegistration = () => {
           toast("Registration failed,Try Again");
           // ...
         });
-      //data insertion
-    //   fetch(
-    //     "http://localhost:5000/doctors/createDoctorsRequest",
-    //     {
-    //       method: "POST",
-    //       headers: {
-    //         "content-type": "application/json",
-    //       },
-    //       body: JSON.stringify(data),
-    //     }
-    //   )
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       console.log(data);
-    //       if (data._id) {
-    //         Swal.fire({
-    //           position: "top-center",
-    //           icon: "success",
-    //           title: "Your Request has been Received",
-    //           text: "Admin Will verify your details and give you access",
-    //           showConfirmButton: false,
-    //           timer: 7000,
-    //         });
-    //       }
-    //     });
      }
   };
   return (
