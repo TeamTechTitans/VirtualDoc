@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { IoSendSharp } from "react-icons/io5";
 import ScrollToBottom from "react-scroll-to-bottom";
+import useAuth from "../../../lib/hooks/useAuth";
 import "./Chat.css";
 
-const Chat = ({ socket, username, room }) => {
+
+// const apiLink = useApiLink()
+
+// const socket = io.connect(apiLink);
+
+
+const Chat = ({socket,username, room }) => {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
+  const {user} = useAuth();
 
   const sendMessage = async () => {
     if (currentMessage !== "") {
@@ -48,15 +56,17 @@ const Chat = ({ socket, username, room }) => {
           {messageList.map((messageContent) => {
             return (
               <div
+              key={messageContent.id}
                 className="message"
                 id={username === messageContent.author ? "you" : "other"}
               >
                 <div>
-                  <div className="message-content">
-                    <p>{messageContent.message}</p>
+                  <div className="flex message-div">
+                  <img className="w-7 rounded-full" src={user?.photoURL} alt="" />
+                    <p className="message-content">{messageContent.message}</p>
                   </div>
-                  <div className="message-meta">
-                    <p id="time">{messageContent.time}</p>
+                  <div className="message-meta">  
+                    <p id="time text-right">{messageContent.time}</p>
                     {/* <p id="author">{messageContent.author}</p> */}
                   </div>
                 </div>

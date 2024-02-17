@@ -28,11 +28,11 @@ import Doctors from './../../pages/doctors/Doctors';
 
 
 import useApiLink from "../../lib/hooks/useApiLink";
-import DoctorProfile from "../../pages/dashboard/doctorProfile/DoctorProfile";
 import Cart from "../../pages/Cart/Cart";
-import PaymentSuccess from "../../pages/PaymentSuccess/PaymentSuccess";
 import Connect from "../../pages/ChatApp/Chat/Connect";
+import PaymentSuccess from "../../pages/PaymentSuccess/PaymentSuccess";
 import Profile from "../../pages/dashboard/Profile/Profile";
+import DoctorProfile from "../../pages/dashboard/doctorProfile/DoctorProfile";
 
 
 
@@ -176,6 +176,10 @@ const MainRouter = createBrowserRouter([
                 path: "chat",
                 element: <Connect></Connect>,
             },
+            // {
+            //     path: "roomid",
+            //     element: <Chat></Chat>
+            // }
         ]
     }
 ]);

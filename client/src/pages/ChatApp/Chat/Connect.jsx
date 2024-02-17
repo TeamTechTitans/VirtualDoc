@@ -2,13 +2,14 @@ import { Button, Input } from "@material-tailwind/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { io } from "socket.io-client";
+import useApiLink from "../../../lib/hooks/useApiLink";
 import Chat from "./Chat";
 import "./Chat.css";
-import useApiLink from "../../../lib/hooks/useApiLink";
 
 const apiLink = useApiLink()
 
 const socket = io.connect(apiLink);
+const meetLInk = 'https://meet.google.com/new?hs=180&amp;authuser=0'
 
 const Connect = () => {
   const [username, setUsername] = useState("");
@@ -40,11 +41,15 @@ const Connect = () => {
             color="indigo"
             type="text"
             placeholder="Room ID..."
+            // defaultValue={12}
             onChange={(event) => {
               setRoom(event.target.value);
             }}
+            onKeyPress={(event) => {
+              event.key === "Enter" && joinRoom();
+            }}
           />
-          <Button className="bg-secondary-blue" onClick={joinRoom}>Join A Room</Button>
+          <Button className="bg-secondary-blue" onClick={joinRoom}>Join A Room</Button>     
         </div>
       ) : (
         <Link to="/dashboard/chat"><Chat socket={socket} username={username} room={room} /></Link>
