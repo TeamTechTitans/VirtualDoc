@@ -13,7 +13,7 @@ const AddDoctor = () => {
   const axiosPublic = useAxiosPublic();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
 
     const imageFile = { image: data.image[0] };
     const res = await axios.post(image_hosting_api, imageFile, {
@@ -36,7 +36,7 @@ const AddDoctor = () => {
         password: "A@1234",
         role: "doctor",
       };
-      console.log(doctorData);
+      // console.log(doctorData);
       const response = await axiosPublic.post("/doctors/createDoctors", doctorData);
     if (response) {
       Swal.fire({

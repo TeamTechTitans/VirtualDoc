@@ -39,7 +39,7 @@ export default function ManageModal({ handleOpen, open, doctor, refetch }) {
       `/doctor/${doctor.email}`,
       updatedDoctorData
     );
-    console.log(res.data);
+    // console.log(res.data);
     if (res.data.modifiedCount > 0) {
       Swal.fire({
         icon: "success",

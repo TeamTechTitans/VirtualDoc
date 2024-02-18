@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../../lib/hooks/useAuth";
-import { Input } from "@material-tailwind/react";
+import { Button, Input } from "@material-tailwind/react";
 import DashboardHeading from "../../components/DashboardHeading/DashboardHeading";
 import useAxiosPublic from "../../lib/hooks/useAxiosPublic";
 import { useLocation } from "react-router-dom";
@@ -27,10 +27,10 @@ const Cart = () => {
       treatment: treatment,
       appointmentId:appointmentId
     };
-    console.log(info);
+    // console.log(info);
     const res = await axiosPublic.post('/payment', info)
     if(res){
-    //   console.log(res.data)
+      // console.log(res.data)
       window.location.replace(res.data.url)
     }
   };
@@ -101,7 +101,7 @@ const Cart = () => {
           </div>
           <div className="w-full text-center mt-3">
             {/* {cart.length > 0 ? ( */}
-            <button className="btn btn-outline btn-md">Pay</button>
+            <Button type="submit" className="bg-secondary-blue" size="sm" >Pay</Button>
             {/* ) : ( */}
             {/* //     <button disabled className="btn btn-outline"> 
             //       Pay
