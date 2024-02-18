@@ -34,6 +34,7 @@ import DoctorRoute from "../DoctorRoute";
 import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
 import Connect from "../../pages/ChatApp/Chat/Connect";
 import PrivetRoute from "../PrivetRoute";
+import Profile from "../../pages/dashboard/Profile/Profile";
 
 const apiLink = useApiLink()
 
@@ -173,6 +174,10 @@ const MainRouter = createBrowserRouter([
                 path: "allDoctor",
                 element:<AdminRoute><AllDoctor /></AdminRoute>
             },
+            {
+                path: 'profile',
+                element: <Profile />
+            }
         ]
     }
 ]);
