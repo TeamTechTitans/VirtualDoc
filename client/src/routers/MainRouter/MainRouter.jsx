@@ -33,6 +33,7 @@ import Doctors from './../../pages/doctors/Doctors';
 // import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
 // import Connect from "../../pages/ChatApp/Chat/Connect";
 import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
+import Profile from "../../pages/dashboard/Profile/Profile";
 import AllDoctors from "../../pages/dashboard/allDoctors/AllDoctors";
 import DoctorAppointment from "../../pages/dashboard/doctorAppointment/DoctorAppointment";
 import PrivetRoute from "../PrivetRoute";
@@ -185,6 +186,10 @@ const MainRouter = createBrowserRouter([
             {
                 path: "allDoctor",
                 element:<AdminRoute><AllDoctor /></AdminRoute>
+            },
+            {
+                path: 'profile',
+                element: <Profile />
             },
             {
                 path: "doctorAppointment",

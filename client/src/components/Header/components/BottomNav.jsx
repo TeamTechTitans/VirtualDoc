@@ -5,8 +5,8 @@ import {
     FaX
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import Logo from "../../logo/Logo";
 import useAuth from "../../../lib/hooks/useAuth";
+import Logo from "../../logo/Logo";
 
 
 const BottomNav = () => {
