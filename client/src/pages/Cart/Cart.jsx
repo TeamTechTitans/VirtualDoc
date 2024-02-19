@@ -36,7 +36,7 @@ const Cart = () => {
   };
 
   return (
-    <div>
+    <div className="my-4">
       <DashboardHeading title="Payment">Pay the Bill</DashboardHeading>
       <div>
         <form
