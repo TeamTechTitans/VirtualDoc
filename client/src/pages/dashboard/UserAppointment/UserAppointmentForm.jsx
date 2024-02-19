@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
-import { useForm } from "react-hook-form";
 import { useQuery } from "@tanstack/react-query";
+import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import useAuth from "../../../lib/hooks/useAuth";
-import Swal from "sweetalert2";
-import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
 import useApiLink from "../../../lib/hooks/useApiLink";
+import useAuth from "../../../lib/hooks/useAuth";
+import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
 
 const UserAppointmentForm = () => {
   const { user } = useAuth();
@@ -169,7 +169,8 @@ const UserAppointmentForm = () => {
                   </label>
                   <DatePicker
                     minDate={new Date()}
-                    dateFormat="dd/MM/yyyy"
+                    // dateFormat="dd/MM/yyyy"
+                    dateFormat="MMM dd YY"
                     className="input input-bordered"
                     selected={appointmentDate}
                     onChange={(date) => setAppointmentDate(date)}

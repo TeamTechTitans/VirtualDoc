@@ -1,13 +1,10 @@
-import { Button, Card, Typography, button } from "@material-tailwind/react";
+import { Card, Typography } from "@material-tailwind/react";
+import { useQuery } from "@tanstack/react-query";
 import { FcVideoCall } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
-import { useNavigate } from "react-router-dom";
 import useAuth from "../../../lib/hooks/useAuth";
 import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
-import { useQuery } from "@tanstack/react-query";
-import Swal from "sweetalert2";
-import useApiLink from "../../../lib/hooks/useApiLink";
 import DisplayPrescription from "./DisplayPrescription/DisplayPrescription";
 
 
