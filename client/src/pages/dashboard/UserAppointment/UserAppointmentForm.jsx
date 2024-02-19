@@ -67,7 +67,7 @@ const UserAppointmentForm = () => {
       payment: 500,
       paidStatus: false
     };
-    //console.log(appointment_data);
+    console.log(appointment_data);
     
     const res = await axiosPublic.post('/appointment/bookAppointment',appointment_data)
     // console.log(res.data._id);
