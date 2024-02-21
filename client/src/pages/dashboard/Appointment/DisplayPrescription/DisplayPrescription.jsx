@@ -1,7 +1,5 @@
 import React, { useRef, useState } from 'react';
-import jsPDF from "jspdf";
-import html2canvas from 'html2canvas';
-import "jspdf/dist/polyfills.es.js";
+import { useReactToPrint } from 'react-to-print';
 
 import {
   Button,
@@ -83,6 +81,12 @@ const DisplayPrescription = ({appointment_id,doctor_email,patient_email,patient_
       //     doc.save('receipt.pdf');
       //   })
       // }
+      const contentToPrint = useRef(null);
+      const downloadPDF = useReactToPrint({
+        content:()=>contentToPrint.current,
+        documentTitle: "prescription",
+        removeAfterPrint: true,
+      });
     return (<>
         <div className="flex">
           {
@@ -109,7 +113,7 @@ const DisplayPrescription = ({appointment_id,doctor_email,patient_email,patient_
             <div>
             <Card className="w-full max-w-[48rem] ">
        
-                <CardBody>
+                <CardBody ref={contentToPrint}>
                     <div className='flex justify-between border-b-2 border-black'>
                         <div>
 
@@ -141,7 +145,7 @@ const DisplayPrescription = ({appointment_id,doctor_email,patient_email,patient_
                     <div className='flex justify-between border-b-2 my-3 border-black'>
                         <div>
                             <Typography variant="h6" color="gray" className="mb-4 first-letter:uppercase">
-                            Patient Id: {prescription?.filtered_patient_id}
+                            Patient Id: {prescription.advice}
                             </Typography>
                             <Typography variant="h6" color="gray" className="mb-4 first-letter:uppercase">
                             Patient Name:{patient_name}
@@ -244,7 +248,7 @@ const DisplayPrescription = ({appointment_id,doctor_email,patient_email,patient_
                     </Typography>
                 </CardBody>
                 <div className='mx-auto'>
-                <Button  variant="gradient">
+                <Button onClick={downloadPDF} variant="gradient">
                   Download Prescription
                 </Button>    
                 </div>

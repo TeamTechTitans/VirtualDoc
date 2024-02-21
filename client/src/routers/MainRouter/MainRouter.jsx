@@ -160,7 +160,7 @@ const MainRouter = createBrowserRouter([
             },
             {
 
-                path: "videocall",
+                path: "videocall/:id",
                 element: <VideoCall />
             },
             
