@@ -35,6 +35,7 @@
     "react-icons": "^5.0.1",
     "react-router-dom": "^6.21.2",
     "react-scroll-to-bottom": "^4.2.0",
+    "react-to-print": "^2.15.1",
     "react-toastify": "^10.0.4",
     "recharts": "^2.10.4",
     "socket.io-client": "^4.7.4",
@@ -61,7 +62,9 @@
   "license": "ISC",
   "description": "",
   "background": {
-    "scripts": ["src/background.js"],
+    "scripts": [
+      "src/background.js"
+    ],
     "persistent": false
   },
   "permissions": [

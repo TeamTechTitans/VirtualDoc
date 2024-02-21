@@ -87,7 +87,10 @@ const DoctorAppointmentPescription = () => {
   //   navigate('/cart', { state: appointment });
 
   // }
-
+  const handleReload = (_id) => {
+    // Use window.location.href to navigate to the same URL, triggering a page reload
+    window.location.href = `/dashboard/videocall/${_id}`;
+  };
   return (<>
     <div className="">
       <DashboardHeading title="Appointments">Manage Appointments</DashboardHeading>
@@ -170,7 +173,7 @@ const DoctorAppointmentPescription = () => {
                   <td className={classes}>
                     {
                       paidStatus ?
-                        <Link to='/dashboard/videocall'><FcVideoCall className="mx-auto text-3xl" /></Link>
+                      <Link onClick={()=>handleReload(_id)}><FcVideoCall className="mx-auto text-3xl" /></Link>
                         :
                         <button onClick={() => handleModalForPayment()}><FcVideoCall className="mx-auto opacity-30 text-3xl" /></button>
                     }

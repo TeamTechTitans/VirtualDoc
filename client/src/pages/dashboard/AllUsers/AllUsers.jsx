@@ -33,6 +33,9 @@ const AllUsers = () => {
   const handleOpen = (userEmail) => {
     setUserData(userEmail)
     setOpen(!open)
+    setUserData(user)
+    console.log(user._id)
+
   };
 
 
