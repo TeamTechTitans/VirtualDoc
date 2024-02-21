@@ -30,19 +30,18 @@ const renderCustomizedLabel = ({
   );
 };
 
-const data = [
-  { name: "Doctor", value: 130 },
-  { name: "Patient", value: 410 },
-  { name: "Appointment", value: 974 },
 
-];
+const PieCharts = ({allDoctor,allAppoinment,allUsers}) => {
+  const data = [
+    { name: "Doctor", value: allDoctor },
+    { name: "Patient", value:  allUsers},
+    { name: "Appointment", value:  allAppoinment},
+  ];
 
-
-const PieCharts = () => {
   return (
     <div className="h-72 bg-white p-5 rounded-lg shadow-md">
       <div>
-        <h1 className="font-bold text-gray-600">Appointment</h1>
+        <h1 className="font-bold text-gray-600">Patients</h1>
         <hr className="my-3 h-0.5 bg-gray-300"/>
       </div>
       <div className="flex justify-center my-5">
@@ -57,12 +56,11 @@ const PieCharts = () => {
             fill="#8884d8"
             dataKey="value"
           >
-            {data.map((entry, index) => (
-              <Cell
+            {data.map((entry, index) =><Cell
                 key={`cell-${index}`}
                 fill={COLORS[index % COLORS.length]}
               />
-            ))}
+            )}
           </Pie>
         </PieChart>
       </div>
