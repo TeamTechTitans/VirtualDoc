@@ -22,7 +22,7 @@ const Banner = () => {
     })
 
     return (
-        <div className="w-full bg-dark-blue relative overflow-hidden min-h-[720px] max-h-[1280px] py-10 md:py-32">
+        <div className="w-full bg-dark-blue relative overflow-hidden min-h-[880px] max-h-[1280px] py-10 md:py-32">
             <img loading="lazy" src={bannerBg} className='absolute hidden md:block bottom-0 w-full' alt="" />
             <img loading="lazy" src={topBg} className='absolute animation-flooding2 top-0 w-2/3' alt="" />
             <img loading="lazy" src={round} className='absolute m-5 md:m-20 w-32 md:w-60 animation-spin top-0' alt="" />

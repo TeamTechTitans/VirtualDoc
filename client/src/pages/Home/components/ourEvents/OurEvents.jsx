@@ -17,7 +17,7 @@ const OurEvents = () => {
                 <div className='flex justify-center flex-col text-center mx-auto mb-5 max-w-2xl items-center'>
                     <CustomTitle title={'OUR EVENTS'} double></CustomTitle>
 
-                    <Typography variant="h2" color="black">
+                    <Typography variant="h2" className='font-bold'>
                         Publication Opportunity in Conference
                         Associated Event
                     </Typography>

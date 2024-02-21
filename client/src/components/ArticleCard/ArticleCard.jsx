@@ -11,7 +11,7 @@ const ArticleCard = ({ article }) => {
   const { title, description, month, comments, date, author, image } = article;
   return (
     <div>
-      <Card className="m-2 min-h-[550px] overflow-hidden">
+      <Card className="m-2 h-[550px] overflow-hidden">
         <CardHeader
           floated={false}
           shadow={false}
