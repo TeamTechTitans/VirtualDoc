@@ -19,11 +19,12 @@ const UserServices = () => {
           {services?.slice(0, 3)?.map((item) => (
             <div className="rounded shadow-2xl py-10 px-2">
               <div>
-              
-                <h1 className="text-lg font-medium ml-2 ">{item?.title}</h1>
+                <h1 className="text-xl font-semibold ml-2 ">
+                  {item?.title.slice(0,33)}
+                </h1>
               </div>
-              <img className="rounded-xl py-5" src={item?.image} alt="" />
-              <p className="px-2">{item?.description}</p>
+              <img className="rounded-xl py-5 h-72" src={item?.image} alt="" />
+              <p className="px-2  text-lg">{item?.description}</p>
             </div>
           ))}
         </div>
