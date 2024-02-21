@@ -1,5 +1,4 @@
 import SiteHeader from "../../../components/siteHeader/SiteHeader";
-import Calender from "./Calender";
 import OurTeeth from "./OurTeeth";
 import UserAppointmentForm from "./UserAppointmentForm";
 import UserServices from "./UserServices";

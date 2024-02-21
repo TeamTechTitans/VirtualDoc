@@ -31,7 +31,7 @@ const UserAppointmentForm = () => {
       return doctors;
     },
   });
-  const filtered_doctor = doctorDetails.filter(
+  const filtered_doctor = doctorDetails?.filter(
     (doctor) => doctor.health_category == selectedCategory
   );
   // const filtered_doctor_map=filtered_doctor.map(doctor=>doctor);
@@ -100,7 +100,7 @@ const UserAppointmentForm = () => {
       <DashboardHeading title="Deal with our Healthcare Professionals">
         Book An Appointment
       </DashboardHeading>
-      <h2>{filtered_doctor.length}</h2>
+      <h2>{filtered_doctor?.length}</h2>
       <div className="hero">
         <div className="hero-content flex-col">
           <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
@@ -114,7 +114,7 @@ const UserAppointmentForm = () => {
                     onChange={handleCategoryChange}
                     className="select select-bordered w-full"
                   >
-                    {doctorHealthCategory.map((health_category) => (
+                    {doctorHealthCategory?.map((health_category) => (
                       <option
                         key={health_category._id}
                         value={health_category.cat_value}
@@ -135,7 +135,7 @@ const UserAppointmentForm = () => {
                     <option disabled value="default">
                       Select Doctor
                     </option>
-                    {filtered_doctor.map((filteredDoctors) => (
+                    {filtered_doctor?.map((filteredDoctors) => (
                       <option
                         key={filteredDoctors._id}
                         value={filteredDoctors.email}
