@@ -11,10 +11,24 @@ import {
     Option,
 } from "@material-tailwind/react";
 import { useForm } from "react-hook-form";
+import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 
-export default function ManageModal({ handleOpen, open, user }) {
+export default function ManageModal({ handleOpen, open, userEmail }) {
+    const axiosSecure = useAxiosSecure()
+
+
+
     const { register, handleSubmit } = useForm();
+    const { data: user = [] } = useQuery({
+        queryKey: ['specificUser'],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/specificUser/:${userEmail}`);
+            const users = await res.data;
+            return users;
+        },
+    });
 
     const onSubmit = async (data) => {
         console.log(data);
