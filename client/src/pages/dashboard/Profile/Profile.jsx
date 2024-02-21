@@ -29,7 +29,7 @@ const Profile = () => {
         </div>
 
         {/* details */}
-        <div className="flex justify-center items-center text-[#142441] text-3xl font-semibold  ">
+        <div className="flex justify-center items-center text-[#142441] text-2xl font-semibold  ">
           <div>
             <h1 className="">
               Name: <span className="text-[#1D5CCD]">{users?.name}</span>
@@ -47,7 +47,7 @@ const Profile = () => {
           </div>
         </div>
         {/* location */}
-        <div className="text-3xl font-semibold text-[#1D5CCD] ml-5 flex justify-center items-center">
+        <div className="text-2xl font-semibold text-[#1D5CCD] ml-5 flex justify-center items-center">
           <div className="">
             <p className="flex items-center gap-2">
               <FaLocationPin className="text-primary-teal" />
