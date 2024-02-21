@@ -34,6 +34,7 @@ const BMI = () => {
   };
 
   return (
+
     <div className="mb-24 md:mb-8">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-center">
         <div className="md:w-1/2 px-4 text-left">

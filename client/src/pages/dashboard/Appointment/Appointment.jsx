@@ -1,13 +1,10 @@
-import { Button, Card, Typography, button } from "@material-tailwind/react";
+import { Card, Typography } from "@material-tailwind/react";
+import { useQuery } from "@tanstack/react-query";
 import { FcVideoCall } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
-import { useNavigate } from "react-router-dom";
 import useAuth from "../../../lib/hooks/useAuth";
 import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
-import { useQuery } from "@tanstack/react-query";
-import Swal from "sweetalert2";
-import useApiLink from "../../../lib/hooks/useApiLink";
 import DisplayPrescription from "./DisplayPrescription/DisplayPrescription";
 
 
@@ -62,6 +59,10 @@ const Appointment = () => {
   //   navigate('/cart', { state: appointment });
 
   // }
+  const handleReload = (_id) => {
+    // Use window.location.href to navigate to the same URL, triggering a page reload
+    window.location.href = `/dashboard/videocall/${_id}`;
+  };
 
   return (
     <div className="">
@@ -149,7 +150,7 @@ const Appointment = () => {
                   <td className={classes}>
                     {
                       paidStatus ?
-                        <Link to='/dashboard/videocall'><FcVideoCall className="mx-auto text-3xl" /></Link>
+                        <Link onClick={()=>handleReload(_id)}><FcVideoCall className="mx-auto text-3xl" /></Link>
                         :
                         <button onClick={() => handleModalForPayment()}><FcVideoCall className="mx-auto opacity-30 text-3xl" /></button>
                     }

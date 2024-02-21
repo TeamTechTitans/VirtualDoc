@@ -2,6 +2,7 @@
 
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 import * as React from 'react';
+import { useParams } from 'react-router-dom';
 
 
 function randomID(len) {
@@ -25,12 +26,13 @@ export function getUrlParams(
 }
 
 const VideoCall = () => {
-  const roomID = getUrlParams().get('roomID') || randomID(5);
+  const { id } = useParams();
+  const roomID = getUrlParams().get('roomID') || id;
       let myMeeting = async (element) => {
      // generate Kit Token
       const appID = 1297054783;
       const serverSecret = "9a5f4732a88be40c656a7c7b7746bd79";
-      const kitToken =  ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID,  randomID(5),  randomID(5));
+      const kitToken =  ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID,randomID(5),randomID(5));
 
 
      // Create instance object from Kit Token.
@@ -53,6 +55,7 @@ const VideoCall = () => {
         },
       });
   };
+ // console.log(myMeeting);
 
   return (
     <div

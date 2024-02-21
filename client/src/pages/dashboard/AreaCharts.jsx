@@ -1,55 +1,94 @@
 import { curveCardinal } from 'd3-shape';
 import { Area, AreaChart, CartesianGrid, Tooltip, XAxis, YAxis } from 'recharts';
 
-const data = [
+
+
+const cardinal = curveCardinal.tension(0.2);
+
+
+const AreaCharts = ({appointments}) => {
+  // appointments.map(item => item.date)
+  const monthJan = appointments?.filter((month) => month?.date?.slice(5,7) === "01")
+  const monthFeb = appointments?.filter((month) => month?.date?.slice(5,7) === "02")
+  const monthMar = appointments?.filter((month) => month?.date?.slice(5,7) === "03")
+  const monthApr = appointments?.filter((month) => month?.date?.slice(5,7) === "04")
+  const monthMay = appointments?.filter((month) => month?.date?.slice(5,7) === "05")
+  const monthJun = appointments?.filter((month) => month?.date?.slice(5,7) === "06")
+  const monthJul = appointments?.filter((month) => month?.date?.slice(5,7) === "07")
+  const monthAug = appointments?.filter((month) => month?.date?.slice(5,7) === "08")
+  const monthSep = appointments?.filter((month) => month?.date?.slice(5,7) === "09")
+  const monthOct = appointments?.filter((month) => month?.date?.slice(5,7) === "10")
+  const monthNov = appointments?.filter((month) => month?.date?.slice(5,7) === "11")
+  const monthDec = appointments?.filter((month) => month?.date?.slice(5,7) === "12")
+  // const monthDec = appointments?.filter((month) => console.log(month?.date?.slice(5,7) === "12"))
+  // console.log(monthName);
+
+  const data = [
   {
     name: "Jan",
-    uv: 1200,
+    uv: monthJan.length,
+  },
+  {
+    name: "Feb",
+    uv: monthFeb.length,
   },
   {
     name: "Mar",
-    uv: 1500,
-
+    uv: monthMar.length,
+  },
+  {
+    name: "Apr",
+    uv: monthApr.length,
   },
   {
     name: "May",
-    uv: 1200,
-
+    uv: monthMay.length,
   },
   {
-    name: "jun",
-    uv: 1780,
-
+    name: "Jun",
+    uv: monthJun.length,
+  },
+  {
+    name: "Jul",
+    uv: monthJul.length,
   },
   {
     name: "Aug",
-    uv: 1690,
+    uv: monthAug.length,
+
+  },
+  {
+    name: "Sep",
+    uv: monthSep.length,
 
   },
   {
     name: "Oct",
-    uv: 1790,
+    uv: monthOct.length,
+
+  },
+  {
+    name: "Nov",
+    uv: monthNov.length,
 
   },
   {
     name: "Dec",
-    uv: 1970,
+    uv: monthDec.length,
 
-  }
+  },
 ];
-const cardinal = curveCardinal.tension(0.2);
 
 
-const AreaCharts = () => {
   return (
     <div className="h-72 bg-white p-5 rounded-lg shadow-md">
     <div>
-      <h1 className="font-bold text-gray-600">Patient</h1>
+      <h1 className="font-bold text-gray-600">Appointment</h1>
       <hr className="my-3 h-0.5 bg-gray-300"/>
     </div>
     <div className="flex justify-center my-5">
     <AreaChart
-      width={400}
+      width={600}
       height={200}
       data={data}
       margin={{
@@ -63,13 +102,13 @@ const AreaCharts = () => {
       <XAxis dataKey="name" />
       <YAxis />
       <Tooltip />
-      <Area
+      {/* <Area
         type="monotone"
         dataKey="uv"
         stroke="#8884d8"
         fill="#8884d8"
         fillOpacity={0.3}
-      />
+      /> */}
       <Area
         type={cardinal}
         dataKey="uv"
