@@ -42,7 +42,7 @@ import DoctorAppointment from "../../pages/dashboard/doctorAppointment/DoctorApp
 // import DoctorAppointment from "../../pages/dashboard/Appointment/DoctorAppointment";
 import Prescription from "../../pages/dashboard/Appointment/Prescription/Prescription";
 import DoctorAppointmentPescription from "../../pages/dashboard/Appointment/DoctorAppointmentPescription";
-import Profile from "../../pages/dashboard/Profile/Profile";
+// import Profile from "../../pages/dashboard/Profile/Profile";
 
 const apiLink = useApiLink();
 
@@ -59,7 +59,7 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: '/appointment',
-                element: <PrivetRoute><UserAppointment/></PrivetRoute>
+                element: <PrivetRoute><UserAppointment /></PrivetRoute>
             },
             {
                 path: '/doctors',
@@ -91,7 +91,7 @@ const MainRouter = createBrowserRouter([
                 element: <PrivetRoute><Cart /></PrivetRoute>
             },
             {
-                path:'payment/success/:tranId',
+                path: 'payment/success/:tranId',
                 element: <PrivetRoute><PaymentSuccess /></PrivetRoute>
             },
             {
@@ -125,7 +125,7 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: "allUser",
-                element:<AdminRoute><AllUsers /></AdminRoute>
+                element: <AdminRoute><AllUsers /></AdminRoute>
             },
             {
                 path: "addDoctor",
@@ -141,11 +141,11 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: "appoinment",
-                element: <PrivetRoute><Appointment/></PrivetRoute>
+                element: <PrivetRoute><Appointment /></PrivetRoute>
             },
             {
                 path: "doctorApproval",
-                element: <AdminRoute><DoctorApproval/></AdminRoute>
+                element: <AdminRoute><DoctorApproval /></AdminRoute>
             },
             {
                 path: "postNewTip",
@@ -157,28 +157,28 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: "doctorDetail/:id",
-                element: <AdminRoute><DoctorApprovalDetails/></AdminRoute>,
-                loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
+                element: <AdminRoute><DoctorApprovalDetails /></AdminRoute>,
+                loader: ({ params }) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
             },
             {
 
                 path: "videocall/:id",
                 element: <VideoCall />
             },
-            
+
             {
 
-                path:'paymentHistory',
+                path: 'paymentHistory',
                 element: <PrivetRoute><PaymentHistory /></PrivetRoute>
             },
             {
 
                 path: "doctorApproval",
-                element: <AdminRoute><DoctorApproval/></AdminRoute>
+                element: <AdminRoute><DoctorApproval /></AdminRoute>
             },
             {
                 path: "prescription",
-                element: <Prescription/>
+                element: <Prescription />
             },
             // {
             //     path: "doctorDetail/:id",
@@ -191,7 +191,7 @@ const MainRouter = createBrowserRouter([
             // },
             {
                 path: "allDoctor",
-                element:<AdminRoute><AllDoctor /></AdminRoute>
+                element: <AdminRoute><AllDoctor /></AdminRoute>
             },
             {
                 path: 'profile',
@@ -206,57 +206,57 @@ const MainRouter = createBrowserRouter([
                 element: <DoctorAppointment />
             },
 
-      {
-        path: "paymentHistory",
-        element: (
-          <PrivetRoute>
-            <PaymentHistory />
-          </PrivetRoute>
-        ),
-      },
-      {
-        path: "doctorApproval",
-        element: (
-          <AdminRoute>
-            <DoctorApproval />
-          </AdminRoute>
-        ),
-      },
-      {
-        path: "prescription",
-        element: <Prescription />,
-      },
-      // {
-      //     path: "doctorDetail/:id",
-      //     element: <DoctorApprovalDetails/>,
-      //     loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
-      // },
-      // {
-      //     path: "chat",
-      //     element: <Connect></Connect>,
-      // },
-      {
-        path: "allDoctor",
-        element: (
-          <AdminRoute>
-            <AllDoctor />
-          </AdminRoute>
-        ),
-      },
-      {
-        path: "doctorAppointment",
-        element: (
-          <DoctorRoute>
-            <DoctorAppointmentPescription />
-          </DoctorRoute>
-        ),
-      },
-      {
-        path: "doctorAppointments",
-        element: <DoctorAppointment />,
-      },
-    ],
-  },
+            {
+                path: "paymentHistory",
+                element: (
+                    <PrivetRoute>
+                        <PaymentHistory />
+                    </PrivetRoute>
+                ),
+            },
+            {
+                path: "doctorApproval",
+                element: (
+                    <AdminRoute>
+                        <DoctorApproval />
+                    </AdminRoute>
+                ),
+            },
+            {
+                path: "prescription",
+                element: <Prescription />,
+            },
+            // {
+            //     path: "doctorDetail/:id",
+            //     element: <DoctorApprovalDetails/>,
+            //     loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
+            // },
+            // {
+            //     path: "chat",
+            //     element: <Connect></Connect>,
+            // },
+            {
+                path: "allDoctor",
+                element: (
+                    <AdminRoute>
+                        <AllDoctor />
+                    </AdminRoute>
+                ),
+            },
+            {
+                path: "doctorAppointment",
+                element: (
+                    <DoctorRoute>
+                        <DoctorAppointmentPescription />
+                    </DoctorRoute>
+                ),
+            },
+            {
+                path: "doctorAppointments",
+                element: <DoctorAppointment />,
+            },
+        ],
+    },
 ]);
 
 export default MainRouter;
