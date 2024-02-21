@@ -34,8 +34,9 @@ const BMI = () => {
   };
 
   return (
-    <div className="mb-24 md:mb-2 py-20">
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-center py-20 ">
+
+    <div className="mb-24 md:mb-8">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-center">
         <div className="md:w-1/2 px-4 text-left">
           <CustomTitle title="BMI Calculator" double="Calculate "></CustomTitle>
           <Typography className="mb-2" variant="h3" color="blue-gray">

@@ -67,7 +67,7 @@ const AllDoctor = () => {
   return (
     <div className="flex p-2 flex-col">
       <DashboardHeading title="All Doctor">Manage All Doctor</DashboardHeading>
-      <Card className="w-full max-w-7xl overflow-auto">
+      <Card className="w-full mx-auto max-w-7xl overflow-auto">
         <table className="w-full table-auto  font-barlow">
           <thead>
             <tr className="">

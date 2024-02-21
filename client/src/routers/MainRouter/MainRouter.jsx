@@ -34,6 +34,7 @@ import DoctorRoute from "../DoctorRoute";
 // import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
 // import Connect from "../../pages/ChatApp/Chat/Connect";
 import PrivetRoute from "../PrivetRoute";
+import Profile from "../../pages/dashboard/Profile/Profile";
 import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
 import AllDoctors from "../../pages/dashboard/allDoctors/AllDoctors";
 import DoctorAppointment from "../../pages/dashboard/doctorAppointment/DoctorAppointment";
@@ -46,175 +47,164 @@ import Profile from "../../pages/dashboard/Profile/Profile";
 const apiLink = useApiLink();
 
 const MainRouter = createBrowserRouter([
-  {
-    path: "/",
-    element: <MainLayout />,
-    children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: "/appointment",
-        element: (
-          <PrivetRoute>
-            <UserAppointment />
-          </PrivetRoute>
-        ),
-      },
-      {
-        path: "/doctors",
-        element: <Doctors />,
-      },
-      {
-        path: "/tips",
-        element: <Tips />,
-      },
-      {
-        path: "/tips/:id",
-        element: <TipDetails />,
-        // loader: ({ params }) => fetch(`tips.json/${params.id}`)
-      },
-      {
-        path: "/register",
-        element: <Registration />,
-      },
-      {
-        path: "/team",
-        element: <Team />,
-      },
-      {
-        path: "/services",
-        element: <Services />,
-      },
-      {
-        path: "cart",
-        element: (
-          <PrivetRoute>
-            <Cart />
-          </PrivetRoute>
-        ),
-      },
-      {
-        path: "payment/success/:tranId",
-        element: (
-          <PrivetRoute>
-            <PaymentSuccess />
-          </PrivetRoute>
-        ),
-      },
-      {
-        path: "/doctorRegister",
-        element: <DoctorRegistration />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/aboutUs",
-        element: <AboutUs />,
-      },
-      {
-        path: "/contact",
-        element: <Contact />,
-      },
-    ],
-  },
-  {
-    path: "/dashboard",
-    element: (
-      <PrivetRoute>
-        <DashboardLayout />
-      </PrivetRoute>
-    ),
-    children: [
-      {
-        path: "/dashboard",
-        element: <Dashboard />,
-      },
-      {
-        path: "allUser",
-        element: (
-          <AdminRoute>
-            <AllUsers />
-          </AdminRoute>
-        ),
-      },
-      {
-        path: "addDoctor",
-        element: (
-          <AdminRoute>
-            <AddDoctor />
-          </AdminRoute>
-        ),
-      },
-      {
-        path: "userProfile",
-        element: (
-          <PrivetRoute>
-            <UserProfile />
-          </PrivetRoute>
-        ),
-      },
-      {
-        path: "profile",
-        element: (
-          <PrivetRoute>
-            <Profile></Profile>
-          </PrivetRoute>
-        ),
-      },
-      {
-        path: "doctorProfile",
-        element: (
-          <DoctorRoute>
-            <DoctorProfile />
-          </DoctorRoute>
-        ),
-      },
-      {
-        path: "appoinment",
-        element: (
-          <PrivetRoute>
-            <Appointment />
-          </PrivetRoute>
-        ),
-      },
-      {
-        path: "doctorApproval",
-        element: (
-          <AdminRoute>
-            <DoctorApproval />
-          </AdminRoute>
-        ),
-      },
-      {
-        path: "postNewTip",
-        element: (
-          <DoctorRoute>
-            <PostNewTip />
-          </DoctorRoute>
-        ),
-      },
-      {
-        path: "allDoctors",
-        element: <AllDoctors />,
-      },
-      {
-        path: "doctorDetail/:id",
-        element: (
-          <AdminRoute>
-            <DoctorApprovalDetails />
-          </AdminRoute>
-        ),
-        loader: ({ params }) =>
-          fetch(`${apiLink}/doctorRequestDetail/${params.id}`),
-      },
-      {
-        path: "videocall",
-        element: <VideoCall />,
-      },
+
+
+    {
+        path: "/",
+        element: <MainLayout />,
+        children: [
+            {
+                index: true,
+                element: <Home />,
+            },
+            {
+                path: '/appointment',
+                element: <PrivetRoute><UserAppointment/></PrivetRoute>
+            },
+            {
+                path: '/doctors',
+                element: <Doctors />,
+            },
+            {
+                path: "/tips",
+                element: <Tips />
+            },
+            {
+                path: "/tips/:id",
+                element: <TipDetails />,
+                // loader: ({ params }) => fetch(`tips.json/${params.id}`)
+            },
+            {
+                path: "/register",
+                element: <Registration />
+            },
+            {
+                path: '/team',
+                element: <Team />,
+            },
+            {
+                path: '/services',
+                element: <Services />,
+            },
+            {
+                path: "cart",
+                element: <PrivetRoute><Cart /></PrivetRoute>
+            },
+            {
+                path:'payment/success/:tranId',
+                element: <PrivetRoute><PaymentSuccess /></PrivetRoute>
+            },
+            {
+                path: "/doctorRegister",
+                element: <DoctorRegistration />
+            },
+            {
+                path: "/login",
+                element: <Login />
+            },
+            {
+
+                path: "/aboutUs",
+                element: <AboutUs />
+            },
+            {
+                path: "/contact",
+                element: <Contact />
+            },
+
+
+        ],
+    },
+    {
+        path: '/dashboard',
+        element: <PrivetRoute><DashboardLayout /></PrivetRoute>,
+        children: [
+            {
+                path: "/dashboard",
+                element: <Dashboard />
+            },
+            {
+                path: "allUser",
+                element:<AdminRoute><AllUsers /></AdminRoute>
+            },
+            {
+                path: "addDoctor",
+                element: <AdminRoute><AddDoctor /></AdminRoute>
+            },
+            {
+                path: "userProfile",
+                element: <PrivetRoute><UserProfile /></PrivetRoute>
+            },
+            {
+                path: "doctorProfile",
+                element: <DoctorRoute><DoctorProfile /></DoctorRoute>
+            },
+            {
+                path: "appoinment",
+                element: <PrivetRoute><Appointment/></PrivetRoute>
+            },
+            {
+                path: "doctorApproval",
+                element: <AdminRoute><DoctorApproval/></AdminRoute>
+            },
+            {
+                path: "postNewTip",
+                element: <DoctorRoute><PostNewTip /></DoctorRoute>
+            },
+            {
+                path: "allDoctors",
+                element: <AllDoctors />
+            },
+            {
+                path: "doctorDetail/:id",
+                element: <AdminRoute><DoctorApprovalDetails/></AdminRoute>,
+                loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
+            },
+            {
+
+                path: "videocall",
+                element: <VideoCall />
+            },
+            
+            {
+
+                path:'paymentHistory',
+                element: <PrivetRoute><PaymentHistory /></PrivetRoute>
+            },
+            {
+
+                path: "doctorApproval",
+                element: <AdminRoute><DoctorApproval/></AdminRoute>
+            },
+            {
+                path: "prescription",
+                element: <Prescription/>
+            },
+            // {
+            //     path: "doctorDetail/:id",
+            //     element: <DoctorApprovalDetails/>,
+            //     loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
+            // },
+            // {
+            //     path: "chat",
+            //     element: <Connect></Connect>,
+            // },
+            {
+                path: "allDoctor",
+                element:<AdminRoute><AllDoctor /></AdminRoute>
+            },
+            {
+                path: 'profile',
+                element: <Profile />
+            },
+            {
+                path: "doctorAppointment",
+                element: <DoctorRoute><DoctorAppointmentPescription /></DoctorRoute>
+            },
+            {
+                path: "doctorAppointments",
+                element: <DoctorAppointment />
+            },
 
       {
         path: "paymentHistory",

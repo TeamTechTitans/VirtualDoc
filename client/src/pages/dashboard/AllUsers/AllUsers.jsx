@@ -3,24 +3,20 @@ import DashboardHeading from "../../../components/DashboardHeading/DashboardHead
 import React from "react";
 import {
   Button,
-  Dialog,
   Card,
-  CardBody,
-  CardFooter,
   Typography,
-  Input,
-  Checkbox,
+
 } from "@material-tailwind/react";
 import ManageModal from "./ManageModal";
 import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
 
 const AllUsers = () => {
-  const [userData, setUserData] = React.useState([]);
+
   const TABLE_HEAD = ["Name", "Email", "location", "Blood-Group", "Action"];
   const axiosSecure = useAxiosSecure()
 
 
-  const { data: userDetails = [] } = useQuery({
+  const { data: userDetails = [], refetch } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
       const res = await axiosSecure.get(`/users`);
@@ -33,16 +29,17 @@ const AllUsers = () => {
 
   //  Manage Modal
   const [open, setOpen] = React.useState(false);
-  const handleOpen = (user) => {
+  const [userData, setUserData] = React.useState('');
+  const handleOpen = (userEmail) => {
+    setUserData(userEmail)
     setOpen(!open)
-    setUserData(user)
   };
 
 
   return (
     <div className="flex p-2 flex-col">
       <DashboardHeading title="All users">Manage All Users</DashboardHeading>
-      <Card className="w-full max-w-7xl overflow-auto">
+      <Card className="w-full max-w-7xl mx-auto overflow-auto">
         <table className="w-full min-w-max table-auto  font-barlow">
           <thead>
             <tr className="">
@@ -101,7 +98,7 @@ const AllUsers = () => {
                 </Typography>
               </td>
               <td className={classes}>
-                <Button color="blue" onClick={() => handleOpen(user)} className="px-2 py-1 rounded-none mr-2 normal-case">Manage</Button>
+                <Button color="blue" onClick={() => handleOpen(user?.email)} className="px-2 py-1 rounded-none mr-2 normal-case">Manage</Button>
 
                 <Button className="px-2 py-1 rounded-none normal-case" color="red">Delete</Button>
               </td>
@@ -111,7 +108,7 @@ const AllUsers = () => {
           </tbody>
         </table>
       </Card>
-      <ManageModal handleOpen={handleOpen} open={open} user={userData}></ManageModal>
+      <ManageModal handleOpen={handleOpen} refetch={refetch} open={open} userEmail={userData}></ManageModal>
     </div >
   );
 };
