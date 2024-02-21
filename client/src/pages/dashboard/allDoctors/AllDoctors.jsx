@@ -47,7 +47,7 @@ const AllDoctors = () => {
   return (
     <div className="flex p-2 flex-col items-center">
       <DashboardHeading title="All users">Manage All Doctors</DashboardHeading>
-      <Card className="w-full max-w-7xl overflow-auto">
+      <Card className="w-full mx-auto max-w-7xl overflow-auto">
         <table className="w-full min-w-max table-auto text-center font-barlow">
           <thead>
             <tr>

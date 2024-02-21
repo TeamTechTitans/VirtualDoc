@@ -31,12 +31,7 @@ const ImageSection = () => {
         className="md:-mt-24 -mt-24 ml-5 md:ml-72 "
       />
 
-      <img
-        loading="lazy"
-        src="https://i.ibb.co/bFdGG97/shape-27.png"
-        alt=""
-        className="md:-mt-24 -mt-24 ml-5 md:ml-72 "
-      />
+     
 
     </div>
   );

@@ -11,21 +11,27 @@ import {
     Option,
 } from "@material-tailwind/react";
 import { useForm } from "react-hook-form";
-import './style.css';
 
-export default function ManageModal({ handleOpen, open, user }) {
-  //  const { register, handleSubmit } = useForm();
-    const [bloodGroup,setBloodGroup]=useState('');
-   
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const data={
-            name:e.target.name.value,
-            email:e.target.email.value,
-            loc:e.target.location.value,
-            blood_group:bloodGroup,
-            image:e.target.image.value
-        }
+import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+
+
+export default function ManageModal({ handleOpen, open, userEmail }) {
+    const axiosSecure = useAxiosSecure()
+
+
+
+    const { register, handleSubmit } = useForm();
+    const { data: user = [] } = useQuery({
+        queryKey: ['specificUser'],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/specificUser/:${userEmail}`);
+            const users = await res.data;
+            return users;
+        },
+    });
+
+    const onSubmit = async (data) => {
         console.log(data);
         // const imageFile = { image: data.image[0] };
         // const res = await axios.post(image_hosting_api, imageFile, {
