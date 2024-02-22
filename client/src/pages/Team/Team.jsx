@@ -36,14 +36,12 @@ const Team = () => {
           <div key={team?.id} className="">
             <div className="flex relative mb-20 p-2 justify-center items-center">
               <div className="max-w-[350px] flex max-h-[420px] hover-before  hover-before   before:w-full before:h-full before:opacity-30 before:cursor-pointer before:scale-0 hover:before:scale-100 before:duration-500 before:rounded-full before:bg-white  aspect-square">
-                <img className=" rounded-full aspect-square max-w-[350px]  max-h-[400px]"
+                <img className=" rounded-full max-w-[350px]  max-h-[400px]"
                   style={{ backgroundImage: "url(https://laborex.smartdemowp.com/wp-content/uploads/2021/05/shape-61.png)" }}
-                />
-                <img
                   src={team?.img}
-                  className="-mt-5"
-                  alt=""
-                  loading="lazy" />
+                  loading="lazy"
+                />
+
               </div>
 
               <div className=" ">
@@ -61,19 +59,19 @@ const Team = () => {
                   <div className="flex gap-5 text-center justify-center items-center py-2">
                     <Link
                       to={team?.linkedin}
-                      className="w-8 h-8 bg-white rounded-full flex justify-center items-center hover:bg-primary-teal transition-all duration-300 hover:text-white"
+                      className="w-8 h-8 bg-white rounded-full border border-solid border-black flex justify-center items-center hover:bg-primary-teal transition-all duration-300 hover:text-white"
                     >
                       <FaLinkedin className=" " />
                     </Link>
                     <Link
                       to={team?.github}
-                      className="w-8 h-8 bg-white rounded-full flex justify-center items-center hover:bg-primary-teal transition-all duration-300 hover:text-white"
+                      className="w-8 h-8 bg-white rounded-full border border-solid border-black flex justify-center items-center hover:bg-primary-teal transition-all duration-300 hover:text-white"
                     >
                       <FaGithub className=" " />
                     </Link>
                     <Link
                       to={team?.portfolio}
-                      className="w-8 h-8 bg-white rounded-full flex justify-center items-center hover:bg-primary-teal transition-all duration-300 hover:text-white"
+                      className="w-8 h-8 bg-white rounded-full border border-solid border-black flex justify-center items-center hover:bg-primary-teal transition-all duration-300 hover:text-white"
                     >
                       <FaPassport className=" " />
                     </Link>
