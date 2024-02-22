@@ -1,11 +1,25 @@
 import { Input, Option, Select, Typography } from "@material-tailwind/react";
 import CustomTitle from "../../../components/CustomTitle/CustomTitle";
 import { useState } from "react";
-import {  FaMagnifyingGlass, } from "react-icons/fa6";
+import { FaMagnifyingGlass, } from "react-icons/fa6";
 import StuffDetailCard from "../../../components/stuffDetailCard/StuffDetailCard";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
+import useApiLink from "../../../lib/hooks/useApiLink";
 
 const FilterDoctor = () => {
-  const [data, setData] = useState([]);
+  const axiosPublic = useAxiosPublic()
+  const apiLink = useApiLink()
+
+  const { data: doctors, refetch, isLoading } = useQuery({
+    queryKey: ['allDoctors'],
+    queryFn: async () => {
+      const allDoctors = await axiosPublic.get(`${apiLink}/doctors`)
+      return allDoctors.data
+    }
+  })
+
+  // console.log(data)
 
   const handleTitleChange = (e) => {
     if (e.currentTarget.value === "A - Z") {
@@ -23,7 +37,7 @@ const FilterDoctor = () => {
   const handleCategoryChange = (e) => {
     const selectedCategory = e.currentTarget.value;
   };
-  const handleVoteChange = (e) => {};
+
 
   return (
     <div>
@@ -70,18 +84,10 @@ const FilterDoctor = () => {
 
         {/*  Doctors */}
         <div className="grid justify-center items-center grid-cols-1 p-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
+          {isLoading ?
+            <span className="loading loading-dots loading-lg"></span> :
+            doctors.map((doctor, idx) => <StuffDetailCard key={idx} doctor={doctor}></StuffDetailCard>)
+          }
         </div>
 
         <div>

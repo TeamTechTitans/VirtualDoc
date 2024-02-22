@@ -22,6 +22,7 @@ const Login = () => {
   const { register, handleSubmit, required, reset } = useForm();
   const { logIn, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
+  console.log(location)
   const navigate = useNavigate();
   const onSubmit = data => {
     // console.log(data);
@@ -45,9 +46,9 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleSignIn()
       .then((result) => {
-        if (result) {
-          navigate(location.state ? location?.state : '/', { replace: true })
-        }
+
+        navigate(location.state ? location?.state : '/', { replace: true })
+
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         // The signed-in user info.
