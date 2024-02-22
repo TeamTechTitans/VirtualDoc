@@ -42,6 +42,7 @@ import DoctorAppointment from "../../pages/dashboard/doctorAppointment/DoctorApp
 // import DoctorAppointment from "../../pages/dashboard/Appointment/DoctorAppointment";
 import Prescription from "../../pages/dashboard/Appointment/Prescription/Prescription";
 import DoctorAppointmentPescription from "../../pages/dashboard/Appointment/DoctorAppointmentPescription";
+import ErrorPage from "../../pages/error/ErrorPage";
 // import Profile from "../../pages/dashboard/Profile/Profile";
 
 const apiLink = useApiLink();
@@ -52,10 +53,12 @@ const MainRouter = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 index: true,
                 element: <Home />,
+                errorElement: <ErrorPage />,
             },
             {
                 path: '/appointment',
@@ -118,10 +121,12 @@ const MainRouter = createBrowserRouter([
     {
         path: '/dashboard',
         element: <PrivetRoute><DashboardLayout /></PrivetRoute>,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "/dashboard",
-                element: <Dashboard />
+                element: <Dashboard />,
+                errorElement: <ErrorPage />,
             },
             {
                 path: "allUser",

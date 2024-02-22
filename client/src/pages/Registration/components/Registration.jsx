@@ -17,7 +17,7 @@ import {
   value,
   Alert,
 } from "@material-tailwind/react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
@@ -32,6 +32,8 @@ const Registration = () => {
   const axiosPublic = useAxiosPublic();
   const { createUser, updateUserProfile, googleSignIn } =
     useContext(AuthContext);
+  const location = useLocation()
+
 
   const onSubmit = async (data) => {
     //console.log(data);
@@ -47,33 +49,33 @@ const Registration = () => {
     }
     else {
 
-    const imageFile = { image: data.image[0] };
-    const res = await axiosPublic.post(image_hosting_api, imageFile, {
-      headers: {
-        "content-type": "multipart/form-data",
-      },
-    });
+      const imageFile = { image: data.image[0] };
+      const res = await axiosPublic.post(image_hosting_api, imageFile, {
+        headers: {
+          "content-type": "multipart/form-data",
+        },
+      });
 
-    const imageURL = res.data.data.display_url;
-    // console.log('image url',imageURL);
-    const signUpData={
-      name:data.name,
-      image:imageURL,
-      loc:data.loc,
-      blood_group:data.blood_group,
-      email:data.email,
-      password:data.password,
-      role: "user"
-    }
-    //console.log('image url',imageURL);
-    // const signUpData={
-    //   name:data.name,
-    //   image:imageURL,
-    //   loc:data.loc,
-    //   blood_group:data.blood_group,
-    //   email:data.email,
-    //   password:data.password
-    // }
+      const imageURL = res.data.data.display_url;
+      // console.log('image url',imageURL);
+      const signUpData = {
+        name: data.name,
+        image: imageURL,
+        loc: data.loc,
+        blood_group: data.blood_group,
+        email: data.email,
+        password: data.password,
+        role: "user"
+      }
+      //console.log('image url',imageURL);
+      // const signUpData={
+      //   name:data.name,
+      //   image:imageURL,
+      //   loc:data.loc,
+      //   blood_group:data.blood_group,
+      //   email:data.email,
+      //   password:data.password
+      // }
 
       createUser(data.email, data.password)
         .then((userCredential) => {
@@ -123,6 +125,9 @@ const Registration = () => {
   const handleGoogleLogin = () => {
     googleSignIn()
       .then((result) => {
+        if (result) {
+          navigate(location.state ? location.state : '/', { replace: true })
+        }
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         // The signed-in user info.
@@ -278,7 +283,7 @@ const Registration = () => {
               </Typography>
             </CardFooter>
           </Card>
-        </CardBody>  
+        </CardBody>
       </div>
       <ToastContainer />
     </>

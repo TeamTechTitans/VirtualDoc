@@ -19,7 +19,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import useApiLink from '../../../lib/hooks/useApiLink';
 const Login = () => {
   const apiLink = useApiLink()
-  const { register, handleSubmit, required,reset } = useForm();
+  const { register, handleSubmit, required, reset } = useForm();
   const { logIn, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ const Login = () => {
         // {
         //   Navigate(location.state ? location.state : '/');
         // }
-        navigate('/');
+        navigate(location.state ? location.state : '/', { replace: true })
 
       })
       .catch((error) => {
@@ -45,13 +45,16 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleSignIn()
       .then((result) => {
+        if (result) {
+          navigate(location.state ? location?.state : '/', { replace: true })
+        }
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
         // console.log(user);
         //data collected from google
-        
+
         const googleData = {
           name: user.displayName,
           image: user.photoURL,
@@ -74,7 +77,7 @@ const Login = () => {
             // console.log(data);
             if (data._id) {
               Swal.fire('Login Successful');
-              navigate('/');
+              navigate(location.state ? location.state : '/', { replace: true })
             }
           })
         // Swal.fire('Login Successful');

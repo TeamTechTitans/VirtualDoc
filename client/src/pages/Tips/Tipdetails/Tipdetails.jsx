@@ -94,7 +94,7 @@ const TipDetails = () => {
                   </ul>
                 </div>
               </div>
-              <Comments tip = {tips}></Comments>
+              <Comments tip={tips}></Comments>
             </div>
           </div>
         </div>
