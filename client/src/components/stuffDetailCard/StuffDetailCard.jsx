@@ -3,7 +3,7 @@ import '../../pages/Home/components/animation.css';
 import { FaEnvelope, FaFacebook, FaTwitter } from 'react-icons/fa6';
 
 const StuffDetailCard = ({ doctor }) => {
-    console.log(doctor)
+    // console.log(doctor)
     return (
         <div className="flex relative mb-20 p-2 justify-center items-center">
             <div

@@ -62,7 +62,7 @@ const DoctorRegistration = () => {
               };
               //data insertion
               const res = await axiosPublic.post("/doctors/createDoctorsRequest", doctorData);
-              console.log(res);
+              // console.log(res);
               if (res) {
                 Swal.fire("Account Created Successfully and we will contact with you soon");
               }

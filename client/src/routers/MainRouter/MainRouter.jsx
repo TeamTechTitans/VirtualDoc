@@ -43,6 +43,8 @@ import DoctorAppointment from "../../pages/dashboard/doctorAppointment/DoctorApp
 import Prescription from "../../pages/dashboard/Appointment/Prescription/Prescription";
 import DoctorAppointmentPescription from "../../pages/dashboard/Appointment/DoctorAppointmentPescription";
 import ErrorPage from "../../pages/error/ErrorPage";
+// import Connect from "../../pages/ChatApp/Chat/Connect";
+import PublicRoute from "../PublicRoute";
 // import Profile from "../../pages/dashboard/Profile/Profile";
 
 const apiLink = useApiLink();
@@ -79,7 +81,7 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: "/register",
-                element: <Registration />
+                element: <PrivetRoute><Registration /></PrivetRoute>
             },
             {
                 path: '/team',
@@ -103,7 +105,7 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: "/login",
-                element: <Login />
+                element: <PublicRoute><Login /></PublicRoute>
             },
             {
 

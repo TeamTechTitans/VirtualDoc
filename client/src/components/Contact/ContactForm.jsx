@@ -13,7 +13,8 @@ const ContactForm = () => {
         Swal.fire('Message successfully sent.');
         form.current.reset();
       }, (error) => {
-        console.log(error.text);
+        if (error)
+          Swal.fire('Something is wrong.');
       });
 
   };
@@ -27,7 +28,6 @@ const ContactForm = () => {
         <div className="flex flex-col md:flex-row gap-4 my-4 justify-between">
           <div className="form-control">
             <input
-
               type="email"
               placeholder="Email"
               className="rounded-full p-2 px-4 bg-[#1A53B8] placeholder:text-white outline-none focus:border-white border-2 border-solid border-transparent w-full"

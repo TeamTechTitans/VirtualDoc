@@ -36,7 +36,7 @@ const PostNewTip = () => {
   };
 
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     const coverImageFile = {
       image: data.cover[0],
     };
@@ -85,7 +85,7 @@ const PostNewTip = () => {
         hashtags: hashtags,
         author: user?.displayName,
       };
-      console.log(tip);
+      // console.log(tip);
       const response = await axiosPublic.post("/tips", tip);
       if (response) {
         Swal.fire({

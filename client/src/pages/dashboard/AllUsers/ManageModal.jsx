@@ -32,7 +32,7 @@ export default function ManageModal({ handleOpen, open, userEmail }) {
     });
 
     const onSubmit = async (data) => {
-        console.log(data);
+        // console.log(data);
         // const imageFile = { image: data.image[0] };
         // const res = await axios.post(image_hosting_api, imageFile, {
         //     headers: {
@@ -59,7 +59,7 @@ export default function ManageModal({ handleOpen, open, userEmail }) {
                         <CardBody className="flex flex-col gap-4">
                             <Typography variant="h4" className="text-center">
                                 Manage {user?.name + '\'s '} Data
-                                
+
                             </Typography>
                             <Typography
                                 className="mb-3 font-normal text-red-400 max-w-[40rem] mx-auto text-center"
@@ -70,34 +70,34 @@ export default function ManageModal({ handleOpen, open, userEmail }) {
                             </Typography>
 
                             <div className="flex flex-col grid-cols-2 gap-5 md:grid">
-                                <Input name ='name' label="Name" color="teal" defaultValue={user?.name} size="lg" />
-                                <Input name ='email' label="Email" color="teal" size="lg" defaultValue={user?.email} />
-                                <Input name ='location' label="Location" color="teal" defaultValue={user?.loc} size="lg" />
+                                <Input name='name' label="Name" color="teal" defaultValue={user?.name} size="lg" />
+                                <Input name='email' label="Email" color="teal" size="lg" defaultValue={user?.email} />
+                                <Input name='location' label="Location" color="teal" defaultValue={user?.loc} size="lg" />
                                 <div className="blood_group_c">
-                                <Select
-                                    id="blood_group"
-                                    name="blood_group"  
-                                    color="teal"
-                                    label={`Select Blood Group ${user.blood_group}`}
-                                    className="overflow-y-auto "
-                                    size="lg"
-                                    
-                                    value={bloodGroup}
-                                    onChange={(val) => setBloodGroup(val)}
+                                    <Select
+                                        id="blood_group"
+                                        name="blood_group"
+                                        color="teal"
+                                        label={`Select Blood Group ${user.blood_group}`}
+                                        className="overflow-y-auto "
+                                        size="lg"
+
+                                        value={bloodGroup}
+                                        onChange={(val) => setBloodGroup(val)}
                                     >
-                                    <Option className=" bg-white " value="A+">A+</Option>
-                                    <Option className=" bg-white " value="A-">A-</Option>
-                                    <Option className=" bg-white " value="B+">B+</Option>
-                                    <Option className=" bg-white "  value="B-">B-</Option>
-                                    <Option className=" bg-white " value="AB+">AB+</Option>
-                                    <Option className=" bg-white " value="AB-">AB-</Option>
-                                    <Option className=" bg-white " value="O+">O+</Option>
-                                    <Option className=" bg-white " value="O-">O-</Option>
+                                        <Option className=" bg-white " value="A+">A+</Option>
+                                        <Option className=" bg-white " value="A-">A-</Option>
+                                        <Option className=" bg-white " value="B+">B+</Option>
+                                        <Option className=" bg-white " value="B-">B-</Option>
+                                        <Option className=" bg-white " value="AB+">AB+</Option>
+                                        <Option className=" bg-white " value="AB-">AB-</Option>
+                                        <Option className=" bg-white " value="O+">O+</Option>
+                                        <Option className=" bg-white " value="O-">O-</Option>
                                     </Select>
                                 </div>
-                               
-                                <Input name ='image' label="Image Url" color="teal" defaultValue={user?.image} size="lg" />
-                                
+
+                                <Input name='image' label="Image Url" color="teal" defaultValue={user?.image} size="lg" />
+
 
                             </div>
                         </CardBody>
