@@ -13,18 +13,23 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import useApiLink from '../../../lib/hooks/useApiLink';
+import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
 
 const UserProfile = () => {
 
   const apiLink = useApiLink()
   const { user } = useContext(AuthContext);
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    fetch(`${apiLink}/users/${user?.email}`)
-      .then(res => res.json())
-      .then(data => setUsers(data))
-  }, [])
 
+
+  const axiosSecure = useAxiosSecure()
+
+  const { data: users, isLoading } = useQuery({
+    queryKey: ['specificUser'],
+    queryFn: async () => {
+      const userData = await axiosSecure.get(`/users/${user?.email}`)
+      return userData.data
+    }
+  })
 
   // console.log(users)
 

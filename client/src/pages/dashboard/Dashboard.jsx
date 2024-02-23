@@ -21,7 +21,7 @@ const Dashboard = () => {
   const { data: appointments = [] } = useQuery({
     queryKey: ['appointment'],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/appointment`)
+      const res = await axiosPublic.get(`/appointment`)
       return res.data;
     }
   })
@@ -29,7 +29,7 @@ const Dashboard = () => {
   const { data: doctors = [] } = useQuery({
     queryKey: ['doctors'],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/doctors`)
+      const res = await axiosPublic.get(`/doctors`)
       return res.data;
     },
   });
