@@ -8,13 +8,15 @@ import { Link } from "react-router-dom";
 import { FaLinkedin } from "react-icons/fa";
 
 const Team = () => {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["team"],
     queryFn: async () => {
       const teamList = await fetch("team.json");
       return teamList.json();
     },
   });
+
+  if (isLoading) return <div className="w-full h-screen flex justify-center items-center"> <span className="loading loading-dots loading-lg"></span></div>
 
   return (
     <div>

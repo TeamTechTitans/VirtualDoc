@@ -88,7 +88,7 @@ const FilterDoctor = () => {
         {/*  Doctors */}
         <div className="grid justify-center items-center grid-cols-1 p-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
           {isLoading ?
-            <span className="loading loading-dots loading-lg"></span> :
+            <div className="w-full h-screen flex justify-center items-center"> <span className="loading loading-dots loading-lg"></span></div> :
             doctors?.map((doctor, idx) => <StuffDetailCard key={idx} doctor={doctor}></StuffDetailCard>)
           }
         </div>

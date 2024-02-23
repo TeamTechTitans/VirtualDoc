@@ -22,7 +22,7 @@ const Profile = () => {
 
   // console.log(users);
 
-  if (isLoading) return <span className="loading loading-dots loading-lg"></span>
+  if (isLoading) return <div className="w-full h-screen flex justify-center items-center"> <span className="loading loading-dots loading-lg"></span></div>
 
   return (
     <div className="mt-10 container mx-auto">

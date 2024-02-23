@@ -51,13 +51,13 @@ const DoctorAppointmentPescription = () => {
     queryKey: ['doctors'],
     queryFn: async () => {
       //const res = await fetch(`${apiLink}/doctors`);
-      const res = await axiosSecure.get(`/doctors`)
+      const res = await axiosPublic.get(`/doctors`)
       //const doctors = await res.json();
       // console.log('doctors data',res.data);
       return res.data;
     },
   });
-  const { data: users = [] } = useQuery({
+  const { data: users = [], isLoading } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
       //const res = await fetch(`${apiLink}/doctors`);
@@ -93,6 +93,9 @@ const DoctorAppointmentPescription = () => {
     // Use window.location.href to navigate to the same URL, triggering a page reload
     window.location.href = `/dashboard/videocall/${_id}`;
   };
+
+  if (isLoading) return <div className="w-full h-screen flex justify-center items-center"> <span className="loading loading-dots loading-lg"></span></div>
+
   return (<>
     <div className="">
       <DashboardHeading title="Appointments">Manage Appointments</DashboardHeading>

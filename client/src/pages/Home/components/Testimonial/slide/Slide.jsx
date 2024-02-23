@@ -4,13 +4,12 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { useQuery } from '@tanstack/react-query';
-import { useEffect } from 'react';
 import Reviews from './Reviews';
 import { Tooltip } from '@material-tailwind/react';
 
 const Slide = () => {
 
-    const { data } = useQuery({
+    const { data, isLoading } = useQuery({
         queryKey: ['reviews'],
         queryFn: async () => {
             const getReviews = await fetch('sliderData.json')
@@ -18,9 +17,7 @@ const Slide = () => {
         }
     })
 
-    useEffect(() => {
-
-    }, [])
+    if (isLoading) return <div className="w-full h-screen flex justify-center items-center"> <span className="loading loading-dots loading-lg"></span></div>
 
     return (
         <div className='relative'>

@@ -13,13 +13,15 @@ import BannerSlider from './BannerSlider';
 
 const Banner = () => {
 
-    const { data } = useQuery({
+    const { data, isLoading } = useQuery({
         queryKey: ['banner'],
         queryFn: async () => {
             const getReviews = await fetch('banner.json')
             return getReviews.json();
         }
     })
+
+    if (isLoading) return <div className="w-full h-screen flex justify-center items-center"> <span className="loading loading-dots loading-lg"></span></div>
 
     return (
         <div className="w-full bg-dark-blue relative flex justify-center items-center overflow-hidden h-[800px] max-h-[1280px]">

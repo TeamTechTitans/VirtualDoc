@@ -14,6 +14,7 @@ import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import useApiLink from '../../../lib/hooks/useApiLink';
 import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const UserProfile = () => {
 
@@ -57,6 +58,8 @@ const UserProfile = () => {
         }
       })
   }
+
+  if (isLoading) return <div className="w-full h-screen flex justify-center items-center"> <span className="loading loading-dots loading-lg"></span></div>
 
   return (
     <>
