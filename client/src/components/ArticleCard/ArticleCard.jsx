@@ -6,6 +6,7 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const ArticleCard = ({ article }) => {
   const { title, description, month, comments, date, author, image } = article;
@@ -41,9 +42,11 @@ const ArticleCard = ({ article }) => {
         </CardBody>
 
         <CardFooter className="pt-0">
+          <Link to='/tips'>
           <Button className="rounded-full" color="cyan">
             Read More
           </Button>
+          </Link>
         </CardFooter>
       </Card>
     </div>
@@ -51,10 +54,3 @@ const ArticleCard = ({ article }) => {
 };
 
 export default ArticleCard;
-
-
-// <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-// {
-//     articles.map(article => <ArticleCard article={article}></ArticleCard>)
-// }
-// </div>
