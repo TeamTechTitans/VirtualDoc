@@ -200,10 +200,10 @@ const MainRouter = createBrowserRouter([
                 path: "allDoctor",
                 element: <AdminRoute><AllDoctor /></AdminRoute>
             },
-            {
-                path: 'profile',
-                element: <Profile />
-            },
+            // {
+            //     path: 'profile',
+            //     element: <Profile />
+            // },
             {
                 path: "doctorAppointment",
                 element: <DoctorRoute><DoctorAppointmentPescription /></DoctorRoute>
