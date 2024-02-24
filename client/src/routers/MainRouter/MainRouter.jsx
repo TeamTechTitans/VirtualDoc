@@ -34,7 +34,6 @@ import DoctorRoute from "../DoctorRoute";
 // import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
 // import Connect from "../../pages/ChatApp/Chat/Connect";
 import PrivetRoute from "../PrivetRoute";
-import Profile from "../../pages/dashboard/Profile/Profile";
 import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
 import AllDoctors from "../../pages/dashboard/allDoctors/AllDoctors";
 import DoctorAppointment from "../../pages/dashboard/doctorAppointment/DoctorAppointment";
