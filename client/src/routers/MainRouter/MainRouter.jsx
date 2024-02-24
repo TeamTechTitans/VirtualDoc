@@ -24,7 +24,7 @@ import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
 import VideoCall from "../../pages/dashboard/VideoCall/VideoCall";
 import PaymentHistory from "../../pages/dashboard/paymentHistory/PaymentHistory";
 import PostNewTip from "../../pages/dashboard/postNewTip/PostNewTip";
-import Doctors from './../../pages/doctors/Doctors';
+import Doctors from "./../../pages/doctors/Doctors";
 import useApiLink from "../../lib/hooks/useApiLink";
 import DoctorProfile from "../../pages/dashboard/doctorProfile/DoctorProfile";
 import Cart from "../../pages/Cart/Cart";
@@ -42,11 +42,13 @@ import DoctorAppointment from "../../pages/dashboard/doctorAppointment/DoctorApp
 // import DoctorAppointment from "../../pages/dashboard/Appointment/DoctorAppointment";
 import Prescription from "../../pages/dashboard/Appointment/Prescription/Prescription";
 import DoctorAppointmentPescription from "../../pages/dashboard/Appointment/DoctorAppointmentPescription";
+import Profile from "../../pages/dashboard/Profile/Profile";
 
-const apiLink = useApiLink()
-
+const apiLink = useApiLink();
 
 const MainRouter = createBrowserRouter([
+
+
     {
         path: "/",
         element: <MainLayout />,
@@ -205,8 +207,57 @@ const MainRouter = createBrowserRouter([
                 element: <DoctorAppointment />
             },
 
-        ]
-    }
+      {
+        path: "paymentHistory",
+        element: (
+          <PrivetRoute>
+            <PaymentHistory />
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "doctorApproval",
+        element: (
+          <AdminRoute>
+            <DoctorApproval />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "prescription",
+        element: <Prescription />,
+      },
+      // {
+      //     path: "doctorDetail/:id",
+      //     element: <DoctorApprovalDetails/>,
+      //     loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
+      // },
+      // {
+      //     path: "chat",
+      //     element: <Connect></Connect>,
+      // },
+      {
+        path: "allDoctor",
+        element: (
+          <AdminRoute>
+            <AllDoctor />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "doctorAppointment",
+        element: (
+          <DoctorRoute>
+            <DoctorAppointmentPescription />
+          </DoctorRoute>
+        ),
+      },
+      {
+        path: "doctorAppointments",
+        element: <DoctorAppointment />,
+      },
+    ],
+  },
 ]);
 
 export default MainRouter;

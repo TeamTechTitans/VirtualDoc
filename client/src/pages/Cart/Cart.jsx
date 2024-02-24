@@ -4,6 +4,7 @@ import { Button, Input } from "@material-tailwind/react";
 import DashboardHeading from "../../components/DashboardHeading/DashboardHeading";
 import useAxiosPublic from "../../lib/hooks/useAxiosPublic";
 import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 const Cart = () => {
   const { user } = useAuth();
@@ -27,16 +28,16 @@ const Cart = () => {
       treatment: treatment,
       appointmentId:appointmentId
     };
-    // console.log(info);
-    const res = await axiosPublic.post('/payment', info)
+    console.log(info);
+    const res = await axios.post('https://virtual-doc-backend.vercel.app/payment', info)
     if(res){
-      // console.log(res.data)
+      console.log(res.data)
       window.location.replace(res.data.url)
     }
   };
 
   return (
-    <div>
+    <div className="my-4">
       <DashboardHeading title="Payment">Pay the Bill</DashboardHeading>
       <div>
         <form
