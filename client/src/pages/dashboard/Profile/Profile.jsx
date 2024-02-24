@@ -3,26 +3,36 @@ import { AuthContext } from "./../../../provider/AuthProvider/AuthProvider";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
 import { FaEnvelope, FaLocationPin, FaPhone } from "react-icons/fa6";
 import useApiLink from "../../../lib/hooks/useApiLink";
+import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const Profile = () => {
-  const apiLink = useApiLink();
+  // const apiLink = useApiLink();
   const { user } = useContext(AuthContext);
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    fetch(`${apiLink}/users/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setUsers(data));
-  }, []);
-  console.log(users);
+
+  const axiosSecure = useAxiosSecure()
+
+  const { data: users, isLoading } = useQuery({
+    queryKey: ['specificUser'],
+    queryFn: async () => {
+      const userData = await axiosSecure.get(`/users/${user?.email}`)
+      return userData.data
+    }
+  })
+
+  // console.log(users);
+
+  if (isLoading) return <div className="w-full h-screen flex justify-center items-center"> <span className="loading loading-dots loading-lg"></span></div>
+
   return (
-    <div className="mt-20 container mx-5">
+    <div className="mt-10 container mx-auto">
       <DashboardHeading title="Your Profile">
-        {user?.displayName} this is your Profile
+        {user?.displayName}
       </DashboardHeading>
-      <h1 className="text-3xl text-[#142441] text-center font-bold py-10">
+      <h1 className="text-3xl mb-20 text-[#142441] text-center font-bold">
         Profile Details
       </h1>
-      <div className="flex justify-around gap-5">
+      <div className="flex gap-5 justify-center">
         {/* profile image */}
         <div>
           <img className="h-48 w-48  rounded-lg" src={users?.image} alt="" />
@@ -45,6 +55,7 @@ const Profile = () => {
               Location: <span className="text-[#1D5CCD]">{users?.loc}</span>
             </p>
           </div>
+          {/* <Link to='dashboard/userProfile'>Edit Profile</Link> */}
         </div>
       </div>
       {/* location */}

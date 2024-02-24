@@ -41,7 +41,7 @@ const DoctorApprovalDetails = () => {
         const deleteRes = await axiosPublic.delete(
           `/deleteDoctorRequest/${_id}`
         );
-        console.log(deleteRes)
+        // console.log(deleteRes)
         if (deleteRes) {
           Swal.fire("Deleted!", "Doctor request declined", "success");
           navigate("/dashboard/doctorApproval");

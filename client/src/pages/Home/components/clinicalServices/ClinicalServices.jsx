@@ -14,7 +14,7 @@ const ClinicalServices = () => {
                         <CustomTitle title={'CLINICAL SERVICES'} double></CustomTitle>
                     </div>
                     <div className="max-w-2xl text-center mx-auto">
-                        <Typography variant="h2" color="white">
+                        <Typography variant="h2" color="white" className="font-bold">
                             Laboratory Priority Services Delivered
                             We Have Great Skills
                         </Typography>

@@ -47,14 +47,14 @@ const UserAppointmentForm = () => {
   });
   const handleCategoryChange = (event) => {
     const category = event.target.value;
-    console.log(category);
+    // console.log(category);
     setSelectedCategory(category);
     //alert(category);
     // Reset selected doctor when category changes
     // setSelectedDoctor('');
   };
   const onSubmit = async (data) => {
-   // console.log(data)
+    // console.log(data)
     const appointment_data = {
       health_category: selectedCategory,
       doctor_email: data.doctors,
@@ -67,23 +67,23 @@ const UserAppointmentForm = () => {
       payment: 500,
       paidStatus: false
     };
-    console.log(appointment_data);
-    
-    const res = await axiosPublic.post('/appointment/bookAppointment',appointment_data)
+    // console.log(appointment_data);
+
+    const res = await axiosPublic.post('/appointment/bookAppointment', appointment_data)
     // console.log(res.data._id);
     const appointmentId = res.data._id;
-    if (appointmentId){
-        const appointment = {
-            appointmentId: appointmentId,
-            name: appointment_data.patient_name,
-            treatment: appointment_data.description,
-            date: appointment_data.date,
-            time: appointment_data.timing_slot,
-            pay: appointment_data.payment
-          }
-          navigate('/cart', { state: appointment });
+    if (appointmentId) {
+      const appointment = {
+        appointmentId: appointmentId,
+        name: appointment_data.patient_name,
+        treatment: appointment_data.description,
+        date: appointment_data.date,
+        time: appointment_data.timing_slot,
+        pay: appointment_data.payment
+      }
+      navigate('/cart', { state: appointment });
     }
-    else{
+    else {
       Swal.fire({
         position: "top-end",
         icon: "error",
@@ -93,7 +93,7 @@ const UserAppointmentForm = () => {
         timer: 4000
       });
     }
-    
+
   };
   return (
     <div>

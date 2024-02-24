@@ -1,3 +1,4 @@
+import { Typography } from "@material-tailwind/react";
 import Title from "../../../components/Title/Title";
 import Faq from "./Faq";
 import ImageSection from "./ImageSection";
@@ -9,9 +10,9 @@ const FaQueSection = () => {
                 {/* fa que section */}
                 <div>
                     <Title title="FAQ’S"></Title>
-                    <h1 className="text-3xl md:text-4xl text-[#142441] font-bold">
-                        Frequently <br></br> Asked Questions.
-                    </h1>
+                    <Typography variant="h2" className="font-bold">
+                        Frequently <br /> Asked Questions.
+                    </Typography>
                     <Faq></Faq>
                 </div>
                 {/* fa que image section */}

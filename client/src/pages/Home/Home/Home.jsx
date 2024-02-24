@@ -15,15 +15,15 @@ const Home = () => {
       return (
             <div>
                   <Banner></Banner>
-                  <LaboratoryServices></LaboratoryServices>
+                  <LaboratoryServices />
                   <AboutResearch />
-                  <Testimonial></Testimonial>
-                  <ClinicalServices></ClinicalServices>
-                  <Article></Article>
+                  <ClinicalServices />
                   <BMI />
-                  <OurEvents></OurEvents>
+                  <Testimonial />
+                  <Article />
+                  <OurEvents />
                   <FaQueSection />
-                  <Location></Location>
+                  <Location />
             </div>
       );
 };

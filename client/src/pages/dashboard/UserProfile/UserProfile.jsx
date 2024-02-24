@@ -13,44 +13,53 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import useApiLink from '../../../lib/hooks/useApiLink';
+import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const UserProfile = () => {
 
-     const apiLink = useApiLink()
-    const { user } = useContext(AuthContext);
-    const [users, setUsers] = useState([]);
-    useEffect(() => {
-        fetch(`${apiLink}/users/${user?.email}`)
-            .then(res => res.json())
-            .then(data => setUsers(data))
-    }, [])
+  const apiLink = useApiLink()
+  const { user } = useContext(AuthContext);
 
-    // console.log(users)
 
-    const handleUpdateForm = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const name = form.u_name.value;
-        const email = form.u_email.value;
-        const blood_group = form.u_blood_group.value;
-        const location = form.u_loc.value;
-        const updateUserData = { name, email, blood_group, location };
-        // console.log(updateUserData);
-        fetch(`${apiLink}/users/${users?._id}`, {
-            method: "PUT",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(updateUserData)
-        })
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data);
-                if (data.modifiedCount > 0) {
-                    Swal.fire('Data updated');
-                }
-            })
+  const axiosSecure = useAxiosSecure()
+
+  const { data: users, isLoading } = useQuery({
+    queryKey: ['specificUser'],
+    queryFn: async () => {
+      const userData = await axiosSecure.get(`/users/${user?.email}`)
+      return userData.data
     }
+  })
+
+  // console.log(users)
+
+  const handleUpdateForm = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.u_name.value;
+    const email = form.u_email.value;
+    const blood_group = form.u_blood_group.value;
+    const location = form.u_loc.value;
+    const updateUserData = { name, email, blood_group, location };
+    // console.log(updateUserData);
+    fetch(`${apiLink}/users/${users?._id}`, {
+      method: "PUT",
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(updateUserData)
+    })
+      .then(res => res.json())
+      .then(data => {
+        // console.log(data);
+        if (data.modifiedCount > 0) {
+          Swal.fire('Data updated');
+        }
+      })
+  }
+
+  if (isLoading) return <div className="w-full h-screen flex justify-center items-center"> <span className="loading loading-dots loading-lg"></span></div>
 
   return (
     <>

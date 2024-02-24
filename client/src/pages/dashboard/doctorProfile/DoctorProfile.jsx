@@ -48,12 +48,12 @@ const DoctorProfile = () => {
       password: doctor.password,
       role: doctor.role,
     };
-    console.log(updateUserData);
+    // console.log(updateUserData);
     const res = await axiosPublic.put(
       `/doctor/${doctor.email}`,
       updateUserData
     );
-    console.log(res.data);
+    // console.log(res.data);
     if (res.data.modifiedCount > 0) {
       Swal.fire({
         icon: "success",

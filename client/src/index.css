@@ -44,3 +44,7 @@
     transition: 0.3s;
     cursor: pointer;
 }
+
+.swal2-confirm, .swal2-styled, .swal2-default-outline {
+    background-color: #22b6af !important;
+}

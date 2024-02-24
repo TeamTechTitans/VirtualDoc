@@ -1,29 +1,45 @@
 import { Input, Option, Select, Typography } from "@material-tailwind/react";
 import CustomTitle from "../../../components/CustomTitle/CustomTitle";
 import { useState } from "react";
-import {  FaMagnifyingGlass, } from "react-icons/fa6";
+import { FaMagnifyingGlass, } from "react-icons/fa6";
 import StuffDetailCard from "../../../components/stuffDetailCard/StuffDetailCard";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
+import useApiLink from "../../../lib/hooks/useApiLink";
 
 const FilterDoctor = () => {
-  const [data, setData] = useState([]);
+  const axiosPublic = useAxiosPublic()
+  const apiLink = useApiLink()
+  const [doctorsData, setDoctorsData] = useState()
+
+  const { data: doctors, refetch, isLoading } = useQuery({
+    queryKey: ['allDoctors'],
+    queryFn: async () => {
+      const allDoctors = await axiosPublic.get(`${apiLink}/doctors`)
+      return allDoctors.data
+    }
+  })
+
+  // console.log(data)
 
   const handleTitleChange = (e) => {
     if (e.currentTarget.value === "A - Z") {
-      const sortedData = datas
+      const sortedData = doctors
         .slice()
         .sort((a, b) => a.title.localeCompare(b.title));
-      setData(sortedData);
+      setDoctorsData(sortedData);
+      console.log(sortedData)
     } else if (e.currentTarget.value === "Z - A") {
-      const sortedData = datas
+      const sortedData = doctors
         .slice()
         .sort((a, b) => b.title.localeCompare(a.title));
-      setData(sortedData);
+      setDoctorsData(sortedData);
     }
   };
   const handleCategoryChange = (e) => {
     const selectedCategory = e.currentTarget.value;
   };
-  const handleVoteChange = (e) => {};
+
 
   return (
     <div>
@@ -38,7 +54,7 @@ const FilterDoctor = () => {
         <form>
           <div className="flex items-center flex-col justify-center gap-5 md:flex-row mb-10 px-2">
             <div className="w-[200px]">
-              <Select color="teal" label="Sort by name" defaultValue={"A - Z"}>
+              <Select onChange={handleTitleChange} color="teal" label="Sort by name" defaultValue={"A - Z"}>
                 <Option value={"A - Z"}>A - Z</Option>
                 <Option value={"Z - A"}>Z - A</Option>
               </Select>
@@ -46,11 +62,12 @@ const FilterDoctor = () => {
 
             <div className="w-[200px]">
               <Select label="Select Category" color="teal">
-                <Option>Material Tailwind HTML</Option>
-                <Option>Material Tailwind React</Option>
-                <Option>Material Tailwind Vue</Option>
-                <Option>Material Tailwind Angular</Option>
-                <Option>Material Tailwind Svelte</Option>
+                <Option>pediatrics</Option>
+                <Option>psychiatry</Option>
+                <Option>g_physician</Option>
+                <Option>dermatology</Option>
+                <Option>stomachDigestion</Option>
+                <Option>Urology</Option>
               </Select>
             </div>
             <div className="w-[200px]">
@@ -70,18 +87,10 @@ const FilterDoctor = () => {
 
         {/*  Doctors */}
         <div className="grid justify-center items-center grid-cols-1 p-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
-          <StuffDetailCard></StuffDetailCard>
+          {isLoading ?
+            <div className="w-full h-screen flex justify-center items-center"> <span className="loading loading-dots loading-lg"></span></div> :
+            doctors?.map((doctor, idx) => <StuffDetailCard key={idx} doctor={doctor}></StuffDetailCard>)
+          }
         </div>
 
         <div>
@@ -94,6 +103,14 @@ const FilterDoctor = () => {
                   </button>
                 </li>
                 <li>
+                  <button
+                    aria-current="page"
+                    className="flex items-center justify-center px-4 h-10 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+                  >
+                    1
+                  </button>
+                </li>
+                {/* <li>
                   <button className="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                     1
                   </button>
@@ -102,15 +119,8 @@ const FilterDoctor = () => {
                   <button className="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                     2
                   </button>
-                </li>
-                <li>
-                  <button
-                    aria-current="page"
-                    className="flex items-center justify-center px-4 h-10 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
-                  >
-                    3
-                  </button>
-                </li>
+                </li> */}
+
 
                 <li>
                   <a

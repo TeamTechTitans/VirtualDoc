@@ -37,7 +37,7 @@ const DashboardNav = () => {
       <List>
         {isAdmin ? (
           <>
-          <Link to={"/dashboard"}>
+            <Link to={"/dashboard"}>
               <ListItem className="p-0">
                 <Typography
                   color="blue-gray"
@@ -98,7 +98,7 @@ const DashboardNav = () => {
               </ListItem>
             </Link>
           </>
-        ) : isDoctor? (
+        ) : isDoctor ? (
           <>
             <Link to={"/dashboard"}>
               <ListItem className="p-0">
@@ -145,14 +145,9 @@ const DashboardNav = () => {
           </>
         ) : (
           <>
-            <Link to={"/dashboard"}>
-              <ListItem className="p-0">
-                <Typography
-                  color="blue-gray"
-                  className="mr-auto p-2 font-normal"
-                >
-                  Dashboard
-                </Typography>
+            <Link to="/dashboard">
+              <ListItem>
+                Profile
               </ListItem>
             </Link>
             <Link to={"/dashboard/appoinment"}>
@@ -197,14 +192,6 @@ const DashboardNav = () => {
             {/* <ListItemSuffix>
                             <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
                         </ListItemSuffix> */}
-          </ListItem>
-        </Link>
-        <Link to="/dashboard/profile">
-          <ListItem>
-            <ListItemPrefix>
-              <UserCircleIcon className="h-5 w-5" />
-            </ListItemPrefix>
-            Profile
           </ListItem>
         </Link>
 

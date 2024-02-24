@@ -7,11 +7,15 @@ import {
 import { Link } from "react-router-dom";
 import useAuth from "../../../lib/hooks/useAuth";
 import Logo from "../../logo/Logo";
+import useDoctor from "../../../lib/hooks/useDoctor";
+import useAdmin from "../../../lib/hooks/useAdmin";
 
 
 const BottomNav = () => {
     const [openNav, setOpenNav] = useState(false);
     const { user, logOut } = useAuth();
+    const [isDoctor] = useDoctor()
+    const [isAdmin] = useAdmin()
     const handleLogout = () => {
         logOut()
     }
@@ -66,7 +70,7 @@ const BottomNav = () => {
                 />
                 {/* logout added */}
                 <div className="flex items-center">
-                    <div className="float-right">
+                    <div className="float-right hidden md:block">
                         {
                             user ? userLinks : authLinks
                         }
@@ -90,6 +94,7 @@ const BottomNav = () => {
 
                     <ul className="flex  flex-col gap-2 font-bold text-secondary-blue font-open-sans py-3">
                         {navLinks}
+                        {user ? userLinks : authLinks}
                     </ul>
                 </div>
             </Drawer>

@@ -35,11 +35,11 @@ const BMI = () => {
 
   return (
 
-    <div className="mb-24 md:mb-8">
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-center">
-        <div className="md:w-1/2 px-4 text-left">
-          <CustomTitle title="BMI Calculator" double="Calculate "></CustomTitle>
-          <Typography className="mb-2" variant="h3" color="blue-gray">
+    <div className="my-28">
+      <div className="container text-justify  mx-auto flex flex-col md:flex-row items-center justify-center">
+        <div className="md:w-1/2 px-4 md:mr-20 text-justify">
+          <CustomTitle title="BMI Calculator" double="Calculate"></CustomTitle>
+          <Typography className="mb-5 font-bold" variant="h2">
             Calculate Your BMI
           </Typography>
           <p className="mb-2">
@@ -67,7 +67,7 @@ const BMI = () => {
         <div className="md:w-1/2 w-full px-4">
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold">Height</span>
+              <span className="leading-none text-xl font-bold">Height</span>
             </label>
             <Input
               type="number"
@@ -79,7 +79,7 @@ const BMI = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold">Weight (kg)</span>
+              <span className="leading-none mt-5 text-xl font-bold">Weight (kg)</span>
             </label>
             <Input
               type="number"
@@ -93,7 +93,7 @@ const BMI = () => {
           {errorMessage && (
             <div className="text-red-600 mb-4">{errorMessage}</div>
           )}
-          <div className="w-full text-center">
+          <div className="w-full">
             <Button onClick={calculateBMI} className="my-2 bg-secondary-blue">
               Calculate BMI
             </Button>

@@ -12,8 +12,8 @@ const Cart = () => {
   const location = useLocation()
   const axiosPublic = useAxiosPublic();
   const appointment = location.state;
-  const {name,appointmentId, treatment, pay, time, date} = appointment
-  
+  const { name, appointmentId, treatment, pay, time, date } = appointment
+
   const onSubmit = async (data) => {
     const bill = parseFloat(data.bill).toFixed(2)
     const info = {
@@ -26,12 +26,12 @@ const Cart = () => {
       appointmentDate: date,
       appointmentTime: time,
       treatment: treatment,
-      appointmentId:appointmentId
+      appointmentId: appointmentId
     };
-    console.log(info);
+    // console.log(info);
     const res = await axios.post('https://virtual-doc-backend.vercel.app/payment', info)
-    if(res){
-      console.log(res.data)
+    if (res) {
+      // console.log(res.data)
       window.location.replace(res.data.url)
     }
   };

@@ -13,7 +13,7 @@ import BannerSlider from './BannerSlider';
 
 const Banner = () => {
 
-    const { data } = useQuery({
+    const { data, isLoading } = useQuery({
         queryKey: ['banner'],
         queryFn: async () => {
             const getReviews = await fetch('banner.json')
@@ -21,8 +21,10 @@ const Banner = () => {
         }
     })
 
+    if (isLoading) return <div className="w-full h-screen flex justify-center items-center"> <span className="loading loading-dots loading-lg"></span></div>
+
     return (
-        <div className="w-full bg-dark-blue relative overflow-hidden min-h-[80vh] py-10 md:py-32">
+        <div className="w-full bg-dark-blue relative flex justify-center items-center overflow-hidden h-[800px] max-h-[1280px]">
             <img loading="lazy" src={bannerBg} className='absolute hidden md:block bottom-0 w-full' alt="" />
             <img loading="lazy" src={topBg} className='absolute animation-flooding2 top-0 w-2/3' alt="" />
             <img loading="lazy" src={round} className='absolute m-5 md:m-20 w-32 md:w-60 animation-spin top-0' alt="" />
