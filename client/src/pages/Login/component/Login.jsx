@@ -55,10 +55,11 @@ const Login = () => {
         const googleData = {
           name: user.displayName,
           image: user.photoURL,
-          loc: ' ',
-          blood_group: ' ',
+          loc: " ",
+          blood_group: " ",
           email: user.email,
-          password: ' ',
+          password: " ",
+          role: "user",
         }
         // console.log(googleData);
         //data insertion
@@ -71,7 +72,7 @@ const Login = () => {
         })
           .then(res => res.json())
           .then(data => {
-            // console.log(data);
+             console.log(data._id);
             if (data._id) {
               Swal.fire('Login Successful');
               navigate('/');

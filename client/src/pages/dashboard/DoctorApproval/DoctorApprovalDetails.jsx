@@ -4,8 +4,11 @@ import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
+import { AuthContext } from "../../../provider/AuthProvider/AuthProvider";
 
 const DoctorApprovalDetails = () => {
+  const { createUser, updateUserProfile, googleSignIn } =
+  useContext(AuthContext);
   const loadedData = useLoaderData();
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
@@ -62,6 +65,7 @@ const DoctorApprovalDetails = () => {
       role: "doctor",
     };
     // console.log(doctorData);
+
     const res = await axiosPublic.post("/doctors/createDoctors", doctorData);
     if (res) {
       Swal.fire({
@@ -70,6 +74,23 @@ const DoctorApprovalDetails = () => {
         text: "Approved as a Doctor",
         showConfirmButton: false,
         timer: 1000,
+      });
+      //create user data
+      createUser(data.email, data.password)
+      .then((userCredential) => {
+        // Signed up
+        const res_user = userCredential.user;
+        updateUserProfile(data.name, data.image)
+          .then(async () => {
+            //data insertion firebase
+            navigate("/dashboard/doctorApproval");
+          }).catch((error) => {
+
+          });
+      })
+      .catch((error) => {
+        toast("Registration failed,Try Again");
+        // ...
       });
       const deleteRes = await axiosPublic.delete(`/deleteDoctorRequest/${_id}`);
       navigate("/dashboard/doctorApproval");

@@ -161,7 +161,8 @@ const MainRouter = createBrowserRouter([
             {
 
                 path: "videocall/:id",
-                element: <VideoCall />
+                element: <VideoCall />,
+                loader: ({params}) => fetch(`${apiLink}/appointments/${params.id}`)
             },
             
             {
