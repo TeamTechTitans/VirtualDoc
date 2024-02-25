@@ -66,7 +66,8 @@ const Login = () => {
           blood_group: " ",
           email: user.email,
           password: " ",
-        };
+          role: "user",
+        }
         // console.log(googleData);
         //data insertion
         fetch(`${apiLink}/users/createUser`, {
@@ -76,9 +77,9 @@ const Login = () => {
           },
           body: JSON.stringify(googleData),
         })
-          .then((res) => res.json())
-          .then((data) => {
-            // console.log(data);
+          .then(res => res.json())
+          .then(data => {
+            // console.log(data._id);
             if (data._id) {
               Swal.fire("Login Successful");
               navigate(location.state ? location.state : "/", {

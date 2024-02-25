@@ -13,7 +13,7 @@ const Appointment = () => {
 
   const navigate = useNavigate()
 
-  const TABLE_HEAD = ["Doctor Name", "Date", "Time", "Treatment", "Video Call", "Prescription"];
+  const TABLE_HEAD = ["Doctor Name", "Date", "Time", "Health Category", "Video Call", "Prescription"];
 
   const { user } = useAuth()
   const axiosPublic = useAxiosPublic()

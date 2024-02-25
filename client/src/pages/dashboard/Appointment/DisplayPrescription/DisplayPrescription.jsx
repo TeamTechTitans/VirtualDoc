@@ -145,9 +145,6 @@ const DisplayPrescription = ({appointment_id,doctor_email,patient_email,patient_
                     <div className='flex justify-between border-b-2 my-3 border-black'>
                         <div>
                             <Typography variant="h6" color="gray" className="mb-4 first-letter:uppercase">
-                            Patient Id: {prescription.advice}
-                            </Typography>
-                            <Typography variant="h6" color="gray" className="mb-4 first-letter:uppercase">
                             Patient Name:{patient_name}
                             </Typography>
                         </div>
