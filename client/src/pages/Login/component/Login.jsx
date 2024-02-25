@@ -27,7 +27,7 @@ const Login = () => {
   const { logIn, googleSignIn, fbLogin } = useContext(AuthContext);
   const location = useLocation();
   const axiosPublic = useAxiosPublic();
-  console.log(location);
+  // console.log(location);
   const navigate = useNavigate();
   const onSubmit = (data) => {
     // console.log(data);

@@ -11,11 +11,15 @@ const FilterDoctor = () => {
   const axiosPublic = useAxiosPublic()
   const apiLink = useApiLink()
   const [doctorsData, setDoctorsData] = useState()
+  
+  const [displayName,setDisplayName]=useState([]);
 
   const { data: doctors, refetch, isLoading } = useQuery({
     queryKey: ['allDoctors'],
     queryFn: async () => {
       const allDoctors = await axiosPublic.get(`${apiLink}/doctors`)
+      setDisplayName(allDoctors.data);
+      //console.log()
       return allDoctors.data
     }
   })
@@ -36,9 +40,50 @@ const FilterDoctor = () => {
       setDoctorsData(sortedData);
     }
   };
-  const handleCategoryChange = (e) => {
-    const selectedCategory = e.currentTarget.value;
-  };
+
+  console.log(doctors)
+
+const handleNameSearch=(searchName)=>{
+if(searchName===' '){
+  setDisplayName(displayName); 
+  return; 
+}  
+const filterBySearch = doctors.filter((item) => { 
+  if (item.name.toLowerCase() 
+      .includes(searchName.toLowerCase())) 
+      {
+           return item;
+      }
+  else{
+      return setDisplayName(displayName); 
+  }     
+}) 
+setDisplayName(filterBySearch); 
+// console.log(searchName);
+}
+
+const handleCategorySearch=(searchName)=>{
+
+  if(searchName===' '){
+    setDisplayName(displayName); 
+    return; 
+  }  
+  const filterBySearch = doctors.filter((item) => { 
+    if (item?.health_category?.toLowerCase() 
+        .includes(searchName.toLowerCase())) 
+        {
+             return item;
+        }
+    else{
+        return setDisplayName(displayName); 
+    }     
+  }) 
+  setDisplayName(filterBySearch); 
+  }
+  
+// setDisplayName(filterBySearch)
+// // console.log(searchName);
+// }
 
 
   return (
@@ -46,28 +91,28 @@ const FilterDoctor = () => {
       <div className="mt-20 mb-10 flex justify-center items-center flex-col">
         <CustomTitle title={"The doctors"} double></CustomTitle>
         <Typography variant="h2" className="text-black">
-          Search or filter the doctors
+          Search or filter the doctors ({displayName?.length})
         </Typography>
       </div>
       {/* Filter */}
       <div>
         <form>
           <div className="flex items-center flex-col justify-center gap-5 md:flex-row mb-10 px-2">
-            <div className="w-[200px]">
+            {/* <div className="w-[200px]">
               <Select onChange={handleTitleChange} color="teal" label="Sort by name" defaultValue={"A - Z"}>
                 <Option value={"A - Z"}>A - Z</Option>
                 <Option value={"Z - A"}>Z - A</Option>
               </Select>
-            </div>
+            </div> */}
 
             <div className="w-[200px]">
-              <Select label="Select Category" color="teal">
-                <Option>pediatrics</Option>
-                <Option>psychiatry</Option>
-                <Option>g_physician</Option>
-                <Option>dermatology</Option>
-                <Option>stomachDigestion</Option>
-                <Option>Urology</Option>
+              <Select onChange={handleCategorySearch} label="Select Category" color="teal">
+                <Option value="Pediatrics">Pediatrics</Option>
+                <Option value="Psychiatry">Psychiatry</Option>
+                <Option value="G_physician">G_physician</Option>
+                <Option value="Dermatology">Dermatology</Option>
+                <Option value="StomachDigestion">StomachDigestion</Option>
+                <Option value="Urology">Urology</Option>
               </Select>
             </div>
             <div className="w-[200px]">
@@ -75,6 +120,7 @@ const FilterDoctor = () => {
                 color="teal"
                 id="searchId"
                 label="Search by name"
+                onChange={handleNameSearch} 
                 icon={
                   <label htmlFor="searchId">
                     <FaMagnifyingGlass className="cursor-pointer"></FaMagnifyingGlass>
@@ -89,7 +135,7 @@ const FilterDoctor = () => {
         <div className="grid justify-center items-center grid-cols-1 p-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
           {isLoading ?
             <div className="w-full h-screen flex justify-center items-center"> <span className="loading loading-dots loading-lg"></span></div> :
-            doctors?.map((doctor, idx) => <StuffDetailCard key={idx} doctor={doctor}></StuffDetailCard>)
+            displayName?.map((doctor, idx) => <StuffDetailCard key={idx} doctor={doctor}></StuffDetailCard>)
           }
         </div>
 

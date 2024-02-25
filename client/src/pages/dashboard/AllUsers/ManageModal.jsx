@@ -12,24 +12,27 @@ import {
 } from "@material-tailwind/react";
 import { useForm } from "react-hook-form";
 
-import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
-import { useQuery } from "@tanstack/react-query";
+// import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
+// import { useQuery } from "@tanstack/react-query";
 
 
 export default function ManageModal({ handleOpen, open, userEmail }) {
-    const axiosSecure = useAxiosSecure()
+    // const axiosSecure = useAxiosSecure()
 
 
 
     const { register, handleSubmit } = useForm();
-    const { data: user = [] } = useQuery({
-        queryKey: ['specificUser'],
-        queryFn: async () => {
-            const res = await axiosSecure.get(`/specificUser/:${userEmail}`);
-            const users = await res.data;
-            return users;
-        },
-    });
+    // const mail = userEmail
+    // const { data: user = [] } = useQuery({
+    //     queryKey: ['getSpecificUser'],
+    //     queryFn: async () => {
+    //         const res = await axiosSecure.get(`/specificUser/:${mail}`);
+    //         const users = await res.data;
+    //         return users;
+    //     },
+    // });
+
+    console.log(userEmail)
 
     const onSubmit = async (data) => {
         // console.log(data);
@@ -82,7 +85,7 @@ export default function ManageModal({ handleOpen, open, userEmail }) {
                                         className="overflow-y-auto "
                                         size="lg"
 
-                                        value={bloodGroup}
+                                        value={user?.bloodGroup}
                                         onChange={(val) => setBloodGroup(val)}
                                     >
                                         <Option className=" bg-white " value="A+">A+</Option>

@@ -52,13 +52,13 @@ refetch()
       <h2 className="text-2xl font-semibold my-3">Leave a comment here </h2>{" "}
       {
         user ? (<form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex items-center gap-2">
+        <div className="flex  gap-2">
           <div className="flex-1">
             <textarea
               type="text"
               placeholder="Comment here"
               {...register("comment", { required: true })}
-              className="input h-16 input-bordered focus:outline-0 w-full rounded-2xl"
+              className="input py-4 h-16 input-bordered focus:outline-0 w-full rounded-2xl"
             />
           </div>
           <div className="">

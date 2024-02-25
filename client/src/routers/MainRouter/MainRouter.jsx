@@ -80,7 +80,7 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: "/register",
-                element: <PrivetRoute><Registration /></PrivetRoute>
+                element: <PublicRoute><Registration /></PublicRoute>
             },
             {
                 path: '/team',

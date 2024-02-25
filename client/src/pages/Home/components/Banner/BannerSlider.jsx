@@ -18,9 +18,9 @@ const BannerSlider = ({ slide }) => {
                     <div className="mt-6 flex justify-center lg:justify-normal gap-3">
                         {user ?
                             <>
-                                <Link to='/apply'>
+                                <Link to='/appointment'>
                                     <Button className="rounded-full" color="cyan">
-                                        Apply Doctor
+                                        Get Appointment
                                     </Button>
                                 </Link>
                                 <Link to='/tips'>
