@@ -29,14 +29,14 @@ const Profile = () => {
         {user?.displayName}
       </DashboardHeading>
 
-      <div className="flex gap-5 justify-center">
+      <div className="flex flex-col md:flex-row mx-8 gap-8 items-center">
         {/* profile image */}
-        <div>
-          <img className="h-48 w-48  rounded-lg" src={users?.image} alt="" />
+        <div className="">
+          <img className="h-48 w-48 rounded-lg" src={users?.image} alt="" />
         </div>
 
         {/* details */}
-        <div className="flex justify-center items-center text-[#142441] text-xl font-semibold  ">
+        <div className="text-[#142441] text-xl font-semibold  ">
           <div>
             <h1 className="">
               Name: <span className="text-[#1D5CCD]">{users?.name}</span>
