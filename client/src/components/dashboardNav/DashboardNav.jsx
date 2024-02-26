@@ -146,8 +146,13 @@ const DashboardNav = () => {
         ) : (
           <>
             <Link to="/dashboard/user">
-              <ListItem>
-                Profile
+            <ListItem className="p-0">
+                <Typography
+                  color="blue-gray"
+                  className="mr-auto p-2 font-normal"
+                >
+                  Profile
+                </Typography>
               </ListItem>
             </Link>
             <Link to={"/dashboard/appoinment"}>
