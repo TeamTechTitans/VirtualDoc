@@ -47,7 +47,7 @@ const Dashboard = () => {
   const allAppoinment = appointments.length
   const allUsers = users.length
 
-  if (isDoctor || isAdmin) {
+  if (isAdmin) {
     return (
       <div className="col-span-9 w-11/12 mx-auto mt-10">
         <DashboardHeading title="Dashboard">Welcome to dashboard</DashboardHeading>

@@ -3,7 +3,7 @@ import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import {Link} from 'react-router-dom'
 import { FaRegMoneyBillAlt } from "react-icons/fa";
-import { Progress } from "@material-tailwind/react";
+import { Avatar, Progress } from "@material-tailwind/react";
 import { IoDocumentText } from "react-icons/io5";
 import useAuth from "../../../lib/hooks/useAuth";
 
@@ -41,7 +41,12 @@ const Profile = () => {
       <div className="flex flex-col md:flex-row mx-8 gap-8 items-center">
         {/* profile image */}
         <div className="">
-          <img className="h-48 w-48 rounded-lg" src={users?.image} alt="" />
+        <Avatar
+            variant="circular"
+            alt="image"
+            className="w-44 h-44 border-teal-400 border-2 my-2"
+            src={`${users?.image}`}
+          />
         </div>
 
         {/* details */}

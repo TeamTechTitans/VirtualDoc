@@ -26,7 +26,7 @@ const BottomNav = () => {
         {
             isAdmin ? 
             <Link to='/dashboard' className="text-secondary-blue">Dashboard</Link>
-            : isDoctor ? <Link to='/dashboard' className="text-secondary-blue">Dashboard</Link> : 
+            : isDoctor ? <Link to='/dashboard/doctorDashboard' className="text-secondary-blue">Dashboard</Link> : 
             <Link to='/dashboard/user' className="text-secondary-blue">Dashboard</Link>
         }
         {/* {user && <Link to='/dashboard' className="text-secondary-blue">Dashboard</Link>} */}
