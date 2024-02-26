@@ -11,29 +11,31 @@ import {
     Option,
 } from "@material-tailwind/react";
 import { useForm } from "react-hook-form";
+import { useQuery } from "@tanstack/react-query";
 
-// import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
+import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
 // import { useQuery } from "@tanstack/react-query";
 
 
-export default function ManageModal({ handleOpen, open, userEmail }) {
-    // const axiosSecure = useAxiosSecure()
-
-
-
-    const { register, handleSubmit } = useForm();
-    // const mail = userEmail
-    // const { data: user = [] } = useQuery({
-    //     queryKey: ['getSpecificUser'],
-    //     queryFn: async () => {
-    //         const res = await axiosSecure.get(`/specificUser/:${mail}`);
-    //         const users = await res.data;
-    //         return users;
-    //     },
-    // });
+export default function ManageModal({ handleOpen, open, userEmail, email }) {
+    const axiosSecure = useAxiosSecure()
 
     console.log(userEmail)
+    const { register, handleSubmit } = useForm();
+    const mail = userEmail
 
+    const { data: user = [], refetch } = useQuery({
+        queryKey: ['user'],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/users/${mail}`);
+            return res.data;
+        },
+    });
+    // refetch()
+    console.log(user)
+    if (open){
+        refetch()
+    }
     const onSubmit = async (data) => {
         // console.log(data);
         // const imageFile = { image: data.image[0] };
@@ -53,7 +55,7 @@ export default function ManageModal({ handleOpen, open, userEmail }) {
         <>
             <Dialog
                 size="lg"
-                open={open}
+                open={open} user={user}
                 handler={handleOpen}
                 className="bg-transparent shadow-none"
             >
@@ -73,7 +75,7 @@ export default function ManageModal({ handleOpen, open, userEmail }) {
                             </Typography>
 
                             <div className="flex flex-col grid-cols-2 gap-5 md:grid">
-                                <Input name='name' label="Name" color="teal" defaultValue={user?.name} size="lg" />
+                                <Input name='name' label="Name" color="teal" defaultValue={user.name} size="lg" />
                                 <Input name='email' label="Email" color="teal" size="lg" defaultValue={user?.email} />
                                 <Input name='location' label="Location" color="teal" defaultValue={user?.loc} size="lg" />
                                 <div className="blood_group_c">

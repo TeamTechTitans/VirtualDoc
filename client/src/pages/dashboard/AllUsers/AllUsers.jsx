@@ -31,10 +31,9 @@ const AllUsers = () => {
   const [open, setOpen] = React.useState(false);
   const [userData, setUserData] = React.useState('');
   
-  const handleOpen = async (userEmail) => {
-    await setUserData(userEmail)
+  const handleOpen = async (email) => {
+    setUserData(email)
     setOpen(!open)
-
   };
 
 
