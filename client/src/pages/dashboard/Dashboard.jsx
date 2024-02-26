@@ -99,9 +99,6 @@ const Dashboard = () => {
         </div>
       </div>
     );
-  } else {
-
-    return <Profile></Profile>
   }
 
 };

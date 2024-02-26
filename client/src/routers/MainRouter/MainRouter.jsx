@@ -44,6 +44,7 @@ import DoctorAppointmentPescription from "../../pages/dashboard/Appointment/Doct
 import ErrorPage from "../../pages/error/ErrorPage";
 // import Connect from "../../pages/ChatApp/Chat/Connect";
 import PublicRoute from "../PublicRoute";
+import Profile from "../../pages/dashboard/Profile/Profile";
 // import Profile from "../../pages/dashboard/Profile/Profile";
 
 const apiLink = useApiLink();
@@ -200,10 +201,10 @@ const MainRouter = createBrowserRouter([
                 path: "allDoctor",
                 element: <AdminRoute><AllDoctor /></AdminRoute>
             },
-            // {
-            //     path: 'profile',
-            //     element: <Profile />
-            // },
+            {
+                path: 'user',
+                element: <Profile />
+            },
             {
                 path: "doctorAppointment",
                 element: <DoctorRoute><DoctorAppointmentPescription /></DoctorRoute>

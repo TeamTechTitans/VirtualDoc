@@ -23,7 +23,13 @@ const BottomNav = () => {
     const navLinks = <>
         <Link to='/' className="text-secondary-blue">Home</Link>
         <Link to='/appointment' className="text-secondary-blue">Appointment</Link>
-        {user && <Link to='/dashboard' className="text-secondary-blue">Dashboard</Link>}
+        {
+            isAdmin ? 
+            <Link to='/dashboard' className="text-secondary-blue">Dashboard</Link>
+            : isDoctor ? <Link to='/dashboard' className="text-secondary-blue">Dashboard</Link> : 
+            <Link to='/dashboard/user' className="text-secondary-blue">Dashboard</Link>
+        }
+        {/* {user && <Link to='/dashboard' className="text-secondary-blue">Dashboard</Link>} */}
         <Link to='/tips' className="text-secondary-blue">Tips</Link>
         <Link to='/doctors' className="text-secondary-blue">Doctors</Link>
         <Link to='/services' className="text-secondary-blue">Services</Link>

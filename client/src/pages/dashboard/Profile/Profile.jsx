@@ -1,5 +1,3 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "./../../../provider/AuthProvider/AuthProvider";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
 import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
@@ -7,10 +5,10 @@ import {Link} from 'react-router-dom'
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { Progress } from "@material-tailwind/react";
 import { IoDocumentText } from "react-icons/io5";
+import useAuth from "../../../lib/hooks/useAuth";
 
 const Profile = () => {
-  // const apiLink = useApiLink();
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
 
   const axiosSecure = useAxiosSecure()
 
@@ -22,18 +20,15 @@ const Profile = () => {
     }
   })
 
-  const { data: appointments = [], refetch } = useQuery({
-    queryKey: ['appointments', user?.email],
+  const { data: stats = [], refetch } = useQuery({
+    queryKey: ['stats', user?.email],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/appointment/${user?.email}`)
+      const res = await axiosSecure.get(`/user/stats/${user.email}`)
       return res.data;
     }
   })
-  refetch()
-  const totalAppointment = appointments.length
-  // console.log(totalAppointment, appointments)
-  const totalPaid = appointments.reduce((total, item) => total + item.payment, 0)
-  // console.log(totalPaid)
+  //console.log(stats)
+  const { totalAppointment, totalPaid, appointmentPercent, paymentPercent} = stats
   refetch()
   if (isLoading) return <div className="w-full h-screen flex justify-center items-center"> <span className="loading loading-dots loading-lg"></span></div>
 
@@ -50,20 +45,20 @@ const Profile = () => {
         </div>
 
         {/* details */}
-        <div className="text-[#142441] ">
+        <div className="text-[#142441]">
           <div>
             <h1 className="">
-              <span className="font-semibold">Name: </span><span className="text-[#1D5CCD]">{users?.name}</span>
+              <span className="font-semibold">Name: </span><span className="">{users?.name}</span>
             </h1>
             <p>
               <span className="font-semibold">Email: </span><span className="text-[#1D5CCD]">{users?.email}</span>
             </p>
             <p>
             <span className="font-semibold">Blood Group: </span>
-              <span className="text-[#1D5CCD]">{users?.blood_group}</span>
+              <span className="">{users?.blood_group}</span>
             </p>
             <p>
-            <span className="font-semibold">Location: </span><span className="text-[#1D5CCD]">{users?.loc}</span>
+            <span className="font-semibold">Location: </span><span className="">{users?.loc}</span>
             </p>
           </div>
         </div>
@@ -77,7 +72,7 @@ const Profile = () => {
             </div>
             <Progress
               className="h-1 lg:w-52 md:w-44 rounded-md my-1 bg-green-50"
-              value={totalPaid}
+              value={paymentPercent}
               color="green"
             />
             <h1 className="font-semibold">Total Paid</h1>
@@ -89,7 +84,7 @@ const Profile = () => {
             </div>
             <Progress
               className="h-1 lg:w-52 md:w-44 rounded-md my-1 bg-yellow-50"
-              value={totalAppointment}
+              value={appointmentPercent}
               color="yellow"
             />
             <h1 className="font-semibold">Appointment Taken</h1>

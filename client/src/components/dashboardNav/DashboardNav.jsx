@@ -145,7 +145,7 @@ const DashboardNav = () => {
           </>
         ) : (
           <>
-            <Link to="/dashboard">
+            <Link to="/dashboard/user">
               <ListItem>
                 Profile
               </ListItem>
