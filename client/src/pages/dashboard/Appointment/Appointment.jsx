@@ -160,15 +160,6 @@ const Appointment = () => {
                   <td>
                     <DisplayPrescription doctor_email={doctor_email} patient_name={patient_name} patient_email={patient_email} appointment_id={_id}></DisplayPrescription>
                   </td>
-                  {/* <td className={classes}>
-                    {
-                      paidStatus ?
-                      <Button disabled className="bg-secondary-blue" size="sm" >Pay</Button>
-                      :
-                      <Button className="bg-secondary-blue" size="sm" onClick={() => handleNavigateToCart(name, _id, treatment, date, time, pay)} >Pay</Button>
-                    }
-                    
-                  </td> */}
                 </tr>
               );
             })}

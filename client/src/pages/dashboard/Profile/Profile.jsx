@@ -1,10 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./../../../provider/AuthProvider/AuthProvider";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
-import { FaEnvelope, FaLocationPin, FaPhone } from "react-icons/fa6";
-import useApiLink from "../../../lib/hooks/useApiLink";
 import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import {Link} from 'react-router-dom'
 
 const Profile = () => {
   // const apiLink = useApiLink();
@@ -25,13 +24,11 @@ const Profile = () => {
   if (isLoading) return <div className="w-full h-screen flex justify-center items-center"> <span className="loading loading-dots loading-lg"></span></div>
 
   return (
-    <div className="mt-10 container mx-auto">
-      <DashboardHeading title="Your Profile">
+    <div className="mx-auto">
+      <DashboardHeading title="Welcome">
         {user?.displayName}
       </DashboardHeading>
-      <h1 className="text-3xl mb-20 text-[#142441] text-center font-bold">
-        Profile Details
-      </h1>
+
       <div className="flex gap-5 justify-center">
         {/* profile image */}
         <div>
@@ -55,26 +52,6 @@ const Profile = () => {
               Location: <span className="text-[#1D5CCD]">{users?.loc}</span>
             </p>
           </div>
-          {/* <Link to='dashboard/userProfile'>Edit Profile</Link> */}
-        </div>
-      </div>
-      {/* location */}
-      <div className="text-xl font-semibold text-[#1D5CCD] ml-5 flex justify-center items-center py-20">
-        <div className="">
-          <p className="flex items-center gap-2">
-            <FaLocationPin className="text-primary-teal" />
-            <span>House 9, Road 15, Uttara, Dhaka</span>
-          </p>
-          <p className="flex items-center gap-2">
-            <FaPhone className="text-primary-teal" />
-            <span>Call Us: +88011111111</span>
-          </p>
-          <p className="flex items-center gap-2">
-            <FaEnvelope className="text-primary-teal" />
-            <a href="mailto:mail.techtitan@gmail.com">
-              mail.techtitan@gmail.com
-            </a>
-          </p>
         </div>
       </div>
     </div>

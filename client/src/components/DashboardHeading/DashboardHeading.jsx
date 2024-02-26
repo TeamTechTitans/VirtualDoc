@@ -7,7 +7,7 @@ const DashboardHeading = ({ children, title }) => {
             <div className="flex items-center text-center justify-center">
                 <CustomTitle title={title} double></CustomTitle>
             </div>
-            <div className="mb-14">
+            <div className="mb-2">
                 <h2 className="text-3xl text-center font-barlow font-bold dark-blue">
                     {children}
                 </h2>
