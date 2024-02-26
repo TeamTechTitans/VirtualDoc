@@ -1,4 +1,5 @@
 import { Button } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const Freebook = () => {
   return (
@@ -17,9 +18,12 @@ const Freebook = () => {
           <h1 className="text-white text-4xl font-semibold">
             Accurate Product Testing <br /> by Expert Scientists
           </h1>
+          <Link to='/appointment'>
           <Button className="rounded-full h-10 mt-5" color="cyan">
             Book Free Sampling Here
           </Button>
+          </Link>
+          
         </div>
       </div>
     </div>
