@@ -59,7 +59,7 @@ const Dashboard = () => {
             </div>
             <Progress
               className="h-1 lg:w-52 md:w-44 rounded-md my-1 bg-pink-50"
-              value={70}
+              value={allDoctor}
               color="pink"
             />
             <h1 className="font-semibold">Doctor</h1>
