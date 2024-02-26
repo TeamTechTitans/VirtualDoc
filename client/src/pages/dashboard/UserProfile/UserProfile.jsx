@@ -15,6 +15,7 @@ import Swal from 'sweetalert2';
 import useApiLink from '../../../lib/hooks/useApiLink';
 import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import profileImg from './../../../assets/profile.png'
 
 const UserProfile = () => {
 
@@ -54,7 +55,10 @@ const UserProfile = () => {
       .then(data => {
         // console.log(data);
         if (data.modifiedCount > 0) {
-          Swal.fire('Data updated');
+          Swal.fire({
+            title: "Data Updated",
+            icon: "success"
+          });
         }
       })
   }
@@ -67,13 +71,24 @@ const UserProfile = () => {
         <form onSubmit={handleUpdateForm}>
           <Card className="mt-20">
             <CardHeader className="flex justify-center shadow-2xl">
+              {
+                user?.photoURL ?
+                <Avatar
+                size="xl"
+                variant="circular"
+                alt='image'
+                className="border-2 border-white my-2"
+                src={user?.photoURL}
+              /> :
               <Avatar
                 size="xl"
                 variant="circular"
-                alt="tania andrew"
+                alt='image'
                 className="border-2 border-white my-2"
-                src={`${user?.photoURL}`}
+                src={profileImg}
               />
+              }
+              
             </CardHeader>
             <CardBody>
               <Typography
