@@ -10,11 +10,7 @@ import {
   CardFooter,
   Typography,
   Input,
-  Select,
-  Option,
   Button,
-  value,
-  Alert,
   Textarea,
 } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
@@ -66,7 +62,7 @@ const DoctorRegistration = () => {
               };
               //data insertion
               const res = await axiosPublic.post("/doctors/createDoctorsRequest", doctorData);
-              console.log(res);
+              // console.log(res);
               if (res) {
                 Swal.fire("Account Created Successfully and we will contact with you soon");
               }
@@ -74,6 +70,9 @@ const DoctorRegistration = () => {
             })
             .catch((error) => {
               // An error occurred
+              if (error) {
+                Swal.fire("Account Creation Failed");
+              }
               // ...
             });
         })
@@ -81,7 +80,7 @@ const DoctorRegistration = () => {
           toast("Registration failed,Try Again");
           // ...
         });
-     }
+    }
   };
   return (
     <>

@@ -3,7 +3,7 @@ import { ChevronUpIcon } from "@heroicons/react/20/solid";
 
 const Faq = () => {
     return (
-        <div className="w-full  pt-16">
+        <div className="w-full pt-16">
             <div className="md:w-full lg:w-96 rounded-2xl bg-white p-2 text-[#142441]">
                 <Disclosure>
                     {({ open }) => (
@@ -11,7 +11,7 @@ const Faq = () => {
                             <Disclosure.Button className="flex w-full justify-between rounded-lg   text-left text-lg md:text-xl font-semibold px-3  py-5 shadow-xl bg-primary-teal text-white">
                                 <span>How is The Test Used?</span>
                                 <ChevronUpIcon
-                                    className={`${open ? "rotate-180 transform" : ""} h-5 w-5 `}
+                                    className={`${open ? "rotate-180 transition-all duration-500 transform" : "rotate-0 transition-all duration-500 transform"} h-5 w-5 `}
                                 />
                             </Disclosure.Button>
                             <Disclosure.Panel className="px-4 pb-2 pt-4 text-base text-black rounded-md bg-light-teal">
@@ -31,10 +31,10 @@ const Faq = () => {
                             <Disclosure.Button className="flex w-full justify-between rounded-lg   text-left text-xl font-semibold px-3 py-5 bg-primary-teal text-white">
                                 <span>What does The Test Result Mean?</span>
                                 <ChevronUpIcon
-                                    className={`${open ? "rotate-180 transform" : ""} h-5 w-5 `}
+                                    className={`${open ? "rotate-180 transition-all duration-500 transform" : "rotate-0 transition-all duration-500 transform"} h-5 w-5 `}
                                 />
                             </Disclosure.Button>
-                            <Disclosure.Panel className="px-4  pb-2 pt-4 text-base text-black rounded-md bg-light-teal">
+                            <Disclosure.Panel className={`px-4 transition-all pb-2 pt-4 text-base text-black rounded-md bg-light-teal`}>
                                 Positive and Negative Tests: <br></br> Positive means whatever
                                 the test was looking for was found. Negative means whatever the
                                 test was looking for was not found. Inconclusive means "unsure."
@@ -50,7 +50,7 @@ const Faq = () => {
                             <Disclosure.Button className="flex w-full justify-between rounded-lg   text-left text-xl font-semibold px-3 py-5 bg-primary-teal text-white">
                                 <span>Where Can I Get Tested?</span>
                                 <ChevronUpIcon
-                                    className={`${open ? "rotate-180 transform" : ""} h-5 w-5 `}
+                                    className={`${open ? "rotate-180 transition-all duration-500 transform" : "rotate-0 transition-all duration-500 transform"} h-5 w-5 `}
                                 />
                             </Disclosure.Button>
                             <Disclosure.Panel className="px-4 pb-2 pt-4 text-base text-black rounded-md bg-light-teal">

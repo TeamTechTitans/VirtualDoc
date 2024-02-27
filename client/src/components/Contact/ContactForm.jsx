@@ -9,17 +9,18 @@ const ContactForm = () => {
     e.preventDefault();
     emailjs.sendForm('service_60oukpk', 'template_vqqudzj', form.current, 'gxPZE-jijqxBj_CBJ')
       .then((result) => {
-          // console.log(result.text);
-          Swal.fire('Message successfully sent.');
-          form.current.reset();
+        // console.log(result.text);
+        Swal.fire('Message successfully sent.');
+        form.current.reset();
       }, (error) => {
-          console.log(error.text);
+        if (error)
+          Swal.fire('Something is wrong.');
       });
-      
+
   };
 
   return (
-    <div className="card  max-w-[480px]  rounded-3xl p-4 pb-5 md:p-8 bg-secondary-blue text-white">
+    <div className="card absolute right-0 -translate-y-1/2 max-w-[480px]  rounded-3xl p-4 pb-5 md:p-8 bg-secondary-blue text-white">
       <h1 className="text-4xl font-bold text-left">
         Contact with Us For <br />Better result{" "}
       </h1>
@@ -27,7 +28,6 @@ const ContactForm = () => {
         <div className="flex flex-col md:flex-row gap-4 my-4 justify-between">
           <div className="form-control">
             <input
-
               type="email"
               placeholder="Email"
               className="rounded-full p-2 px-4 bg-[#1A53B8] placeholder:text-white outline-none focus:border-white border-2 border-solid border-transparent w-full"

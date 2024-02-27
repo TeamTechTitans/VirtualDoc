@@ -7,11 +7,15 @@ import {
 import { Link } from "react-router-dom";
 import useAuth from "../../../lib/hooks/useAuth";
 import Logo from "../../logo/Logo";
+import useDoctor from "../../../lib/hooks/useDoctor";
+import useAdmin from "../../../lib/hooks/useAdmin";
 
 
 const BottomNav = () => {
     const [openNav, setOpenNav] = useState(false);
     const { user, logOut } = useAuth();
+    const [isDoctor] = useDoctor()
+    const [isAdmin] = useAdmin()
     const handleLogout = () => {
         logOut()
     }
@@ -19,11 +23,17 @@ const BottomNav = () => {
     const navLinks = <>
         <Link to='/' className="text-secondary-blue">Home</Link>
         <Link to='/appointment' className="text-secondary-blue">Appointment</Link>
-        <Link to='/services' className="text-secondary-blue">Services</Link>
-        <Link to='/doctors' className="text-secondary-blue">Doctors</Link>
+        {
+            isAdmin ? 
+            <Link to='/dashboard' className="text-secondary-blue">Dashboard</Link>
+            : isDoctor ? <Link to='/dashboard/doctorDashboard' className="text-secondary-blue">Dashboard</Link> : 
+            <Link to='/dashboard/user' className="text-secondary-blue">Dashboard</Link>
+        }
+        {/* {user && <Link to='/dashboard' className="text-secondary-blue">Dashboard</Link>} */}
         <Link to='/tips' className="text-secondary-blue">Tips</Link>
+        <Link to='/doctors' className="text-secondary-blue">Doctors</Link>
+        <Link to='/services' className="text-secondary-blue">Services</Link>
         <Link to='/aboutUs' className="text-secondary-blue">About</Link>
-        {user && <Link to='/dashboard' className="text-secondary-blue">Dashboard</Link>}
         <Link to='/team' className="text-secondary-blue">Team</Link>
         <Link to='/contact' className="text-secondary-blue">Contact US</Link>
     </>
@@ -66,7 +76,7 @@ const BottomNav = () => {
                 />
                 {/* logout added */}
                 <div className="flex items-center">
-                    <div className="float-right">
+                    <div className="float-right hidden md:block">
                         {
                             user ? userLinks : authLinks
                         }
@@ -90,6 +100,7 @@ const BottomNav = () => {
 
                     <ul className="flex  flex-col gap-2 font-bold text-secondary-blue font-open-sans py-3">
                         {navLinks}
+                        {user ? userLinks : authLinks}
                     </ul>
                 </div>
             </Drawer>

@@ -3,20 +3,20 @@ import useAuth from "../../../lib/hooks/useAuth";
 import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
 
 const PaymentHistory = () => {
-    const { user } = useAuth()
-    const axiosPublic = useAxiosPublic()
+  const { user } = useAuth()
+  const axiosPublic = useAxiosPublic()
 
-    const { data: payments =[] } = useQuery({
-        queryKey: ['payments', user?.email],
-        queryFn: async() =>{
-            const res = await axiosPublic.get(`/payment/${user?.email}`)
-            return res.data;
-        }
-    })
-    console.log(payments)
-    return (
-        <div>
-            <div className="overflow-x-auto p-6 mt-12 shadow-lg rounded-lg">
+  const { data: payments = [] } = useQuery({
+    queryKey: ['payments', user?.email],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/payment/${user?.email}`)
+      return res.data;
+    }
+  })
+  // console.log(payments)
+  return (
+    <div>
+      <div className="overflow-x-auto p-6 mt-12 shadow-lg rounded-lg">
         <h2 className="text-3xl font-semibold py-4">
           TOTAL Payment: {payments.length}
         </h2>
@@ -36,17 +36,17 @@ const PaymentHistory = () => {
               <tr className="text-center" key={payment._id}>
                 <td>{idx + 1}</td>
                 <th>
-                <p>{payment.email}</p>
+                  <p>{payment.email}</p>
                 </th>
                 <th>
-                ${payment.price}
+                  ${payment.price}
                 </th>
                 <th>
                   ${payment.transactionId}
                 </th>
                 <th>
                   {payment.paidStatus == true ?
-                    (<p>Paid</p>):(<p>Not Paid</p>)
+                    (<p>Payment Successful</p>) : (<p className="text-red-600">Failed</p>)
                   }
                 </th>
               </tr>
@@ -54,8 +54,8 @@ const PaymentHistory = () => {
           </tbody>
         </table>
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default PaymentHistory;

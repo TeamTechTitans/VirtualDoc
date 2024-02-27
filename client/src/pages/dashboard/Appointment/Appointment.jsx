@@ -13,7 +13,7 @@ const Appointment = () => {
 
   const navigate = useNavigate()
 
-  const TABLE_HEAD = ["Doctor Name", "Date", "Time", "Treatment", "Video Call", "Prescription"];
+  const TABLE_HEAD = ["Doctor Name", "Date", "Time", "Health Category", "Video Call", "Prescription"];
 
   const { user } = useAuth()
   const axiosPublic = useAxiosPublic()
@@ -59,6 +59,10 @@ const Appointment = () => {
   //   navigate('/cart', { state: appointment });
 
   // }
+  const handleReload = (_id) => {
+    // Use window.location.href to navigate to the same URL, triggering a page reload
+    window.location.href = `/dashboard/videocall/${_id}`;
+  };
 
   return (
     <div className="">
@@ -146,7 +150,7 @@ const Appointment = () => {
                   <td className={classes}>
                     {
                       paidStatus ?
-                        <Link to='/dashboard/videocall'><FcVideoCall className="mx-auto text-3xl" /></Link>
+                        <Link onClick={()=>handleReload(_id)}><FcVideoCall className="mx-auto text-3xl" /></Link>
                         :
                         <button onClick={() => handleModalForPayment()}><FcVideoCall className="mx-auto opacity-30 text-3xl" /></button>
                     }
@@ -156,15 +160,6 @@ const Appointment = () => {
                   <td>
                     <DisplayPrescription doctor_email={doctor_email} patient_name={patient_name} patient_email={patient_email} appointment_id={_id}></DisplayPrescription>
                   </td>
-                  {/* <td className={classes}>
-                    {
-                      paidStatus ?
-                      <Button disabled className="bg-secondary-blue" size="sm" >Pay</Button>
-                      :
-                      <Button className="bg-secondary-blue" size="sm" onClick={() => handleNavigateToCart(name, _id, treatment, date, time, pay)} >Pay</Button>
-                    }
-                    
-                  </td> */}
                 </tr>
               );
             })}

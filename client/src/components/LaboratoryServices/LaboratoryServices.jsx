@@ -7,6 +7,7 @@ import {
     Button,
 } from "@material-tailwind/react";
 import CustomTitle from '../CustomTitle/CustomTitle';
+import { Link } from 'react-router-dom';
 
 const LaboratoryServices = () => {
     return (
@@ -21,7 +22,7 @@ const LaboratoryServices = () => {
 
             <div className='container mx-auto grid md:grid-cols-2 xl:grid-cols-4 grid-cols-1'>
                 {/* Card-One */}
-                <Card className="mt-6 w-60 mx-auto shadow-xl transition duration-500 hover:text-white font-barlow relative hover-before cursor-pointer before:bg-secondary-blue before:h-full before:-translate-y-full hover:before:translate-y-0 before:transition before:duration-500 overflow-hidden">
+                <Card className="mt-6 min-w-60 mx-2 md:mx-5 xl:mx-7 2xl:mx-10 shadow-xl transition duration-500 hover:text-white font-barlow relative hover-before cursor-pointer before:bg-secondary-blue before:h-full before:-translate-y-full hover:before:translate-y-0 before:transition before:duration-500 overflow-hidden">
                     <CardBody className='z-10'>
                         <img loading="lazy" src="https://i.ibb.co/FqDJq37/result.png" className='mb-3' alt="lab-picture" />
                         <Typography variant="h5" className="mb-2 z-10 font-barlow">
@@ -33,7 +34,7 @@ const LaboratoryServices = () => {
                         </Typography>
                     </CardBody>
                     <CardFooter className="pt-0 z-10">
-                        <a href="#" className="inline-block">
+                        <Link to='/tips'>
                             <Button size="sm" variant='text' className="flex hover:bg-white bg-white rounded-full shadow-md items-center gap-2">
                                 Read More
                                 <svg
@@ -51,11 +52,11 @@ const LaboratoryServices = () => {
                                     />
                                 </svg>
                             </Button>
-                        </a>
+                        </Link>
                     </CardFooter>
                 </Card>
                 {/* Card-Two */}
-                <Card className="mt-6 w-60 mx-auto shadow-xl transition duration-500 hover:text-white font-barlow relative hover-before cursor-pointer before:bg-secondary-blue before:h-full before:-translate-y-full hover:before:translate-y-0 before:transition before:duration-500 overflow-hidden">
+                <Card className="mt-6 min-w-60 mx-2 md:mx-5 xl:mx-7 2xl:mx-10 shadow-xl transition duration-500 hover:text-white font-barlow relative hover-before cursor-pointer before:bg-secondary-blue before:h-full before:-translate-y-full hover:before:translate-y-0 before:transition before:duration-500 overflow-hidden">
                     <CardBody className='z-10'>
                         <img loading="lazy" src="https://i.ibb.co/rdyLMKb/test-tube.png" className='mb-3' alt="lab-picture" />
                         <Typography variant="h5" className="mb-2 z-10 font-barlow">
@@ -67,7 +68,7 @@ const LaboratoryServices = () => {
                         </Typography>
                     </CardBody>
                     <CardFooter className="pt-0 z-10">
-                        <a href="#" className="inline-block">
+                        <Link to='/tips'>
                             <Button size="sm" variant="text" className="hover:bg-white bg-white rounded-full shadow-md flex items-center gap-2">
                                 Read More
                                 <svg
@@ -85,11 +86,11 @@ const LaboratoryServices = () => {
                                     />
                                 </svg>
                             </Button>
-                        </a>
+                        </Link>
                     </CardFooter>
                 </Card>
                 {/* Card-Three */}
-                <Card className="mt-6 w-60 mx-auto shadow-xl transition duration-500 hover:text-white font-barlow relative hover-before cursor-pointer before:bg-secondary-blue before:h-full before:-translate-y-full hover:before:translate-y-0 before:transition before:duration-500 overflow-hidden">
+                <Card className="mt-6 min-w-60 mx-2 md:mx-5 xl:mx-7 2xl:mx-10 shadow-xl transition duration-500 hover:text-white font-barlow relative hover-before cursor-pointer before:bg-secondary-blue before:h-full before:-translate-y-full hover:before:translate-y-0 before:transition before:duration-500 overflow-hidden">
                     <CardBody className='z-10'>
                         <img loading="lazy" src="https://i.ibb.co/544hTgy/microscope.png" className='mb-3' alt="lab-picture" />
                         <Typography variant="h5" className="mb-2 z-10 font-barlow">
@@ -101,7 +102,7 @@ const LaboratoryServices = () => {
                         </Typography>
                     </CardBody>
                     <CardFooter className="pt-0 z-10">
-                        <a href="#" className="inline-block">
+                        <Link to='/tips'>
                             <Button size="sm" variant="text" className="hover:bg-white bg-white rounded-full shadow-md flex items-center gap-2">
                                 Read More
                                 <svg
@@ -119,11 +120,11 @@ const LaboratoryServices = () => {
                                     />
                                 </svg>
                             </Button>
-                        </a>
+                        </Link>
                     </CardFooter>
                 </Card>
                 {/* Card-four */}
-                <Card className="mt-6 w-60 mx-auto shadow-xl transition duration-500 hover:text-white font-barlow relative hover-before cursor-pointer before:bg-secondary-blue before:h-full before:-translate-y-full hover:before:translate-y-0 before:transition before:duration-500 overflow-hidden">
+                <Card className="mt-6 min-w-60 mx-2 md:mx-5 xl:mx-7 2xl:mx-10 shadow-xl transition duration-500 hover:text-white font-barlow relative hover-before cursor-pointer before:bg-secondary-blue before:h-full before:-translate-y-full hover:before:translate-y-0 before:transition before:duration-500 overflow-hidden">
                     <CardBody className='z-10'>
                         <img loading="lazy" src="https://i.ibb.co/Jzw6DwF/laboratory.png" className='mb-3' alt="lab-picture" />
                         <Typography variant="h5" className="mb-2 z-10 font-barlow">
@@ -135,7 +136,7 @@ const LaboratoryServices = () => {
                         </Typography>
                     </CardBody>
                     <CardFooter className="pt-0 z-10">
-                        <a href="#" className="inline-block">
+                        <Link to='/tips'>
                             <Button size="sm" variant="text" className="hover:bg-white bg-white rounded-full shadow-md flex items-center gap-2">
                                 Learn More
                                 <svg
@@ -153,7 +154,7 @@ const LaboratoryServices = () => {
                                     />
                                 </svg>
                             </Button>
-                        </a>
+                        </Link>
                     </CardFooter>
                 </Card>
             </div>

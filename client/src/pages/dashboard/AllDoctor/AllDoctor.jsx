@@ -15,7 +15,7 @@ const AllDoctor = () => {
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
 
-  const { data: doctorDetails = [], refetch } = useQuery({
+  const { data: doctorDetails = [], refetch, isLoading } = useQuery({
     queryKey: ["doctors"],
     queryFn: async () => {
       const res = await fetch(`${apiLink}/doctors`);
@@ -64,10 +64,13 @@ const AllDoctor = () => {
     }
     refetch()
   };
+
+  if (isLoading) return <div className="w-full h-screen flex justify-center items-center"> <span className="loading loading-dots loading-lg"></span></div>
+
   return (
     <div className="flex p-2 flex-col">
       <DashboardHeading title="All Doctor">Manage All Doctor</DashboardHeading>
-      <Card className="w-full max-w-7xl overflow-auto">
+      <Card className="w-full mx-auto max-w-7xl overflow-auto">
         <table className="w-full table-auto  font-barlow">
           <thead>
             <tr className="">
@@ -89,58 +92,58 @@ const AllDoctor = () => {
           </thead>
           <tbody>
             {doctorDetails?.map((doctor, index) => <tr className="font-barlow" key={index}>
-                <td className={classes}>
-                  <Typography variant="small" color="blue-gray">
-                    <span className="font-semibold">Name: </span>
-                    {doctor?.name}
-                    <br />
-                    <span className="font-semibold">Email: </span>
-                    {doctor?.email}
-                    <br />
-                    <span className="font-semibold">Blood Group: </span>
-                    {doctor?.blood_group}
-                  </Typography>
-                </td>
-                <td className={classes}>
-                  <Typography variant="small" color="blue-gray">
-                    {doctor?.education}
-                  </Typography>
-                </td>
-                <td className={classes}>
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    //   className="text-center"
-                  >
-                    <span className="font-semibold">Location: </span>
-                    {doctor?.loc}
-                    <br />
-                    <span className="font-semibold">Category: </span>
-                    {doctor?.health_category}
-                    <br />
-                    <span className="font-semibold">Registration No: </span>
-                    {doctor?.registration}
-                    <br />
-                  </Typography>
-                </td>
-                <td className={classes}>
-                  <Button
-                    color="blue"
-                    onClick={() => handleOpen(doctor)}
-                    className="px-2 py-1 rounded-none mr-2 normal-case"
-                  >
-                    Manage
-                  </Button>
+              <td className={classes}>
+                <Typography variant="small" color="blue-gray">
+                  <span className="font-semibold">Name: </span>
+                  {doctor?.name}
+                  <br />
+                  <span className="font-semibold">Email: </span>
+                  {doctor?.email}
+                  <br />
+                  <span className="font-semibold">Blood Group: </span>
+                  {doctor?.blood_group}
+                </Typography>
+              </td>
+              <td className={classes}>
+                <Typography variant="small" color="blue-gray">
+                  {doctor?.education}
+                </Typography>
+              </td>
+              <td className={classes}>
+                <Typography
+                  variant="small"
+                  color="blue-gray"
+                //   className="text-center"
+                >
+                  <span className="font-semibold">Location: </span>
+                  {doctor?.loc}
+                  <br />
+                  <span className="font-semibold">Category: </span>
+                  {doctor?.health_category}
+                  <br />
+                  <span className="font-semibold">Registration No: </span>
+                  {doctor?.registration}
+                  <br />
+                </Typography>
+              </td>
+              <td className={classes}>
+                <Button
+                  color="blue"
+                  onClick={() => handleOpen(doctor)}
+                  className="px-2 py-1 rounded-none mr-2 normal-case"
+                >
+                  Manage
+                </Button>
 
-                  <Button
-                    onClick={() => handleDeleteDoctor(doctor._id)}
-                    className="px-2 py-1 rounded-none normal-case"
-                    color="red"
-                  >
-                    Delete
-                  </Button>
-                </td>
-              </tr>
+                <Button
+                  onClick={() => handleDeleteDoctor(doctor._id)}
+                  className="px-2 py-1 rounded-none normal-case"
+                  color="red"
+                >
+                  Delete
+                </Button>
+              </td>
+            </tr>
             )}
           </tbody>
         </table>

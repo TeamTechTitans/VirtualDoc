@@ -1,5 +1,4 @@
 import SiteHeader from "../../../components/siteHeader/SiteHeader";
-import Calender from "./Calender";
 import OurTeeth from "./OurTeeth";
 import UserAppointmentForm from "./UserAppointmentForm";
 import UserServices from "./UserServices";
@@ -7,8 +6,8 @@ import UserServices from "./UserServices";
 const UserAppointment = () => {
   return (
     <div>
-      <SiteHeader title={"Appointment"}>Get an Appointment</SiteHeader>
-      <UserAppointmentForm/>
+      <SiteHeader title={"Get an Appointment"}>Appointment</SiteHeader>
+      <UserAppointmentForm />
       {/* <Calender></Calender> */}
       <UserServices></UserServices>
       <OurTeeth></OurTeeth>

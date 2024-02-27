@@ -31,7 +31,7 @@ const UserAppointmentForm = () => {
       return doctors;
     },
   });
-  const filtered_doctor = doctorDetails.filter(
+  const filtered_doctor = doctorDetails?.filter(
     (doctor) => doctor.health_category == selectedCategory
   );
   // const filtered_doctor_map=filtered_doctor.map(doctor=>doctor);
@@ -47,14 +47,14 @@ const UserAppointmentForm = () => {
   });
   const handleCategoryChange = (event) => {
     const category = event.target.value;
-    console.log(category);
+    // console.log(category);
     setSelectedCategory(category);
     //alert(category);
     // Reset selected doctor when category changes
     // setSelectedDoctor('');
   };
   const onSubmit = async (data) => {
-   // console.log(data)
+    // console.log(data)
     const appointment_data = {
       health_category: selectedCategory,
       doctor_email: data.doctors,
@@ -67,23 +67,23 @@ const UserAppointmentForm = () => {
       payment: 500,
       paidStatus: false
     };
-    //console.log(appointment_data);
-    
-    const res = await axiosPublic.post('/appointment/bookAppointment',appointment_data)
+    // console.log(appointment_data);
+
+    const res = await axiosPublic.post('/appointment/bookAppointment', appointment_data)
     // console.log(res.data._id);
     const appointmentId = res.data._id;
-    if (appointmentId){
-        const appointment = {
-            appointmentId: appointmentId,
-            name: appointment_data.patient_name,
-            treatment: appointment_data.description,
-            date: appointment_data.date,
-            time: appointment_data.timing_slot,
-            pay: appointment_data.payment
-          }
-          navigate('/cart', { state: appointment });
+    if (appointmentId) {
+      const appointment = {
+        appointmentId: appointmentId,
+        name: appointment_data.patient_name,
+        treatment: appointment_data.description,
+        date: appointment_data.date,
+        time: appointment_data.timing_slot,
+        pay: appointment_data.payment
+      }
+      navigate('/cart', { state: appointment });
     }
-    else{
+    else {
       Swal.fire({
         position: "top-end",
         icon: "error",
@@ -93,14 +93,14 @@ const UserAppointmentForm = () => {
         timer: 4000
       });
     }
-    
+
   };
   return (
     <div>
       <DashboardHeading title="Deal with our Healthcare Professionals">
         Book An Appointment
       </DashboardHeading>
-      <h2>{filtered_doctor.length}</h2>
+      <h2>{filtered_doctor?.length}</h2>
       <div className="hero">
         <div className="hero-content flex-col">
           <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
@@ -114,7 +114,7 @@ const UserAppointmentForm = () => {
                     onChange={handleCategoryChange}
                     className="select select-bordered w-full"
                   >
-                    {doctorHealthCategory.map((health_category) => (
+                    {doctorHealthCategory?.map((health_category) => (
                       <option
                         key={health_category._id}
                         value={health_category.cat_value}
@@ -135,7 +135,7 @@ const UserAppointmentForm = () => {
                     <option disabled value="default">
                       Select Doctor
                     </option>
-                    {filtered_doctor.map((filteredDoctors) => (
+                    {filtered_doctor?.map((filteredDoctors) => (
                       <option
                         key={filteredDoctors._id}
                         value={filteredDoctors.email}

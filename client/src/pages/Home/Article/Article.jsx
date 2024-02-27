@@ -26,7 +26,7 @@ const Article = () => {
         <div className="container mx-auto py-32">
             <div className="mb-20">
                 <CustomTitle title={'Recent Article'}></CustomTitle>
-                <Typography variant="h2" className="text-[#142441] font-bold hidden md:block">Interesting Articles Updated <br />Every Daily</Typography>
+                <Typography variant="h2" className="font-bold hidden md:block">Interesting Articles Updated <br />Every Daily</Typography>
 
             </div>
 

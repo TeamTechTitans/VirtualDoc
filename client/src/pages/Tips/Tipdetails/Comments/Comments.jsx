@@ -24,7 +24,7 @@ refetch()
   const onSubmit = async (data) => {
     reset();
     const comment = {
-      comment_id: tip.id,
+      comment_id: tip._id,
       tipName: tip.title,
       name: user?.displayName,
       email: user?.email,
@@ -32,6 +32,8 @@ refetch()
       comment: data.comment,
       userPhoto: user?.photoURL,
     };
+    // console.log(tip._id)
+    // console.log(comment)
     const res = await axiosPublic.post("/comments", comment);
     if (res.data) {
       Swal.fire({
@@ -50,13 +52,13 @@ refetch()
       <h2 className="text-2xl font-semibold my-3">Leave a comment here </h2>{" "}
       {
         user ? (<form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex items-center gap-2">
+        <div className="flex  gap-2">
           <div className="flex-1">
             <textarea
               type="text"
               placeholder="Comment here"
               {...register("comment", { required: true })}
-              className="input h-16 input-bordered focus:outline-0 w-full rounded-2xl"
+              className="input py-4 h-16 input-bordered focus:outline-0 w-full rounded-2xl"
             />
           </div>
           <div className="">
@@ -76,7 +78,7 @@ refetch()
       <div>
         {comments.map((comment) => (
           <div className="flex gap-4 flex-col md:flex-row" key={comment._id}>
-            <div className="w-[80px]">
+            <div className="w-[60px]">
               {comment?.userPhoto ? (
                 <img className="rounded-full" src={comment.userPhoto} alt="" />
               ) : (

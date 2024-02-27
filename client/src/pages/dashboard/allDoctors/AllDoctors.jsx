@@ -10,18 +10,19 @@ import {
 } from "@material-tailwind/react";
 import ManageModal from "./ManageDoctor";
 import useApiLink from "../../../lib/hooks/useApiLink";
+import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
 
 const apiLink = useApiLink()
 
 const AllDoctors = () => {
   const [userData, setUserData] = React.useState([]);
   const TABLE_HEAD = ["Name", "Email", "location", "Blood-Group", "Action"];
-
+  const axiosSecure = useAxiosSecure()
 
   const { data: userDetails = [] } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
-      const res = await fetch(`${apiLink}/users`);
+      const res = await axiosSecure.get(`/users`);
       const users = await res.json();
       return users;
     },
@@ -42,12 +43,12 @@ const AllDoctors = () => {
     setOpen(!open)
     setUserData(user)
   };
-    
+
 
   return (
     <div className="flex p-2 flex-col items-center">
       <DashboardHeading title="All users">Manage All Doctors</DashboardHeading>
-      <Card className="w-full max-w-7xl overflow-auto">
+      <Card className="w-full mx-auto max-w-7xl overflow-auto">
         <table className="w-full min-w-max table-auto text-center font-barlow">
           <thead>
             <tr>

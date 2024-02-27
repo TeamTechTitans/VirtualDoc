@@ -24,40 +24,43 @@ import UserProfile from "../../pages/dashboard/UserProfile/UserProfile";
 import VideoCall from "../../pages/dashboard/VideoCall/VideoCall";
 import PaymentHistory from "../../pages/dashboard/paymentHistory/PaymentHistory";
 import PostNewTip from "../../pages/dashboard/postNewTip/PostNewTip";
-import Doctors from './../../pages/doctors/Doctors';
+import Doctors from "./../../pages/doctors/Doctors";
 import useApiLink from "../../lib/hooks/useApiLink";
-import DoctorProfile from "../../pages/dashboard/doctorProfile/DoctorProfile";
 import Cart from "../../pages/Cart/Cart";
 import PaymentSuccess from "../../pages/PaymentSuccess/PaymentSuccess";
 import AdminRoute from "../AdminRoute";
 import DoctorRoute from "../DoctorRoute";
-// import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
-// import Connect from "../../pages/ChatApp/Chat/Connect";
 import PrivetRoute from "../PrivetRoute";
-import Profile from "../../pages/dashboard/Profile/Profile";
 import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
 import AllDoctors from "../../pages/dashboard/allDoctors/AllDoctors";
 import DoctorAppointment from "../../pages/dashboard/doctorAppointment/DoctorAppointment";
-
-// import DoctorAppointment from "../../pages/dashboard/Appointment/DoctorAppointment";
 import Prescription from "../../pages/dashboard/Appointment/Prescription/Prescription";
 import DoctorAppointmentPescription from "../../pages/dashboard/Appointment/DoctorAppointmentPescription";
+import ErrorPage from "../../pages/error/ErrorPage";
+// import Connect from "../../pages/ChatApp/Chat/Connect";
+import PublicRoute from "../PublicRoute";
+import Profile from "../../pages/dashboard/Profile/Profile";
+import EditDoctorProfile from "../../pages/dashboard/editDoctorProfile/EditDoctorProfile";
+import DoctorDashboard from "../../pages/dashboard/doctorDashboard/DoctorDashboard";
 
-const apiLink = useApiLink()
-
+const apiLink = useApiLink();
 
 const MainRouter = createBrowserRouter([
+
+
     {
         path: "/",
         element: <MainLayout />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 index: true,
                 element: <Home />,
+                errorElement: <ErrorPage />,
             },
             {
                 path: '/appointment',
-                element: <PrivetRoute><UserAppointment/></PrivetRoute>
+                element: <PrivetRoute><UserAppointment /></PrivetRoute>
             },
             {
                 path: '/doctors',
@@ -74,7 +77,7 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: "/register",
-                element: <Registration />
+                element: <PublicRoute><Registration /></PublicRoute>
             },
             {
                 path: '/team',
@@ -89,7 +92,7 @@ const MainRouter = createBrowserRouter([
                 element: <PrivetRoute><Cart /></PrivetRoute>
             },
             {
-                path:'payment/success/:tranId',
+                path: 'payment/success/:tranId',
                 element: <PrivetRoute><PaymentSuccess /></PrivetRoute>
             },
             {
@@ -98,7 +101,7 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: "/login",
-                element: <Login />
+                element: <PublicRoute><Login /></PublicRoute>
             },
             {
 
@@ -116,14 +119,16 @@ const MainRouter = createBrowserRouter([
     {
         path: '/dashboard',
         element: <PrivetRoute><DashboardLayout /></PrivetRoute>,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "/dashboard",
-                element: <Dashboard />
+                element: <AdminRoute><Dashboard /></AdminRoute>,
+                errorElement: <ErrorPage />,
             },
             {
                 path: "allUser",
-                element:<AdminRoute><AllUsers /></AdminRoute>
+                element: <AdminRoute><AllUsers /></AdminRoute>
             },
             {
                 path: "addDoctor",
@@ -134,16 +139,20 @@ const MainRouter = createBrowserRouter([
                 element: <PrivetRoute><UserProfile /></PrivetRoute>
             },
             {
-                path: "doctorProfile",
-                element: <DoctorRoute><DoctorProfile /></DoctorRoute>
+                path: "doctorDashboard",
+                element: <DoctorRoute><DoctorDashboard /></DoctorRoute>
+            },
+            {
+                path: "editDoctorProfile",
+                element: <DoctorRoute><EditDoctorProfile /></DoctorRoute>
             },
             {
                 path: "appoinment",
-                element: <PrivetRoute><Appointment/></PrivetRoute>
+                element: <PrivetRoute><Appointment /></PrivetRoute>
             },
             {
                 path: "doctorApproval",
-                element: <AdminRoute><DoctorApproval/></AdminRoute>
+                element: <AdminRoute><DoctorApproval /></AdminRoute>
             },
             {
                 path: "postNewTip",
@@ -151,49 +160,36 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: "allDoctors",
-                element: <AllDoctors />
+                element: <AdminRoute><AllDoctors /></AdminRoute>
             },
             {
                 path: "doctorDetail/:id",
-                element: <AdminRoute><DoctorApprovalDetails/></AdminRoute>,
-                loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
+                element: <AdminRoute><DoctorApprovalDetails /></AdminRoute>,
+                loader: ({ params }) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
             },
             {
 
-                path: "videocall",
-                element: <VideoCall />
+                path: "videocall/:id",
+                element: <VideoCall />,
+                loader: ({params}) => fetch(`${apiLink}/appointments/${params.id}`)
             },
-            
+
             {
 
-                path:'paymentHistory',
+                path: 'paymentHistory',
                 element: <PrivetRoute><PaymentHistory /></PrivetRoute>
             },
             {
-
-                path: "doctorApproval",
-                element: <AdminRoute><DoctorApproval/></AdminRoute>
-            },
-            {
                 path: "prescription",
-                element: <Prescription/>
+                element: <Prescription />
             },
-            // {
-            //     path: "doctorDetail/:id",
-            //     element: <DoctorApprovalDetails/>,
-            //     loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
-            // },
-            // {
-            //     path: "chat",
-            //     element: <Connect></Connect>,
-            // },
             {
                 path: "allDoctor",
-                element:<AdminRoute><AllDoctor /></AdminRoute>
+                element: <AdminRoute><AllDoctor /></AdminRoute>
             },
             {
-                path: 'profile',
-                element: <Profile />
+                path: 'user',
+                element: <PrivetRoute><Profile /></PrivetRoute>
             },
             {
                 path: "doctorAppointment",
@@ -204,8 +200,20 @@ const MainRouter = createBrowserRouter([
                 element: <DoctorAppointment />
             },
 
-        ]
-    }
+            {
+                path: "paymentHistory",
+                element: (
+                    <PrivetRoute>
+                        <PaymentHistory />
+                    </PrivetRoute>
+                ),
+            },
+            {
+                path: "prescription",
+                element: <Prescription />,
+            },
+        ],
+    },
 ]);
 
 export default MainRouter;

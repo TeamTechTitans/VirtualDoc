@@ -1,20 +1,22 @@
 import { createContext } from 'react';
-
 import { useState } from 'react';
-import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import { FacebookAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import { useEffect } from 'react';
 import auth from '../../firebase/firebase.init';
 import Swal from 'sweetalert2';
 import useAxiosPublic from '../../lib/hooks/useAxiosPublic';
 import useApiLink from '../../lib/hooks/useApiLink';
 
+
 export const AuthContext = createContext('null');
 const axiosPublic = useAxiosPublic()
 const apiLink = useApiLink()
 
+
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const provider = new GoogleAuthProvider();
+    const fbProvider = new FacebookAuthProvider();
     const [loading, setLoading] = useState(true);
     const createUser = (email, password) => {
         setLoading(true)
@@ -31,6 +33,10 @@ const AuthProvider = ({ children }) => {
         return updateProfile(auth.currentUser, {
             displayName: name, photoURL: photo
         })
+    }
+
+    const fbLogin = () => {
+        return signInWithPopup(auth, fbProvider)
     }
 
     const logOut = () => {
@@ -52,11 +58,11 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             const userEmail = { email: currentUser?.email }
-            axiosPublic.post(`${apiLink}/jwt`,userEmail)
+            axiosPublic.post(`${apiLink}/jwt`, userEmail)
                 .then(res => {
                     // console.log(res.data)
-                localStorage.setItem('token', res.data?.token)
-            })
+                    localStorage.setItem('token', res.data?.token)
+                })
             // console.log('user in the current state', currentUser);
             setLoading(false);
         })
@@ -65,7 +71,7 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    const authInfo = { user, createUser, logIn, googleSignIn, logOut, loading, updateUserProfile };
+    const authInfo = { user, createUser, logIn, googleSignIn, logOut, loading, updateUserProfile, fbLogin };
     return (
         <AuthContext.Provider value={authInfo}>
 

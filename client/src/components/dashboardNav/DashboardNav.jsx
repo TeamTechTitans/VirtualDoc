@@ -37,7 +37,7 @@ const DashboardNav = () => {
       <List>
         {isAdmin ? (
           <>
-          <Link to={"/dashboard"}>
+            <Link to={"/dashboard"}>
               <ListItem className="p-0">
                 <Typography
                   color="blue-gray"
@@ -98,9 +98,9 @@ const DashboardNav = () => {
               </ListItem>
             </Link>
           </>
-        ) : isDoctor? (
+        ) : isDoctor ? (
           <>
-            <Link to={"/dashboard"}>
+            <Link to={"/dashboard/doctorDashboard"}>
               <ListItem className="p-0">
                 <Typography
                   color="blue-gray"
@@ -132,7 +132,7 @@ const DashboardNav = () => {
                 </Typography>
               </ListItem>
             </Link>
-            <Link to={"/dashboard/doctorProfile"}>
+            <Link to={"/dashboard/editDoctorProfile"}>
               <ListItem className="p-0">
                 <Typography
                   color="blue-gray"
@@ -145,13 +145,13 @@ const DashboardNav = () => {
           </>
         ) : (
           <>
-            <Link to={"/dashboard"}>
-              <ListItem className="p-0">
+            <Link to="/dashboard/user">
+            <ListItem className="p-0">
                 <Typography
                   color="blue-gray"
                   className="mr-auto p-2 font-normal"
                 >
-                  Dashboard
+                  Profile
                 </Typography>
               </ListItem>
             </Link>
@@ -197,14 +197,6 @@ const DashboardNav = () => {
             {/* <ListItemSuffix>
                             <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
                         </ListItemSuffix> */}
-          </ListItem>
-        </Link>
-        <Link to="/dashboard/profile">
-          <ListItem>
-            <ListItemPrefix>
-              <UserCircleIcon className="h-5 w-5" />
-            </ListItemPrefix>
-            Profile
           </ListItem>
         </Link>
 
