@@ -1,11 +1,11 @@
 
 
+import { useQuery } from '@tanstack/react-query';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 import * as React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
-import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
 import useAxiosPublic from '../../../lib/hooks/useAxiosPublic';
-import { useQuery } from '@tanstack/react-query';
+import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
 
 
 function randomID(len) {
@@ -51,8 +51,10 @@ const VideoCall = () => {
   const roomID = getUrlParams().get('roomID') || id;
       let myMeeting = async (element) => {
      // generate Kit Token
-      const appID = 1297054783;
-      const serverSecret = "9a5f4732a88be40c656a7c7b7746bd79";
+      // const appID = 1297054783;
+      // const serverSecret = "9a5f4732a88be40c656a7c7b7746bd79";
+      const appID = 1763227442;
+      const serverSecret = "d3557f019d9886521600e6b9e9e17951";
       const kitToken =  ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID,randomID(5),checkPatient(user.email));
 
 
