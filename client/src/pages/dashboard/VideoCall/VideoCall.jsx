@@ -1,8 +1,7 @@
 
 
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
-import * as React from 'react';
-
+import './VideoCall.css';
 
 function randomID(len) {
   let result = '';
@@ -58,7 +57,7 @@ const VideoCall = () => {
     <div
       className="myCallContainer"
       ref={myMeeting}
-      style={{ width: '70vw', height: '90vh' }}
+      style={{ width: '100%', height: '100%' }}
     ></div>
   );
 };
