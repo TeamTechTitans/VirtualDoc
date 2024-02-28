@@ -1,17 +1,12 @@
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { useEffect, useState } from "react";
 import ArticleCard from "../../../components/ArticleCard/ArticleCard";
-// import img from '../../../assests/vector.png'
-// import { useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
 import CustomTitle from "../../../components/CustomTitle/CustomTitle";
 import { Typography } from "@material-tailwind/react";
-import { Autoplay } from 'swiper/modules';
-
-// import './styles.css';
-
-// import required modules
+import { Autoplay, } from 'swiper/modules';
 
 const Article = () => {
     const [articles, setArticles] = useState([])
