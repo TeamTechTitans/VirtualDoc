@@ -78,7 +78,7 @@ const BottomNav = () => {
                     className="block xl:hidden text-lg"
                 />
                 {/* logout added */}
-                <div className="flex items-center hidden md:block">
+                <div className="md:flex items-center hidden ">
                     <div className="float-right ">
                         {
                             user ? userLinks : authLinks
