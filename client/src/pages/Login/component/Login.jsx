@@ -17,16 +17,11 @@ import { AuthContext } from "../../../provider/AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
 import { FacebookAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import useApiLink from "../../../lib/hooks/useApiLink";
-import { FcGoogle } from "react-icons/fc";
-import { FaFacebook } from "react-icons/fa";
-import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
-
 const Login = () => {
   const apiLink = useApiLink();
   const { register, handleSubmit, required, reset } = useForm();
   const { logIn, googleSignIn, fbLogin } = useContext(AuthContext);
   const location = useLocation();
-  const axiosPublic = useAxiosPublic();
   console.log(location);
   const navigate = useNavigate();
   const onSubmit = (data) => {
@@ -103,33 +98,22 @@ const Login = () => {
   };
   const handleFbLogin = () => {
     fbLogin()
-      .then(async (result) => {
+      .then((result) => {
         // console.log("Logged in ", result);
         const user = result.user;
         const credential = FacebookAuthProvider.credentialFromResult(result);
         const accessToken = credential.accessToken;
-        console.log(user);
-        const fbData = {
-          name: user.displayName,
-          image: user.photoURL,
-          loc: " ",
-          blood_group: " ",
-          email: user.email,
-          password: " ",
-        };
-        const res = await axiosPublic.post("/users/createUser", fbData);
-        if (res) {
-          Swal.fire("Login Successful");
-          navigate(location.state ? location.state : "/", {
-            replace: true,
-          });
-        }
+        // console.log(user);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         const email = error.customData.email;
-        console.log(errorCode, errorMessage, email);
+        // console.log(errorCode, errorMessage, email);
+        // The AuthCredential type that was used.
+        const credential = FacebookAuthProvider.credentialFromError(error);
+
+        // ...
       });
   };
   return (
@@ -173,14 +157,12 @@ const Login = () => {
               <Button type="submit" variant="gradient" fullWidth>
                 Sign In
               </Button>
-              <div className="flex gap-4 items-center justify-center">
-                <Button className="bg-white flex-1" onClick={handleGoogleLogin}>
-                  <FcGoogle className="size-8 mx-auto" />
-                </Button>
-                <Button className="bg-blue-700 flex-1" onClick={handleFbLogin}>
-                  <FaFacebook className="size-8 mx-auto" />
-                </Button>
-              </div>
+              <Button onClick={handleGoogleLogin} color="teal" fullWidth>
+                Google Sign In
+              </Button>
+              <Button onClick={handleFbLogin} color="teal" fullWidth>
+                Facebook
+              </Button>
             </CardBody>
           </form>
           <CardFooter className="pt-0">

@@ -13,14 +13,14 @@ const Comments = ({ tip }) => {
   const axiosPublic = useAxiosPublic();
   //  console.log(user?.photoURL)
 
-  const { data: comments = [], refetch } = useQuery({
+  const { data: comments = [], refetch, } = useQuery({
     queryKey: ["comments"],
     queryFn: async () => {
       const res = await axiosPublic.get(`/comments/${tip.title}`);
       return res.data;
     },
   });
-refetch()
+  refetch()
   const onSubmit = async (data) => {
     reset();
     const comment = {
@@ -52,29 +52,29 @@ refetch()
       <h2 className="text-2xl font-semibold my-3">Leave a comment here </h2>{" "}
       {
         user ? (<form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex items-center gap-2">
-          <div className="flex-1">
-            <textarea
-              type="text"
-              placeholder="Comment here"
-              {...register("comment", { required: true })}
-              className="input h-16 input-bordered focus:outline-0 w-full rounded-2xl"
-            />
+          <div className="flex items-center gap-2">
+            <div className="flex-1">
+              <textarea
+                type="text"
+                placeholder="Comment here"
+                {...register("comment", { required: true })}
+                className="input h-16 input-bordered focus:outline-0 w-full rounded-2xl"
+              />
+            </div>
+            <div className="">
+
+              <button type="submit">
+                <IoMdSend className="text-gray-500 text-3xl" />
+              </button>
+            </div>
           </div>
-          <div className="">
-            
-            <button type="submit">
-              <IoMdSend className="text-gray-500 text-3xl" />
-            </button>
-          </div>
-        </div>
-      </form>)
-      :
-      (
-        <p className="text-[#848484] text-xl">Please <a href="/login" className="text-primary-teal font-bold">Login</a> to post a comment</p>
-      )
+        </form>)
+          :
+          (
+            <p className="text-[#848484] text-xl">Please <a href="/login" className="text-primary-teal font-bold">Login</a> to post a comment</p>
+          )
       }
-      
+
       <div>
         {comments.map((comment) => (
           <div className="flex gap-4 flex-col md:flex-row" key={comment._id}>
@@ -93,7 +93,7 @@ refetch()
               <p className="text-[#848484] text-lg">{comment.comment}</p>
               <hr />
             </div>
-            
+
           </div>
         ))}
       </div>
