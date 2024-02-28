@@ -47,7 +47,7 @@ const Dashboard = () => {
   const allAppoinment = appointments.length
   const allUsers = users.length
 
-  if (isDoctor || isAdmin) {
+  if (isAdmin) {
     return (
       <div className="col-span-9 w-11/12 mx-auto mt-10">
         <DashboardHeading title="Dashboard">Welcome to dashboard</DashboardHeading>
@@ -59,7 +59,7 @@ const Dashboard = () => {
             </div>
             <Progress
               className="h-1 lg:w-52 md:w-44 rounded-md my-1 bg-pink-50"
-              value={70}
+              value={allDoctor}
               color="pink"
             />
             <h1 className="font-semibold">Doctor</h1>
@@ -99,9 +99,6 @@ const Dashboard = () => {
         </div>
       </div>
     );
-  } else {
-
-    return <Profile></Profile>
   }
 
 };

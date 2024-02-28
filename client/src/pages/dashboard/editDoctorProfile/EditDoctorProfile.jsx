@@ -15,7 +15,7 @@ import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
 
-const DoctorProfile = () => {
+const EditDoctorProfile = () => {
   const axiosPublic = useAxiosPublic();
   const { user } = useContext(AuthContext);
 
@@ -127,4 +127,4 @@ const DoctorProfile = () => {
   );
 };
 
-export default DoctorProfile;
+export default EditDoctorProfile;

@@ -100,7 +100,7 @@ const DashboardNav = () => {
           </>
         ) : isDoctor ? (
           <>
-            <Link to={"/dashboard"}>
+            <Link to={"/dashboard/doctorDashboard"}>
               <ListItem className="p-0">
                 <Typography
                   color="blue-gray"
@@ -132,7 +132,7 @@ const DashboardNav = () => {
                 </Typography>
               </ListItem>
             </Link>
-            <Link to={"/dashboard/doctorProfile"}>
+            <Link to={"/dashboard/editDoctorProfile"}>
               <ListItem className="p-0">
                 <Typography
                   color="blue-gray"
@@ -145,9 +145,14 @@ const DashboardNav = () => {
           </>
         ) : (
           <>
-            <Link to="/dashboard">
-              <ListItem>
-                Profile
+            <Link to="/dashboard/user">
+            <ListItem className="p-0">
+                <Typography
+                  color="blue-gray"
+                  className="mr-auto p-2 font-normal"
+                >
+                  Profile
+                </Typography>
               </ListItem>
             </Link>
             <Link to={"/dashboard/appoinment"}>

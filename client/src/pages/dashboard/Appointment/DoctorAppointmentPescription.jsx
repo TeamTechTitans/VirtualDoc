@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 import { useState } from "react";
 import { useForm } from 'react-hook-form';
 import Prescription from "./Prescription/Prescription";
+import VideoCall from "../VideoCall/VideoCall";
 import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
 function Icon({ id, open }) {
   return (

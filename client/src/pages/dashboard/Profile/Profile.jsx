@@ -1,14 +1,14 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "./../../../provider/AuthProvider/AuthProvider";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
-import { FaEnvelope, FaLocationPin, FaPhone } from "react-icons/fa6";
-import useApiLink from "../../../lib/hooks/useApiLink";
 import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import {Link} from 'react-router-dom'
+import { FaRegMoneyBillAlt } from "react-icons/fa";
+import { Avatar, Progress } from "@material-tailwind/react";
+import { IoDocumentText } from "react-icons/io5";
+import useAuth from "../../../lib/hooks/useAuth";
 
 const Profile = () => {
-  // const apiLink = useApiLink();
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
 
   const axiosSecure = useAxiosSecure()
 
@@ -20,63 +20,81 @@ const Profile = () => {
     }
   })
 
-  // console.log(users);
-
+  const { data: stats = [], refetch } = useQuery({
+    queryKey: ['stats', user?.email],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/user/stats/${user.email}`)
+      return res.data;
+    }
+  })
+  //console.log(stats)
+  const { totalAppointment, totalPaid, appointmentPercent, paymentPercent} = stats
+  refetch()
   if (isLoading) return <div className="w-full h-screen flex justify-center items-center"> <span className="loading loading-dots loading-lg"></span></div>
 
   return (
-    <div className="mt-10 container mx-auto">
-      <DashboardHeading title="Your Profile">
+    <div className="mx-auto">
+      <DashboardHeading title="Welcome">
         {user?.displayName}
       </DashboardHeading>
-      <h1 className="text-3xl mb-20 text-[#142441] text-center font-bold">
-        Profile Details
-      </h1>
-      <div className="flex gap-5 justify-center">
+
+      <div className="flex flex-col md:flex-row mx-8 gap-8 items-center">
         {/* profile image */}
-        <div>
-          <img className="h-48 w-48  rounded-lg" src={users?.image} alt="" />
+        <div className="">
+        <Avatar
+            variant="circular"
+            alt="image"
+            className="w-44 h-44 border-teal-400 border-2 my-2"
+            src={`${users?.image}`}
+          />
         </div>
 
         {/* details */}
-        <div className="flex justify-center items-center text-[#142441] text-xl font-semibold  ">
+        <div className="text-[#142441]">
           <div>
             <h1 className="">
-              Name: <span className="text-[#1D5CCD]">{users?.name}</span>
+              <span className="font-semibold">Name: </span><span className="">{users?.name}</span>
             </h1>
             <p>
-              Email: <span className="text-[#1D5CCD]">{users?.email}</span>
+              <span className="font-semibold">Email: </span><span className="text-[#1D5CCD]">{users?.email}</span>
             </p>
             <p>
-              Blood Group:
-              <span className="text-[#1D5CCD]">{users?.blood_group}</span>
+            <span className="font-semibold">Blood Group: </span>
+              <span className="">{users?.blood_group}</span>
             </p>
             <p>
-              Location: <span className="text-[#1D5CCD]">{users?.loc}</span>
+            <span className="font-semibold">Location: </span><span className="">{users?.loc}</span>
             </p>
           </div>
-          {/* <Link to='dashboard/userProfile'>Edit Profile</Link> */}
         </div>
       </div>
-      {/* location */}
-      <div className="text-xl font-semibold text-[#1D5CCD] ml-5 flex justify-center items-center py-20">
-        <div className="">
-          <p className="flex items-center gap-2">
-            <FaLocationPin className="text-primary-teal" />
-            <span>House 9, Road 15, Uttara, Dhaka</span>
-          </p>
-          <p className="flex items-center gap-2">
-            <FaPhone className="text-primary-teal" />
-            <span>Call Us: +88011111111</span>
-          </p>
-          <p className="flex items-center gap-2">
-            <FaEnvelope className="text-primary-teal" />
-            <a href="mailto:mail.techtitan@gmail.com">
-              mail.techtitan@gmail.com
-            </a>
-          </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ">
+          
+          <div className="bg-white h-32 p-3 w-full shadow-md rounded-lg ">
+            <div className="flex text-4xl gap-3 my-3">
+              <FaRegMoneyBillAlt className="text-green-500"></FaRegMoneyBillAlt>
+              <h1 className="text-4xl font-bold text-gray-700">{totalPaid} Tk</h1>
+            </div>
+            <Progress
+              className="h-1 lg:w-52 md:w-44 rounded-md my-1 bg-green-50"
+              value={paymentPercent}
+              color="green"
+            />
+            <h1 className="font-semibold">Total Paid</h1>
+          </div>
+          <div className="bg-white h-32 p-3 w-full shadow-md rounded-lg">
+            <div className="flex text-4xl gap-3 my-3">
+              <IoDocumentText className="text-yellow-800"></IoDocumentText>
+              <h1 className="text-4xl font-bold text-gray-700">{totalAppointment}</h1>
+            </div>
+            <Progress
+              className="h-1 lg:w-52 md:w-44 rounded-md my-1 bg-yellow-50"
+              value={appointmentPercent}
+              color="yellow"
+            />
+            <h1 className="font-semibold">Appointment Taken</h1>
+          </div>
         </div>
-      </div>
     </div>
   );
 };

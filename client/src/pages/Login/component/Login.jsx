@@ -22,7 +22,12 @@ const Login = () => {
   const { register, handleSubmit, required, reset } = useForm();
   const { logIn, googleSignIn, fbLogin } = useContext(AuthContext);
   const location = useLocation();
+<<<<<<< HEAD
   console.log(location);
+=======
+  const axiosPublic = useAxiosPublic();
+  // console.log(location);
+>>>>>>> 3a881bef805049a7dc6f673cbb805e3f62135bdd
   const navigate = useNavigate();
   const onSubmit = (data) => {
     // console.log(data);
@@ -61,7 +66,8 @@ const Login = () => {
           blood_group: " ",
           email: user.email,
           password: " ",
-        };
+          role: "user",
+        }
         // console.log(googleData);
         //data insertion
         fetch(`${apiLink}/users/createUser`, {
@@ -71,9 +77,9 @@ const Login = () => {
           },
           body: JSON.stringify(googleData),
         })
-          .then((res) => res.json())
-          .then((data) => {
-            // console.log(data);
+          .then(res => res.json())
+          .then(data => {
+            // console.log(data._id);
             if (data._id) {
               Swal.fire("Login Successful");
               navigate(location.state ? location.state : "/", {

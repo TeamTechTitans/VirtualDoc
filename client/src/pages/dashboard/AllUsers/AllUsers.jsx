@@ -30,12 +30,10 @@ const AllUsers = () => {
   //  Manage Modal
   const [open, setOpen] = React.useState(false);
   const [userData, setUserData] = React.useState('');
-  const handleOpen = (userEmail) => {
-    setUserData(userEmail)
+  
+  const handleOpen = async (email) => {
+    setUserData(email)
     setOpen(!open)
-    setUserData(user)
-    console.log(user._id)
-
   };
 
 

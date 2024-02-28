@@ -26,26 +26,22 @@ import PaymentHistory from "../../pages/dashboard/paymentHistory/PaymentHistory"
 import PostNewTip from "../../pages/dashboard/postNewTip/PostNewTip";
 import Doctors from "./../../pages/doctors/Doctors";
 import useApiLink from "../../lib/hooks/useApiLink";
-import DoctorProfile from "../../pages/dashboard/doctorProfile/DoctorProfile";
 import Cart from "../../pages/Cart/Cart";
 import PaymentSuccess from "../../pages/PaymentSuccess/PaymentSuccess";
 import AdminRoute from "../AdminRoute";
 import DoctorRoute from "../DoctorRoute";
-// import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
-// import Connect from "../../pages/ChatApp/Chat/Connect";
 import PrivetRoute from "../PrivetRoute";
-import Profile from "../../pages/dashboard/Profile/Profile";
 import AllDoctor from "../../pages/dashboard/AllDoctor/AllDoctor";
 import AllDoctors from "../../pages/dashboard/allDoctors/AllDoctors";
 import DoctorAppointment from "../../pages/dashboard/doctorAppointment/DoctorAppointment";
-
-// import DoctorAppointment from "../../pages/dashboard/Appointment/DoctorAppointment";
 import Prescription from "../../pages/dashboard/Appointment/Prescription/Prescription";
 import DoctorAppointmentPescription from "../../pages/dashboard/Appointment/DoctorAppointmentPescription";
 import ErrorPage from "../../pages/error/ErrorPage";
 // import Connect from "../../pages/ChatApp/Chat/Connect";
 import PublicRoute from "../PublicRoute";
-// import Profile from "../../pages/dashboard/Profile/Profile";
+import Profile from "../../pages/dashboard/Profile/Profile";
+import EditDoctorProfile from "../../pages/dashboard/editDoctorProfile/EditDoctorProfile";
+import DoctorDashboard from "../../pages/dashboard/doctorDashboard/DoctorDashboard";
 
 const apiLink = useApiLink();
 
@@ -127,7 +123,7 @@ const MainRouter = createBrowserRouter([
         children: [
             {
                 path: "/dashboard",
-                element: <Dashboard />,
+                element: <AdminRoute><Dashboard /></AdminRoute>,
                 errorElement: <ErrorPage />,
             },
             {
@@ -143,8 +139,12 @@ const MainRouter = createBrowserRouter([
                 element: <PrivetRoute><UserProfile /></PrivetRoute>
             },
             {
-                path: "doctorProfile",
-                element: <DoctorRoute><DoctorProfile /></DoctorRoute>
+                path: "doctorDashboard",
+                element: <DoctorRoute><DoctorDashboard /></DoctorRoute>
+            },
+            {
+                path: "editDoctorProfile",
+                element: <DoctorRoute><EditDoctorProfile /></DoctorRoute>
             },
             {
                 path: "appoinment",
@@ -160,7 +160,7 @@ const MainRouter = createBrowserRouter([
             },
             {
                 path: "allDoctors",
-                element: <AllDoctors />
+                element: <AdminRoute><AllDoctors /></AdminRoute>
             },
             {
                 path: "doctorDetail/:id",
@@ -170,7 +170,8 @@ const MainRouter = createBrowserRouter([
             {
 
                 path: "videocall/:id",
-                element: <VideoCall />
+                element: <VideoCall />,
+                loader: ({params}) => fetch(`${apiLink}/appointments/${params.id}`)
             },
 
             {
@@ -179,30 +180,16 @@ const MainRouter = createBrowserRouter([
                 element: <PrivetRoute><PaymentHistory /></PrivetRoute>
             },
             {
-
-                path: "doctorApproval",
-                element: <AdminRoute><DoctorApproval /></AdminRoute>
-            },
-            {
                 path: "prescription",
                 element: <Prescription />
             },
-            // {
-            //     path: "doctorDetail/:id",
-            //     element: <DoctorApprovalDetails/>,
-            //     loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
-            // },
-            // {
-            //     path: "chat",
-            //     element: <Connect></Connect>,
-            // },
             {
                 path: "allDoctor",
                 element: <AdminRoute><AllDoctor /></AdminRoute>
             },
             {
-                path: 'profile',
-                element: <Profile />
+                path: 'user',
+                element: <PrivetRoute><Profile /></PrivetRoute>
             },
             {
                 path: "doctorAppointment",
@@ -222,45 +209,8 @@ const MainRouter = createBrowserRouter([
                 ),
             },
             {
-                path: "doctorApproval",
-                element: (
-                    <AdminRoute>
-                        <DoctorApproval />
-                    </AdminRoute>
-                ),
-            },
-            {
                 path: "prescription",
                 element: <Prescription />,
-            },
-            // {
-            //     path: "doctorDetail/:id",
-            //     element: <DoctorApprovalDetails/>,
-            //     loader: ({params}) => fetch(`${apiLink}/doctorRequestDetail/${params.id}`)
-            // },
-            // {
-            //     path: "chat",
-            //     element: <Connect></Connect>,
-            // },
-            {
-                path: "allDoctor",
-                element: (
-                    <AdminRoute>
-                        <AllDoctor />
-                    </AdminRoute>
-                ),
-            },
-            {
-                path: "doctorAppointment",
-                element: (
-                    <DoctorRoute>
-                        <DoctorAppointmentPescription />
-                    </DoctorRoute>
-                ),
-            },
-            {
-                path: "doctorAppointments",
-                element: <DoctorAppointment />,
             },
         ],
     },

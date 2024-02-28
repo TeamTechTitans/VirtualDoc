@@ -51,7 +51,7 @@ const Comments = ({ tip }) => {
       <h2 className="text-2xl font-semibold">Comments </h2>
       <h2 className="text-2xl font-semibold my-3">Leave a comment here </h2>{" "}
       {
-        user ? (<form onSubmit={handleSubmit(onSubmit)}>
+        user ? <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex items-center gap-2">
             <div className="flex-1">
               <textarea
@@ -68,7 +68,7 @@ const Comments = ({ tip }) => {
               </button>
             </div>
           </div>
-        </form>)
+        </form>
           :
           (
             <p className="text-[#848484] text-xl">Please <a href="/login" className="text-primary-teal font-bold">Login</a> to post a comment</p>
@@ -98,6 +98,7 @@ const Comments = ({ tip }) => {
         ))}
       </div>
     </div>
+
   );
 };
 

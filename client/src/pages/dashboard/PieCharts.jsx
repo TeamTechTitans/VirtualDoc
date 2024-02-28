@@ -57,7 +57,8 @@ const PieCharts = ({allDoctor,allAppoinment,allUsers}) => {
             dataKey="value"
           >
             {data.map((entry, index) =><Cell
-                key={`cell-${index}`}
+                key={index}
+                // key={`cell-${index}`}
                 fill={COLORS[index % COLORS.length]}
               />
             )}

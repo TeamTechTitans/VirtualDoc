@@ -23,11 +23,17 @@ const BottomNav = () => {
     const navLinks = <>
         <Link to='/' className="text-secondary-blue">Home</Link>
         <Link to='/appointment' className="text-secondary-blue">Appointment</Link>
-        <Link to='/services' className="text-secondary-blue">Services</Link>
-        <Link to='/doctors' className="text-secondary-blue">Doctors</Link>
+        {
+            isAdmin ? 
+            <Link to='/dashboard' className="text-secondary-blue">Dashboard</Link>
+            : isDoctor ? <Link to='/dashboard/doctorDashboard' className="text-secondary-blue">Dashboard</Link> : 
+            <Link to='/dashboard/user' className="text-secondary-blue">Dashboard</Link>
+        }
+        {/* {user && <Link to='/dashboard' className="text-secondary-blue">Dashboard</Link>} */}
         <Link to='/tips' className="text-secondary-blue">Tips</Link>
+        <Link to='/doctors' className="text-secondary-blue">Doctors</Link>
+        <Link to='/services' className="text-secondary-blue">Services</Link>
         <Link to='/aboutUs' className="text-secondary-blue">About</Link>
-        {user && <Link to='/dashboard' className="text-secondary-blue">Dashboard</Link>}
         <Link to='/team' className="text-secondary-blue">Team</Link>
         <Link to='/contact' className="text-secondary-blue">Contact US</Link>
     </>

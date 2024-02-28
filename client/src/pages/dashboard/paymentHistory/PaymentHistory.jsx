@@ -46,7 +46,7 @@ const PaymentHistory = () => {
                 </th>
                 <th>
                   {payment.paidStatus == true ?
-                    (<p>Paid</p>) : (<p>Not Paid</p>)
+                    (<p>Payment Successful</p>) : (<p className="text-red-600">Failed</p>)
                   }
                 </th>
               </tr>
