@@ -41,7 +41,7 @@ const BottomNav = () => {
     const authLinks = <>
         <div className="flex flex-wrap gap-5">
             <Link to='/register' >
-                <Button className="bg-secondary-blue text-sm normal-case">Registration</Button>
+                <Button className="bg-secondary-blue text-sm normal-case">Registrater</Button>
             </Link>
             <Link to='/login' className="text-secondary-blue">
                 <Button className="border-secondary-blue text-sm border py-[10px] bg-transparent text-secondary-blue" >Login</Button>

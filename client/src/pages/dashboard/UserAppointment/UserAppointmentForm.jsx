@@ -105,7 +105,7 @@ const UserAppointmentForm = () => {
         <div className="hero-content flex-col">
           <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
-              <div className="grid md:grid-cols-3 grid-cols-1 gap-6">
+              <div className="grid lg:grid-cols-3 grid-cols-1 gap-6">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Health Category</span>
