@@ -6,6 +6,7 @@ import * as React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import useAxiosPublic from '../../../lib/hooks/useAxiosPublic';
 import { AuthContext } from '../../../provider/AuthProvider/AuthProvider';
+import './VideoCall.css';
 
 
 function randomID(len) {
@@ -84,7 +85,7 @@ const VideoCall = () => {
     <div
       className="myCallContainer"
       ref={myMeeting}
-      style={{ width: '70vw', height: '90vh' }}
+      style={{ width: '100%', height: '100%' }}
     ></div>
  </> );
 };
