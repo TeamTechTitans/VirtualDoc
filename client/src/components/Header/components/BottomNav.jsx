@@ -24,10 +24,10 @@ const BottomNav = () => {
         <Link to='/' className="text-secondary-blue">Home</Link>
         <Link to='/appointment' className="text-secondary-blue">Appointment</Link>
         {
-            isAdmin ? 
-            <Link to='/dashboard' className="text-secondary-blue">Dashboard</Link>
-            : isDoctor ? <Link to='/dashboard/doctorDashboard' className="text-secondary-blue">Dashboard</Link> : 
-            <Link to='/dashboard/user' className="text-secondary-blue">Dashboard</Link>
+            isAdmin ?
+                <Link to='/dashboard' className="text-secondary-blue">Dashboard</Link>
+                : isDoctor ? <Link to='/dashboard/doctorDashboard' className="text-secondary-blue">Dashboard</Link> :
+                    <Link to='/dashboard/user' className="text-secondary-blue">Dashboard</Link>
         }
         {/* {user && <Link to='/dashboard' className="text-secondary-blue">Dashboard</Link>} */}
         <Link to='/tips' className="text-secondary-blue">Tips</Link>
@@ -41,7 +41,7 @@ const BottomNav = () => {
     const authLinks = <>
         <div className="flex flex-wrap gap-5">
             <Link to='/register' >
-                <Button className="bg-secondary-blue text-sm normal-case">Registration</Button>
+                <Button className="bg-secondary-blue text-sm normal-case">Registrater</Button>
             </Link>
             <Link to='/login' className="text-secondary-blue">
                 <Button className="border-secondary-blue text-sm border py-[10px] bg-transparent text-secondary-blue" >Login</Button>
@@ -69,14 +69,17 @@ const BottomNav = () => {
                 <ul className="font-bold hidden xl:flex gap-8 font-open-sans">
                     {navLinks}
                 </ul>
+                <div className="md:hidden">
+                    <Logo></Logo>
+                </div>
 
                 <FaBars
                     onClick={() => setOpenNav(true)}
                     className="block xl:hidden text-lg"
                 />
                 {/* logout added */}
-                <div className="flex items-center">
-                    <div className="float-right hidden md:block">
+                <div className="md:flex items-center hidden ">
+                    <div className="float-right ">
                         {
                             user ? userLinks : authLinks
                         }
@@ -90,7 +93,7 @@ const BottomNav = () => {
                 onClose={() => setOpenNav(false)}
                 className="p-4 fixed"
             >
-                <div className=" bg-white h-screen mx-auto z-50 items-center">
+                <div className=" bg-white overflow-auto h-screen mx-auto z-50 items-center">
                     <div className="flex bg-white justify-between items-center">
                         <div className="flex items-center">
                             <Logo></Logo>

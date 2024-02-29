@@ -1,14 +1,25 @@
 import { useQuery } from "@tanstack/react-query";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
+<<<<<<< HEAD
 // import React from "react";
+=======
+import { useState, Fragment } from "react";
+// import { Dialog, Transition } from '@headlessui/react'
+>>>>>>> 4b65a652130f1c3540b3a1e0c7f2dc39c53da457
 import {
   Button,
   Card,
   Typography,
 } from "@material-tailwind/react";
+<<<<<<< HEAD
 import { useState } from "react";
 import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
 import ManageModal from "./ManageModal";
+=======
+// import ManageModal from "./ManageModal";
+import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
+import UserTable from "./UserTable";
+>>>>>>> 4b65a652130f1c3540b3a1e0c7f2dc39c53da457
 
 const AllUsers = () => {
 
@@ -16,7 +27,7 @@ const AllUsers = () => {
   const axiosSecure = useAxiosSecure()
 
 
-  const { data: userDetails = [], refetch } = useQuery({
+  const { data: userDetails = [] } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
       const res = await axiosSecure.get(`/users`);
@@ -26,17 +37,43 @@ const AllUsers = () => {
   });
 
   const classes = "p-4 border-b border-blue-gray-50";
+  // const [userData, setUserData] = useState('');
 
+  //  Manage Moda
+  // const [open, setOpen] = useState(false);
+  let [isOpen, setIsOpen] = useState(false);
+
+  function closeModal() {
+    setIsOpen(false)
+  }
+  function openModal() {
+    setIsOpen(true)
+  }
+
+  const handleActionSubmit = () => {
+
+  }
+
+  const handleDelete = () => {
+
+  }
+
+
+<<<<<<< HEAD
   //  Manage Modal
   // const [open, setOpen] = React.useState(false);
   // const [userData, setUserData] = React.useState('');
   const [open, setOpen] = useState(false);
   const [userData, setUserData] = useState('');
   
+=======
+>>>>>>> 4b65a652130f1c3540b3a1e0c7f2dc39c53da457
   const handleOpen = async (email) => {
-    setUserData(email)
+    setUserData(email ? email : "")
+    console.log(email ? email : "")
     setOpen(!open)
   };
+
 
 
   return (
@@ -63,55 +100,13 @@ const AllUsers = () => {
             </tr>
           </thead>
           <tbody >
-            {userDetails?.map((user, index) => <tr className="font-barlow" key={index}>
-              <td className={classes}>
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-
-                >
-                  {user?.name}
-                </Typography>
-              </td>
-              <td className={classes}>
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-
-                >
-                  {user?.email}
-                </Typography>
-              </td>
-              <td className={classes}>
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="text-center"
-                >
-                  {user?.loc}
-                </Typography>
-              </td>
-              <td className={classes}>
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="text-center"
-                >
-                  {user?.blood_group}
-                </Typography>
-              </td>
-              <td className={classes}>
-                <Button color="blue" onClick={() => handleOpen(user?.email)} className="px-2 py-1 rounded-none mr-2 normal-case">Manage</Button>
-
-                <Button className="px-2 py-1 rounded-none normal-case" color="red">Delete</Button>
-              </td>
-            </tr>
-
-            )}
+            {userDetails?.map((user, index) => <UserTable key={index} index={index} classes={classes} user={user}></UserTable>)}
           </tbody>
         </table>
       </Card>
-      <ManageModal handleOpen={handleOpen} refetch={refetch} open={open} userEmail={userData}></ManageModal>
+
+      {/* <ManageModal handleOpen={handleOpen} open={open} userEmail={userData}></ManageModal> */}
+
     </div >
   );
 };
