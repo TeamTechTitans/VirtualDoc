@@ -1,17 +1,17 @@
-import React, { useState } from "react";
 import {
     Button,
-    Dialog,
     Card,
     CardBody,
     CardFooter,
-    Typography,
+    Dialog,
     Input,
-    Select,
     Option,
+    Select,
+    Typography,
 } from "@material-tailwind/react";
-import { useForm } from "react-hook-form";
 import { useQuery } from "@tanstack/react-query";
+import React from "react";
+import { useForm } from "react-hook-form";
 
 import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
 // import { useQuery } from "@tanstack/react-query";
@@ -27,12 +27,10 @@ export default function ManageModal({ handleOpen, open, userEmail, email }) {
     const { data: user = [], refetch } = useQuery({
         queryKey: ['user'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/users/${mail}`);
+            const res = await axiosSecure.get(`/users/${email}`);
             return res.data;
         },
     });
-    // refetch()
-    console.log(user)
     if (open){
         refetch()
     }

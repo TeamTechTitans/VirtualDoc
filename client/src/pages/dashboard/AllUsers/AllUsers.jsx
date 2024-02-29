@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
-import React from "react";
+// import React from "react";
 import {
   Button,
   Card,
   Typography,
-
 } from "@material-tailwind/react";
-import ManageModal from "./ManageModal";
+import { useState } from "react";
 import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
+import ManageModal from "./ManageModal";
 
 const AllUsers = () => {
 
@@ -28,8 +28,10 @@ const AllUsers = () => {
   const classes = "p-4 border-b border-blue-gray-50";
 
   //  Manage Modal
-  const [open, setOpen] = React.useState(false);
-  const [userData, setUserData] = React.useState('');
+  // const [open, setOpen] = React.useState(false);
+  // const [userData, setUserData] = React.useState('');
+  const [open, setOpen] = useState(false);
+  const [userData, setUserData] = useState('');
   
   const handleOpen = async (email) => {
     setUserData(email)
