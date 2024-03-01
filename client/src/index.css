@@ -48,3 +48,7 @@
 .swal2-confirm, .swal2-styled, .swal2-default-outline {
     background-color: #22b6af !important;
 }
+
+.overflow-auto {
+    overflow: auto !important;
+}

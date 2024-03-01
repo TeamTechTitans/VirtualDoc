@@ -1,14 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
-import React from "react";
+
+// import { Dialog, Transition } from '@headlessui/react'
 import {
-  Button,
+
   Card,
   Typography,
 
 } from "@material-tailwind/react";
-import ManageModal from "./ManageModal";
+// import ManageModal from "./ManageModal";
 import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
+import UserTable from "./UserTable";
 
 const AllUsers = () => {
 
@@ -26,15 +28,9 @@ const AllUsers = () => {
   });
 
   const classes = "p-4 border-b border-blue-gray-50";
+  // const [userData, setUserData] = useState('');
 
-  //  Manage Modal
-  const [open, setOpen] = React.useState(false);
-  const [userData, setUserData] = React.useState('');
-  
-  const handleOpen = async (email) => {
-    setUserData(email)
-    setOpen(!open)
-  };
+  //  Manage Moda
 
 
   return (
@@ -61,55 +57,13 @@ const AllUsers = () => {
             </tr>
           </thead>
           <tbody >
-            {userDetails?.map((user, index) => <tr className="font-barlow" key={index}>
-              <td className={classes}>
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-
-                >
-                  {user?.name}
-                </Typography>
-              </td>
-              <td className={classes}>
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-
-                >
-                  {user?.email}
-                </Typography>
-              </td>
-              <td className={classes}>
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="text-center"
-                >
-                  {user?.loc}
-                </Typography>
-              </td>
-              <td className={classes}>
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="text-center"
-                >
-                  {user?.blood_group}
-                </Typography>
-              </td>
-              <td className={classes}>
-                <Button color="blue" onClick={() => handleOpen(user?.email)} className="px-2 py-1 rounded-none mr-2 normal-case">Manage</Button>
-
-                <Button className="px-2 py-1 rounded-none normal-case" color="red">Delete</Button>
-              </td>
-            </tr>
-
-            )}
+            {userDetails?.map((user, index) => <UserTable key={index} refetch={refetch} index={index} classes={classes} user={user}></UserTable>)}
           </tbody>
         </table>
       </Card>
-      <ManageModal handleOpen={handleOpen} refetch={refetch} open={open} userEmail={userData}></ManageModal>
+
+      {/* <ManageModal handleOpen={handleOpen} open={open} userEmail={userData}></ManageModal> */}
+
     </div >
   );
 };
