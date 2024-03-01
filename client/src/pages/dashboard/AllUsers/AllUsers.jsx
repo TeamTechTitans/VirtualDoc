@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
-import { useState, Fragment } from "react";
+
 // import { Dialog, Transition } from '@headlessui/react'
 import {
-  Button,
+
   Card,
   Typography,
 
@@ -18,7 +18,7 @@ const AllUsers = () => {
   const axiosSecure = useAxiosSecure()
 
 
-  const { data: userDetails = [] } = useQuery({
+  const { data: userDetails = [], refetch } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
       const res = await axiosSecure.get(`/users`);
@@ -31,31 +31,6 @@ const AllUsers = () => {
   // const [userData, setUserData] = useState('');
 
   //  Manage Moda
-  // const [open, setOpen] = useState(false);
-  let [isOpen, setIsOpen] = useState(false);
-
-  function closeModal() {
-    setIsOpen(false)
-  }
-  function openModal() {
-    setIsOpen(true)
-  }
-
-  const handleActionSubmit = () => {
-
-  }
-
-  const handleDelete = () => {
-
-  }
-
-
-  const handleOpen = async (email) => {
-    setUserData(email ? email : "")
-    console.log(email ? email : "")
-    setOpen(!open)
-  };
-
 
 
   return (
@@ -82,7 +57,7 @@ const AllUsers = () => {
             </tr>
           </thead>
           <tbody >
-            {userDetails?.map((user, index) => <UserTable key={index} index={index} classes={classes} user={user}></UserTable>)}
+            {userDetails?.map((user, index) => <UserTable key={index} refetch={refetch} index={index} classes={classes} user={user}></UserTable>)}
           </tbody>
         </table>
       </Card>
