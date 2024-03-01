@@ -17,6 +17,7 @@ import { AuthContext } from "../../../provider/AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
 import { FacebookAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import useApiLink from "../../../lib/hooks/useApiLink";
+import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
 const Login = () => {
   const apiLink = useApiLink();
   const { register, handleSubmit, required, reset } = useForm();
