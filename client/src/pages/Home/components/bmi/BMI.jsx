@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Input, Button, Typography } from "@material-tailwind/react";
 import CustomTitle from "../../../../components/CustomTitle/CustomTitle";
-import SiteHeader from "../../../../components/siteHeader/SiteHeader";
-import DashboardHeading from "../../../../components/DashboardHeading/DashboardHeading";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 
 const BMI = () => {
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
   const [bmi, setBMI] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
+  const [tabIndex, setTabIndex] = useState(0);
 
   const calculateBMI = () => {
     if (!height || !weight) {
@@ -65,9 +66,16 @@ const BMI = () => {
           </p>
         </div>
         <div className="md:w-1/2 w-full px-4">
-          <div className="form-control">
+        <Tabs className="text-center my-4" defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+        <TabList>
+          <Tab>Metric Units</Tab>
+          <Tab>US Units</Tab>
+          <Tab>Other</Tab>
+        </TabList>
+        <TabPanel>
+        <div className="form-control">
             <label className="label">
-              <span className="leading-none text-xl font-bold">Height</span>
+              <span className="leading-none text-xl font-bold">Height (cm)</span>
             </label>
             <Input
               type="number"
@@ -89,6 +97,68 @@ const BMI = () => {
               color="teal"
             />
           </div>
+        </TabPanel>
+        <TabPanel>
+        <div className="form-control">
+            <label className="label">
+              <span className="leading-none text-xl font-bold">Height</span>
+            </label>
+            <div className="flex gap-3">
+            <Input 
+              type="number"
+              label="feet"
+              color="teal"
+            />
+            <Input
+              type="number"
+              label="inches"
+              color="teal"
+            />
+            </div>
+            
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="leading-none mt-5 text-xl font-bold">Weight (pounds)</span>
+            </label>
+            <Input
+              type="number"
+              label="Weight (pounds)"
+              color="teal"
+            />
+          </div>
+        </TabPanel>
+        <TabPanel>
+        <div className="form-control">
+            <label className="label">
+              <span className="leading-none text-xl font-bold">Height</span>
+            </label>
+            <div className="flex gap-3">
+            <Input 
+              type="number"
+              label="feet"
+              color="teal"
+            />
+            <Input
+              type="number"
+              label="inches"
+              color="teal"
+            />
+            </div>
+            
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="leading-none mt-5 text-xl font-bold">Weight (kg)</span>
+            </label>
+            <Input
+              type="number"
+              label="Weight (kg)"
+              color="teal"
+            />
+          </div>
+        </TabPanel>
+      </Tabs>
 
           {errorMessage && (
             <div className="text-red-600 mb-4">{errorMessage}</div>
