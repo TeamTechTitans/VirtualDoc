@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useRef, useState } from "react";
 import { Input, Button, Typography } from "@material-tailwind/react";
 import CustomTitle from "../../../../components/CustomTitle/CustomTitle";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
@@ -9,16 +9,55 @@ const BMI = () => {
   const [weight, setWeight] = useState("");
   const [bmi, setBMI] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
-  const [tabIndex, setTabIndex] = useState(0);
+
+  const [feet, setFeet] = useState()
+  const [inches, setInches] = useState()
+  const [pound, setPounds] = useState()
 
   const calculateBMI = () => {
     if (!height || !weight) {
       setErrorMessage("Please provide both height and weight.");
       return;
     }
-    const heightMeters = height / 100; // Convert height to meters
-    const bmiValue = weight / (heightMeters * heightMeters); // BMI formula
-    setBMI(bmiValue.toFixed(2)); // Round to 2 decimal places
+    const heightMeters = height / 100; 
+    const bmiValue = weight / (heightMeters * heightMeters); 
+    setBMI(bmiValue.toFixed(2)); 
+    setErrorMessage("");
+  };
+
+  const convertToCentimeters = (feet, inches) => {
+    const totalInches = feet * 12 + parseFloat(inches);
+    console.log(totalInches)
+    return totalInches * 2.54; // 1 inch = 2.54 cm
+  };
+
+  const convertToKilograms = (pounds) => {
+    return pounds * 0.453592; 
+  };
+
+  const calculateBMIFromUSUnits = () => {
+    if (!feet || !inches || !pound) {
+      setErrorMessage("Please provide both Height and Weight");
+      return;
+    }
+
+    const heightCm = convertToCentimeters(feet, inches);
+    const weightKg = convertToKilograms(pound);
+    const heightMeters = heightCm / 100; 
+    const bmiValue = weightKg / (heightMeters * heightMeters); 
+    setBMI(bmiValue.toFixed(2));
+    setErrorMessage("");
+  };
+  const bmiWithKgFeetInc = () => {
+    if (!feet || !inches || !weight) {
+      setErrorMessage("Please provide both Height and Weight");
+      return;
+    }
+
+    const heightCm = convertToCentimeters(feet, inches);
+    const heightMeters = heightCm / 100; 
+    const bmiValue = weight / (heightMeters * heightMeters); 
+    setBMI(bmiValue.toFixed(2));
     setErrorMessage("");
   };
 
@@ -66,7 +105,8 @@ const BMI = () => {
           </p>
         </div>
         <div className="md:w-1/2 w-full px-4">
-        <Tabs className="text-center my-4" defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+        <Tabs className="text-center my-4" >
+        {/* <Tabs className="text-center my-4" defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}> */}
         <TabList>
           <Tab>Metric Units</Tab>
           <Tab>US Units</Tab>
@@ -97,6 +137,11 @@ const BMI = () => {
               color="teal"
             />
           </div>
+          <div className="w-full">
+          <Button onClick={ calculateBMI } className="my-2 bg-secondary-blue">
+              Calculate BMI
+            </Button>
+          </div>
         </TabPanel>
         <TabPanel>
         <div className="form-control">
@@ -108,11 +153,15 @@ const BMI = () => {
               type="number"
               label="feet"
               color="teal"
+              value={feet}
+              onChange={(e) => setFeet(e.target.value)}
             />
             <Input
               type="number"
               label="inches"
               color="teal"
+              value={inches}
+              onChange={(e) => setInches(e.target.value)}
             />
             </div>
             
@@ -125,7 +174,14 @@ const BMI = () => {
               type="number"
               label="Weight (pounds)"
               color="teal"
+              value={pound}
+              onChange={(e) => setPounds(e.target.value)}
             />
+          </div>
+          <div className="w-full">
+          <Button onClick={calculateBMIFromUSUnits} className="my-2 bg-secondary-blue">
+              Calculate BMI
+            </Button>
           </div>
         </TabPanel>
         <TabPanel>
@@ -138,14 +194,17 @@ const BMI = () => {
               type="number"
               label="feet"
               color="teal"
+              value={feet}
+              onChange={(e) => setFeet(e.target.value)}
             />
             <Input
               type="number"
               label="inches"
               color="teal"
+              value={inches}
+              onChange={(e) => setInches(e.target.value)}
             />
-            </div>
-            
+            </div>  
           </div>
           <div className="form-control">
             <label className="label">
@@ -154,8 +213,15 @@ const BMI = () => {
             <Input
               type="number"
               label="Weight (kg)"
+              value={weight}
+              onChange={(e) => setWeight(e.target.value)}
               color="teal"
             />
+          </div>
+          <div className="w-full">
+          <Button onClick={ bmiWithKgFeetInc } className="my-2 bg-secondary-blue">
+              Calculate BMI
+            </Button>
           </div>
         </TabPanel>
       </Tabs>
@@ -163,11 +229,6 @@ const BMI = () => {
           {errorMessage && (
             <div className="text-red-600 mb-4">{errorMessage}</div>
           )}
-          <div className="w-full">
-            <Button onClick={calculateBMI} className="my-2 bg-secondary-blue">
-              Calculate BMI
-            </Button>
-          </div>
 
           {bmi !== null && (
             <div className="mt-4">
