@@ -34,7 +34,7 @@ const LaboratoryServices = () => {
                         </Typography>
                     </CardBody>
                     <CardFooter className="pt-0 z-10">
-                        <Link to='/tips'>
+                        <Link to='/services'>
                             <Button size="sm" variant='text' className="flex hover:bg-white bg-white rounded-full shadow-md items-center gap-2">
                                 Read More
                                 <svg
@@ -68,7 +68,7 @@ const LaboratoryServices = () => {
                         </Typography>
                     </CardBody>
                     <CardFooter className="pt-0 z-10">
-                        <Link to='/tips'>
+                        <Link to='/services'>
                             <Button size="sm" variant="text" className="hover:bg-white bg-white rounded-full shadow-md flex items-center gap-2">
                                 Read More
                                 <svg
@@ -102,7 +102,7 @@ const LaboratoryServices = () => {
                         </Typography>
                     </CardBody>
                     <CardFooter className="pt-0 z-10">
-                        <Link to='/tips'>
+                        <Link to='/services'>
                             <Button size="sm" variant="text" className="hover:bg-white bg-white rounded-full shadow-md flex items-center gap-2">
                                 Read More
                                 <svg
@@ -136,7 +136,7 @@ const LaboratoryServices = () => {
                         </Typography>
                     </CardBody>
                     <CardFooter className="pt-0 z-10">
-                        <Link to='/tips'>
+                        <Link to='/services'>
                             <Button size="sm" variant="text" className="hover:bg-white bg-white rounded-full shadow-md flex items-center gap-2">
                                 Learn More
                                 <svg
