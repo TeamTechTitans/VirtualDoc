@@ -1,16 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
 
-// import { Dialog, Transition } from '@headlessui/react'
 import {
 
   Card,
   Typography,
-
 } from "@material-tailwind/react";
-// import ManageModal from "./ManageModal";
+
+import { useState, Fragment } from "react";
+import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
+import ManageModal from "./ManageModal";
 import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
 import UserTable from "./UserTable";
+
 
 const AllUsers = () => {
 
@@ -31,6 +33,41 @@ const AllUsers = () => {
   // const [userData, setUserData] = useState('');
 
   //  Manage Moda
+
+  // const [open, setOpen] = useState(false);
+  let [isOpen, setIsOpen] = useState(false);
+
+  function closeModal() {
+    setIsOpen(false)
+  }
+  function openModal() {
+    setIsOpen(true)
+  }
+
+  const handleActionSubmit = () => {
+
+  }
+
+  const handleDelete = () => {
+
+  }
+
+
+
+  //  Manage Modal
+  // const [open, setOpen] = React.useState(false);
+  // const [userData, setUserData] = React.useState('');
+  const [open, setOpen] = useState(false);
+  const [userData, setUserData] = useState('');
+  
+
+  const handleOpen = async (email) => {
+    setUserData(email ? email : "")
+    console.log(email ? email : "")
+    setOpen(!open)
+  };
+
+
 
 
   return (
