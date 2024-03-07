@@ -31,6 +31,8 @@ const BMI = () => {
     return totalInches * 2.54; // 1 inch = 2.54 cm
   };
 
+  // BMi problem solve 
+
   const convertToKilograms = (pounds) => {
     return pounds * 0.453592;
   };
