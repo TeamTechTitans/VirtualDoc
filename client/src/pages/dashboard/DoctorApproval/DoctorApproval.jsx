@@ -23,7 +23,7 @@ const DoctorApproval = () => {
       return doctor;
     },
   });
-  refetch()
+
   return (
     <>
       <DashboardHeading title="Validate Healthcare Professionals">
