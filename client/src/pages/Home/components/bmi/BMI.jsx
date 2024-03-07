@@ -19,20 +19,20 @@ const BMI = () => {
       setErrorMessage("Please provide both height and weight.");
       return;
     }
-    const heightMeters = height / 100; 
-    const bmiValue = weight / (heightMeters * heightMeters); 
-    setBMI(bmiValue.toFixed(2)); 
+    const heightMeters = height / 100;
+    const bmiValue = weight / (heightMeters * heightMeters);
+    setBMI(bmiValue.toFixed(2));
     setErrorMessage("");
   };
 
   const convertToCentimeters = (feet, inches) => {
     const totalInches = feet * 12 + parseFloat(inches);
-    console.log(totalInches)
+    // console.log(totalInches)
     return totalInches * 2.54; // 1 inch = 2.54 cm
   };
 
   const convertToKilograms = (pounds) => {
-    return pounds * 0.453592; 
+    return pounds * 0.453592;
   };
 
   const calculateBMIFromUSUnits = () => {
@@ -43,8 +43,8 @@ const BMI = () => {
 
     const heightCm = convertToCentimeters(feet, inches);
     const weightKg = convertToKilograms(pound);
-    const heightMeters = heightCm / 100; 
-    const bmiValue = weightKg / (heightMeters * heightMeters); 
+    const heightMeters = heightCm / 100;
+    const bmiValue = weightKg / (heightMeters * heightMeters);
     setBMI(bmiValue.toFixed(2));
     setErrorMessage("");
   };
@@ -55,8 +55,8 @@ const BMI = () => {
     }
 
     const heightCm = convertToCentimeters(feet, inches);
-    const heightMeters = heightCm / 100; 
-    const bmiValue = weight / (heightMeters * heightMeters); 
+    const heightMeters = heightCm / 100;
+    const bmiValue = weight / (heightMeters * heightMeters);
     setBMI(bmiValue.toFixed(2));
     setErrorMessage("");
   };
@@ -105,126 +105,126 @@ const BMI = () => {
           </p>
         </div>
         <div className="md:w-1/2 w-full px-4">
-        <Tabs className="text-center my-4" >
-        {/* <Tabs className="text-center my-4" defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}> */}
-        <TabList>
-          <Tab>Metric Units</Tab>
-          <Tab>US Units</Tab>
-          <Tab>Other</Tab>
-        </TabList>
-        <TabPanel>
-        <div className="form-control">
-            <label className="label">
-              <span className="leading-none text-xl font-bold">Height (cm)</span>
-            </label>
-            <Input
-              type="number"
-              label="Height (cm)"
-              value={height}
-              onChange={(e) => setHeight(e.target.value)}
-              color="teal"
-            />
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="leading-none mt-5 text-xl font-bold">Weight (kg)</span>
-            </label>
-            <Input
-              type="number"
-              label="Weight (kg)"
-              value={weight}
-              onChange={(e) => setWeight(e.target.value)}
-              color="teal"
-            />
-          </div>
-          <div className="w-full">
-          <Button onClick={ calculateBMI } className="my-2 bg-secondary-blue">
-              Calculate BMI
-            </Button>
-          </div>
-        </TabPanel>
-        <TabPanel>
-        <div className="form-control">
-            <label className="label">
-              <span className="leading-none text-xl font-bold">Height</span>
-            </label>
-            <div className="flex gap-3">
-            <Input 
-              type="number"
-              label="feet"
-              color="teal"
-              value={feet}
-              onChange={(e) => setFeet(e.target.value)}
-            />
-            <Input
-              type="number"
-              label="inches"
-              color="teal"
-              value={inches}
-              onChange={(e) => setInches(e.target.value)}
-            />
-            </div>
-            
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="leading-none mt-5 text-xl font-bold">Weight (pounds)</span>
-            </label>
-            <Input
-              type="number"
-              label="Weight (pounds)"
-              color="teal"
-              value={pound}
-              onChange={(e) => setPounds(e.target.value)}
-            />
-          </div>
-          <div className="w-full">
-          <Button onClick={calculateBMIFromUSUnits} className="my-2 bg-secondary-blue">
-              Calculate BMI
-            </Button>
-          </div>
-        </TabPanel>
-        <TabPanel>
-        <div className="form-control">
-            <label className="label">
-              <span className="leading-none text-xl font-bold">Height</span>
-            </label>
-            <div className="flex gap-3">
-            <Input 
-              type="number"
-              label="feet"
-              color="teal"
-              value={feet}
-              onChange={(e) => setFeet(e.target.value)}
-            />
-            <Input
-              type="number"
-              label="inches"
-              color="teal"
-              value={inches}
-              onChange={(e) => setInches(e.target.value)}
-            />
-            </div>  
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="leading-none mt-5 text-xl font-bold">Weight (kg)</span>
-            </label>
-            <Input
-              type="number"
-              label="Weight (kg)"
-              value={weight}
-              onChange={(e) => setWeight(e.target.value)}
-              color="teal"
-            />
-          </div>
-          <div className="w-full">
-          <Button onClick={ bmiWithKgFeetInc } className="my-2 bg-secondary-blue">
-              Calculate BMI
-            </Button>
-          </div>
-        </TabPanel>
-      </Tabs>
+          <Tabs className="text-center my-4" >
+            {/* <Tabs className="text-center my-4" defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}> */}
+            <TabList>
+              <Tab>Metric Units</Tab>
+              <Tab>US Units</Tab>
+              <Tab>Other</Tab>
+            </TabList>
+            <TabPanel>
+              <div className="form-control">
+                <label className="label">
+                  <span className="leading-none text-xl font-bold">Height (cm)</span>
+                </label>
+                <Input
+                  type="number"
+                  label="Height (cm)"
+                  value={height}
+                  onChange={(e) => setHeight(e.target.value)}
+                  color="teal"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="leading-none mt-5 text-xl font-bold">Weight (kg)</span>
+                </label>
+                <Input
+                  type="number"
+                  label="Weight (kg)"
+                  value={weight}
+                  onChange={(e) => setWeight(e.target.value)}
+                  color="teal"
+                />
+              </div>
+              <div className="w-full">
+                <Button onClick={calculateBMI} className="my-2 bg-secondary-blue">
+                  Calculate BMI
+                </Button>
+              </div>
+            </TabPanel>
+            <TabPanel>
+              <div className="form-control">
+                <label className="label">
+                  <span className="leading-none text-xl font-bold">Height</span>
+                </label>
+                <div className="flex gap-3">
+                  <Input
+                    type="number"
+                    label="feet"
+                    color="teal"
+                    value={feet}
+                    onChange={(e) => setFeet(e.target.value)}
+                  />
+                  <Input
+                    type="number"
+                    label="inches"
+                    color="teal"
+                    value={inches}
+                    onChange={(e) => setInches(e.target.value)}
+                  />
+                </div>
+
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="leading-none mt-5 text-xl font-bold">Weight (pounds)</span>
+                </label>
+                <Input
+                  type="number"
+                  label="Weight (pounds)"
+                  color="teal"
+                  value={pound}
+                  onChange={(e) => setPounds(e.target.value)}
+                />
+              </div>
+              <div className="w-full">
+                <Button onClick={calculateBMIFromUSUnits} className="my-2 bg-secondary-blue">
+                  Calculate BMI
+                </Button>
+              </div>
+            </TabPanel>
+            <TabPanel>
+              <div className="form-control">
+                <label className="label">
+                  <span className="leading-none text-xl font-bold">Height</span>
+                </label>
+                <div className="flex gap-3">
+                  <Input
+                    type="number"
+                    label="feet"
+                    color="teal"
+                    value={feet}
+                    onChange={(e) => setFeet(e.target.value)}
+                  />
+                  <Input
+                    type="number"
+                    label="inches"
+                    color="teal"
+                    value={inches}
+                    onChange={(e) => setInches(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="leading-none mt-5 text-xl font-bold">Weight (kg)</span>
+                </label>
+                <Input
+                  type="number"
+                  label="Weight (kg)"
+                  value={weight}
+                  onChange={(e) => setWeight(e.target.value)}
+                  color="teal"
+                />
+              </div>
+              <div className="w-full">
+                <Button onClick={bmiWithKgFeetInc} className="my-2 bg-secondary-blue">
+                  Calculate BMI
+                </Button>
+              </div>
+            </TabPanel>
+          </Tabs>
 
           {errorMessage && (
             <div className="text-red-600 mb-4">{errorMessage}</div>

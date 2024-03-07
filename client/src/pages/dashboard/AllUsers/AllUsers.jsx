@@ -8,10 +8,9 @@ import {
 } from "@material-tailwind/react";
 
 import { useState, Fragment } from "react";
-import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
-import ManageModal from "./ManageModal";
-import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
+// import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
 import UserTable from "./UserTable";
+import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
 
 
 const AllUsers = () => {
@@ -59,7 +58,7 @@ const AllUsers = () => {
   // const [userData, setUserData] = React.useState('');
   const [open, setOpen] = useState(false);
   const [userData, setUserData] = useState('');
-  
+
 
   const handleOpen = async (email) => {
     setUserData(email ? email : "")
