@@ -42,6 +42,7 @@ import PublicRoute from "../PublicRoute";
 import Profile from "../../pages/dashboard/Profile/Profile";
 import EditDoctorProfile from "../../pages/dashboard/editDoctorProfile/EditDoctorProfile";
 import DoctorDashboard from "../../pages/dashboard/doctorDashboard/DoctorDashboard";
+import DoctorDetails from "../../pages/doctors/DoctorDetails";
 
 const apiLink = useApiLink();
 
@@ -112,7 +113,11 @@ const MainRouter = createBrowserRouter([
                 path: "/contact",
                 element: <Contact />
             },
-
+            {
+                path: "/doctors/:id",
+                element: <DoctorDetails />,
+                // loader: ({ params }) => fetch(`tips.json/${params.id}`)
+            },
 
         ],
     },

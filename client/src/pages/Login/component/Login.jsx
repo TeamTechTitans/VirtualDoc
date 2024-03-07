@@ -17,6 +17,7 @@ import { AuthContext } from "../../../provider/AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
 import { FacebookAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import useApiLink from "../../../lib/hooks/useApiLink";
+import useAxiosPublic from "../../../lib/hooks/useAxiosPublic";
 const Login = () => {
   const apiLink = useApiLink();
   const { register, handleSubmit, required, reset } = useForm();
@@ -106,6 +107,32 @@ const Login = () => {
         const credential = FacebookAuthProvider.credentialFromResult(result);
         const accessToken = credential.accessToken;
         // console.log(user);
+        const fbData = {
+          name: user.displayName,
+          image: user.photoURL,
+          loc: " ",
+          blood_group: " ",
+          email: user.email,
+          password: " ",
+          role: "user",
+        }
+        fetch(`${apiLink}/users/createUser`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(fbData),
+        })
+          .then(res => res.json())
+          .then(data => {
+            // console.log(data._id);
+            if (data._id) {
+              Swal.fire("Login Successful");
+              navigate(location.state ? location.state : "/", {
+                replace: true,
+              });
+            }
+          });
       })
       .catch((error) => {
         const errorCode = error.code;

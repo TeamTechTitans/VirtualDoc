@@ -8,6 +8,7 @@ import {
   Button,
 } from "@material-tailwind/react";
 import CustomTitle from "../../../components/CustomTitle/CustomTitle";
+import { Link } from "react-router-dom";
 const ClinicServices = () => {
   return (
     <>
@@ -49,7 +50,9 @@ const ClinicServices = () => {
             </Typography>
           </CardBody>
           <CardFooter className="flex justify-center">
+            <a href="#">
             <Button>Read More</Button>
+            </a>
           </CardFooter>
         </Card>
         <Card className="md:w-96 w-full shadow-2xl group mx-auto my-6 ">
@@ -83,7 +86,9 @@ const ClinicServices = () => {
             </Typography>
           </CardBody>
           <CardFooter className="flex justify-center">
+          <a href="#">
             <Button>Read More</Button>
+            </a>
           </CardFooter>
         </Card>
         <Card className="md:w-96 w-full shadow-2xl group my-6 mx-auto">
@@ -117,7 +122,9 @@ const ClinicServices = () => {
             </Typography>
           </CardBody>
           <CardFooter className="flex justify-center">
+          <a href="#">
             <Button>Read More</Button>
+            </a>
           </CardFooter>
         </Card>
       </div>

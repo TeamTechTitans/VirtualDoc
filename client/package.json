@@ -37,13 +37,14 @@
     "react-router-dom": "^6.21.2",
     "react-scripts": "^5.0.1",
     "react-scroll-to-bottom": "^4.2.0",
+    "react-tabs": "^6.0.2",
     "react-to-print": "^2.15.1",
     "react-toastify": "^10.0.4",
     "recharts": "^2.10.4",
     "socket.io-client": "^4.7.4",
     "sort-by": "^0.0.2",
     "sweetalert2": "^11.6.13",
-    "swiper": "^6.8.4"
+    "swiper": "^11.0.7"
   },
   "devDependencies": {
     "@testing-library/react": "^14.2.1",

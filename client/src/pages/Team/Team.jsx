@@ -28,17 +28,16 @@ const Team = () => {
         <CustomTitle title={"TEAM MEMBER"} double></CustomTitle>
         <div className="mb-14">
           <h2 className="text-3xl md:text-4xl text-center font-barlow font-bold dark-blue">
-            Focusing Your Mind, with The <br />
-            Best Expert.
+            Our Team Member
           </h2>
         </div>
       </div>
       <div className="grid justify-center items-center grid-cols-1 p-5 md:grid-cols-2 lg:grid-cols-3  gap-5 container mx-auto">
         {data?.map((team) => (
           <div key={team?.id} className="">
-            <div className="flex relative mb-20 p-2 justify-center items-center">
-              <div className="max-w-[350px] flex max-h-[420px] hover-before  hover-before   before:w-full before:h-full before:opacity-30 before:cursor-pointer before:scale-0 hover:before:scale-100 before:duration-500 before:rounded-full before:bg-white  aspect-square">
-                <img className=" rounded-full max-w-[350px]  max-h-[400px]"
+            <div className="flex  relative mb-20 p-2 justify-center items-center">
+              <div className="w-[350px] sm:w-[300px] flex max-h-[420px] hover-before  hover-before   before:w-full before:h-full before:opacity-30 before:cursor-pointer before:scale-0 hover:before:scale-100 before:duration-500 before:rounded-full before:bg-white  aspect-square">
+                <img className=" rounded-full w-[350px] mx-auto max-h-[400px]"
                   style={{ backgroundImage: "url(https://laborex.smartdemowp.com/wp-content/uploads/2021/05/shape-61.png)" }}
                   src={team?.img}
                   loading="lazy"
@@ -46,8 +45,9 @@ const Team = () => {
 
               </div>
 
-              <div className=" ">
-                <div className="absolute bg-secondary-teal z-10 w-56 p-4 rounded-3xl shadow-md left-10 -bottom-6 h-32 hover-before    before:opacity-30 before:cursor-pointer before:scale-0 hover:before:scale-100 before:duration-500 before:rounded-2xl before:bg-black  aspect-square -ml-80 mt-64">
+              <div className="">
+                
+                  <div className="absolute mx-auto bg-secondary-teal z-10 w-60 p-4 rounded-3xl shadow-md  -bottom-6 left-10 h-32 hover-before    before:opacity-30 before:cursor-pointer before:scale-0 hover:before:scale-100 before:duration-500 before:rounded-2xl before:bg-black  aspect-square -ml-80 mt-64">
                   <Typography variant="h6" className="text-center">
                     {team?.name}
                   </Typography>
@@ -79,6 +79,7 @@ const Team = () => {
                     </Link>
                   </div>
                 </div>
+                
               </div>
             </div>
           </div>

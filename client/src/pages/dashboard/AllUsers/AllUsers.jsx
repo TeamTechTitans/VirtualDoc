@@ -1,25 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
-<<<<<<< HEAD
-// import React from "react";
-=======
-import { useState, Fragment } from "react";
-// import { Dialog, Transition } from '@headlessui/react'
->>>>>>> 4b65a652130f1c3540b3a1e0c7f2dc39c53da457
+
 import {
-  Button,
+
   Card,
   Typography,
 } from "@material-tailwind/react";
-<<<<<<< HEAD
-import { useState } from "react";
+
+import { useState, Fragment } from "react";
 import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
 import ManageModal from "./ManageModal";
-=======
-// import ManageModal from "./ManageModal";
 import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
 import UserTable from "./UserTable";
->>>>>>> 4b65a652130f1c3540b3a1e0c7f2dc39c53da457
+
 
 const AllUsers = () => {
 
@@ -27,7 +20,7 @@ const AllUsers = () => {
   const axiosSecure = useAxiosSecure()
 
 
-  const { data: userDetails = [] } = useQuery({
+  const { data: userDetails = [], refetch } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
       const res = await axiosSecure.get(`/users`);
@@ -40,6 +33,7 @@ const AllUsers = () => {
   // const [userData, setUserData] = useState('');
 
   //  Manage Moda
+
   // const [open, setOpen] = useState(false);
   let [isOpen, setIsOpen] = useState(false);
 
@@ -59,20 +53,20 @@ const AllUsers = () => {
   }
 
 
-<<<<<<< HEAD
+
   //  Manage Modal
   // const [open, setOpen] = React.useState(false);
   // const [userData, setUserData] = React.useState('');
   const [open, setOpen] = useState(false);
   const [userData, setUserData] = useState('');
   
-=======
->>>>>>> 4b65a652130f1c3540b3a1e0c7f2dc39c53da457
+
   const handleOpen = async (email) => {
     setUserData(email ? email : "")
     console.log(email ? email : "")
     setOpen(!open)
   };
+
 
 
 
@@ -100,7 +94,7 @@ const AllUsers = () => {
             </tr>
           </thead>
           <tbody >
-            {userDetails?.map((user, index) => <UserTable key={index} index={index} classes={classes} user={user}></UserTable>)}
+            {userDetails?.map((user, index) => <UserTable key={index} refetch={refetch} index={index} classes={classes} user={user}></UserTable>)}
           </tbody>
         </table>
       </Card>

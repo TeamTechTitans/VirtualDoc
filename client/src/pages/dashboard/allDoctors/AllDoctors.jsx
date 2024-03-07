@@ -1,7 +1,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import DashboardHeading from "../../../components/DashboardHeading/DashboardHeading";
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Card,
@@ -38,7 +38,7 @@ const AllDoctors = () => {
   const classes = "p-4 border-b border-blue-gray-50";
 
   //  Manage Modal
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = (user) => {
     setOpen(!open)
     setUserData(user)

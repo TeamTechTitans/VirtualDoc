@@ -9,12 +9,14 @@ import {
     Select,
     Option,
 } from "@material-tailwind/react";
+import useAxiosSecure from "../../../lib/hooks/useAxiosSecure";
+import Swal from 'sweetalert2';
 
 
 
 
-export default function UserTable({ classes, user, index }) {
-
+export default function UserTable({ classes, user, index, refetch }) {
+    const axiosSecure = useAxiosSecure()
     let [isOpen, setIsOpen] = useState(false);
     let [bloodGroup, setBloodGroup] = useState();
     let [role, setRole] = useState()
@@ -31,7 +33,30 @@ export default function UserTable({ classes, user, index }) {
     }
 
     const handleDelete = () => {
-
+        axiosSecure.delete(`/deleteUser/${user?.email}`)
+            .then((res) => {
+                if (res) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "User has deleted.",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    refetch()
+                }
+            })
+            .catch((err) => {
+                if (err) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "error",
+                        title: "Someting is wrong.",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
     }
 
 
@@ -187,7 +212,7 @@ export default function UserTable({ classes, user, index }) {
                         </div>
                     </Dialog>
                 </Transition>
-                <button type="button" className="px-2 text-sm py-1 text-white bg-red-500 hover:underline rounded-none normal-case" color="red">Delete</button>
+                <button onClick={handleDelete} type="button" className="px-2 text-sm py-1 text-white bg-red-500 hover:underline rounded-none normal-case" color="red">Delete</button>
             </td>
         </tr>
     )
