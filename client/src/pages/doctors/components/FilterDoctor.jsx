@@ -11,8 +11,8 @@ const FilterDoctor = () => {
   const axiosPublic = useAxiosPublic()
   const apiLink = useApiLink()
   const [doctorsData, setDoctorsData] = useState()
-  
-  const [displayName,setDisplayName]=useState([]);
+
+  const [displayName, setDisplayName] = useState([]);
 
   const { data: doctors, refetch, isLoading } = useQuery({
     queryKey: ['allDoctors'],
@@ -32,7 +32,7 @@ const FilterDoctor = () => {
         .slice()
         .sort((a, b) => a.title.localeCompare(b.title));
       setDoctorsData(sortedData);
-      console.log(sortedData)
+      // console.log(sortedData)
     } else if (e.currentTarget.value === "Z - A") {
       const sortedData = doctors
         .slice()
@@ -41,49 +41,47 @@ const FilterDoctor = () => {
     }
   };
 
-  console.log(doctors)
+  // console.log(doctors)
 
-const handleNameSearch=(searchName)=>{
-if(searchName===' '){
-  setDisplayName(displayName); 
-  return; 
-}  
-const filterBySearch = doctors.filter((item) => { 
-  if (item.name.toLowerCase() 
-      .includes(searchName.toLowerCase())) 
-      {
-           return item;
+  const handleNameSearch = (searchName) => {
+    if (searchName === ' ') {
+      setDisplayName(displayName);
+      return;
+    }
+    const filterBySearch = doctors.filter((item) => {
+      if (item.name.toLowerCase()
+        .includes(searchName.toLowerCase())) {
+        return item;
       }
-  else{
-      return setDisplayName(displayName); 
-  }     
-}) 
-setDisplayName(filterBySearch); 
-// console.log(searchName);
-}
-
-const handleCategorySearch=(searchName)=>{
-
-  if(searchName===' '){
-    setDisplayName(displayName); 
-    return; 
-  }  
-  const filterBySearch = doctors.filter((item) => { 
-    if (item?.health_category?.toLowerCase() 
-        .includes(searchName.toLowerCase())) 
-        {
-             return item;
-        }
-    else{
-        return setDisplayName(displayName); 
-    }     
-  }) 
-  setDisplayName(filterBySearch); 
+      else {
+        return setDisplayName(displayName);
+      }
+    })
+    setDisplayName(filterBySearch);
+    // console.log(searchName);
   }
-  
-// setDisplayName(filterBySearch)
-// // console.log(searchName);
-// }
+
+  const handleCategorySearch = (searchName) => {
+
+    if (searchName === ' ') {
+      setDisplayName(displayName);
+      return;
+    }
+    const filterBySearch = doctors.filter((item) => {
+      if (item?.health_category?.toLowerCase()
+        .includes(searchName.toLowerCase())) {
+        return item;
+      }
+      else {
+        return setDisplayName(displayName);
+      }
+    })
+    setDisplayName(filterBySearch);
+  }
+
+  // setDisplayName(filterBySearch)
+  // // console.log(searchName);
+  // }
 
 
   return (
@@ -120,7 +118,7 @@ const handleCategorySearch=(searchName)=>{
                 color="teal"
                 id="searchId"
                 label="Search by name"
-                onChange={handleNameSearch} 
+                onChange={handleNameSearch}
                 icon={
                   <label htmlFor="searchId">
                     <FaMagnifyingGlass className="cursor-pointer"></FaMagnifyingGlass>
